@@ -8,6 +8,7 @@ using SA.Core.Jobs;
 using SA.Core.Json;
 using SA.Core.Validation;
 using SA.Revit.Compat;
+using SA.Revit.Ops.FromCad;
 using SA.Revit.Ops.Modelling.Support;
 using SA.Revit.Ops.Support;
 
@@ -32,6 +33,9 @@ namespace SA.Revit.Ops.Wave2Model
     ///
     /// Readback: each instance's type, location point (against the location the op computed), level, host,
     /// rotation (where it was applied about the vertical), flips, mark and parameters.
+    ///
+    /// With fromPlacements instead of type and points, one instance per block reference of a placements.json; see
+    /// <see cref="PlacementsPlacer"/>.
     /// </summary>
     public sealed class FamilyPlace : OpHandler
     {
@@ -334,7 +338,11 @@ namespace SA.Revit.Ops.Wave2Model
             return Kit.HasErrors(issues) ? null : p;
         }
 
-        public override void Validate(OpContext ctx, OpArgs args, List<Issue> issues) => Build(ctx, args, issues);
+        public override void Validate(OpContext ctx, OpArgs args, List<Issue> issues)
+        {
+            if (args.Has("fromPlacements")) PlacementsPlacer.Validate(ctx, args, issues);
+            else Build(ctx, args, issues);
+        }
 
         /// <summary>Writes the offset into the first writable offset parameter; returns that parameter, or null when no offset was set.</summary>
         private static BuiltInParameter? SetOffset(FamilyInstance fi, Plan p)
@@ -350,6 +358,7 @@ namespace SA.Revit.Ops.Wave2Model
 
         protected override void Apply(OpContext ctx, OpArgs args, OpResult result)
         {
+            if (args.Has("fromPlacements")) { PlacementsPlacer.Apply(ctx, args, result); return; }
             var issues = new List<Issue>();
             var p = Build(ctx, args, issues);
             Kit.Require(issues);
@@ -389,6 +398,7 @@ namespace SA.Revit.Ops.Wave2Model
             result.Created.AddRange(ids);
             result.Outputs.Add("elements", Ids(ids));
             result.Outputs.Add("count", ids.Count);
+            result.Outputs.Add("refused", new JsonArray());
             result.Readback.Add("placement", p.Mode.ToString().ToLowerInvariant());
             result.Readback.Add("expectedPoints", expected);
             result.Readback.Add("offsetParameters", offsetParams);
@@ -404,6 +414,7 @@ namespace SA.Revit.Ops.Wave2Model
 
         public override void Readback(OpContext ctx, OpArgs args, OpResult result)
         {
+            if (args.Has("fromPlacements")) { PlacementsPlacer.Readback(ctx, args, result); return; }
             var doc = ctx.Doc;
             var u = ctx.Units;
             var check = new ReadbackChecker(u);

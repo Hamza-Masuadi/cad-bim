@@ -243,6 +243,7 @@ CR-35.
 | 11 | CA-45, CR-47 | Clearance checks |
 | 12 | CR-48 to CR-51, CA-46 | Placement, views, annotation, data and the lower-risk ops |
 | 13 | CX-05, CX-06 | Layout checks on real sheets; every recipe rehearses |
+| 14 | CR-55 to CR-58 | `family.create`: build, flex test, save and load; the 22 recipes in `data/families` |
 
 ---
 
@@ -1100,4 +1101,133 @@ names, ids and `document` in it, save it as `C:\sa-test\<name>.json` with the na
 - Expect: each rehearsal `rolled_back` with no validation error other than names you did not replace; the merged
   job refused as described in `revit.md` section 2.
 - Settles: the recipes; send back each failing recipe number with its report.
+- Result:
+
+**CA-47 · block.export** · AutoCAD · 2024, 2027 · BLOCK-EXPORT-REPORT §4
+- Job: `w-block-export.json` from recipe 3.21 on a copy of a furniture plan with: a block whose base point is away
+  from its geometry, a dynamic block used at two sizes and once unchanged, a mirrored and a rotated reference, a
+  reference with normal -Z (flipped with MIRROR3D), a block holding a 3D solid, a block nested in another block, an
+  xref, a MINSERT, and a layout with one reference.
+- Steps: (a) `validate`. (b) rehearse; look in `outputDir` and the temp folder afterwards. (c) commit; note the
+  fingerprint from a new snapshot. (d) open each DWG; INSERT it at 0,0 in a new drawing and compare with the
+  original at the reference's point. (e) run (c) again under a new id with `overwrite` false. (f) `excludeLayouts`
+  false.
+- Expect: (a) warnings list the MINSERT, the nested reference and nothing else unexpected; (b) `rolled_back`,
+  `readback.drawingUnchanged` true, nothing in `outputDir`, the temp folder gone; (c) `committed`, the DWGs and
+  `placements.json` in `outputDir`, no `.sa-stage-*` folder left, the snapshot fingerprint and HANDSEED unchanged,
+  U changes nothing visible; (d) each DWG's geometry starts at its base point, INSUNITS as the source, the dynamic
+  block as `<name>__1`, `<name>__2` and `<name>` at the sizes drawn; the -Z reference listed with the rotation and
+  sign-flipped scale that put it in the same place; `has3d` true only for the solid; (e) refused with `file_exists`;
+  (f) the layout's reference listed with the layout name as `space`.
+- Record: any readback mismatch (extents, entity count, INSBASE), and whether `Database.Wblock` complained about the
+  open job transaction.
+- Settles: `Ops/Blocks/BlockExport.cs`, `Ops/Blocks/BlockDwg.cs`, `Host/StagedFiles.cs`.
+- Result:
+
+**CA-48 · block.export file names and publishing** · AutoCAD · one release · BLOCK-EXPORT-REPORT §4
+- Steps: (a) blocks named `Desk.`, `Desk_` and `CON` (made with RENAME if BLOCK refuses them). (b) commit while another
+  program holds `placements.json` open in `outputDir`, with `overwrite` true. (c) an `outputDir` on another drive.
+- Expect: (a) `Desk_.dwg`, `Desk_-2.dwg` (in placements order); `CON` refused with `file_name_invalid`. (b) the job `failed` with
+  committed true, the message naming the staged copy; DWGs moved before the
+  locked file are new, `placements.json` is still the old one, and the new one is kept at the staged path. (c) published.
+- Result:
+
+**CR-52 · family.place fromPlacements: the coordinate chain** · Revit · 2024, 2027 · FAMILY-FROMCAD-REPORT §4
+- Setup: a furniture plan in mm with a block reference rotated 90°, one mirrored with MIRROR, and one with scale
+  (1, -1); `block.export` of it (CA-47). In a scratch project, recipe 3.29 links the same DWG three times on three
+  levels: (i) origin to origin, unit mm; (ii) moved 5 m and rotated 30°; (iii) the project's true north turned 20° and
+  the link placed by shared coordinates. Make the families with CR-53 first.
+- Job: `r-ffe-place.json` from recipe 3.34 job 3, once per link (`cadLink` by element id), then once with `align.translate`
+  [5000, 0] and `rotationDeg` 30 against link (ii).
+- Expect: every instance sits on its block in the link (zoom to 1:5, compare corners); the mirrored ones read
+  `mirrored` true and look mirrored; `readback.align.scale` 1 or the mm-to-feet factor and `unitInTransform` to match;
+  `linkEvidence.matched` equal to `count`; the translate job lands on the same points as link (ii); rerunning a job under
+  a new id refuses every reference as already placed.
+- Record: `readback.align` in full for each link (especially (iii): is true north in the total transform, as Revit's
+  documentation says), any readback axis mismatch, and links in inches or metres if available.
+- Settles: `Ops/Family/FromCad/PlacementsPlacer.cs`, `SA.Core/Families/CadFamilies.cs` (`CadPlacement`).
+- Result:
+
+**CR-53 · family.fromcad** · Revit · 2024, 2027 · FAMILY-FROMCAD-REPORT §4
+- Job: `r-ffe-families.json` from recipe 3.34 job 2 on the CA-47 export, with one block as `symbol: "import"`, one as
+  `"lines"`, one with `body: "none"`, the solid block with `body: "import3d"`, and a category with no template of its
+  own (for example Food Service Equipment on an install without that template).
+- Steps: (a) `validate`. (b) rehearse; look in `outputDir` and the project's family list afterwards. (c) commit.
+  (d) open each `.rfa`: flex Width, Depth and Height in Family Types; check the plan view and Object Styles.
+  (e) place one of each in a plan, a ceiling plan and a 3D view. (f) run (c) again under a new id; then with
+  `reload: true` and `overwrite: true`.
+- Expect: (b) `rolled_back`, `flex` ok for every box, no family left in the project, nothing in `outputDir`, no
+  family document left open; (c) `committed`, one family per block with a type named `typeName`, `CAD Block` set;
+  (d) the box follows each parameter from the block's own corner (it does not grow from the centre), the symbol sits on
+  the base point, lines in the `CAD Symbol` subcategory, the import shown only in plan; (e) plan shows the CAD
+  symbol only (no box outline unless `bodyInPlan`), 3D shows the box; the fallback category family is in its
+  category; (f) refused with `already_exists` per family, then reloaded with `Modified` ids.
+- Record: the warnings Revit gives while building (dimension or alignment warnings above all), whether
+  `subcategoryApplied` is ever true in import mode, and `symbol.skipped` counts against what the block holds.
+- Settles: `Ops/Family/FromCad/FamilyFromCad.cs`, `Ops/Family/FromCad/CadFamilyBuilder.cs`.
+- Result:
+
+**CR-54 · fromcad and fromPlacements refusals** · Revit · one release · FAMILY-FROMCAD-REPORT §4
+- Steps: (a) `family.fromcad` with a family name containing `:` (override), a block that is flat with no `height`, and
+  `import3d` on a block without 3D. (b) `family.place` `fromPlacements` with a block that has no family, a
+  scaled reference, a layout reference, a work-plane-based family through `familyMap`, and `failOnRefused` false,
+  then true. (c) a link at a custom scale.
+- Expect: (a) validation errors naming each block; (b) `refused` lists each with its reason and the rest are placed;
+  with `failOnRefused` the job is refused at validation; (c) refused with the scale in the message.
+- Result:
+
+**CR-55 · family.create: build, flex, save and load** · Revit · 2024, 2027 · FAMILY-CREATE-REPORT §4
+- Job: `r-bed-family.json`, job 1 of `revit.md` recipe 3.35 (the hotel double bed), with `outputDir` set to an empty folder.
+- Steps: (a) `validate`. (b) rehearse; look in `outputDir`, the project's family list and Revit's open documents
+  afterwards. (c) commit. (d) open the `.rfa`: in Family Types switch between the three types, and change Width, Depth,
+  Height, Headboard Height and Mattress Thickness by hand; open the plan, front and 3D views and Object Styles.
+  (e) job 2 of recipe 3.35; look at the beds in a plan at coarse, medium and fine, and in 3D.
+- Expect: (a) no errors (validation built and flex-tested the family once); (b) `rolled_back`, three `flex` entries
+  all ok with measured sizes equal to Width, Depth and Headboard Height, no family left in the project, nothing in
+  `outputDir`, no family document left open; (c) `committed`, `Hotel Double Bed.rfa` in `outputDir` and no `.sa-stage-*`
+  folder, the family in Furniture with the three types and their values in `readback.types`; (d) every box follows
+  every parameter (the headboard stays at the back, the mattress sits on the base), the Left and Right planes stay
+  symmetric about Center (Left/Right), the materials follow the material parameters; (e) the beds are placed with the
+  headboard on the points, the symbolic outline and pillow line show in plan.
+- Record: every warning Revit gave while building (`family_build_failed` details, dimension or alignment warnings
+  above all), whether the template's own type was renamed, and the `built` counts (forms, dimensions, locks,
+  symbolic lines).
+- Settles: `Ops/Family/Create/FamilyBuilder.cs`, `Ops/Family/Create/FamilyCreate.cs`, `Create/Support/FlexTest.cs`.
+- Result:
+
+**CR-56 · family.create: the 22 recipes** · Revit · one release · FAMILY-CREATE-REPORT §4
+- Job: one job per file in `data/families/`, each with `units` mm and its own `outputDir`; rehearse each, then commit.
+- Expect: every rehearsal and commit passes the flex test for every type. The basins, vanity, bathtub and shower tray
+  show the bowl or recess cut by the void. The kitchen wall unit sits at its Mounting Height, and changing that instance
+  parameter moves one instance only. The plumbing families land in Plumbing Fixtures and the kitchen ones in Casework.
+- Record: the recipe file and the failing type for every failure, with its `flex.problems`. Also record any plan
+  symbol that does not follow a type change (the engine only warns about these, it does not test them).
+- Settles: the recipes in `data/families/`, `Ops/Family/Create/FamilyBuilder.cs`.
+- Result:
+
+**CR-57 · family.create: reload and refusals** · Revit · one release · FAMILY-CREATE-REPORT §4
+- Steps: (a) run CR-55's commit again under a new id. (b) the same with `overwrite: true` after changing one type's
+  Width in the project by hand; once with `parameterValues` "family", once with "project". (c) `category`
+  "Doors" (a hosted category), and `template` pointing at a missing file. (d) a recipe whose Width dimension
+  names the wrong planes for its box (edit `Left` to a new plane at -600 that no box uses), so a type does not flex.
+- Expect: (a) refused at validation with `already_exists` for the file and the family; (b) `committed` with the
+  family and its types in `Modified`; with "family" the hand-changed Width goes back to the recipe value, with
+  "project" it is kept (readback does not fail it); (c) validation errors; the door template is not used.
+  (d) `family_build_failed` naming the type and the axis that did not follow, nothing saved, nothing loaded.
+- Settles: `Ops/Family/Create/FamilyCreate.cs` (plan, load options), `Create/Support/FamilyFiles.cs`.
+- Result:
+
+**CR-58 · family.create: template fallback and the other form kinds** · Revit · 2024, 2027 · FAMILY-CREATE-REPORT §4
+- Steps: (a) the desk chair recipe (round base and column with `lock`). (b) a job with one each of `blend`,
+  `revolution`, `sweep` and `sweptBlend` (shapes from `jobs/revit.md`), materials and a subcategory on each, and one
+  form with `visibility` `plan: false`, `coarse: false`. (c) a category with no template on the install (for example
+  Food Service Equipment, or rename the furniture template away), metric and imperial jobs. (d) a non-English install
+  if one is available.
+- Expect: (a) the column's top follows Seat Height in every type; (b) each form is built where the recipe draws it
+  (profiles drawn in their own x-y plane for sweeps). The hidden form does not show in plan or at coarse. Object
+  Styles lists the subcategory. (c) a warning naming the Generic Model template used, and the family in the requested
+  category; a Metric template for the metric job. (d) the template is found in the sibling language folder, or the
+  error lists the templates seen.
+- Record: Revit's message for any form the API refuses, and the rotation each sweep profile got.
+- Settles: `Ops/Family/Create/FamilyBuilder.cs` (forms), `Create/Support/FamilyTemplates.cs`.
 - Result:

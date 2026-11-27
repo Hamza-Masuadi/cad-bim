@@ -43,8 +43,11 @@ namespace SA.Core.Tests
                 foreach (var kv in args) all[app].Add(kv.Key, new JsonObject().Add("args", JsonValue.Parse(kv.Value)));
             }
             Add("autocad", AutoCadWave2Tests.Examples);
+            Add("autocad", BlockExportTests.Examples);
             Add("revit", RevitModelWave2Tests.Examples);
             Add("revit", RevitDocsWave2Tests.Examples);
+            Add("revit", CadFamiliesTests.Examples);
+            Add("revit", FamilyCreateTests.Examples);
             return all;
         }
 
@@ -204,6 +207,9 @@ namespace SA.Core.Tests
             if (Flag(o, "requiresAllowScript")) f.Add("needs `--allow-script`, alone in its job");
             if (Name(o) == "plot.pdf") f.Add("alone in its job (only `plot.pdf` ops)");
             if (Name(o) == "family.edit") f.Add("alone in its job");
+            if (Name(o) == "block.export") f.Add("alone in its job");
+            if (Name(o) == "family.fromcad") f.Add("alone in its job");
+            if (Name(o) == "family.create") f.Add("alone in its job");
             return string.Join(", ", f);
         }
 
@@ -245,6 +251,7 @@ namespace SA.Core.Tests
             {
                 case "exactlyOne": return "exactly one of " + string.Join(", ", fs);
                 case "atLeastOne": return "at least one of " + string.Join(", ", fs);
+                case "atMostOne": return "at most one of " + string.Join(", ", fs);
                 case "requires": return fs[0] + " requires " + string.Join(", ", fs.Skip(1));
                 default: return k + " " + string.Join(", ", fs);
             }

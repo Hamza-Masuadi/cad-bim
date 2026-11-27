@@ -1,0 +1,223 @@
+{
+  "name": "Kitchen Base Unit",
+  "category": "Casework",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Body Material",
+      "spec": "material"
+    },
+    {
+      "name": "Plinth Height",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Setback",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "600",
+      "values": {
+        "Height": 870,
+        "Plinth Height": 150,
+        "Plinth Setback": 50,
+        "Body Material": "Laminate - White",
+        "Plinth Material": "Laminate - Grey",
+        "Width": 600,
+        "Depth": 560,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "300",
+      "values": {
+        "Height": 870,
+        "Plinth Height": 150,
+        "Plinth Setback": 50,
+        "Body Material": "Laminate - White",
+        "Plinth Material": "Laminate - Grey",
+        "Width": 300,
+        "Depth": 560,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1000",
+      "values": {
+        "Height": 870,
+        "Plinth Height": 150,
+        "Plinth Setback": 50,
+        "Body Material": "Laminate - White",
+        "Plinth Material": "Laminate - Grey",
+        "Width": 1000,
+        "Depth": 560,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -300
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 300
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -560
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 870
+    },
+    {
+      "name": "Plinth Front",
+      "axis": "y",
+      "at": -510
+    },
+    {
+      "name": "Plinth Top",
+      "axis": "z",
+      "at": 150
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Front",
+        "Plinth Front"
+      ],
+      "parameter": "Plinth Setback"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Plinth Top"
+      ],
+      "parameter": "Plinth Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "plinth",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Plinth Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Plinth Top"
+        ]
+      },
+      "material": "Plinth Material"
+    },
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Plinth Top",
+          "Top"
+        ]
+      },
+      "material": "Body Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "line": {
+        "on": "Center (Left/Right)",
+        "from": "Front",
+        "to": "Center (Front/Back)"
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

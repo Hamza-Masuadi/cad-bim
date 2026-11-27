@@ -1,0 +1,407 @@
+{
+  "name": "Vanity Unit with Basin",
+  "category": "Plumbing Fixtures",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Body Material",
+      "spec": "material"
+    },
+    {
+      "name": "Plinth Height",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Setback",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Material",
+      "spec": "material"
+    },
+    {
+      "name": "Top Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Top Underside",
+      "spec": "length",
+      "formula": "Height - Top Thickness"
+    },
+    {
+      "name": "Top Material",
+      "spec": "material"
+    },
+    {
+      "name": "Rim Width",
+      "spec": "length"
+    },
+    {
+      "name": "Back Rim",
+      "spec": "length"
+    },
+    {
+      "name": "Bowl Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Void Clearance",
+      "spec": "length"
+    },
+    {
+      "name": "Bowl Bottom",
+      "spec": "length",
+      "formula": "Height - Bowl Depth"
+    },
+    {
+      "name": "Void Top",
+      "spec": "length",
+      "formula": "Height + Void Clearance"
+    }
+  ],
+  "types": [
+    {
+      "name": "900x500",
+      "values": {
+        "Height": 850,
+        "Plinth Height": 100,
+        "Plinth Setback": 50,
+        "Top Thickness": 30,
+        "Rim Width": 60,
+        "Back Rim": 120,
+        "Bowl Depth": 150,
+        "Void Clearance": 10,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Top Material": "Ceramic - White",
+        "Width": 900,
+        "Depth": 500,
+        "Size Source": "typical, verify (rim within sanitary.us.ada.lavatory_rim.max)"
+      }
+    },
+    {
+      "name": "600x450",
+      "values": {
+        "Height": 850,
+        "Plinth Height": 100,
+        "Plinth Setback": 50,
+        "Top Thickness": 30,
+        "Rim Width": 60,
+        "Back Rim": 120,
+        "Bowl Depth": 150,
+        "Void Clearance": 10,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Top Material": "Ceramic - White",
+        "Width": 600,
+        "Depth": 450,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1200x500",
+      "values": {
+        "Height": 850,
+        "Plinth Height": 100,
+        "Plinth Setback": 50,
+        "Top Thickness": 30,
+        "Rim Width": 60,
+        "Back Rim": 120,
+        "Bowl Depth": 150,
+        "Void Clearance": 10,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Top Material": "Ceramic - White",
+        "Width": 1200,
+        "Depth": 500,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -450
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 450
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -500
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 850
+    },
+    {
+      "name": "Plinth Front",
+      "axis": "y",
+      "at": -450
+    },
+    {
+      "name": "Plinth Top",
+      "axis": "z",
+      "at": 100
+    },
+    {
+      "name": "Top Underside",
+      "axis": "z",
+      "at": 820
+    },
+    {
+      "name": "Bowl Left",
+      "axis": "x",
+      "at": -390
+    },
+    {
+      "name": "Bowl Right",
+      "axis": "x",
+      "at": 390
+    },
+    {
+      "name": "Bowl Front",
+      "axis": "y",
+      "at": -440
+    },
+    {
+      "name": "Bowl Back",
+      "axis": "y",
+      "at": -120
+    },
+    {
+      "name": "Bowl Bottom",
+      "axis": "z",
+      "at": 700
+    },
+    {
+      "name": "Void Top",
+      "axis": "z",
+      "at": 860
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Front",
+        "Plinth Front"
+      ],
+      "parameter": "Plinth Setback"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Plinth Top"
+      ],
+      "parameter": "Plinth Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top Underside"
+      ],
+      "parameter": "Top Underside"
+    },
+    {
+      "planes": [
+        "Left",
+        "Bowl Left"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Right",
+        "Right"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Front",
+        "Bowl Front"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Back",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Back Rim"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Bowl Bottom"
+      ],
+      "parameter": "Bowl Bottom"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Void Top"
+      ],
+      "parameter": "Void Top"
+    }
+  ],
+  "forms": [
+    {
+      "id": "plinth",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Plinth Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Plinth Top"
+        ]
+      },
+      "material": "Plinth Material"
+    },
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Plinth Top",
+          "Top Underside"
+        ]
+      },
+      "material": "Body Material"
+    },
+    {
+      "id": "top",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Top Underside",
+          "Top"
+        ]
+      },
+      "material": "Top Material"
+    },
+    {
+      "id": "bowl",
+      "kind": "extrusion",
+      "void": true,
+      "box": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ],
+        "z": [
+          "Bowl Bottom",
+          "Void Top"
+        ]
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "rect": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

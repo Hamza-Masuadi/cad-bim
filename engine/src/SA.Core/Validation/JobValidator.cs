@@ -54,7 +54,24 @@ namespace SA.Core.Validation
         private static readonly Dictionary<string, string> AloneOps = new Dictionary<string, string>(StringComparer.Ordinal)
         {
             ["revit:family.edit"] = "it opens the family outside the job's transactions and loads it back with one Revit call, which cannot share the job with other changes",
+            ["autocad:block.export"] = "it writes files that are put in place only after the job commits, from a drawing the job must not change",
+            ["revit:family.fromcad"] = "it builds each family in a document of its own outside the job's transactions and loads it with one Revit call, which cannot share the job with other changes",
+            ["revit:family.create"] = "it builds the family in a document of its own outside the job's transactions and loads it with one Revit call, which cannot share the job with other changes",
         };
+
+        /// <summary>Cross-field rules an op's schema cannot express, by app and name; run after its args pass the schema.</summary>
+        private static readonly Dictionary<string, Func<JsonObject, LengthUnit, string, List<Issue>>> ArgRules =
+            new Dictionary<string, Func<JsonObject, LengthUnit, string, List<Issue>>>(StringComparer.Ordinal)
+            {
+                ["revit:family.create"] = SA.Core.Families.FamilyRecipe.Check,
+            };
+
+        private static void RunArgRules(OpSchema schema, JsonObject args, string path, Ctx ctx)
+        {
+            if (!ArgRules.TryGetValue(AppKinds.ToWire(schema.App) + ":" + schema.Name, out var rules)) return;
+            if (ctx.Issues.Any(i => i.IsError && i.Path.StartsWith(path, StringComparison.Ordinal))) return;
+            ctx.Issues.AddRange(rules(args, ctx.Unit, path));
+        }
 
         private sealed class Ctx
         {
@@ -209,6 +226,7 @@ namespace SA.Core.Validation
                     if (schema != null)
                     {
                         ValidateObject(schema.Args, args, path + ".args", ctx);
+                        RunArgRules(schema, args, path + ".args", ctx);
                         if (schema.RequiresAllowScript)
                             ctx.Warn(path + ".op", IssueCodes.Script, "'" + schema.Name + "' runs only when the run request sets allowScript, and is always rehearsed first");
                     }
@@ -305,6 +323,7 @@ namespace SA.Core.Validation
         {
             var ctx = new Ctx { Unit = unit };
             ValidateObject(schema.Args, args, path, ctx);
+            RunArgRules(schema, args, path, ctx);
             return ctx.Issues;
         }
 

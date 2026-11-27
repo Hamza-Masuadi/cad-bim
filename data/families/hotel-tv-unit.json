@@ -1,0 +1,223 @@
+{
+  "name": "Hotel TV Unit",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Body Material",
+      "spec": "material"
+    },
+    {
+      "name": "Plinth Height",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Setback",
+      "spec": "length"
+    },
+    {
+      "name": "Plinth Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "1500x450",
+      "values": {
+        "Height": 500,
+        "Plinth Height": 80,
+        "Plinth Setback": 40,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Width": 1500,
+        "Depth": 450,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1200x450",
+      "values": {
+        "Height": 500,
+        "Plinth Height": 80,
+        "Plinth Setback": 40,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Width": 1200,
+        "Depth": 450,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1800x500",
+      "values": {
+        "Height": 500,
+        "Plinth Height": 80,
+        "Plinth Setback": 40,
+        "Body Material": "Oak",
+        "Plinth Material": "Paint - Black",
+        "Width": 1800,
+        "Depth": 500,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -750
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 750
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -450
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 500
+    },
+    {
+      "name": "Plinth Front",
+      "axis": "y",
+      "at": -410
+    },
+    {
+      "name": "Plinth Top",
+      "axis": "z",
+      "at": 80
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Front",
+        "Plinth Front"
+      ],
+      "parameter": "Plinth Setback"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Plinth Top"
+      ],
+      "parameter": "Plinth Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "plinth",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Plinth Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Plinth Top"
+        ]
+      },
+      "material": "Plinth Material"
+    },
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Plinth Top",
+          "Top"
+        ]
+      },
+      "material": "Body Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "line": {
+        "on": "Center (Left/Right)",
+        "from": "Front",
+        "to": "Center (Front/Back)"
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "name": "Bathtub",
+  "category": "Plumbing Fixtures",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Rim Width",
+      "spec": "length"
+    },
+    {
+      "name": "Bowl Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Void Clearance",
+      "spec": "length"
+    },
+    {
+      "name": "Bowl Bottom",
+      "spec": "length",
+      "formula": "Height - Bowl Depth"
+    },
+    {
+      "name": "Void Top",
+      "spec": "length",
+      "formula": "Height + Void Clearance"
+    },
+    {
+      "name": "Finish Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "1700x700",
+      "values": {
+        "Height": 550,
+        "Rim Width": 60,
+        "Bowl Depth": 420,
+        "Void Clearance": 10,
+        "Finish Material": "Acrylic - White",
+        "Width": 1700,
+        "Depth": 700,
+        "Size Source": "kitbath.uk.adm1.bath.length/.width; height typical, verify"
+      }
+    },
+    {
+      "name": "1600x700",
+      "values": {
+        "Height": 550,
+        "Rim Width": 60,
+        "Bowl Depth": 420,
+        "Void Clearance": 10,
+        "Finish Material": "Acrylic - White",
+        "Width": 1600,
+        "Depth": 700,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1800x800",
+      "values": {
+        "Height": 550,
+        "Rim Width": 60,
+        "Bowl Depth": 420,
+        "Void Clearance": 10,
+        "Finish Material": "Acrylic - White",
+        "Width": 1800,
+        "Depth": 800,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -850
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 850
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -700
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 550
+    },
+    {
+      "name": "Bowl Left",
+      "axis": "x",
+      "at": -790
+    },
+    {
+      "name": "Bowl Right",
+      "axis": "x",
+      "at": 790
+    },
+    {
+      "name": "Bowl Front",
+      "axis": "y",
+      "at": -640
+    },
+    {
+      "name": "Bowl Back",
+      "axis": "y",
+      "at": -60
+    },
+    {
+      "name": "Bowl Bottom",
+      "axis": "z",
+      "at": 130
+    },
+    {
+      "name": "Void Top",
+      "axis": "z",
+      "at": 560
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Left",
+        "Bowl Left"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Right",
+        "Right"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Front",
+        "Bowl Front"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Back",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Bowl Bottom"
+      ],
+      "parameter": "Bowl Bottom"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Void Top"
+      ],
+      "parameter": "Void Top"
+    }
+  ],
+  "forms": [
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top"
+        ]
+      },
+      "material": "Finish Material"
+    },
+    {
+      "id": "recess",
+      "kind": "extrusion",
+      "void": true,
+      "box": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ],
+        "z": [
+          "Bowl Bottom",
+          "Void Top"
+        ]
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "rect": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

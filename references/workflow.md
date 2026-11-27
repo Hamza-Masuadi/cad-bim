@@ -90,7 +90,7 @@ sa job lint job.json            # offline: schema, fields, types, $references, c
 sa acad validate job.json       # against the open drawing: names exist, geometry fits, nothing changes
 ```
 
-Fix every error before going on. Lint also warns when `document` is missing. Lint catches a `family.edit` that is not alone, but does **not** enforce the other "alone in its job" rules in section 11 or check that names exist; the engine does that at validate time. In a workshared Revit model, `validate` also returns an `ownership` list (section 14).
+Fix every error before going on. Lint also warns when `document` is missing. Lint catches a `family.edit`, `family.fromcad` or `family.create` that is not alone, but does **not** enforce the other "alone in its job" rules in section 11 or check that names exist; the engine does that at validate time. In a workshared Revit model, `validate` also returns an `ownership` list (section 14).
 
 ## 6. Rehearse
 
@@ -111,6 +111,8 @@ Where a rehearsal differs from a commit:
 - AutoCAD `area.report` and `block.extract` write their files to a temporary folder (`rehearsalPath` in the readback). Revit `data.export`, `schedule.export` and `export.nwc` stage their files and delete them.
 - AutoCAD `layerstate.ensure` saves and checks a temporary layer state and deletes it; the user's saved states are not touched.
 - Revit `family.edit` edits a copy of the family and reads it back there; nothing is loaded into the project.
+- Revit `family.fromcad` builds and flex-tests every family, saves the `.rfa` files to a temporary folder and loads them inside the job's undo step, which the rehearsal rolls back; nothing reaches `outputDir`.
+- Revit `family.create` does the same for its one family: built, flex-tested, saved to a temporary folder and loaded inside the undo step, then rolled back.
 - `verify.visual`: AutoCAD cannot compare in a rehearsal (`incomplete`); Revit compares in both. Its three pictures are written to the job's output folder in a rehearsal too (section 15).
 - Workshared Revit models with `"ownership": "skip"`: the rehearsal skips the same elements a commit would, and says so in a validation warning.
 
@@ -188,6 +190,10 @@ sa acad status 2026-11-28T09-30-00Z-l01-partitions
 
 **Revit `family.edit`** must be the only op in its job (`op_not_alone` otherwise, from lint and from validate). `verify.checks` and `verify.capture` are allowed. It works outside the job's normal transactions: it edits the family, loads it back and reads the values from the project types. Validate it before rehearsing: validation opens a copy of the family, and a dialog shown while checking fails the validation. If the report warns that a family copy stayed open, ask the user to close it in Revit without saving; a later `family.edit` of that family is refused until then.
 
+**Revit `family.fromcad`** must be the only op in its job too (`op_not_alone`), for the same reason: it builds each family in a family document of its own and loads it into the project outside the job's normal transactions. Every family document it opens is closed before the op returns. Place the families with `family.place` (`fromPlacements`) in the next job (`revit.md` recipe 3.34).
+
+**Revit `family.create`** must be the only op in its job too (`op_not_alone`, from lint and from validate). It builds a new family from a template in a family document of its own, flex-tests every type, saves it and loads it outside the job's normal transactions, and closes the family document on every path. Validation builds and flex-tests the family once in a scratch document, so a recipe Revit rejects fails before anything changes. Place the family with `family.place` in the next job (`revit.md` recipe 3.35).
+
 **AutoCAD layout checks and Revit layout checks** run in any job; they never need to be alone (section 15).
 
 ## 12. Report statuses
@@ -225,7 +231,7 @@ Other report members: `results[]` per op (`ok`, `created`, `modified`, `deleted`
 | `duplicate_job` | The job id was used before | Ask `status` for that id; never reuse ids |
 | `busy` | Another job is running in that app | Wait and ask `status` for the running job |
 | `not_owned` | Revit workshared model: elements belong to another user, or the local copy is stale; details list owners | Tell the user who owns what; never borrow, sync or relinquish. Offer `"ownership": "skip"` (section 14) |
-| `op_not_alone` | Revit `family.edit` shares its job with other ops | Split the job |
+| `op_not_alone` | Revit `family.edit`, `family.fromcad` or `family.create` shares its job with other ops | Split the job |
 | `read_only_document` | The file is read-only | Tell the user |
 | `op_failed` | An op failed while running; `failedOpId` and `error` say why | Report it; the job was rolled back unless the report says otherwise |
 | `rolled_back` | Readback or a blocking check failed | Report the mismatch or the findings |

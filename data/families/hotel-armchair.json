@@ -1,0 +1,325 @@
+{
+  "name": "Hotel Armchair",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Seat Height",
+      "spec": "length"
+    },
+    {
+      "name": "Arm Height",
+      "spec": "length"
+    },
+    {
+      "name": "Arm Width",
+      "spec": "length"
+    },
+    {
+      "name": "Back Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Upholstery Material",
+      "spec": "material"
+    },
+    {
+      "name": "Cushion Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "850x850",
+      "values": {
+        "Height": 800,
+        "Seat Height": 420,
+        "Arm Height": 600,
+        "Arm Width": 150,
+        "Back Thickness": 200,
+        "Upholstery Material": "Fabric - Grey",
+        "Cushion Material": "Fabric - Grey",
+        "Width": 850,
+        "Depth": 850,
+        "Size Source": "furniture.uk.adm1.armchair.width/.depth; heights typical, verify"
+      }
+    },
+    {
+      "name": "750x800",
+      "values": {
+        "Height": 800,
+        "Seat Height": 420,
+        "Arm Height": 600,
+        "Arm Width": 150,
+        "Back Thickness": 200,
+        "Upholstery Material": "Fabric - Grey",
+        "Cushion Material": "Fabric - Grey",
+        "Width": 750,
+        "Depth": 800,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "950x900",
+      "values": {
+        "Height": 800,
+        "Seat Height": 420,
+        "Arm Height": 600,
+        "Arm Width": 150,
+        "Back Thickness": 200,
+        "Upholstery Material": "Fabric - Grey",
+        "Cushion Material": "Fabric - Grey",
+        "Width": 950,
+        "Depth": 900,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -425
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 425
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -850
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 800
+    },
+    {
+      "name": "Arm Inner Left",
+      "axis": "x",
+      "at": -275
+    },
+    {
+      "name": "Arm Inner Right",
+      "axis": "x",
+      "at": 275
+    },
+    {
+      "name": "Back Front",
+      "axis": "y",
+      "at": -200
+    },
+    {
+      "name": "Seat Top",
+      "axis": "z",
+      "at": 420
+    },
+    {
+      "name": "Arm Top",
+      "axis": "z",
+      "at": 600
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Left",
+        "Arm Inner Left"
+      ],
+      "parameter": "Arm Width"
+    },
+    {
+      "planes": [
+        "Arm Inner Right",
+        "Right"
+      ],
+      "parameter": "Arm Width"
+    },
+    {
+      "planes": [
+        "Back Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Back Thickness"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Seat Top"
+      ],
+      "parameter": "Seat Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Arm Top"
+      ],
+      "parameter": "Arm Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "seat",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Arm Inner Left",
+          "Arm Inner Right"
+        ],
+        "y": [
+          "Front",
+          "Back Front"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Top"
+        ]
+      },
+      "material": "Cushion Material"
+    },
+    {
+      "id": "back",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Back Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top"
+        ]
+      },
+      "material": "Upholstery Material"
+    },
+    {
+      "id": "left arm",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Arm Inner Left"
+        ],
+        "y": [
+          "Front",
+          "Back Front"
+        ],
+        "z": [
+          "Ref. Level",
+          "Arm Top"
+        ]
+      },
+      "material": "Upholstery Material"
+    },
+    {
+      "id": "right arm",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Arm Inner Right",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Back Front"
+        ],
+        "z": [
+          "Ref. Level",
+          "Arm Top"
+        ]
+      },
+      "material": "Upholstery Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "line": {
+        "on": "Back Front",
+        "from": "Arm Inner Left",
+        "to": "Arm Inner Right"
+      }
+    },
+    {
+      "line": {
+        "on": "Arm Inner Left",
+        "from": "Front",
+        "to": "Back Front"
+      }
+    },
+    {
+      "line": {
+        "on": "Arm Inner Right",
+        "from": "Front",
+        "to": "Back Front"
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

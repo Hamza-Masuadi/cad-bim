@@ -1,0 +1,253 @@
+{
+  "name": "WC Close Coupled",
+  "category": "Plumbing Fixtures",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Seat Height",
+      "spec": "length"
+    },
+    {
+      "name": "Cistern Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Pan Width",
+      "spec": "length"
+    },
+    {
+      "name": "Ceramic Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "500x700 Seat 430",
+      "values": {
+        "Height": 800,
+        "Cistern Depth": 200,
+        "Pan Width": 360,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 500,
+        "Depth": 700,
+        "Seat Height": 430,
+        "Size Source": "kitbath.uk.adm1.wc_cistern.width/.length; seat sanitary.us.ada.wc_seat.height"
+      }
+    },
+    {
+      "name": "500x700 Seat 480",
+      "values": {
+        "Height": 800,
+        "Cistern Depth": 200,
+        "Pan Width": 360,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 500,
+        "Depth": 700,
+        "Seat Height": 480,
+        "Size Source": "kitbath.uk.adm1.wc_cistern.width/.length; seat sanitary.uk.unisex_wc.seat.height"
+      }
+    },
+    {
+      "name": "450x650 Compact",
+      "values": {
+        "Height": 800,
+        "Cistern Depth": 200,
+        "Pan Width": 340,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 450,
+        "Depth": 650,
+        "Seat Height": 420,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -250
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 250
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -700
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 800
+    },
+    {
+      "name": "Cistern Front",
+      "axis": "y",
+      "at": -200
+    },
+    {
+      "name": "Seat Top",
+      "axis": "z",
+      "at": 430
+    },
+    {
+      "name": "Pan Left",
+      "axis": "x",
+      "at": -180
+    },
+    {
+      "name": "Pan Right",
+      "axis": "x",
+      "at": 180
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Cistern Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Cistern Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Seat Top"
+      ],
+      "parameter": "Seat Height"
+    },
+    {
+      "planes": [
+        "Pan Left",
+        "Pan Right"
+      ],
+      "parameter": "Pan Width"
+    },
+    {
+      "planes": [
+        "Pan Left",
+        "Center (Left/Right)",
+        "Pan Right"
+      ],
+      "equal": true
+    }
+  ],
+  "forms": [
+    {
+      "id": "cistern",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Cistern Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top"
+        ]
+      },
+      "material": "Ceramic Material"
+    },
+    {
+      "id": "pan",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Pan Left",
+          "Pan Right"
+        ],
+        "y": [
+          "Front",
+          "Cistern Front"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Top"
+        ]
+      },
+      "material": "Ceramic Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Cistern Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "rect": {
+        "x": [
+          "Pan Left",
+          "Pan Right"
+        ],
+        "y": [
+          "Front",
+          "Cistern Front"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

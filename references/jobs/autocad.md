@@ -2,7 +2,7 @@
 
 Generated from the op schemas in the engine by `ReferenceDocsTests` in `engine/src/SA.Core.Tests`. Do not edit by hand: change the op schema or its example, then regenerate.
 
-46 ops. Every example below passes `sa job lint`. Names in the examples (layers, blocks, types, views, sheets, ids) are placeholders: take the real ones from the snapshot or create them earlier in the same job. `document` is copied from the snapshot's `identity`.
+47 ops. Every example below passes `sa job lint`. Names in the examples (layers, blocks, types, views, sheets, ids) are placeholders: take the real ones from the snapshot or create them earlier in the same job. `document` is copied from the snapshot's `identity`.
 
 How to read the field tables:
 
@@ -62,6 +62,7 @@ How to read the field tables:
 | [`layerstate.ensure`](#layerstateensure) | ensure | Create or update a named layer state from the drawing's current layer settings, with changes for listed layers, and optionally leave the drawing in that state. |
 | [`material.ensure`](#materialensure) | ensure | Create render materials with description, diffuse colour and an optional image texture; existing materials are left alone unless update is true. |
 | [`material.assign`](#materialassign) |  | Assign a render material to layers, or to entities by handle or filter, with an optional texture mapping on entities. |
+| [`block.export`](#blockexport) | alone in its job | Write each chosen block definition to its own DWG (origin at the block's base point, the drawing's INSUNITS) and a placements.json (format cadbim.placements/1) listing every reference with position, rotation, scale and layer, for family.fromcad and family.place in Revit. |
 
 ## doc.setup
 
@@ -2984,6 +2985,70 @@ Example (lint clean):
           "projection": "planar",
           "width": 600
         }
+      }
+    }
+  ]
+}
+```
+
+## block.export
+
+Flags: alone in its job.
+
+Write each chosen block definition to its own DWG (origin at the block's base point, the drawing's INSUNITS) and a placements.json (format cadbim.placements/1) listing every reference with position, rotation, scale and layer, for family.fromcad and family.place in Revit. The drawing is not changed. Alone in its job; files are put in place only when the job commits.
+
+| Field | Type | Required | Default | Limits | Description |
+|---|---|---|---|---|---|
+| `blocks` | list<string> |  |  |  | Block names (effective names; * and ? wildcards allowed). A dynamic block gives one entry per representation actually referenced. A named block with no reference is exported with an empty references list. |
+| `layers` | list<string> |  |  |  | Only references on these layers (wildcards allowed), and only blocks that have one. With blocks, both must match. |
+| `all` | bool |  |  |  | Every named block with a reference in model space (and in layouts when excludeLayouts is false). Only true is accepted. |
+| `excludeXrefs` | bool |  | `true` |  | Xrefs and blocks that belong to an xref are never exported; false is refused. |
+| `excludeLayouts` | bool |  | `true` |  | Only references in model space. False also lists references in paper space layouts, with the layout name as space. |
+| `expectCount` | integer |  |  | >= 1 | When given, the op fails unless exactly this many blocks (DWG files) would be written. |
+| `outputDir` | string |  |  |  | Folder for the files. Defaults to the job's output folder. |
+| `overwrite` | bool |  | `false` |  | Replace files that already exist. When false an existing file fails the op. |
+
+Rules across fields: at least one of `blocks`, `layers`, `all`; at most one of `blocks`, `all`; at most one of `layers`, `all`.
+
+Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
+
+- `count` (integer): Blocks exported (DWG files).
+- `references` (integer): References listed in placements.json.
+- `files` (list<string>): DWG file names in placements order.
+- `placements` (string): Full path of placements.json. A rehearsal writes everything to a temporary folder instead, never into outputDir.
+- `outputDir` (string): The folder the files go to.
+- `skipped` (list<object>): { name, handle, reason } per block (no handle) or reference left out: no visible geometry, a MINSERT array, a reference not parallel to the XY plane.
+
+Example (lint clean):
+
+```json
+{
+  "jobId": "example-autocad-block-export",
+  "title": "Example: block.export",
+  "app": "autocad",
+  "document": {
+    "path": "C:/Projects/2417/2417-A-PLAN-L01.dwg",
+    "fingerprint": "copy-from-snapshot"
+  },
+  "units": {
+    "length": "mm"
+  },
+  "ops": [
+    {
+      "id": "op1",
+      "op": "block.export",
+      "args": {
+        "blocks": [
+          "BED-*",
+          "CHAIR-*",
+          "DESK-1600"
+        ],
+        "layers": [
+          "I-FURN"
+        ],
+        "expectCount": 6,
+        "outputDir": "C:/Projects/2417/export/furniture",
+        "overwrite": true
       }
     }
   ]

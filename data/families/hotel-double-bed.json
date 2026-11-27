@@ -1,0 +1,285 @@
+{
+  "name": "Hotel Double Bed",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Headboard Height",
+      "spec": "length"
+    },
+    {
+      "name": "Headboard Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Mattress Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Pillow Zone",
+      "spec": "length"
+    },
+    {
+      "name": "Base Height",
+      "spec": "length",
+      "formula": "Height - Mattress Thickness"
+    },
+    {
+      "name": "Frame Material",
+      "spec": "material"
+    },
+    {
+      "name": "Mattress Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "Double 1500x2000",
+      "values": {
+        "Height": 550,
+        "Headboard Height": 1000,
+        "Headboard Thickness": 80,
+        "Mattress Thickness": 200,
+        "Pillow Zone": 450,
+        "Frame Material": "Oak",
+        "Mattress Material": "Fabric - White",
+        "Width": 1500,
+        "Depth": 2000,
+        "Size Source": "furniture.uk.adm1.double_bed_principal.width/.length; height typical, verify"
+      }
+    },
+    {
+      "name": "Double 1350x1900",
+      "values": {
+        "Height": 550,
+        "Headboard Height": 1000,
+        "Headboard Thickness": 80,
+        "Mattress Thickness": 200,
+        "Pillow Zone": 450,
+        "Frame Material": "Oak",
+        "Mattress Material": "Fabric - White",
+        "Width": 1350,
+        "Depth": 1900,
+        "Size Source": "furniture.uk.adm1.double_bed_other.width/.length; height typical, verify"
+      }
+    },
+    {
+      "name": "King 1800x2000",
+      "values": {
+        "Height": 550,
+        "Headboard Height": 1000,
+        "Headboard Thickness": 80,
+        "Mattress Thickness": 200,
+        "Pillow Zone": 450,
+        "Frame Material": "Oak",
+        "Mattress Material": "Fabric - White",
+        "Width": 1800,
+        "Depth": 2000,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -750
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 750
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -2000
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 550
+    },
+    {
+      "name": "Headboard Front",
+      "axis": "y",
+      "at": -80
+    },
+    {
+      "name": "Pillow Line",
+      "axis": "y",
+      "at": -450
+    },
+    {
+      "name": "Base Top",
+      "axis": "z",
+      "at": 350
+    },
+    {
+      "name": "Headboard Top",
+      "axis": "z",
+      "at": 1000
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Headboard Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Headboard Thickness"
+    },
+    {
+      "planes": [
+        "Pillow Line",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Pillow Zone"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Base Top"
+      ],
+      "parameter": "Base Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Headboard Top"
+      ],
+      "parameter": "Headboard Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "base",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Headboard Front"
+        ],
+        "z": [
+          "Ref. Level",
+          "Base Top"
+        ]
+      },
+      "material": "Frame Material"
+    },
+    {
+      "id": "mattress",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Headboard Front"
+        ],
+        "z": [
+          "Base Top",
+          "Top"
+        ]
+      },
+      "material": "Mattress Material"
+    },
+    {
+      "id": "headboard",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Headboard Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Headboard Top"
+        ]
+      },
+      "material": "Frame Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "line": {
+        "on": "Pillow Line",
+        "from": "Left",
+        "to": "Right"
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Headboard Height"
+  }
+}

@@ -2,7 +2,7 @@
 
 Generated from the op schemas in the engine by `ReferenceDocsTests` in `engine/src/SA.Core.Tests`. Do not edit by hand: change the op schema or its example, then regenerate.
 
-68 ops. Every example below passes `sa job lint`. Names in the examples (layers, blocks, types, views, sheets, ids) are placeholders: take the real ones from the snapshot or create them earlier in the same job. `document` is copied from the snapshot's `identity`.
+70 ops. Every example below passes `sa job lint`. Names in the examples (layers, blocks, types, views, sheets, ids) are placeholders: take the real ones from the snapshot or create them earlier in the same job. `document` is copied from the snapshot's `identity`.
 
 How to read the field tables:
 
@@ -84,6 +84,8 @@ How to read the field tables:
 | [`dim.string`](#dimstring) |  | Add a string of aligned dimensions in a plan across the walls and grids (and, along a wall, the doors and windows) that a line crosses. |
 | [`text.replace`](#textreplace) |  | Find and replace text in text notes and chosen text parameters, keeping text note formatting. |
 | [`family.edit`](#familyedit) | alone in its job | Edit a loaded family: add family parameters, set or clear formulas, create types and set type values, then load it back into the project (existing types take the new values) and read every value back from the project. |
+| [`family.fromcad`](#familyfromcad) | alone in its job | Make one loadable family per AutoCAD block from the folder block.export wrote, and load them into the project. |
+| [`family.create`](#familycreate) | alone in its job | Create a new loadable family (.rfa) from a Revit family template: parameters, formulas, types, reference planes, labelled dimensions that drive the geometry, solid and void forms (extrusion, blend, revolution, sweep, swept blend) with material parameters, subcategories and visibility, and plan symbolic lines. |
 
 ## level.ensure
 
@@ -2227,13 +2229,22 @@ Example (lint clean):
 
 ## family.place
 
-Place family instances of a loaded type: on a level, hosted on a wall, floor, ceiling or roof, or on a work plane.
+Place family instances of a loaded type: on a level, hosted on a wall, floor, ceiling or roof, or on a work plane. With fromPlacements instead of type and points, place one instance per AutoCAD block reference in placements.json, on a level, using the family family.fromcad made for each block, with each reference's position, rotation and mirroring carried from CAD to project coordinates by align.
 
 | Field | Type | Required | Default | Limits | Description |
 |---|---|---|---|---|---|
-| `type` | string | yes |  | matches `.+\S\s:\s\S.+` | Family type to place. Written "Family : Type". |
+| `type` | string |  |  | matches `.+\S\s:\s\S.+` | Family type to place. Required with points. Written "Family : Type". |
 | `category` | string |  |  |  | Category the type must belong to (OST_Furniture or Furniture); narrows the lookup when two families share a type name. |
-| `points` | list<point2> | yes |  | at least 1 item; length | Insertion points, one instance each. |
+| `points` | list<point2> |  |  | at least 1 item; length | Insertion points, one instance each. |
+| `fromPlacements` | object |  |  |  | Place the block references of a placements.json (written by block.export) instead of points. Each block's family is the one whose type parameter "CAD Block" names the block (family.fromcad writes it), else the family named like the block if it has one type, else familyMap. Rotation and mirroring come from each reference; scaled references, references outside model space, references whose family is not level-based or cannot be mirrored, and references where an instance of the same type already stands are refused one by one, with the reason. |
+| `fromPlacements.file` | string | yes |  |  | Full path of placements.json. |
+| `fromPlacements.blocks` | list<string> |  |  |  | Block names to place. Default: every block in the file. |
+| `fromPlacements.familyMap` | map<string> |  |  |  | Block name to the "Family : Type" to place for it, overriding the lookup. |
+| `fromPlacements.align` | object | yes |  |  | How CAD coordinates (model space, drawing units) become project coordinates. |
+| `fromPlacements.align.cadLink` | ref |  |  |  | The DWG linked or imported in the model whose transform (ImportInstance.GetTotalTransform) carries CAD coordinates into the project: its element id, "$op.instance" of a link.cad op, or the file name Revit shows for it ("GF-R10.dwg"). The robust choice. |
+| `fromPlacements.align.translate` | point2 |  |  | length | Instead of cadLink: CAD origin in project coordinates (internal origin), in job units, applied after converting from the drawing's units and rotating. |
+| `fromPlacements.align.rotationDeg` | angle |  | `0` | degrees | With translate: rotation of the CAD axes about the CAD origin, counter-clockwise. |
+| `fromPlacements.failOnRefused` | bool |  | `false` |  | Fail the op when any reference is refused. When false refused references are listed in outputs.refused and as warnings. |
 | `level` | string |  |  |  | Level the instances are placed on (level-based families) or associated with (hosted families). Defaults to the host's level for hosted families. |
 | `offset` | length |  | `0` | length | Height above the level; on a wall face or a vertical reference plane, the height of the point above the level; on a horizontal face or work plane, the offset from it. |
 | `host` | ref |  |  |  | Wall, floor, ceiling or roof to host the instances. |
@@ -2245,12 +2256,13 @@ Place family instances of a loaded type: on a level, hosted on a wall, floor, ce
 | `mark` | string |  |  |  | Mark. With several points each instance gets mark-1, mark-2 ... |
 | `parameters` | map |  |  |  | Instance parameter name to value, set after placing. |
 
-Rules across fields: atMostOne `host`, `workPlane`; `face` requires `host`.
+Rules across fields: at most one of `host`, `workPlane`; `face` requires `host`; exactly one of `points`, `fromPlacements`; `points` requires `type`; at most one of `type`, `fromPlacements`; `fromPlacements` requires `level`; at most one of `fromPlacements`, `host`; at most one of `fromPlacements`, `workPlane`; at most one of `fromPlacements`, `rotation`; at most one of `fromPlacements`, `flipHand`; at most one of `fromPlacements`, `flipFacing`; in `fromPlacements.align`: exactly one of `cadLink`, `translate`; in `fromPlacements.align`: `rotationDeg` requires `translate`.
 
 Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
 
-- `elements` (list<ref>): Instances placed, in point order.
+- `elements` (list<ref>): Instances placed, in point order (fromPlacements: in file order, refused references left out).
 - `count` (integer): Number placed.
+- `refused` (list<object>): fromPlacements: references not placed, each { block, handle, reason }. Empty with points.
 
 Example (lint clean):
 
@@ -2371,7 +2383,7 @@ Move, copy, rotate or mirror elements in plan.
 | `axis.end` | point2 | yes |  | length | Line end. |
 | `keepOriginal` | bool |  | `true` |  | mirror: make mirrored copies and keep the originals. When false the elements themselves are mirrored. |
 
-Rules across fields: atMostOne `vector`, `centre`, `axis`; `centre` requires `angle`.
+Rules across fields: at most one of `vector`, `centre`, `axis`; `centre` requires `angle`.
 
 Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
 
@@ -2431,7 +2443,7 @@ Set Phase Created and Phase Demolished on elements, and phase and phase filter o
 | `viewPhase` | string |  |  |  | Phase of the views, by name. |
 | `phaseFilter` | string |  |  |  | Phase filter of the views, by name, or "none". |
 
-Rules across fields: atMostOne `elements`, `filter`; at least one of `elements`, `filter`, `views`.
+Rules across fields: at most one of `elements`, `filter`; at least one of `elements`, `filter`, `views`.
 
 Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
 
@@ -3425,7 +3437,7 @@ Create a drafting view, or a legend by duplicating an existing one.
 | `legendFrom` | ref |  |  |  | Make a legend instead, by duplicating this legend view (the Revit API cannot create a legend from nothing). A view id, a reference to an op that created it, or the view's exact name. |
 | `copyContent` | bool |  | `false` |  | With legendFrom: also copy its components and annotation. |
 
-Rules across fields: atMostOne `legendFrom`, `viewFamilyType`.
+Rules across fields: at most one of `legendFrom`, `viewFamilyType`.
 
 Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
 
@@ -3769,7 +3781,7 @@ Place tags on chosen elements in a view: category tags, room and area tags, or m
 | `orientation` | enum(horizontal\\|vertical) |  | `"horizontal"` |  | Default orientation. |
 | `allowSecondTag` | bool |  | `false` |  | Tag an element that already has a tag of the same category in the view. Otherwise that is an error. |
 
-Rules across fields: in each `tags[]`: atMostOne `point`, `offset`.
+Rules across fields: in each `tags[]`: at most one of `point`, `offset`.
 
 Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
 
@@ -4207,6 +4219,380 @@ Example (lint clean):
             }
           }
         ]
+      }
+    }
+  ]
+}
+```
+
+## family.fromcad
+
+Flags: alone in its job.
+
+Make one loadable family per AutoCAD block from the folder block.export wrote, and load them into the project. Each family has the block's DWG as its plan symbol at the block's base point (the family origin), in a symbol subcategory; a 3D body (a box from the block's extents with Width, Depth and Height parameters that flex and a material parameter, hidden in plan unless bodyInPlan; or none; or the DWG imported in 3D); and the type parameters "CAD Block" and "CAD Source" that family.place uses to find it. Every family is flex-tested, saved as .rfa (published only on commit) and loaded. Must be alone in its job; a rehearsal builds, tests, saves to a temporary folder and loads, then rolls everything back. A family name that already exists in the project is refused unless reload is true.
+
+| Field | Type | Required | Default | Limits | Description |
+|---|---|---|---|---|---|
+| `file` | string | yes |  |  | Full path of placements.json. The block DWGs must be in the same folder. |
+| `blocks` | list<string> |  |  |  | Block names (as in placements.json) to make families for. Default: every block in the file. |
+| `familyPrefix` | string |  |  |  | Text put before each block name to make the family name, e.g. "CAD-". Otherwise the family name is the block name. |
+| `category` | string |  | `"OST_Furniture"` |  | Family category: built-in name (OST_Furniture) or display name (Furniture). Model categories only. |
+| `height` | length |  |  | > 0; length | Height of the box body. Required for body box unless the block has 3D extents (their height is used then). |
+| `body` | enum(box\\|none\\|import3d) |  | `"box"` |  | 3D body: box (the block's extents rectangle extruded to height, with Width, Depth and Height parameters), none (plan symbol only), or import3d (the block's DWG imported as 3D; only for blocks with 3D geometry). |
+| `symbol` | enum(import\\|lines) |  | `"import"` |  | Plan symbol: import (the block's DWG imported into the family's plan view, view-specific) or lines (that import turned into symbolic lines in the symbol subcategory, then removed; text and fills are lost). |
+| `template` | string |  |  |  | Full path of a family template (.rft) for every family. Default: the category's template from Revit's family template folder, else a Generic Model template with the category set. |
+| `typeName` | string |  | `"Standard"` |  | Name of each family's one type. |
+| `overrides` | map<object> |  |  |  | Block name to settings for that block only; each field falls back to the one above. |
+| `overrides[].familyName` | string |  |  |  | Family name for this block (instead of prefix + block name). |
+| `overrides[].category` | string |  |  |  | Family category. |
+| `overrides[].height` | length |  |  | > 0; length | Height of the box body. |
+| `overrides[].body` | enum(box\\|none\\|import3d) |  |  |  | 3D body. |
+| `overrides[].symbol` | enum(import\\|lines) |  |  |  | Plan symbol. |
+| `overrides[].template` | string |  |  |  | Full path of a family template. |
+| `overrides[].typeName` | string |  |  |  | Type name. |
+| `subcategory` | string |  | `"CAD Symbol"` |  | Subcategory of the family category for the plan symbol. |
+| `materialParameter` | string |  | `"Body Material"` |  | Name of the box body's type material parameter. |
+| `bodyInPlan` | bool |  | `false` |  | Show the box body in plan and ceiling plan views too. When false plan views show only the CAD symbol. |
+| `outputDir` | string |  |  |  | Folder for the .rfa files. Defaults to the 'families' folder in the job's output folder. |
+| `overwrite` | bool |  | `false` |  | Replace files that already exist. When false an existing file fails the op. |
+| `reload` | bool |  | `false` |  | Load over a family of the same name that is already in the project (its types take the new values). When false such a family is refused. |
+
+Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
+
+- `families` (map): Block name to the loaded family's id.
+- `types` (map): Block name to the id of the family's type in the project.
+- `files` (list<string>): Final paths of the .rfa files, in block order.
+- `flex` (list<object>): Per family: { block, family, type, ok, cases: [ { name, expected, measured, ok } ] }.
+
+Example (lint clean):
+
+```json
+{
+  "jobId": "example-revit-family-fromcad",
+  "title": "Example: family.fromcad",
+  "app": "revit",
+  "document": {
+    "path": "C:/Projects/2417/2417-ARCH.rvt",
+    "fingerprint": "copy-from-snapshot"
+  },
+  "units": {
+    "length": "mm"
+  },
+  "ops": [
+    {
+      "id": "op1",
+      "op": "family.fromcad",
+      "args": {
+        "file": "C:\\Projects\\GF\\blocks\\placements.json",
+        "blocks": [
+          "BED-DOUBLE",
+          "CHAIR-01"
+        ],
+        "familyPrefix": "CAD-",
+        "category": "OST_Furniture",
+        "height": 450,
+        "symbol": "lines",
+        "overrides": {
+          "CHAIR-01": {
+            "height": 820,
+            "typeName": "Oak"
+          }
+        },
+        "outputDir": "C:\\Projects\\GF\\families"
+      }
+    }
+  ]
+}
+```
+
+## family.create
+
+Flags: alone in its job.
+
+Create a new loadable family (.rfa) from a Revit family template: parameters, formulas, types, reference planes, labelled dimensions that drive the geometry, solid and void forms (extrusion, blend, revolution, sweep, swept blend) with material parameters, subcategories and visibility, and plan symbolic lines. Every type is then made current and regenerated (the flex test): its solid geometry's size must match the parameters named in flex, with no Revit warning, or the op fails and nothing is kept. The family is saved as <outputDir>/<name>.rfa (put in place only when the job commits) and loaded into the project. Must be alone in its job; verify checks and captures are allowed. A rehearsal builds, flex-tests, saves to a temporary folder and loads inside the job's undo step, then rolls it all back. A family of the same name already in the project, or an existing file, is refused unless overwrite is true. Reserved plane names: "Center (Left/Right)" (x = 0), "Center (Front/Back)" (y = 0), "Ref. Level" (z = 0); they are the template's own planes and never move.
+
+| Field | Type | Required | Default | Limits | Description |
+|---|---|---|---|---|---|
+| `name` | string | yes |  |  | Family name, also the file name without .rfa. Becomes the family's name in the project. |
+| `category` | string |  |  |  | Family category: built-in name (OST_Furniture) or display name (Furniture). Picks the template; when the language folders have no template for it, a Generic Model template is used and its category changed. |
+| `template` | string |  |  |  | Absolute path of a family template (.rft) to use instead of finding one by category. |
+| `outputDir` | string |  |  |  | Absolute folder for the .rfa. Default: the job's output folder, sub-folder 'families'. |
+| `overwrite` | bool |  | `false` |  | Replace an existing .rfa at the path, and reload a family of the same name already in the project (declared as a change to that family and its types). |
+| `parameterValues` | enum(family\\|project) |  | `"family"` |  | When overwrite reloads a family the project already has: 'family' gives existing types this family's values; 'project' keeps the values the project's types have. |
+| `load` | bool |  | `true` |  | Load the family into the project after saving it. |
+| `parameters` | list<object> |  |  |  | Family parameters to add. |
+| `parameters[].name` | string | yes |  |  | Parameter name, used in formulas, dimensions and type values exactly as written. |
+| `parameters[].spec` | enum(length\\|area\\|volume\\|angle\\|slope\\|number\\|integer\\|currency\\|text\\|url\\|yesNo\\|material) | yes |  |  | Kind of value. |
+| `parameters[].instance` | bool |  | `false` |  | Instance parameter (each placed element has its own value) rather than type parameter. |
+| `parameters[].group` | enum(data\\|dimensions\\|identityData\\|constraints\\|materials\\|text\\|graphics\\|general\\|construction\\|visibility\\|phasing) |  |  |  | Group in the properties palette. Default: dimensions for lengths and angles, materials for materials, graphics for yes/no, otherwise data. |
+| `parameters[].formula` | string |  |  |  | Revit formula (for example "Width / 2" or "Height - 50 mm"). It may name only parameters declared here. A parameter with a formula takes no values. |
+| `parameters[].value` | any |  |  |  | Value given to every type (a type's own values win). Lengths in job units, angles in degrees, yes/no as true/false, materials by name (created in the family when missing), text as text. |
+| `types` | list<object> | yes |  | at least 1 item | Family types, in order; the first is the family's default. |
+| `types[].name` | string | yes |  |  | Type name. |
+| `types[].values` | map |  |  |  | Parameter name to value for this type (same units as parameters[].value). |
+| `planes` | list<object> |  |  |  | Reference planes, placed at their starting positions; labelled dimensions then move them to each type's values. |
+| `planes[].name` | string | yes |  |  | Plane name (unique; not a reserved name). |
+| `planes[].axis` | enum(x\\|y\\|z) | yes |  |  | The axis the plane is perpendicular to: x for left and right planes, y for front and back, z for top and bottom. |
+| `planes[].at` | length | yes |  | length | Starting position along that axis from the family origin. |
+| `planes[].pinned` | bool |  | `false` |  | Pin the plane so dimensions never move it (a fixed offset from the origin). |
+| `dimensions` | list<object> |  |  |  | Dimensions between planes of one axis: two planes labelled with a length parameter (it drives their distance), or three or more planes with equal true (equal spacing). |
+| `dimensions[].planes` | list<string> | yes |  | at least 2 items | Plane names, in order along the axis. |
+| `dimensions[].parameter` | string |  |  |  | Length parameter that labels a two-plane dimension. |
+| `dimensions[].equal` | bool |  | `false` |  | Keep the segments equal (three or more planes). |
+| `forms` | list<object> | yes |  | at least 1 item | Solid and void forms. Faces are locked to planes (box, or lock), so the forms follow the dimensions. |
+| `forms[].id` | string |  |  |  | Name for the form in the report. |
+| `forms[].kind` | enum(extrusion\\|blend\\|revolution\\|sweep\\|sweptBlend) | yes |  |  | Form kind. |
+| `forms[].void` | bool |  | `false` |  | A void that cuts the solids instead of a solid. |
+| `forms[].box` | object |  |  |  | Extrusion only: a box between two x planes, two y planes and two z planes, every face locked to its plane. |
+| `forms[].box.x` | list<string> | yes |  | at least 2 items; at most 2 items | Two reference plane names for the left and right faces. |
+| `forms[].box.y` | list<string> | yes |  | at least 2 items; at most 2 items | Two reference plane names for the front and back faces. |
+| `forms[].box.z` | list<string> | yes |  | at least 2 items; at most 2 items | Two reference plane names for the bottom and top faces. |
+| `forms[].sketch` | enum(plan\\|front\\|side) |  | `"plan"` |  | Sketch plane: plan (points are [x, y], height along z), front (points [x, z], depth along y) or side (points [y, z], depth along x). |
+| `forms[].offset` | length |  | `0` | length | Position of the sketch plane along its normal (z for plan). |
+| `forms[].profile` | list<object> |  |  |  | Closed loops (the last point joins the first). Sweep and swept blend profiles are drawn in their own x-y plane around the path's start. |
+| `forms[].profile[].points` | list<point2> |  |  | at least 3 items; length | Corner points. |
+| `forms[].profile[].centre` | point2 |  |  | length | Circle centre. |
+| `forms[].profile[].radius` | length |  |  | > 0; length | Circle radius. |
+| `forms[].topProfile` | list<point2> |  |  | at least 3 items; length | Blend and swept blend: the second (top or end) loop. |
+| `forms[].start` | length |  | `0` | length | Extrusion and blend: start distance from the sketch plane along its normal. |
+| `forms[].end` | length |  |  | length | Extrusion and blend: end distance from the sketch plane along its normal. |
+| `forms[].axis` | list<point2> |  |  | at least 2 items; at most 2 items; length | Revolution: two points of the axis, in sketch coordinates. |
+| `forms[].startAngle` | angle |  | `0` | degrees | Revolution start angle. |
+| `forms[].endAngle` | angle |  | `360` | degrees | Revolution end angle. |
+| `forms[].path` | list<point2> |  |  | at least 2 items; length | Sweep: an open polyline in the sketch plane. Swept blend: exactly two points. |
+| `forms[].profileAt` | integer |  | `0` | >= 0 | Sweep: index of the path segment whose start carries the profile. |
+| `forms[].lock` | map<string> |  |  |  | Face to plane: "+x", "-x", "+y", "-y", "+z" or "-z" (the face's outward direction) to the name of a plane of that axis. The face must lie on the plane's starting position. |
+| `forms[].material` | string |  |  |  | Material parameter that drives the form's material (solids only). |
+| `forms[].subcategory` | string |  |  |  | Subcategory of the family category for the form (created when missing). |
+| `forms[].visibleParameter` | string |  |  |  | Yes/no parameter that switches the form on and off. |
+| `forms[].visibility` | object |  |  |  | Where the form shows in the project. |
+| `forms[].visibility.plan` | bool |  | `true` |  | Shown in plan and ceiling plan views. |
+| `forms[].visibility.frontBack` | bool |  | `true` |  | Shown in front and back views. |
+| `forms[].visibility.leftRight` | bool |  | `true` |  | Shown in left and right views. |
+| `forms[].visibility.coarse` | bool |  | `true` |  | Shown at coarse detail level. |
+| `forms[].visibility.medium` | bool |  | `true` |  | Shown at medium detail level. |
+| `forms[].visibility.fine` | bool |  | `true` |  | Shown at fine detail level. |
+| `symbols` | list<object> |  |  |  | Plan symbolic lines, drawn at the family's base and shown only in plan views. |
+| `symbols[].rect` | object |  |  |  | A rectangle whose four lines are locked to two x planes and two y planes. |
+| `symbols[].rect.x` | list<string> | yes |  | at least 2 items; at most 2 items | Two reference plane names for the left and right lines. |
+| `symbols[].rect.y` | list<string> | yes |  | at least 2 items; at most 2 items | Two reference plane names for the front and back lines. |
+| `symbols[].line` | object |  |  |  | One line lying on plane 'on' (an x or y plane), running between planes 'from' and 'to' of the other axis. |
+| `symbols[].line.on` | string | yes |  |  | Plane the line lies on and is locked to. |
+| `symbols[].line.from` | string | yes |  |  | Plane at the line's start. |
+| `symbols[].line.to` | string | yes |  |  | Plane at the line's end. |
+| `symbols[].subcategory` | string |  |  |  | Subcategory for the lines (created when missing). |
+| `symbols[].coarse` | bool |  | `true` |  | Shown at coarse detail level. |
+| `symbols[].medium` | bool |  | `true` |  | Shown at medium detail level. |
+| `symbols[].fine` | bool |  | `true` |  | Shown at fine detail level. |
+| `flex` | object |  |  |  | Expected size of the solid geometry for every type: the length parameter that the overall size along each axis must equal. |
+| `flex.x` | string |  |  |  | Length parameter for the size along x (width). |
+| `flex.y` | string |  |  |  | Length parameter for the size along y (depth). |
+| `flex.z` | string |  |  |  | Length parameter for the size along z (height). |
+| `flex.tolerance` | length |  |  | > 0; length | Allowed difference. Default: the job unit's length tolerance. |
+
+Rules across fields: at least one of `category`, `template`; in each `forms[].profile[]`: exactly one of `points`, `centre`; in each `forms[].profile[]`: `centre` requires `radius`; in each `symbols[]`: exactly one of `rect`, `line`.
+
+Outputs (read with `$op1.<name>` from a later op, and in the report's `results[].outputs`):
+
+- `family` (ref): Id of the family in the project (when loaded).
+- `familyName` (string): The family's name.
+- `file` (string): Final path of the .rfa.
+- `types` (list<string>): Type names, in order.
+- `typeIds` (map): Type name to the id of the project type (when loaded).
+- `flex` (list<object>): Per type: expected and measured size.
+
+Example (lint clean):
+
+```json
+{
+  "jobId": "example-revit-family-create",
+  "title": "Example: family.create",
+  "app": "revit",
+  "document": {
+    "path": "C:/Projects/2417/2417-ARCH.rvt",
+    "fingerprint": "copy-from-snapshot"
+  },
+  "units": {
+    "length": "mm"
+  },
+  "ops": [
+    {
+      "id": "op1",
+      "op": "family.create",
+      "args": {
+        "name": "Side Table",
+        "category": "Furniture",
+        "parameters": [
+          {
+            "name": "Width",
+            "spec": "length"
+          },
+          {
+            "name": "Depth",
+            "spec": "length"
+          },
+          {
+            "name": "Height",
+            "spec": "length"
+          },
+          {
+            "name": "Top Thickness",
+            "spec": "length",
+            "value": 30
+          },
+          {
+            "name": "Top Underside",
+            "spec": "length",
+            "formula": "Height - Top Thickness"
+          },
+          {
+            "name": "Top Material",
+            "spec": "material",
+            "value": "Oak"
+          }
+        ],
+        "types": [
+          {
+            "name": "500x500",
+            "values": {
+              "Width": 500,
+              "Depth": 500,
+              "Height": 550
+            }
+          },
+          {
+            "name": "600x400",
+            "values": {
+              "Width": 600,
+              "Depth": 400,
+              "Height": 500
+            }
+          }
+        ],
+        "planes": [
+          {
+            "name": "Left",
+            "axis": "x",
+            "at": -250
+          },
+          {
+            "name": "Right",
+            "axis": "x",
+            "at": 250
+          },
+          {
+            "name": "Front",
+            "axis": "y",
+            "at": -500
+          },
+          {
+            "name": "Underside",
+            "axis": "z",
+            "at": 520
+          },
+          {
+            "name": "Top",
+            "axis": "z",
+            "at": 550
+          }
+        ],
+        "dimensions": [
+          {
+            "planes": [
+              "Left",
+              "Right"
+            ],
+            "parameter": "Width"
+          },
+          {
+            "planes": [
+              "Left",
+              "Center (Left/Right)",
+              "Right"
+            ],
+            "equal": true
+          },
+          {
+            "planes": [
+              "Front",
+              "Center (Front/Back)"
+            ],
+            "parameter": "Depth"
+          },
+          {
+            "planes": [
+              "Ref. Level",
+              "Underside"
+            ],
+            "parameter": "Top Underside"
+          },
+          {
+            "planes": [
+              "Ref. Level",
+              "Top"
+            ],
+            "parameter": "Height"
+          }
+        ],
+        "forms": [
+          {
+            "id": "top",
+            "kind": "extrusion",
+            "box": {
+              "x": [
+                "Left",
+                "Right"
+              ],
+              "y": [
+                "Front",
+                "Center (Front/Back)"
+              ],
+              "z": [
+                "Underside",
+                "Top"
+              ]
+            },
+            "material": "Top Material"
+          },
+          {
+            "id": "leg",
+            "kind": "extrusion",
+            "profile": [
+              {
+                "centre": [
+                  0,
+                  -250
+                ],
+                "radius": 30
+              }
+            ],
+            "end": 520,
+            "lock": {
+              "-z": "Ref. Level",
+              "+z": "Underside"
+            },
+            "material": "Top Material"
+          }
+        ],
+        "symbols": [
+          {
+            "rect": {
+              "x": [
+                "Left",
+                "Right"
+              ],
+              "y": [
+                "Front",
+                "Center (Front/Back)"
+              ]
+            }
+          }
+        ],
+        "flex": {
+          "x": "Width",
+          "y": "Depth",
+          "z": "Height"
+        }
       }
     }
   ]

@@ -1,8 +1,8 @@
 # Revit: what the engine does, and recipes
 
-Revit 2024 to 2027 on Windows. 68 ops. Field details: `jobs/revit.md`. Loop and approval: `workflow.md`. Every op is "compiles for all four releases, untested in Revit" until the owner's first test round; the 29 newest (placement, phases, materials, links, purge, documentation and data ops, family editing) are the least proven, so say "written, untested in the app" when the user relies on them.
+Revit 2024 to 2027 on Windows. 70 ops. Field details: `jobs/revit.md`. Loop and approval: `workflow.md`. Every op is "compiles for all four releases, untested in Revit" until the owner's first test round; the 31 newest (placement, phases, materials, links, purge, documentation and data ops, family editing, family creation and CAD-to-family conversion) are the least proven, so say "written, untested in the app" when the user relies on them.
 
-Contents: 1 What the engine can do · 2 Rules every Revit job follows · 3 Recipes (3.1 to 3.14 model, views, sheets and clean-up; 3.15 to 3.33 placement, interiors, documentation, data, coordination, families and checks) · 4 No escape hatch · 5 Version notes
+Contents: 1 What the engine can do · 2 Rules every Revit job follows · 3 Recipes (3.1 to 3.14 model, views, sheets and clean-up; 3.15 to 3.35 placement, interiors, documentation, data, coordination, families and checks) · 4 No escape hatch · 5 Version notes
 
 ## 1. What the engine can do
 
@@ -12,7 +12,7 @@ Contents: 1 What the engine can do · 2 Rules every Revit job follows · 3 Recip
 | Modelling | `walltype.ensure` (layered wall type with function, material and thickness; missing materials are created plain), `wall.create` (start and end, or a path, optionally closed), `door.place`, `window.place`, `floor.create` and `ceiling.create` (from points or from a room), `roof.footprint` (slopes, overhang, gable edges), `room.place` (at a point or every enclosed region, with finish parameters), `room.separator` |
 | Placement and editing | `family.place` (furniture, fixtures, casework, fittings: on a level, hosted on a wall, floor, ceiling or roof face, or on a work plane), `group.place` (make a model group, or place copies of one), `element.transform` (move, copy, rotate, mirror), `phase.set` (phase created and demolished; view phase and phase filter) |
 | Build-ups and finishes | `compoundtype.ensure` (floor, ceiling and roof types with layers), `wallsweep.add` (skirtings, cornices, reveals), `fillpattern.ensure`, `material.ensure` (identity, graphics, patterns, appearance), `material.assign` (type layer, material parameter, category, or paint on faces) |
-| Families, types and data | `family.load`, `type.duplicate`, `family.edit` (parameters, formulas and types, reloaded and read back; alone in its job), `param.set` (by ids or by category, level, type and parameter values), `param.shared.ensure`, `schedule.key.create` |
+| Families, types and data | `family.load`, `type.duplicate`, `family.edit` (parameters, formulas and types, reloaded and read back; alone in its job), `family.create` (new parametric families from a template, flex-tested; alone in its job; recipes in `data/families`), `param.set` (by ids or by category, level, type and parameter values), `param.shared.ensure`, `schedule.key.create` |
 | Views | `view.plan.create`, `view.ceiling.create`, `view.section.create`, `view.elevation.create`, `view.3d.create`, `view.drafting.create` (or a legend by duplicating one), `view.callout.create`, `view.crop.set`, `area.plan.create`, `view.rename`, `viewtemplate.apply`, `view.filter.ensure`, `colorfill.apply` |
 | Sheets and annotation | `sheet.create`, `viewport.place`, `viewports.layout`, `schedule.create`, `tag.all`, `tag.place` (chosen elements, rooms, areas or materials), `dim.grids`, `dim.string` (through walls, grids, doors and windows), `text.note`, `text.replace`, `detail.draw` (detail lines, filled and masking regions, detail components), `area.place`, `revision.ensure`, `revision.cloud` |
 | Checks | `layout.clearances` (turning circles, door swings and clear space at doors, routes against furniture, fixtures and walls; changes nothing) |
@@ -33,7 +33,7 @@ Not available (do not fake them; `limits.md`): creating in-place families, desig
 - **Names made in the same job.** Revit checks every op against the model as it is before anything runs. An op that names a type or family made by an earlier op of the same job fails validation ("not found"). So `walltype.ensure`, `compoundtype.ensure`, `family.load` and `type.duplicate` go in a job of their own; commit it, then use the names. Views, sheets, rooms and elements made earlier in a job are fine through `$id` references. Two exceptions: `material.assign` accepts a material made by an earlier `material.ensure`, and `material.ensure` a fill pattern made by an earlier `fillpattern.ensure`.
 - **Never** save, synchronise, relinquish or close: the user does that.
 - **Exports go in their own job**, with nothing else: `export.*`, `data.export` and `schedule.export`. `export.nwc` is refused next to any op that changes the model, `export.ifc` included.
-- **`family.edit` is alone in its job** (`op_not_alone` otherwise); verify checks and captures are allowed.
+- **`family.edit` is alone in its job** (`op_not_alone` otherwise); verify checks and captures are allowed. So are `family.fromcad` (recipe 3.34) and `family.create` (recipe 3.35).
 - **Workshared models**: elements created go to the active workset; `workset.assign` moves them afterwards. By default a job that touches an element someone else owns is refused (`not_owned`, with the owners). `"ownership": "skip"` leaves those elements out instead (recipe 3.33, `workflow.md` section 14).
 - **Files written by ops** (`data.export`, `schedule.export`, `export.nwc`) go to `outputDir` or the job's output folder; an existing file fails the op unless `overwrite: true`.
 
@@ -996,6 +996,164 @@ Validate first and show the user the `ownership` list: who owns which elements. 
 ```
 
 Report `fd30.count` and every `ownership_skipped` warning (`readback.ownershipSkipped` lists the ids): those doors were not changed and their owners must do it, or the user asks for them and runs a new job. An op whose elements are all left out is skipped, and so are ops that refer to it. Never borrow, synchronise or relinquish for the user.
+
+### 3.34 AutoCAD furniture blocks to Revit families, placed where the plan has them (interior designers, space planners, BIM coordinators)
+
+Three jobs, each committed before the next:
+1. AutoCAD `block.export` (`autocad.md` recipe 3.21) writes one DWG per block and `placements.json`.
+2. Revit `family.fromcad` makes one family per block from those files and loads it.
+3. Revit `family.place` with `fromPlacements` puts an instance at every block reference, aligned to the same drawing linked in the model (recipe 3.29 links it).
+
+Job 2 is alone in its job. Each family gets:
+- the block's DWG as its plan symbol (view-specific, at the block's base point, in the drawing's units);
+- a body: `box` (the block's extents extruded to `height`, with Width, Depth and Height parameters and a material parameter), `none`, or `import3d` (only for blocks with 3D objects);
+- type parameters `CAD Block` and `CAD Source`.
+
+Every family is flex-tested at its own size and at larger and smaller sizes, then saved as `.rfa` in `outputDir` (only when the job commits) and loaded. The rehearsal builds, tests, saves to a temporary folder and loads inside the undo step, then rolls it all back. A family name the project already has is refused unless `reload: true`.
+
+```json
+{
+  "jobId": "2026-11-28T21-20-00Z-ffe-families",
+  "title": "Families from the L01 furniture blocks",
+  "app": "revit",
+  "document": { "path": "C:/Projects/2417/2417-ARCH.rvt", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "mm" },
+  "ops": [
+    { "id": "fam", "op": "family.fromcad", "args": {
+        "file": "C:/Projects/2417/export/ffe-L01/placements.json",
+        "blocks": ["DESK-1600", "CHAIR-TASK", "BED-DOUBLE"],
+        "familyPrefix": "FFE-", "category": "Furniture", "height": 740, "symbol": "lines",
+        "overrides": { "CHAIR-TASK": { "height": 900 }, "BED-DOUBLE": { "height": 450, "typeName": "1600 x 2100" } },
+        "outputDir": "C:/Projects/2417/families/ffe" } }
+  ]
+}
+```
+
+Report `fam.families`, `fam.files`, and each `fam.flex` entry that is not ok. `symbol: "lines"` turns the import into symbolic lines in the `CAD Symbol` subcategory. Use it: Revit gives an imported DWG no subcategory, so with `"import"` its layers show only under "Imports in Families" in Object Styles. The box is hidden in plan views unless `bodyInPlan: true`, so plans show only the CAD symbol.
+
+Job 3 places the instances. `align.cadLink` names the linked DWG (its file name or element id). The link's position, rotation and the shared-coordinate (true north) turn all carry over. `align.translate` with `rotationDeg` moves and turns the drawing's coordinates instead, in job units. Use it only when the drawing is not linked.
+
+```json
+{
+  "jobId": "2026-11-28T21-40-00Z-ffe-place",
+  "title": "Place the L01 furniture where the CAD plan has it",
+  "app": "revit",
+  "document": { "path": "C:/Projects/2417/2417-ARCH.rvt", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "mm" },
+  "ops": [
+    { "id": "ffe", "op": "family.place", "args": {
+        "fromPlacements": { "file": "C:/Projects/2417/export/ffe-L01/placements.json", "align": { "cadLink": "2417-I-FFE-L01.dwg" } },
+        "level": "Level 01", "mark": "FFE" } }
+  ],
+  "verify": { "capture": [ { "target": "activeView" } ] }
+}
+```
+
+Report `ffe.count` and every `ffe.refused` entry with its reason. Each block finds its family through the `CAD Block` parameter, or through `familyMap` (block name to `"Family : Type"`). A refused reference is one that:
+- is scaled or in a layout;
+- is already placed with the same type at the same point;
+- uses a block with no family;
+- is mirrored and its family cannot be mirrored.
+
+A refusal does not stop the others unless `failOnRefused: true`. Mirrored references are placed mirrored, and `readback.instances` gives each instance's axes. `readback.align.linkEvidence.matched` counts the placed points that coincide with block instances seen inside the link. If it is 0, the link is probably not the drawing the file came from, or it has been moved since.
+
+Untested in the app, and the most fragile part is the coordinate chain: whether `GetTotalTransform` of the link includes the DWG's unit scale and true north as documented. Rehearse job 3 and compare a few instances with the link by eye before committing.
+
+### 3.35 New parametric furniture and sanitaryware families from a recipe (interior designers, hotel FF&E, kitchen and bath)
+
+Two jobs, each committed before the next: a family made in a job cannot be named until a later job.
+1. `family.create` builds a new family from a Revit family template, alone in its job. The 22 recipes in `data/families/` (beds, seating, tables, storage, WC, basins, bath, shower tray, kitchen units, worktop) are ready `args`; copy one and change only `name`, `outputDir` or the types.
+2. `family.place` places it like any loaded family.
+
+What `family.create` does: finds the template for `category` (metric first for a metric job), or uses `template`. When no template for the category exists, it uses a Generic Model template and changes the category, with a warning. It then:
+- adds the parameters, formulas and types;
+- draws the reference planes, and labels the dimensions so that Width, Depth and Height move the planes;
+- locks every face of each `box` to its planes;
+- ties materials, subcategories and visibility to the forms;
+- draws the plan symbolic lines.
+
+Then the flex test: every type is made current and regenerated, and the solid geometry must measure exactly the parameters named in `flex`. A failed type, or any Revit warning, fails the op and keeps nothing. The `.rfa` is saved in `outputDir` (put in place only when the job commits) and loaded. The rehearsal builds, tests, saves to a temporary folder and loads inside the undo step, then rolls it all back. A family name the project already has, or an existing file, is refused unless `overwrite: true`. Then `parameterValues` decides whose type values win: `family` (default) or `project`.
+
+```json
+{
+  "jobId": "2026-11-28T22-00-00Z-hotel-bed-family",
+  "title": "Hotel double bed family from data/families/hotel-double-bed.json",
+  "app": "revit",
+  "document": { "path": "C:/Projects/2417/2417-ARCH.rvt", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "mm" },
+  "ops": [
+    { "id": "bed", "op": "family.create", "args": {
+        "name": "Hotel Double Bed", "category": "Furniture", "outputDir": "C:/Projects/2417/families/hotel",
+        "parameters": [
+          {"name": "Width", "spec": "length"},
+          {"name": "Depth", "spec": "length"},
+          {"name": "Height", "spec": "length"},
+          {"name": "Size Source", "spec": "text", "group": "identityData"},
+          {"name": "Headboard Height", "spec": "length"},
+          {"name": "Headboard Thickness", "spec": "length"},
+          {"name": "Mattress Thickness", "spec": "length"},
+          {"name": "Pillow Zone", "spec": "length"},
+          {"name": "Base Height", "spec": "length", "formula": "Height - Mattress Thickness"},
+          {"name": "Frame Material", "spec": "material"},
+          {"name": "Mattress Material", "spec": "material"}
+        ],
+        "types": [
+          {"name": "Double 1500x2000", "values": {"Height": 550, "Headboard Height": 1000, "Headboard Thickness": 80, "Mattress Thickness": 200, "Pillow Zone": 450, "Frame Material": "Oak", "Mattress Material": "Fabric - White", "Width": 1500, "Depth": 2000, "Size Source": "furniture.uk.adm1.double_bed_principal.width/.length; height typical, verify"}},
+          {"name": "Double 1350x1900", "values": {"Height": 550, "Headboard Height": 1000, "Headboard Thickness": 80, "Mattress Thickness": 200, "Pillow Zone": 450, "Frame Material": "Oak", "Mattress Material": "Fabric - White", "Width": 1350, "Depth": 1900, "Size Source": "furniture.uk.adm1.double_bed_other.width/.length; height typical, verify"}},
+          {"name": "King 1800x2000", "values": {"Height": 550, "Headboard Height": 1000, "Headboard Thickness": 80, "Mattress Thickness": 200, "Pillow Zone": 450, "Frame Material": "Oak", "Mattress Material": "Fabric - White", "Width": 1800, "Depth": 2000, "Size Source": "typical, verify"}}
+        ],
+        "planes": [
+          {"name": "Left", "axis": "x", "at": -750},
+          {"name": "Right", "axis": "x", "at": 750},
+          {"name": "Front", "axis": "y", "at": -2000},
+          {"name": "Top", "axis": "z", "at": 550},
+          {"name": "Headboard Front", "axis": "y", "at": -80},
+          {"name": "Pillow Line", "axis": "y", "at": -450},
+          {"name": "Base Top", "axis": "z", "at": 350},
+          {"name": "Headboard Top", "axis": "z", "at": 1000}
+        ],
+        "dimensions": [
+          {"planes": ["Left", "Right"], "parameter": "Width"},
+          {"planes": ["Left", "Center (Left/Right)", "Right"], "equal": true},
+          {"planes": ["Front", "Center (Front/Back)"], "parameter": "Depth"},
+          {"planes": ["Ref. Level", "Top"], "parameter": "Height"},
+          {"planes": ["Headboard Front", "Center (Front/Back)"], "parameter": "Headboard Thickness"},
+          {"planes": ["Pillow Line", "Center (Front/Back)"], "parameter": "Pillow Zone"},
+          {"planes": ["Ref. Level", "Base Top"], "parameter": "Base Height"},
+          {"planes": ["Ref. Level", "Headboard Top"], "parameter": "Headboard Height"}
+        ],
+        "forms": [
+          {"id": "base", "kind": "extrusion", "box": {"x": ["Left", "Right"], "y": ["Front", "Headboard Front"], "z": ["Ref. Level", "Base Top"]}, "material": "Frame Material"},
+          {"id": "mattress", "kind": "extrusion", "box": {"x": ["Left", "Right"], "y": ["Front", "Headboard Front"], "z": ["Base Top", "Top"]}, "material": "Mattress Material"},
+          {"id": "headboard", "kind": "extrusion", "box": {"x": ["Left", "Right"], "y": ["Headboard Front", "Center (Front/Back)"], "z": ["Ref. Level", "Headboard Top"]}, "material": "Frame Material"}
+        ],
+        "symbols": [
+          {"rect": {"x": ["Left", "Right"], "y": ["Front", "Center (Front/Back)"]}},
+          {"line": {"on": "Pillow Line", "from": "Left", "to": "Right"}}
+        ],
+        "flex": {"x": "Width", "y": "Depth", "z": "Headboard Height"} } }
+  ]
+}
+```
+
+Report `bed.file`, `bed.types` and every `bed.flex` entry (each type's measured size against Width, Depth and Headboard Height). Also report the `Size Source` of each type: "typical, verify" sizes need the user's confirmation. Lint already refuses most recipe mistakes before Revit runs: an undeclared name, a formula loop, a face that does not start on its plane, a dimension that over-constrains its planes, or a size with no value in some type.
+
+```json
+{
+  "jobId": "2026-11-28T22-10-00Z-hotel-beds-place",
+  "title": "Place hotel double beds in rooms 301 and 302",
+  "app": "revit",
+  "document": { "path": "C:/Projects/2417/2417-ARCH.rvt", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "mm" },
+  "ops": [
+    { "id": "beds", "op": "family.place", "args": {
+        "type": "Hotel Double Bed : Double 1500x2000", "points": [[4200, 12000], [8400, 12000]], "level": "Level 03", "rotation": 0, "mark": "BED" } }
+  ],
+  "verify": { "capture": [ { "target": "activeView" } ] }
+}
+```
+
+The family's origin is the middle of the headboard wall line, so place the points on the wall's inner face. Untested in the app, and the most fragile steps are locking faces to planes (`NewAlignment` in the plan and front views) and the labelled dimensions moving those planes for every type. The flex test catches both, but only Revit can show whether a recipe passes. If the report warns that a family document stayed open, ask the user to close it in Revit without saving.
 
 ## 4. No escape hatch
 

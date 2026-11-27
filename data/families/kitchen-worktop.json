@@ -1,0 +1,176 @@
+{
+  "name": "Kitchen Worktop",
+  "category": "Casework",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Underside Height",
+      "spec": "length",
+      "formula": "Height - Thickness"
+    },
+    {
+      "name": "Top Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "1200x600 at 900",
+      "values": {
+        "Thickness": 40,
+        "Top Material": "Laminate - Stone",
+        "Width": 1200,
+        "Depth": 600,
+        "Height": 900,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "2400x600 at 900",
+      "values": {
+        "Thickness": 40,
+        "Top Material": "Laminate - Stone",
+        "Width": 2400,
+        "Depth": 600,
+        "Height": 900,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1200x600 at 865 Accessible",
+      "values": {
+        "Thickness": 40,
+        "Top Material": "Laminate - Stone",
+        "Width": 1200,
+        "Depth": 600,
+        "Height": 865,
+        "Size Source": "height kitbath.us.ada.kitchen.work_surface.height.max"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -600
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 600
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -600
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 900
+    },
+    {
+      "name": "Underside",
+      "axis": "z",
+      "at": 860
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Underside"
+      ],
+      "parameter": "Underside Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "worktop",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Underside",
+          "Top"
+        ]
+      },
+      "material": "Top Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Thickness"
+  }
+}

@@ -339,6 +339,7 @@ namespace SA.AutoCAD.Host
                 if (committed)
                 {
                     PostCommitReadback(doc, report);
+                    if (report.Status == JobStatus.Committed) ctx.Staging.Publish(report);
                     if (report.Status == JobStatus.Committed && ctx.LayoutAfterCommit != null) SwitchLayoutAfterCommit(ctx.LayoutAfterCommit, report);
                     if (report.Status == JobStatus.Committed) Capture(doc, job, report);
                 }
@@ -365,6 +366,7 @@ namespace SA.AutoCAD.Host
             {
                 sysVars.Dispose();
                 foreach (var f in sysVars.RestoreFailures) report.Warnings.Add(new ReportWarning("engine", f));
+                ctx?.Staging.Discard(report);
             }
             SA.AutoCAD.Capture.VisualService.After(doc, report, visual, committed);
 

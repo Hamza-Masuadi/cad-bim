@@ -80,6 +80,9 @@ namespace SA.AutoCAD.Ops
         /// </summary>
         internal bool ScriptEvaluated { get; set; }
 
+        /// <summary>Files ops wrote for publishing after the commit (see <see cref="StagedFiles"/>).</summary>
+        internal StagedFiles Staging { get; } = new StagedFiles();
+
         /// <summary>A layout to make current once the job has committed (layout.create makeCurrent); the last request wins.</summary>
         internal string? LayoutAfterCommit { get; set; }
 

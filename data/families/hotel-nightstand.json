@@ -1,0 +1,202 @@
+{
+  "name": "Hotel Nightstand",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Top Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Top Underside",
+      "spec": "length",
+      "formula": "Height - Top Thickness"
+    },
+    {
+      "name": "Body Material",
+      "spec": "material"
+    },
+    {
+      "name": "Top Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "400x400",
+      "values": {
+        "Height": 550,
+        "Top Thickness": 25,
+        "Body Material": "Oak",
+        "Top Material": "Oak",
+        "Width": 400,
+        "Depth": 400,
+        "Size Source": "furniture.uk.adm1.bedside_table.width/.depth; height typical, verify"
+      }
+    },
+    {
+      "name": "450x400",
+      "values": {
+        "Height": 550,
+        "Top Thickness": 25,
+        "Body Material": "Oak",
+        "Top Material": "Oak",
+        "Width": 450,
+        "Depth": 400,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "500x450",
+      "values": {
+        "Height": 550,
+        "Top Thickness": 25,
+        "Body Material": "Oak",
+        "Top Material": "Oak",
+        "Width": 500,
+        "Depth": 450,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -200
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 200
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -400
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 550
+    },
+    {
+      "name": "Top Underside",
+      "axis": "z",
+      "at": 525
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top Underside"
+      ],
+      "parameter": "Top Underside"
+    }
+  ],
+  "forms": [
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top Underside"
+        ]
+      },
+      "material": "Body Material"
+    },
+    {
+      "id": "top",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Top Underside",
+          "Top"
+        ]
+      },
+      "material": "Top Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

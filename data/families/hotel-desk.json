@@ -1,0 +1,252 @@
+{
+  "name": "Hotel Desk",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Top Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Panel Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Top Underside",
+      "spec": "length",
+      "formula": "Height - Top Thickness"
+    },
+    {
+      "name": "Top Material",
+      "spec": "material"
+    },
+    {
+      "name": "Frame Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "1050x500",
+      "values": {
+        "Height": 750,
+        "Top Thickness": 30,
+        "Panel Thickness": 25,
+        "Top Material": "Oak",
+        "Frame Material": "Oak",
+        "Width": 1050,
+        "Depth": 500,
+        "Size Source": "furniture.uk.adm1.desk_and_chair.width/.depth; height typical, verify"
+      }
+    },
+    {
+      "name": "1200x600",
+      "values": {
+        "Height": 750,
+        "Top Thickness": 30,
+        "Panel Thickness": 25,
+        "Top Material": "Oak",
+        "Frame Material": "Oak",
+        "Width": 1200,
+        "Depth": 600,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1400x700",
+      "values": {
+        "Height": 750,
+        "Top Thickness": 30,
+        "Panel Thickness": 25,
+        "Top Material": "Oak",
+        "Frame Material": "Oak",
+        "Width": 1400,
+        "Depth": 700,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -525
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 525
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -500
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 750
+    },
+    {
+      "name": "Top Underside",
+      "axis": "z",
+      "at": 720
+    },
+    {
+      "name": "Left Inner",
+      "axis": "x",
+      "at": -500
+    },
+    {
+      "name": "Right Inner",
+      "axis": "x",
+      "at": 500
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top Underside"
+      ],
+      "parameter": "Top Underside"
+    },
+    {
+      "planes": [
+        "Left",
+        "Left Inner"
+      ],
+      "parameter": "Panel Thickness"
+    },
+    {
+      "planes": [
+        "Right Inner",
+        "Right"
+      ],
+      "parameter": "Panel Thickness"
+    }
+  ],
+  "forms": [
+    {
+      "id": "top",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Top Underside",
+          "Top"
+        ]
+      },
+      "material": "Top Material"
+    },
+    {
+      "id": "left panel",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Left Inner"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top Underside"
+        ]
+      },
+      "material": "Frame Material"
+    },
+    {
+      "id": "right panel",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Right Inner",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Top Underside"
+        ]
+      },
+      "material": "Frame Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

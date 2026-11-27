@@ -1,0 +1,378 @@
+{
+  "name": "Hotel Dining Chair",
+  "category": "Furniture",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Seat Height",
+      "spec": "length"
+    },
+    {
+      "name": "Seat Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Back Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Seat Underside",
+      "spec": "length",
+      "formula": "Seat Height - Seat Thickness"
+    },
+    {
+      "name": "Leg Size",
+      "spec": "length"
+    },
+    {
+      "name": "Seat Material",
+      "spec": "material"
+    },
+    {
+      "name": "Frame Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "450x500",
+      "values": {
+        "Height": 850,
+        "Seat Height": 450,
+        "Seat Thickness": 50,
+        "Back Thickness": 30,
+        "Leg Size": 40,
+        "Seat Material": "Fabric - Grey",
+        "Frame Material": "Oak",
+        "Width": 450,
+        "Depth": 500,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "420x480",
+      "values": {
+        "Height": 850,
+        "Seat Height": 450,
+        "Seat Thickness": 50,
+        "Back Thickness": 30,
+        "Leg Size": 40,
+        "Seat Material": "Fabric - Grey",
+        "Frame Material": "Oak",
+        "Width": 420,
+        "Depth": 480,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "500x550",
+      "values": {
+        "Height": 850,
+        "Seat Height": 450,
+        "Seat Thickness": 50,
+        "Back Thickness": 30,
+        "Leg Size": 40,
+        "Seat Material": "Fabric - Grey",
+        "Frame Material": "Oak",
+        "Width": 500,
+        "Depth": 550,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -225
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 225
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -500
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 850
+    },
+    {
+      "name": "Seat Top",
+      "axis": "z",
+      "at": 450
+    },
+    {
+      "name": "Seat Underside",
+      "axis": "z",
+      "at": 400
+    },
+    {
+      "name": "Back Front",
+      "axis": "y",
+      "at": -30
+    },
+    {
+      "name": "Left Inner",
+      "axis": "x",
+      "at": -185
+    },
+    {
+      "name": "Right Inner",
+      "axis": "x",
+      "at": 185
+    },
+    {
+      "name": "Front Inner",
+      "axis": "y",
+      "at": -460
+    },
+    {
+      "name": "Back Inner",
+      "axis": "y",
+      "at": -40
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Seat Top"
+      ],
+      "parameter": "Seat Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Seat Underside"
+      ],
+      "parameter": "Seat Underside"
+    },
+    {
+      "planes": [
+        "Back Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Back Thickness"
+    },
+    {
+      "planes": [
+        "Left",
+        "Left Inner"
+      ],
+      "parameter": "Leg Size"
+    },
+    {
+      "planes": [
+        "Right Inner",
+        "Right"
+      ],
+      "parameter": "Leg Size"
+    },
+    {
+      "planes": [
+        "Front",
+        "Front Inner"
+      ],
+      "parameter": "Leg Size"
+    },
+    {
+      "planes": [
+        "Back Inner",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Leg Size"
+    }
+  ],
+  "forms": [
+    {
+      "id": "seat",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Seat Underside",
+          "Seat Top"
+        ]
+      },
+      "material": "Seat Material"
+    },
+    {
+      "id": "back",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Back Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Seat Top",
+          "Top"
+        ]
+      },
+      "material": "Seat Material"
+    },
+    {
+      "id": "front left leg",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Left Inner"
+        ],
+        "y": [
+          "Front",
+          "Front Inner"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Underside"
+        ]
+      },
+      "material": "Frame Material"
+    },
+    {
+      "id": "back left leg",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Left Inner"
+        ],
+        "y": [
+          "Back Inner",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Underside"
+        ]
+      },
+      "material": "Frame Material"
+    },
+    {
+      "id": "front right leg",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Right Inner",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Front Inner"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Underside"
+        ]
+      },
+      "material": "Frame Material"
+    },
+    {
+      "id": "back right leg",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Right Inner",
+          "Right"
+        ],
+        "y": [
+          "Back Inner",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Ref. Level",
+          "Seat Underside"
+        ]
+      },
+      "material": "Frame Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "line": {
+        "on": "Back Front",
+        "from": "Left",
+        "to": "Right"
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}

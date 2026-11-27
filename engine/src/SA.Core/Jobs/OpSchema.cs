@@ -368,6 +368,9 @@ namespace SA.Core.Jobs
             foreach (var s in Ops.RevitOpsModelWave2.All()) r.Register(s);
             foreach (var s in Ops.RevitOpsDocsWave2.All()) r.Register(s);
             foreach (var s in Ops.RevitOpsFamilyWave2.All()) r.Register(s);
+            foreach (var s in Ops.AutoCadOpsBlocks.All()) r.Register(s);
+            foreach (var s in Ops.RevitOpsCadFamilies.All()) r.Register(s);
+            foreach (var s in Ops.RevitOpsFamilyCreate.All()) r.Register(s);
             return r;
         }
 

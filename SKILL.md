@@ -11,7 +11,7 @@ The agent drives AutoCAD and Revit through `sa.exe`. Every change is a **job**: 
 
 1. **Snapshot.** `sa <acad|revit> snapshot`. Take the document identity, units and existing names from it. Read units from the file, never assume them.
 2. **Standard.** On first use in a project, ask which standard applies unless the file settles it (`references/standards.md`). One standard per job.
-3. **Plan the whole job.** Pick ops, starting from a recipe in `references/autocad.md` or `references/revit.md`. Choose verify checks that the file already passes (audit them first). Split work that must be alone (exports, plots, scripts, unit changes, xref repath, family edits). In Revit, types and families a job creates cannot be named until a later job.
+3. **Plan the whole job.** Pick ops, starting from a recipe in `references/autocad.md` or `references/revit.md`. Choose verify checks that the file already passes (audit them first). Split work that must be alone (exports, plots, scripts, unit changes, xref repath, family edits, new families). In Revit, types and families a job creates cannot be named until a later job.
 4. **Show the plan and get ONE approval.** List the file, the standard, the units, each change in plain words, anything destructive, and what will be checked. Ask again only if the plan changes materially.
 5. **Lint and validate.** `sa job lint job.json`, then `sa <app> validate job.json`. Fix every error.
 6. **Rehearse.** `sa <app> run job.json --rehearse` (same file; the job id is not spent).

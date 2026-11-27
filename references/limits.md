@@ -37,7 +37,7 @@ Contents: 1 Out of reach · 2 Not yet proven · 3 AutoCAD op limits · 4 Revit o
 
 ## 2. Not yet proven
 
-Nothing has been run in AutoCAD or Revit. All 114 ops (46 AutoCAD, 68 Revit) compile for 2024 to 2027 and pass offline tests; their behaviour in the apps is still to be confirmed. Report what the engine returned, never "this works". Say "written, untested in the app" when the user relies on one of the newer ops below. Items most likely to need a fix after the first test round:
+Nothing has been run in AutoCAD or Revit. All 117 ops (47 AutoCAD, 70 Revit) compile for 2024 to 2027 and pass offline tests; their behaviour in the apps is still to be confirmed. Report what the engine returned, never "this works". Say "written, untested in the app" when the user relies on one of the newer ops below. Items most likely to need a fix after the first test round:
 
 - **AutoCAD, older ops:** evaluating `script.lisp` code inside the engine; whether a rehearsal leaves anything behind (`rehearsalLeaked`); rolling back `xref.attach`; plotting while the job is open; building a layout by hand in `layout.create`; the text height of leaders with scaled styles.
 - **AutoCAD, newer ops:**
@@ -52,6 +52,7 @@ Nothing has been run in AutoCAD or Revit. All 114 ops (46 AutoCAD, 68 Revit) com
   - `block.extract`: dynamic properties and room assignment.
   - `grid.module`: rotated grids, cut tiles on irregular boundaries.
   - `draw.entities`, `entity.delete`: bulge direction on closed polylines; delete on a locked layer fails.
+  - `block.export`: writing a block with `Database.Wblock` while the job is open; moving the base point to the origin; DWGs of dynamic block representations; HANDSEED and fingerprint really unchanged afterwards.
 - **Revit, older ops:** grid references in `dim.grids`; measuring viewports in `viewports.layout` and the title block drawable-area guess (falls back to the sheet edge less 15 mm); doors and windows staying where placed (a drift over 0.5 mm fails the op); the not-enclosed versus redundant room rule; PDF and DWG export inside the job's transaction group (`export_refused` if Revit refuses); IFC export inside a rolled-back sub-transaction; roof edge offsets; level elevations on a model with a raised base point; the .NET 8 builds on .NET 10 updates.
 - **Revit, newer ops:**
   - `family.edit`: editing and reloading a family inside the job's undo step (if Revit refuses, the op fails with nothing changed); project types taking the new values; load warnings reaching the report; formula text read back as written; new types starting from `copyFrom`; whether a reload deletes nested types; whether opening the family copy during checks counts as a document change.
@@ -65,6 +66,9 @@ Nothing has been run in AutoCAD or Revit. All 114 ops (46 AutoCAD, 68 Revit) com
   - `export.nwc`: exporter installed or not, file naming, view scope, coordinates.
   - `cleanup.purge`: the list against Revit's Purge Unused window; what depends on unused elements.
   - `family.place`: face-based and work-plane families, the offset parameter each family exposes, facing after rotation.
+  - `family.place` with `fromPlacements`: whether a link's total transform includes the DWG's unit scale and true north as documented (both cases are handled, any other scale is refused); mirrored instances (mirror in place) and their axes read back; block instances found in the link's geometry.
+  - `family.fromcad`: a view-specific DWG import in a family plan view showing in project plans; symbolic lines from the import; the box's faces locking to reference planes and the labelled dimensions driving it; a Generic Model template taking another category; template lookup on localised installs; loading inside the job's undo step.
+  - `family.create`: faces of a box locking to reference planes with `NewAlignment` in the plan and front views; labelled dimensions moving those planes for every type (the flex test fails the op if not); the planes and dimensions the template's floor plan and front elevation accept; symbolic lines following the planes when a type changes (only warned, not tested); void forms cutting the solids; a Generic Model template taking another category; template lookup on localised installs; saving and loading inside the job's undo step; the template's own type being renamed.
   - `view.crop.set`, `view.callout.create`, `colorfill.apply`, `tag.place`, `area.place`, `revision.cloud`: rotated views, callouts of sections, legend position, tag head positions, material and room tags, clouds on sheets.
   - `link.cad`: centred placement, this-view-only in sections, hidden layers, unit scaling.
   - `wallsweep.add`, `material.assign` paint, `element.transform` mirror and copy of hosted elements, `phase.set` with both phases changed, `group.place`, `compoundtype.ensure`: lower risk.
@@ -106,6 +110,7 @@ Nothing has been run in AutoCAD or Revit. All 114 ops (46 AutoCAD, 68 Revit) com
 | `text.replace` | Text with fields is skipped and counted; a match cannot run across a formatting code; table cells that are merged, linked or hold fields are skipped |
 | `layerstate.ensure` | Saves current layer settings with the listed changes; an existing state needs `update: true` and is backed up to a `.las` file first; a rehearsal uses a temporary state |
 | `material.ensure`, `material.assign` | Render materials only: they show in shaded and rendered views, not on a plotted 2D plan; texture paths in a user profile refused unless `allowLocalPath`; existing materials keep their mode |
+| `block.export` | Alone in its job; files appear in `outputDir` only after the commit. References placed directly in model space (and layouts with `excludeLayouts: false`); nested references counted, not listed. Xrefs, MINSERT arrays, references not parallel to the XY plane and blocks with no visible geometry are left out and listed in `skipped`. Lengths in the drawing's units, not the job's. Unitless drawings refused. Block names that are Windows device names are refused |
 
 ## 4. Revit op limits
 
@@ -128,7 +133,9 @@ Nothing has been run in AutoCAD or Revit. All 114 ops (46 AutoCAD, 68 Revit) com
 | `cleanup.unusedViews` | Views with dependents are kept by default; use `dryRun` first |
 | `element.delete` | Ids from a snapshot, `expectCount` must match; dependents refused unless `allowDependents` |
 | `workset.assign` | Workshared models only; user worksets only |
-| `family.place` | Types must be loaded; one host or one work plane per op; points must lie on the host face |
+| `family.place` | Types must be loaded; one host or one work plane per op; points must lie on the host face. `fromPlacements`: level-based families only, on one level; references scaled, in layouts, already placed or of blocks with no family are refused one by one; a link tilted out of plan, sheared or at a custom scale is refused; the drawing's height (z) is ignored |
+| `family.fromcad` | Alone in its job; one type per family; body `box` (the block's plan extents, so an L-shaped or round block gets a rectangle), `none` or `import3d` (not flexed); with `symbol: "import"` the DWG keeps no subcategory (Revit gives imports none), with `"lines"` text, hatches and sloped curves are dropped (counted in `symbol.skipped`); a family name the project has is refused unless `reload`; drawing units mm, cm, m, in or ft only |
+| `family.create` | Alone in its job. Standalone (unhosted) model families only, from a template found by category (metric first) or given by path. Forms are extrusions, blends, revolutions, sweeps and swept blends; only box faces and `lock` faces of extrusions and blends are checked against their planes before Revit runs. Sketches lie in a plan, front or side plane (moved by `offset`); sweep paths are 2D polylines. No nested families, arrays, shared parameters, lookup tables or reporting parameters. Material values are material names (created plain when missing). The flex test measures the bounding box of the solids, so it cannot tell a wrong inner part from a right one. A family or file of the same name is refused unless `overwrite` |
 | `group.place` | Model groups only; elements already in a group refused; rotation of placed copies not read back |
 | `element.transform` | Plan moves, copies, rotations and mirrors; pinned elements refused; walls joined to a moved wall are not listed; copies keep their marks |
 | `phase.set` | Phases and phase filters by name only; it does not create phases |

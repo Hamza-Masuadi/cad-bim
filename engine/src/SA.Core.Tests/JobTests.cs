@@ -353,9 +353,9 @@ namespace SA.Core.Tests
         public void EveryWaveOneOpIsDeclaredExactlyOnce()
         {
             var reg = OpRegistry.CreateDefault();
-            var acadWave2 = SA.Core.Jobs.Ops.AutoCadOpsWave2.All().Select(s => s.Name);
+            var acadWave2 = SA.Core.Jobs.Ops.AutoCadOpsWave2.All().Concat(SA.Core.Jobs.Ops.AutoCadOpsBlocks.All()).Select(s => s.Name);
             var revitWave2 = SA.Core.Jobs.Ops.RevitOpsModelWave2.All().Concat(SA.Core.Jobs.Ops.RevitOpsDocsWave2.All())
-                .Concat(SA.Core.Jobs.Ops.RevitOpsFamilyWave2.All()).Select(s => s.Name);
+                .Concat(SA.Core.Jobs.Ops.RevitOpsFamilyWave2.All()).Concat(SA.Core.Jobs.Ops.RevitOpsCadFamilies.All()).Concat(SA.Core.Jobs.Ops.RevitOpsFamilyCreate.All()).Select(s => s.Name);
             Assert.Equal(AutoCad.Concat(acadWave2).OrderBy(x => x), reg.ForApp(AppKind.AutoCad).Select(s => s.Name).OrderBy(x => x));
             Assert.Equal(Revit.Concat(revitWave2).OrderBy(x => x), reg.ForApp(AppKind.Revit).Select(s => s.Name).OrderBy(x => x));
             Assert.Equal(AppKind.Revit, reg.Find("viewports.layout", AppKind.Revit)!.App);

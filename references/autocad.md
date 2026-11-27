@@ -1,8 +1,8 @@
 # AutoCAD: what the engine does, and recipes
 
-Full AutoCAD 2024 to 2027 on Windows (not LT, not Mac). 46 ops, all 2D. Field details: `jobs/autocad.md`. Loop and approval: `workflow.md`. Every op is "compiles, untested in AutoCAD" until the owner's first test round; the 13 newest (drawing, hatching, editing, data, clearances, markups, materials) are the least proven, so say "written, untested in the app" when the user relies on them.
+Full AutoCAD 2024 to 2027 on Windows (not LT, not Mac). 47 ops, all 2D. Field details: `jobs/autocad.md`. Loop and approval: `workflow.md`. Every op is "compiles, untested in AutoCAD" until the owner's first test round; the 13 newest (drawing, hatching, editing, data, clearances, markups, materials) are the least proven, so say "written, untested in the app" when the user relies on them.
 
-Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Recipes (3.1 to 3.12 drawing, sheets and clean-up; 3.13 to 3.20 geometry, editing, data, checks and markups) · 4 Escape hatch · 5 Version notes
+Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Recipes (3.1 to 3.12 drawing, sheets and clean-up; 3.13 to 3.21 geometry, editing, data, checks, markups and blocks for Revit) · 4 Escape hatch · 5 Version notes
 
 ## 1. What the engine can do
 
@@ -14,7 +14,7 @@ Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Rec
 | Editing | `entity.transform` (move, copy, rotate, mirror, scale; arrays with `copies`), `entity.delete` (destructive, `expectCount` required), `text.replace` (find and replace with a dry run) |
 | Set-out | `grid.module` (ceiling, floor or wall tile grid in a boundary, with border sizes) |
 | Annotation | `dim.linear`, `dim.string`, `text.add` (model, plotted or named height), `mleader.add`, `table.create`, `revcloud.add` (revision cloud with tag) |
-| Blocks and data | `block.define`, `block.insert`, `block.attrs.set`, `block.dynprops.set`, `schedule.fromBlocks` (attributes to a table and/or CSV), `block.extract` (every reference with attributes, position and room, to CSV or JSON), `area.report` (areas by layer or room, to a table, CSV or JSON) |
+| Blocks and data | `block.define`, `block.insert`, `block.attrs.set`, `block.dynprops.set`, `schedule.fromBlocks` (attributes to a table and/or CSV), `block.extract` (every reference with attributes, position and room, to CSV or JSON), `block.export` (each block to its own DWG plus `placements.json`, for Revit families), `area.report` (areas by layer or room, to a table, CSV or JSON) |
 | Checks | `layout.clearances` (turning circles, door swings, routes and zones against furniture and fixtures; changes nothing unless it draws the zones) |
 | Layers and materials | `layerstate.ensure` (named layer states for options and presentation), `material.ensure`, `material.assign` (render materials on layers or entities) |
 | Sheets and output | `layout.create`, `viewport.create`, `viewports.layout` (packs several views on a sheet), `titleblock.fill`, `plot.pdf` |
@@ -36,7 +36,7 @@ Not available (do not fake them; `limits.md`): trim, extend, fillet and offset a
 - **System variables** the job touches are restored at the end, except the ones `doc.setup` sets on purpose.
 - **Selecting by handle or filter.** `entity.transform`, `entity.delete` and `material.assign` take `handles` (from `sa acad snapshot --sections selection` or an earlier op) or a `filter` (layer, DXF type, block name, space). Give `expectCount` whenever you know the number: the op fails, and the job rolls back, if the selection differs. `entity.delete` requires it. Entities on locked layers are skipped and counted (delete refuses them).
 - **Polyline and hatch bulges:** segment i runs from point i to point i+1 (a closed loop has one more, back to the first); a positive bulge arcs to the right of the direction of travel, 1 is a half circle.
-- **Files written by ops** (`block.extract`, `area.report`, `schedule.fromBlocks`, the `layerstate.ensure` backup) are plain names ending `.csv` or `.json`, written into the job's output folder. A rehearsal writes them to a temporary folder. An existing file fails the op unless `overwrite: true`.
+- **Files written by ops** (`block.extract`, `area.report`, `schedule.fromBlocks`, the `layerstate.ensure` backup) are plain names ending `.csv` or `.json`, written into the job's output folder. A rehearsal writes them to a temporary folder. An existing file fails the op unless `overwrite: true`. `block.export` is different: it writes DWGs and `placements.json` into `outputDir`, and its files appear only after the job commits.
 - **Hatch patterns** come from the drawing's pattern file (`acad.pat` for imperial drawings, `acadiso.pat` for metric), or `SOLID`, or `_USER` with `spacing`.
 
 ## 3. Recipes
@@ -608,6 +608,36 @@ AutoCAD materials are render materials: they show in shaded and rendered views, 
 ```
 
 Untested in the app, and the most likely to be wrong: the texture scale (one 24 in repeat should cover one 24 in tile; check one tile in a rendered view before relying on it).
+
+### 3.21 Furniture blocks to Revit families (interior designers, space planners, BIM coordinators)
+
+`block.export` writes each chosen block definition to its own DWG (base point at the origin, the drawing's INSUNITS) and a `placements.json` listing every reference: handle, layer, position, rotation, signed scale and whether it is mirrored. In Revit, `family.fromcad` makes a family from each DWG and `family.place` with `fromPlacements` puts one instance at every reference. The drawing is not changed. The op is alone in its job, and its files reach `outputDir` only when the job commits.
+
+Rehearse first. The rehearsal writes everything to a temporary folder, opens every DWG again and reads the placements file back, then deletes it all. Read `count`, `files` and `skipped`, put `count` in `expectCount`, and commit.
+
+```json
+{
+  "jobId": "2026-11-28T17-40-00Z-furniture-to-revit",
+  "title": "Export furniture blocks for Revit",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-I-FFE-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "ops": [
+    { "id": "ffe", "op": "block.export", "args": {
+        "blocks": ["DESK-*", "CHAIR-*", "BED-*"], "layers": ["I-FURN"], "expectCount": 9,
+        "outputDir": "C:/Projects/2417/export/ffe-L01", "overwrite": true } }
+  ]
+}
+```
+
+Report `ffe.count` blocks, `ffe.references` references, and every item in `ffe.skipped` with its reason. Selection: `blocks` (wildcards allowed) and `layers` filter together; `all: true` takes every named block with a reference in model space. A block named in `blocks` with no reference is still exported, with no references. Lengths in the file are in the drawing's own units (`source.units`, `source.insunits`), not the job's. Points are WCS. Rotation is counter-clockwise from X.
+
+Things that work differently:
+- A dynamic block gives one DWG per representation actually used, named `<block>__1`, `<block>__2` in the order the references are found. Revit gets one family per size, which is what the drawing shows.
+- References nested inside other blocks are counted, not listed. Xrefs are never exported, and neither are MINSERT arrays, references tilted out of the plan, or blocks with no visible geometry (each one is in `skipped`).
+- File names are the block names with characters Windows refuses, and a trailing dot or space, turned into `_`. Names that come out the same get `-2`, `-3`. A block named like a Windows device (CON, NUL, COM1) is refused: rename it first.
+
+Untested in the app: everything about this op, in particular the base point shift on blocks whose base point is not at their geometry's origin, dynamic representations, and that HANDSEED and the fingerprint really stay unchanged.
 
 ## 4. Escape hatch: `script.lisp`
 

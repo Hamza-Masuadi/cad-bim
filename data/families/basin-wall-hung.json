@@ -1,0 +1,317 @@
+{
+  "name": "Basin Wall Hung",
+  "category": "Plumbing Fixtures",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Basin Thickness",
+      "spec": "length"
+    },
+    {
+      "name": "Rim Width",
+      "spec": "length"
+    },
+    {
+      "name": "Back Rim",
+      "spec": "length"
+    },
+    {
+      "name": "Bowl Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Void Clearance",
+      "spec": "length"
+    },
+    {
+      "name": "Basin Underside",
+      "spec": "length",
+      "formula": "Height - Basin Thickness"
+    },
+    {
+      "name": "Bowl Bottom",
+      "spec": "length",
+      "formula": "Height - Bowl Depth"
+    },
+    {
+      "name": "Void Top",
+      "spec": "length",
+      "formula": "Height + Void Clearance"
+    },
+    {
+      "name": "Ceramic Material",
+      "spec": "material"
+    }
+  ],
+  "types": [
+    {
+      "name": "600x450 Rim 800",
+      "values": {
+        "Basin Thickness": 180,
+        "Rim Width": 50,
+        "Back Rim": 100,
+        "Bowl Depth": 140,
+        "Void Clearance": 10,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 600,
+        "Depth": 450,
+        "Height": 800,
+        "Size Source": "kitbath.uk.adm1.wash_basin.width/.depth; rim sanitary.uk.basin_standing.rim"
+      }
+    },
+    {
+      "name": "600x450 Rim 730",
+      "values": {
+        "Basin Thickness": 180,
+        "Rim Width": 50,
+        "Back Rim": 100,
+        "Bowl Depth": 140,
+        "Void Clearance": 10,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 600,
+        "Depth": 450,
+        "Height": 730,
+        "Size Source": "kitbath.uk.adm1.wash_basin.width/.depth; rim sanitary.uk.basin_seated.rim"
+      }
+    },
+    {
+      "name": "500x400 Rim 800",
+      "values": {
+        "Basin Thickness": 180,
+        "Rim Width": 50,
+        "Back Rim": 100,
+        "Bowl Depth": 140,
+        "Void Clearance": 10,
+        "Ceramic Material": "Ceramic - White",
+        "Width": 500,
+        "Depth": 400,
+        "Height": 800,
+        "Size Source": "typical, verify; rim sanitary.uk.basin_standing.rim"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -300
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 300
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -450
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 800
+    },
+    {
+      "name": "Basin Underside",
+      "axis": "z",
+      "at": 620
+    },
+    {
+      "name": "Bowl Left",
+      "axis": "x",
+      "at": -250
+    },
+    {
+      "name": "Bowl Right",
+      "axis": "x",
+      "at": 250
+    },
+    {
+      "name": "Bowl Front",
+      "axis": "y",
+      "at": -400
+    },
+    {
+      "name": "Bowl Back",
+      "axis": "y",
+      "at": -100
+    },
+    {
+      "name": "Bowl Bottom",
+      "axis": "z",
+      "at": 660
+    },
+    {
+      "name": "Void Top",
+      "axis": "z",
+      "at": 810
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Top"
+      ],
+      "parameter": "Height"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Basin Underside"
+      ],
+      "parameter": "Basin Underside"
+    },
+    {
+      "planes": [
+        "Left",
+        "Bowl Left"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Right",
+        "Right"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Front",
+        "Bowl Front"
+      ],
+      "parameter": "Rim Width"
+    },
+    {
+      "planes": [
+        "Bowl Back",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Back Rim"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Bowl Bottom"
+      ],
+      "parameter": "Bowl Bottom"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Void Top"
+      ],
+      "parameter": "Void Top"
+    }
+  ],
+  "forms": [
+    {
+      "id": "basin",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Basin Underside",
+          "Top"
+        ]
+      },
+      "material": "Ceramic Material"
+    },
+    {
+      "id": "bowl",
+      "kind": "extrusion",
+      "void": true,
+      "box": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ],
+        "z": [
+          "Bowl Bottom",
+          "Void Top"
+        ]
+      }
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    },
+    {
+      "rect": {
+        "x": [
+          "Bowl Left",
+          "Bowl Right"
+        ],
+        "y": [
+          "Bowl Front",
+          "Bowl Back"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Basin Thickness"
+  }
+}

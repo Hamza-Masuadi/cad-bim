@@ -45,14 +45,33 @@ namespace SA.Core.Jobs.Ops
                     F.String("pattern", "Drafting fill pattern name, \"solid\" for solid fill, or \"none\" to clear.").Req(),
                     Rgb("color", "Pattern colour."));
 
+        private static FieldSpec FromPlacements() =>
+            F.Object("fromPlacements", "Place the block references of a placements.json (written by block.export) instead of points. Each block's family is the one " +
+                "whose type parameter \"" + SA.Core.Families.CadFamilies.BlockParameter + "\" names the block (family.fromcad writes it), else the family named like the block " +
+                "if it has one type, else familyMap. Rotation and mirroring come from each reference; scaled references, references outside model space, references whose " +
+                "family is not level-based or cannot be mirrored, and references where an instance of the same type already stands are refused one by one, with the reason.",
+                F.String("file", "Full path of placements.json.").Req(),
+                C.StringList("blocks", "Block names to place. Default: every block in the file."),
+                F.Map("familyMap", "Block name to the \"Family : Type\" to place for it, overriding the lookup.", F.Of(FieldType.String)),
+                F.Object("align", "How CAD coordinates (model space, drawing units) become project coordinates.",
+                    F.Ref("cadLink", "The DWG linked or imported in the model whose transform (ImportInstance.GetTotalTransform) carries CAD coordinates into the project: " +
+                        "its element id, \"$op.instance\" of a link.cad op, or the file name Revit shows for it (\"GF-R10.dwg\"). The robust choice."),
+                    F.Point2("translate", "Instead of cadLink: CAD origin in project coordinates (internal origin), in job units, applied after converting from the drawing's units and rotating."),
+                    F.Angle("rotationDeg", "With translate: rotation of the CAD axes about the CAD origin, counter-clockwise.").Def(0))
+                    .Req().With(K.ExactlyOne("cadLink", "translate")).With(K.Requires("rotationDeg", "translate")),
+                F.Bool("failOnRefused", "Fail the op when any reference is refused. When false refused references are listed in outputs.refused and as warnings.").Def(false));
+
         public static IEnumerable<OpSchema> All()
         {
-            yield return Op("family.place", "Place family instances of a loaded type: on a level, hosted on a wall, floor, ceiling or roof, or on a work plane.",
+            yield return Op("family.place", "Place family instances of a loaded type: on a level, hosted on a wall, floor, ceiling or roof, or on a work plane. " +
+                "With fromPlacements instead of type and points, place one instance per AutoCAD block reference in placements.json, on a level, using the family " +
+                "family.fromcad made for each block, with each reference's position, rotation and mirroring carried from CAD to project coordinates by align.",
                 new[]
                 {
-                    C.FamilyType("type", "Family type to place.").Req(),
+                    C.FamilyType("type", "Family type to place. Required with points."),
                     F.String("category", "Category the type must belong to (OST_Furniture or Furniture); narrows the lookup when two families share a type name."),
-                    C.PointList("points", "Insertion points, one instance each.").Req().Count(1),
+                    C.PointList("points", "Insertion points, one instance each.").Count(1),
+                    FromPlacements(),
                     F.String("level", "Level the instances are placed on (level-based families) or associated with (hosted families). Defaults to the host's level for hosted families."),
                     F.Length("offset", "Height above the level; on a wall face or a vertical reference plane, the height of the point above the level; on a horizontal face or work plane, the offset from it.").Def(0),
                     F.Ref("host", "Wall, floor, ceiling or roof to host the instances."),
@@ -64,8 +83,19 @@ namespace SA.Core.Jobs.Ops
                     F.String("mark", "Mark. With several points each instance gets mark-1, mark-2 ..."),
                     F.Map("parameters", "Instance parameter name to value, set after placing."),
                 },
-                new[] { K.AtMostOne("host", "workPlane"), K.Requires("face", "host") },
-                new[] { C.RefList("elements", "Instances placed, in point order."), F.Integer("count", "Number placed.") });
+                new[]
+                {
+                    K.AtMostOne("host", "workPlane"), K.Requires("face", "host"),
+                    K.ExactlyOne("points", "fromPlacements"), K.Requires("points", "type"), K.AtMostOne("type", "fromPlacements"), K.Requires("fromPlacements", "level"),
+                    K.AtMostOne("fromPlacements", "host"), K.AtMostOne("fromPlacements", "workPlane"), K.AtMostOne("fromPlacements", "rotation"),
+                    K.AtMostOne("fromPlacements", "flipHand"), K.AtMostOne("fromPlacements", "flipFacing"),
+                },
+                new[]
+                {
+                    C.RefList("elements", "Instances placed, in point order (fromPlacements: in file order, refused references left out)."),
+                    F.Integer("count", "Number placed."),
+                    F.List("refused", "fromPlacements: references not placed, each { block, handle, reason }. Empty with points.", F.Of(FieldType.Object)),
+                });
 
             yield return Op("group.place", "Make a model group from elements, or place instances of an existing model group type.",
                 new[]

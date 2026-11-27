@@ -1,0 +1,170 @@
+{
+  "name": "Kitchen Wall Unit",
+  "category": "Casework",
+  "parameters": [
+    {
+      "name": "Width",
+      "spec": "length"
+    },
+    {
+      "name": "Depth",
+      "spec": "length"
+    },
+    {
+      "name": "Height",
+      "spec": "length"
+    },
+    {
+      "name": "Size Source",
+      "spec": "text",
+      "group": "identityData"
+    },
+    {
+      "name": "Body Material",
+      "spec": "material"
+    },
+    {
+      "name": "Mounting Height",
+      "spec": "length",
+      "instance": true,
+      "value": 1450
+    }
+  ],
+  "types": [
+    {
+      "name": "600",
+      "values": {
+        "Height": 720,
+        "Body Material": "Laminate - White",
+        "Width": 600,
+        "Depth": 330,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "300",
+      "values": {
+        "Height": 720,
+        "Body Material": "Laminate - White",
+        "Width": 300,
+        "Depth": 330,
+        "Size Source": "typical, verify"
+      }
+    },
+    {
+      "name": "1000",
+      "values": {
+        "Height": 720,
+        "Body Material": "Laminate - White",
+        "Width": 1000,
+        "Depth": 330,
+        "Size Source": "typical, verify"
+      }
+    }
+  ],
+  "planes": [
+    {
+      "name": "Left",
+      "axis": "x",
+      "at": -300
+    },
+    {
+      "name": "Right",
+      "axis": "x",
+      "at": 300
+    },
+    {
+      "name": "Front",
+      "axis": "y",
+      "at": -330
+    },
+    {
+      "name": "Unit Bottom",
+      "axis": "z",
+      "at": 1450
+    },
+    {
+      "name": "Top",
+      "axis": "z",
+      "at": 2170
+    }
+  ],
+  "dimensions": [
+    {
+      "planes": [
+        "Left",
+        "Right"
+      ],
+      "parameter": "Width"
+    },
+    {
+      "planes": [
+        "Left",
+        "Center (Left/Right)",
+        "Right"
+      ],
+      "equal": true
+    },
+    {
+      "planes": [
+        "Front",
+        "Center (Front/Back)"
+      ],
+      "parameter": "Depth"
+    },
+    {
+      "planes": [
+        "Ref. Level",
+        "Unit Bottom"
+      ],
+      "parameter": "Mounting Height"
+    },
+    {
+      "planes": [
+        "Unit Bottom",
+        "Top"
+      ],
+      "parameter": "Height"
+    }
+  ],
+  "forms": [
+    {
+      "id": "body",
+      "kind": "extrusion",
+      "box": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ],
+        "z": [
+          "Unit Bottom",
+          "Top"
+        ]
+      },
+      "material": "Body Material"
+    }
+  ],
+  "symbols": [
+    {
+      "rect": {
+        "x": [
+          "Left",
+          "Right"
+        ],
+        "y": [
+          "Front",
+          "Center (Front/Back)"
+        ]
+      }
+    }
+  ],
+  "flex": {
+    "x": "Width",
+    "y": "Depth",
+    "z": "Height"
+  }
+}
