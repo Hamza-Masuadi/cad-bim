@@ -181,6 +181,7 @@ namespace SA.Revit.Ops.FromCad
                 { OpContext.Error(issues, ctx.FieldPath(args, "subcategory"), RevitIssueCodes.Invalid, "subcategory name '" + s.Subcategory + "' is not usable"); return null; }
                 if (body == "box" && s.MaterialParameter.Length == 0)
                 { OpContext.Error(issues, ctx.FieldPath(args, "materialParameter"), RevitIssueCodes.Invalid, "give a parameter name"); return null; }
+                if (body == "box" && !BoxRecipe(ctx, it.FamilyName, cat.Name, s, at, issues)) continue;
                 it.Spec = s;
 
                 var existing = families.Where(x => string.Equals(x.Name, it.FamilyName, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -202,6 +203,27 @@ namespace SA.Revit.Ops.FromCad
             if (selected.Count == 0 && !issues.Any(i => i.IsError))
                 OpContext.Error(issues, blocksAt, RevitIssueCodes.Invalid, Path.GetFileName(file) + " has no blocks to make families for");
             return p;
+        }
+
+        /// <summary>The box body as family.create args, read with family.create's rules; false when they reject it.</summary>
+        private static bool BoxRecipe(OpContext ctx, string familyName, string category, FamilySpec s, string at, List<Issue> issues)
+        {
+            var u = ctx.Units;
+            var box = new CadBoxBlock
+            {
+                FamilyName = familyName, Category = category, TypeName = s.TypeName, Block = s.Block, Source = s.Source, MaterialParameter = s.MaterialParameter,
+                BodyInPlan = s.BodyInPlan, MinX = u.LengthFromInternal(s.MinX), MinY = u.LengthFromInternal(s.MinY), MaxX = u.LengthFromInternal(s.MaxX),
+                MaxY = u.LengthFromInternal(s.MaxY), Height = u.LengthFromInternal(s.Height),
+            };
+            var found = new List<Issue>();
+            s.Recipe = FamilyRecipe.Parse(CadBoxRecipe.Args(box, u.JobUnit), u.JobUnit, at, found);
+            foreach (var i in found)
+            {
+                string msg = "block '" + s.Block + "': the box family: " + i.Message;
+                if (i.IsError) OpContext.Error(issues, at, i.Code, msg);
+                else OpContext.Warning(issues, at, i.Code, msg);
+            }
+            return !found.Any(i => i.IsError);
         }
 
         private static string SafeTemplatePath(Document doc)

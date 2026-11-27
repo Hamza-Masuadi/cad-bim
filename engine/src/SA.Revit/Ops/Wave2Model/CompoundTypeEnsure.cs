@@ -225,6 +225,8 @@ namespace SA.Revit.Ops.Wave2Model
                 list.Add(new CompoundStructureLayer(l.Thickness, l.Function, mat));
             }
             var cs = CompoundStructure.CreateSimpleCompoundStructure(list);
+            // Floor, ceiling and roof structures must not end-wrap; the simple structure starts with a wall's end cap.
+            cs.EndCap = EndCapCondition.NoEndCap;
             cs.SetNumberOfShellLayers(ShellLayerType.Exterior, p.TopShells);
             cs.SetNumberOfShellLayers(ShellLayerType.Interior, p.BottomShells);
             if (p.Variable >= 0) cs.VariableLayerIndex = p.Variable;

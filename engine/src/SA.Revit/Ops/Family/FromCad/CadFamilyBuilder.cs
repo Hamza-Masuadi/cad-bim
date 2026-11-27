@@ -5,8 +5,10 @@ using Autodesk.Revit.DB;
 using SA.Core.Families;
 using SA.Core.Jobs;
 using SA.Core.Json;
+using SA.Core.Validation;
 using SA.Revit.Compat;
 using SA.Revit.Host;
+using SA.Revit.Ops.FamilyCreation;
 using SA.Revit.Ops.FamilyCreation.Support;
 using SA.Revit.Ops.FamilyEditing;
 using SA.Revit.Ops.Modelling.Support;
@@ -30,6 +32,8 @@ namespace SA.Revit.Ops.FromCad
         /// <summary>The family's category; set on the family when the template has another (a Generic Model template standing in).</summary>
         public BuiltInCategory? SetCategory;
         public double MinX, MinY, MaxX, MaxY, Height;
+        /// <summary>The box body as a family.create recipe (<see cref="CadBoxRecipe"/>), checked when the op is planned; null for other bodies.</summary>
+        public FamilyRecipe? Recipe;
     }
 
     internal sealed class FamilyBuilt
@@ -49,20 +53,20 @@ namespace SA.Revit.Ops.FromCad
     /// origin) and the drawing's unit. With symbol "lines" the import's curves become symbolic lines on the reference
     /// level in the symbol subcategory, and the import is deleted. Revit's API gives an import instance no subcategory,
     /// so in "import" mode the subcategory is applied only if the instance exposes FAMILY_ELEM_SUBCATEGORY;</item>
-    /// <item>box body: an extrusion of the extents rectangle on the reference level, faces locked to four reference
-    /// planes (the template's centre plane is reused where an edge lies on it), Width and Depth as labelled dimensions
-    /// between them, the low-side plane locked to the centre plane so the box grows away from the base point, Height
-    /// associated with the extrusion end, and a type material parameter associated with the extrusion's material;</item>
-    /// <item>type parameters CAD Block and CAD Source.</item>
+    /// <item>box body: the block's <see cref="FamilySpec.Recipe"/> built by family.create's <see cref="FamilyBuilder"/>
+    /// first (category, Width/Depth/Height, material and CAD Block/CAD Source parameters, the type, planes, the box
+    /// locked to them and the labelled dimensions), then hidden when cut in plan unless bodyInPlan;</item>
+    /// <item>other bodies: type parameters CAD Block and CAD Source on the template's type, and for import3d a 3D import.</item>
     /// </list>
-    /// The flex test then sets each size case in a family transaction inside a transaction group that is rolled back,
-    /// and compares the body's bounding box with the case; any failure or warning Revit raises fails the case.
+    /// A box family then gets family.create's flex test (<see cref="FlexTest"/>) for its type, again for two temporary
+    /// types at 1.25 and 0.8 times its size (made and tested inside a transaction group that is rolled back), and a check
+    /// that the nominal box sits on the block's extents.
     /// </summary>
     internal static class CadFamilyBuilder
     {
-        public const string Width = "Width";
-        public const string Depth = "Depth";
-        public const string Height = "Height";
+        public const string Width = CadBoxRecipe.Width;
+        public const string Depth = CadBoxRecipe.Depth;
+        public const string Height = CadBoxRecipe.Height;
         private const int MaxLines = 20000;
 
         private static double Tol => UnitUtils.ConvertToInternalUnits(0.5, UnitTypeId.Millimeters);
@@ -71,11 +75,17 @@ namespace SA.Revit.Ops.FromCad
         {
             var built = new FamilyBuilt();
             var collector = new FailureCollector();
+            FamilyBuilder? box = null;
             using (var t = new Transaction(famDoc, "SA family.fromcad"))
             {
                 if (t.Start() != TransactionStatus.Started) throw new OpFailedException("transaction_failed", "Revit refused to start a transaction in the family for block '" + s.Block + "'");
                 collector.Install(t);
-                try { Make(ctx, famDoc, s, built); }
+                try
+                {
+                    if (s.Recipe != null) box = BuildBox(ctx, famDoc, s);
+                    Make(ctx, famDoc, s, built);
+                    if (box != null && !s.BodyInPlan) HideWhenCut(box);
+                }
                 catch (Exception e)
                 {
                     if (t.HasStarted() && !t.HasEnded()) t.RollBack();
@@ -88,8 +98,42 @@ namespace SA.Revit.Ops.FromCad
                     throw new OpFailedException("family_build_failed", "Revit rolled back the family for block '" + s.Block + "' (" + status + "): " +
                         (collector.Errors.Count > 0 ? string.Join("; ", collector.Errors.Take(3).Select(x => x.Text())) : "no failure message"));
             }
+            if (box is null)
+            {
+                built.FlexOk = true;
+                built.Flex = new JsonObject().Add("ok", true).Add("cases", new JsonArray()).Add("note", "body " + s.Body + " has no size parameters to flex");
+                return built;
+            }
             Flex(ctx, famDoc, s, built);
             return built;
+        }
+
+        /// <summary>Runs family.create's builder on the block's recipe inside the caller's transaction; its errors fail the block.</summary>
+        private static FamilyBuilder BuildBox(OpContext ctx, Document famDoc, FamilySpec s)
+        {
+            var owner = famDoc.OwnerFamily ?? throw new OpFailedException("template_unusable", "the new family document has no owner family");
+            BuiltInCategory? setCategory = s.SetCategory is BuiltInCategory bic && (owner.FamilyCategory is null || owner.FamilyCategory.BuiltInCategory != bic) ? bic : (BuiltInCategory?)null;
+            var issues = new List<Issue>();
+            var builder = new FamilyBuilder(famDoc, s.Recipe!, ctx.Units, issues, ctx.Op.ArgsPath);
+            builder.Build(setCategory, setCategory?.ToString() ?? "");
+            foreach (var w in issues.Where(i => !i.IsError)) ctx.Warn("block '" + s.Block + "': " + w.Message);
+            var errors = issues.Where(i => i.IsError).ToList();
+            if (errors.Count > 0)
+                throw new OpFailedException("family_build_failed", "building the box family for block '" + s.Block + "' failed: " + string.Join("; ", errors.Take(5).Select(i => i.Message)),
+                    new JsonObject().Add("issues", Issue.ToJson(errors)));
+            return builder;
+        }
+
+        /// <summary>The recipe can hide a form in plan views but not where a plan cuts it; a tall body cut by the plan would cover the symbol.</summary>
+        private static void HideWhenCut(FamilyBuilder box)
+        {
+            foreach (var kv in box.Forms)
+            {
+                var vis = kv.Value.GetVisibility();
+                try { vis.IsShownInPlanRCPCut = false; }
+                catch (Autodesk.Revit.Exceptions.ApplicationException) { continue; }
+                kv.Value.SetVisibility(vis);
+            }
         }
 
         private static void Make(OpContext ctx, Document famDoc, FamilySpec s, FamilyBuilt built)
@@ -116,19 +160,22 @@ namespace SA.Revit.Ops.FromCad
             var importId = Import(famDoc, s, plan, true);
             if (s.Symbol == "lines")
             {
-                built.Symbol = ToLines(famDoc, (ImportInstance)famDoc.GetElement(importId), plan, sketch, Subcategory(famDoc, famCat, s.Subcategory), s.Block);
-                famDoc.Delete(importId);
+                var imp = (ImportInstance)famDoc.GetElement(importId);
+                built.Symbol = ToLines(famDoc, imp, plan, sketch, Subcategory(famDoc, famCat, s.Subcategory), s.Block);
+                // Revit pins an origin-to-origin import, and a pinned element cannot be deleted.
+                if (imp.Pinned) imp.Pinned = false;
+                try { famDoc.Delete(importId); }
+                catch (Autodesk.Revit.Exceptions.ArgumentException e) { throw new OpFailedException("import_not_removed", "the imported DWG for block '" + s.Block + "' could not be removed after its lines were copied: " + e.Message); }
             }
             else built.Symbol = ImportSubcategory(ctx, famDoc, (ImportInstance)famDoc.GetElement(importId), famCat, s);
 
+            if (s.Recipe != null) return;
             var pBlock = Param(fm, CadFamilies.BlockParameter, GroupTypeId.IdentityData, SpecTypeId.String.Text);
             var pSource = Param(fm, CadFamilies.SourceParameter, GroupTypeId.IdentityData, SpecTypeId.String.Text);
             EnsureType(fm, s.TypeName);
             fm.Set(pBlock, s.Block);
             fm.Set(pSource, s.Source);
-
-            if (s.Body == "box") Box(famDoc, s, plan, sketch);
-            else if (s.Body == "import3d") Import(famDoc, s, plan, false);
+            if (s.Body == "import3d") Import(famDoc, s, plan, false);
         }
 
         // ------------------------------------------------------------------ symbol
@@ -264,180 +311,104 @@ namespace SA.Revit.Ops.FromCad
             else fm.RenameCurrentType(name);
         }
 
-        // ------------------------------------------------------------------ box body
-
-        private static Extrusion Box(Document famDoc, FamilySpec s, ViewPlan plan, SketchPlane sketch)
-        {
-            var fm = famDoc.FamilyManager;
-            var pW = Param(fm, Width, GroupTypeId.Geometry, SpecTypeId.Length);
-            var pD = Param(fm, Depth, GroupTypeId.Geometry, SpecTypeId.Length);
-            var pH = Param(fm, Height, GroupTypeId.Geometry, SpecTypeId.Length);
-            var pM = Param(fm, s.MaterialParameter, GroupTypeId.Materials, SpecTypeId.Reference.Material);
-            double w = s.MaxX - s.MinX, d = s.MaxY - s.MinY;
-            fm.Set(pW, w);
-            fm.Set(pD, d);
-            fm.Set(pH, s.Height);
-
-            var c00 = new XYZ(s.MinX, s.MinY, 0);
-            var c10 = new XYZ(s.MaxX, s.MinY, 0);
-            var c11 = new XYZ(s.MaxX, s.MaxY, 0);
-            var c01 = new XYZ(s.MinX, s.MaxY, 0);
-            var loop = new CurveArray();
-            loop.Append(Line.CreateBound(c00, c10));
-            loop.Append(Line.CreateBound(c10, c11));
-            loop.Append(Line.CreateBound(c11, c01));
-            loop.Append(Line.CreateBound(c01, c00));
-            var profile = new CurveArrArray();
-            profile.Append(loop);
-            var ext = famDoc.FamilyCreate.NewExtrusion(true, profile, sketch, s.Height)
-                ?? throw new OpFailedException("body_failed", "Revit did not create the box for block '" + s.Block + "'");
-            famDoc.Regenerate();
-
-            double m = Math.Max(w, d) * 0.25;
-            var planes = new FilteredElementCollector(famDoc).OfClass(typeof(ReferencePlane)).Cast<ReferencePlane>().ToList();
-            var centreX = planes.FirstOrDefault(p => IsCentre(p, XYZ.BasisX));
-            var centreY = planes.FirstOrDefault(p => IsCentre(p, XYZ.BasisY));
-            var left = Side(famDoc, plan, centreX, true, s.MinX, s.MinY - m, s.MaxY + m, "CAD Left");
-            var right = Side(famDoc, plan, centreX, true, s.MaxX, s.MinY - m, s.MaxY + m, "CAD Right");
-            var front = Side(famDoc, plan, centreY, false, s.MinY, s.MinX - m, s.MaxX + m, "CAD Front");
-            var back = Side(famDoc, plan, centreY, false, s.MaxY, s.MinX - m, s.MaxX + m, "CAD Back");
-
-            Align(famDoc, plan, ext, left, -XYZ.BasisX, s.MinX, true);
-            Align(famDoc, plan, ext, right, XYZ.BasisX, s.MaxX, true);
-            Align(famDoc, plan, ext, front, -XYZ.BasisY, s.MinY, false);
-            Align(famDoc, plan, ext, back, XYZ.BasisY, s.MaxY, false);
-
-            Dim(famDoc, plan, left, right, Line.CreateBound(new XYZ(s.MinX, s.MaxY + m, 0), new XYZ(s.MaxX, s.MaxY + m, 0))).FamilyLabel = pW;
-            Dim(famDoc, plan, front, back, Line.CreateBound(new XYZ(s.MaxX + m, s.MinY, 0), new XYZ(s.MaxX + m, s.MaxY, 0))).FamilyLabel = pD;
-            if (centreX != null && left.Id != centreX.Id && right.Id != centreX.Id)
-                Dim(famDoc, plan, centreX, left, Line.CreateBound(new XYZ(0, s.MaxY + 2 * m, 0), new XYZ(s.MinX, s.MaxY + 2 * m, 0))).IsLocked = true;
-            if (centreY != null && front.Id != centreY.Id && back.Id != centreY.Id)
-                Dim(famDoc, plan, centreY, front, Line.CreateBound(new XYZ(s.MaxX + 2 * m, 0, 0), new XYZ(s.MaxX + 2 * m, s.MinY, 0))).IsLocked = true;
-
-            fm.AssociateElementParameterToFamilyParameter(ext.get_Parameter(BuiltInParameter.EXTRUSION_END_PARAM)
-                ?? throw new OpFailedException("body_failed", "the extrusion has no end parameter"), pH);
-            fm.AssociateElementParameterToFamilyParameter(ext.get_Parameter(BuiltInParameter.MATERIAL_ID_PARAM)
-                ?? throw new OpFailedException("body_failed", "the extrusion has no material parameter"), pM);
-
-            if (!s.BodyInPlan)
-            {
-                var vis = ext.GetVisibility();
-                vis.IsShownInTopBottom = false;
-                try { vis.IsShownInPlanRCPCut = false; }
-                catch (Autodesk.Revit.Exceptions.ApplicationException) { }
-                ext.SetVisibility(vis);
-            }
-            return ext;
-        }
-
-        /// <summary>A vertical reference plane through the family origin with the given normal (the template's centre planes).</summary>
-        private static bool IsCentre(ReferencePlane p, XYZ normal)
-        {
-            var pl = p.GetPlane();
-            return Math.Abs(Math.Abs(pl.Normal.DotProduct(normal)) - 1) < 1e-9 && Math.Abs(pl.Normal.DotProduct(pl.Origin)) <= Tol;
-        }
-
-        private static ReferencePlane Side(Document famDoc, View plan, ReferencePlane? centre, bool normalX, double at, double from, double to, string name)
-        {
-            if (centre != null && Math.Abs(at) <= Tol) return centre;
-            var bubble = normalX ? new XYZ(at, to, 0) : new XYZ(from, at, 0);
-            var free = normalX ? new XYZ(at, from, 0) : new XYZ(to, at, 0);
-            var rp = famDoc.FamilyCreate.NewReferencePlane(bubble, free, XYZ.BasisZ, plan)
-                ?? throw new OpFailedException("body_failed", "Revit did not create reference plane " + name);
-            try { rp.Name = name; }
-            catch (Autodesk.Revit.Exceptions.ApplicationException) { }
-            return rp;
-        }
-
-        private static void Align(Document famDoc, View plan, Extrusion ext, ReferencePlane rp, XYZ normal, double at, bool alongX)
-        {
-            Reference? face = null;
-            foreach (var obj in ext.get_Geometry(new Options { ComputeReferences = true }))
-            {
-                if (!(obj is Solid so) || so.Faces.Size == 0) continue;
-                foreach (Face f in so.Faces)
-                    if (f is PlanarFace pf && pf.FaceNormal.IsAlmostEqualTo(normal) && Math.Abs((alongX ? pf.Origin.X : pf.Origin.Y) - at) <= Tol && pf.Reference != null)
-                        face = pf.Reference;
-            }
-            if (face is null) throw new OpFailedException("body_failed", "the box face at " + (alongX ? "x" : "y") + " = " + at.ToString("R", System.Globalization.CultureInfo.InvariantCulture) + " ft was not found to lock to its reference plane");
-            famDoc.FamilyCreate.NewAlignment(plan, rp.GetReference(), face);
-        }
-
-        private static Dimension Dim(Document famDoc, View plan, ReferencePlane a, ReferencePlane b, Line line)
-        {
-            var refs = new ReferenceArray();
-            refs.Append(a.GetReference());
-            refs.Append(b.GetReference());
-            return famDoc.FamilyCreate.NewLinearDimension(plan, line, refs)
-                ?? throw new OpFailedException("body_failed", "Revit did not create the dimension between '" + a.Name + "' and '" + b.Name + "'");
-        }
-
         // ------------------------------------------------------------------ flex test
+
+        private static readonly (string name, double k)[] Scaled = { ("larger", 1.25), ("smaller", 0.8) };
 
         private static void Flex(OpContext ctx, Document famDoc, FamilySpec s, FamilyBuilt built)
         {
             var u = ctx.Units;
-            if (s.Body != "box")
-            {
-                built.FlexOk = true;
-                built.Flex = new JsonObject().Add("ok", true).Add("cases", new JsonArray()).Add("note", "body " + s.Body + " has no size parameters to flex");
-                return;
-            }
+            var r = s.Recipe!;
             var fm = famDoc.FamilyManager;
+            var axes = new List<FlexAxis>();
+            if (r.Flex != null)
+                foreach (var kv in r.Flex.Axes())
+                    if (FamilyDoc.Find(fm, kv.Value, out _) is FamilyParameter fp) axes.Add(new FlexAxis { Axis = kv.Key, Parameter = fp });
+            double tol = u.LengthToInternal(r.Flex?.Tolerance ?? u.LengthTolerance);
             double w = s.MaxX - s.MinX, d = s.MaxY - s.MinY;
-            var cases = new[] { ("nominal", 1.0), ("larger", 1.25), ("smaller", 0.8) };
-            var list = new JsonArray();
+            var cases = new JsonArray();
             bool allOk = true;
-            foreach (var (name, k) in cases)
+
+            foreach (var o in FlexTest.Run(famDoc, r.Types.Select(x => x.Name).ToList(), axes, tol, u))
             {
-                double ew = w * k, ed = d * k, eh = s.Height * k;
-                var problems = new List<string>();
-                var c = new JsonObject().Add("name", name)
-                    .Add("expected", new JsonObject().Add(Width, u.LengthJson(ew)).Add(Depth, u.LengthJson(ed)).Add(Height, u.LengthJson(eh)));
-                using (var g = new TransactionGroup(famDoc, "SA flex " + name))
+                var problems = new List<string>(o.Problems);
+                if (o.Ok && FlexTest.SolidBounds(famDoc) is BoundingBoxXYZ bb && (Math.Abs(bb.Min.X - s.MinX) > tol || Math.Abs(bb.Min.Y - s.MinY) > tol || Math.Abs(bb.Min.Z) > tol))
+                    problems.Add("the box is not at the block's extents: its lower corner is at [" + Show(u, bb.Min.X) + ", " + Show(u, bb.Min.Y) + ", " + Show(u, bb.Min.Z) +
+                        "], expected [" + Show(u, s.MinX) + ", " + Show(u, s.MinY) + ", 0]");
+                allOk &= Case(cases, r.Types.Count == 1 ? "nominal" : o.Type, o, problems, w, d, s.Height, u);
+            }
+
+            using (var g = new TransactionGroup(famDoc, "SA flex scaled sizes"))
+            {
+                g.Start();
+                var names = new List<string>();
+                var setup = new List<string>();
+                var collector = new FailureCollector();
+                using (var t = new Transaction(famDoc, "SA flex scaled types"))
                 {
-                    g.Start();
-                    var collector = new FailureCollector();
-                    using (var t = new Transaction(famDoc, "SA flex " + name))
+                    t.Start();
+                    collector.Install(t);
+                    try
                     {
-                        t.Start();
-                        collector.Install(t);
-                        try
+                        var first = FamilyDoc.Type(fm, r.Types[0].Name) ?? throw new InvalidOperationException("type '" + r.Types[0].Name + "' is not in the family");
+                        foreach (var (name, k) in Scaled)
                         {
-                            fm.Set(FamilyDoc.Find(fm, Width, out _)!, ew);
-                            fm.Set(FamilyDoc.Find(fm, Depth, out _)!, ed);
-                            fm.Set(FamilyDoc.Find(fm, Height, out _)!, eh);
+                            fm.CurrentType = first;
+                            string tn = "SA flex " + name;
+                            fm.NewType(tn);
+                            fm.Set(FamilyDoc.Find(fm, Width, out _)!, w * k);
+                            fm.Set(FamilyDoc.Find(fm, Depth, out _)!, d * k);
+                            fm.Set(FamilyDoc.Find(fm, Height, out _)!, s.Height * k);
+                            names.Add(tn);
                         }
-                        catch (Exception e) { problems.Add("Revit refused the values: " + e.Message); }
-                        if (problems.Count > 0) t.RollBack();
-                        else if (t.Commit() != TransactionStatus.Committed) problems.Add("Revit did not commit the values");
                     }
-                    problems.AddRange(collector.Errors.Select(x => "error: " + x.Text()));
-                    problems.AddRange(collector.Warnings.Select(x => "warning: " + x.Text()));
-                    var bb = FlexTest.SolidBounds(famDoc);
-                    if (bb is null) problems.Add("the body has no solid geometry");
-                    else
-                    {
-                        double mw = bb.Max.X - bb.Min.X, md = bb.Max.Y - bb.Min.Y, mh = bb.Max.Z - bb.Min.Z;
-                        c.Add("measured", new JsonObject().Add(Width, u.LengthJson(mw)).Add(Depth, u.LengthJson(md)).Add(Height, u.LengthJson(mh))
-                            .Add("min", new JsonArray(u.LengthJson(bb.Min.X), u.LengthJson(bb.Min.Y), u.LengthJson(bb.Min.Z))));
-                        if (Math.Abs(mw - ew) > Tol) problems.Add(Width + " measures " + Show(u, mw) + ", expected " + Show(u, ew));
-                        if (Math.Abs(md - ed) > Tol) problems.Add(Depth + " measures " + Show(u, md) + ", expected " + Show(u, ed));
-                        if (Math.Abs(mh - eh) > Tol) problems.Add(Height + " measures " + Show(u, mh) + ", expected " + Show(u, eh));
-                        if (name == "nominal" && (Math.Abs(bb.Min.X - s.MinX) > Tol || Math.Abs(bb.Min.Y - s.MinY) > Tol || Math.Abs(bb.Min.Z) > Tol))
-                            problems.Add("the box is not at the block's extents: its lower corner is at [" + Show(u, bb.Min.X) + ", " + Show(u, bb.Min.Y) + ", " + Show(u, bb.Min.Z) +
-                                "], expected [" + Show(u, s.MinX) + ", " + Show(u, s.MinY) + ", 0]");
-                    }
-                    g.RollBack();
+                    catch (Exception e) { setup.Add("Revit refused the scaled sizes: " + e.Message); }
+                    if (setup.Count > 0) t.RollBack();
+                    else if (t.Commit() != TransactionStatus.Committed) setup.Add("Revit did not commit the scaled sizes");
                 }
-                c.Add("ok", problems.Count == 0);
-                if (problems.Count > 0) { c.Add("problems", JsonArray.FromStrings(problems)); allOk = false; }
-                list.Add(c);
+                setup.AddRange(collector.Errors.Select(x => "error: " + x.Text()));
+                setup.AddRange(collector.Warnings.Select(x => "warning: " + x.Text()));
+                if (setup.Count > 0)
+                {
+                    foreach (var (name, k) in Scaled)
+                        allOk &= Case(cases, name, null, setup, w * k, d * k, s.Height * k, u);
+                }
+                else
+                {
+                    var outcomes = FlexTest.Run(famDoc, names, axes, tol, u);
+                    for (int i = 0; i < Scaled.Length; i++)
+                        allOk &= Case(cases, Scaled[i].name, outcomes[i], outcomes[i].Problems, w * Scaled[i].k, d * Scaled[i].k, s.Height * Scaled[i].k, u);
+                }
+                g.RollBack();
+            }
+
+            using (var t = new Transaction(famDoc, "SA family.fromcad first type"))
+            {
+                if (t.Start() == TransactionStatus.Started)
+                {
+                    if (FamilyDoc.Type(fm, r.Types[0].Name) is FamilyType first) fm.CurrentType = first;
+                    t.Commit();
+                }
             }
             built.FlexOk = allOk;
-            built.Flex = new JsonObject().Add("ok", allOk).Add("cases", list);
+            built.Flex = new JsonObject().Add("ok", allOk).Add("cases", cases);
         }
 
+        /// <summary>Adds one flex case in the op's output shape { name, type, expected, measured, ok, problems }; returns whether it passed.</summary>
+        private static bool Case(JsonArray cases, string name, FlexOutcome? o, List<string> problems, double w, double d, double h, RevitUnits u)
+        {
+            bool ok = problems.Count == 0 && (o?.Ok ?? false);
+            var c = new JsonObject().Add("name", name);
+            if (o != null) c.Add("type", o.Type);
+            c.Add("expected", new JsonObject().Add(Width, u.LengthJson(w)).Add(Depth, u.LengthJson(d)).Add(Height, u.LengthJson(h)));
+            if (o?.Json["size"] is JsonObject size)
+                c.Add("measured", new JsonObject().Add(Width, size["x"] ?? JsonValue.Null).Add(Depth, size["y"] ?? JsonValue.Null).Add(Height, size["z"] ?? JsonValue.Null));
+            c.Add("ok", ok);
+            if (problems.Count > 0) c.Add("problems", JsonArray.FromStrings(problems));
+            else if (!ok) c.Add("problems", JsonArray.FromStrings(new[] { "the flex test did not pass" }));
+            cases.Add(c);
+            return ok;
+        }
         private static string Show(RevitUnits u, double internalLength) => Kit.Num(u.LengthFromInternal(internalLength));
     }
 }

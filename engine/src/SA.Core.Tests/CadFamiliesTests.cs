@@ -320,5 +320,124 @@ namespace SA.Core.Tests
             Assert.Null(CadPlacement.Plan(r, Identity, 1, out var c));
             Assert.Contains("Z scale", c);
         }
+
+        // ------------------------------------------------------------------ box body as a family.create recipe
+
+        private static CadBoxBlock Box(double minX, double minY, double maxX, double maxY, double h = 750, bool inPlan = false) => new CadBoxBlock
+        {
+            FamilyName = "CAD-DESK", Category = "Furniture", TypeName = "Default", Block = "DESK", Source = "GF-R10.dwg", MaterialParameter = "Body Material",
+            BodyInPlan = inPlan, MinX = minX, MinY = minY, MaxX = maxX, MaxY = maxY, Height = h,
+        };
+
+        /// <summary>The args pass family.create's schema and every recipe rule with no issue at all, warnings included.</summary>
+        private static FamilyRecipe Recipe(CadBoxBlock b)
+        {
+            var args = CadBoxRecipe.Args(b, LengthUnit.Millimetre);
+            var schema = JobValidator.ValidateArgs(OpRegistry.Default.Find("family.create", AppKind.Revit)!, args, LengthUnit.Millimetre);
+            Assert.True(schema.Count == 0, string.Join("; ", schema.Select(i => i.Path + ": " + i.Message)));
+            var issues = new List<Issue>();
+            var r = FamilyRecipe.Parse(args, LengthUnit.Millimetre, "$.args", issues);
+            Assert.True(issues.Count == 0, string.Join("; ", issues.Select(i => i.Path + ": " + i.Message)));
+            return r;
+        }
+
+        private static string[] Pair(string[]? names, FamilyRecipe r) => names!.OrderBy(n => r.Plane(n)!.At).ToArray();
+
+        private static void Sizes(FamilyRecipe r, double w, double d, double h)
+        {
+            var t = Assert.Single(r.Types);
+            Assert.Equal(w, ((JsonNumber)t.ValueOf("Width")!).Value, 9);
+            Assert.Equal(d, ((JsonNumber)t.ValueOf("Depth")!).Value, 9);
+            Assert.Equal(h, ((JsonNumber)t.ValueOf("Height")!).Value, 9);
+            var f = Assert.Single(r.Forms);
+            var x = Pair(f.BoxX, r); var y = Pair(f.BoxY, r); var z = Pair(f.BoxZ, r);
+            Assert.Equal(w, r.Plane(x[1])!.At - r.Plane(x[0])!.At, 9);
+            Assert.Equal(d, r.Plane(y[1])!.At - r.Plane(y[0])!.At, 9);
+            Assert.Equal(new[] { FamilyRecipe.RefLevel, CadBoxRecipe.Top }, z);
+            Assert.Equal(h, r.Plane(CadBoxRecipe.Top)!.At, 9);
+            Assert.Contains(r.Dimensions, dm => dm.Parameter == "Width" && dm.Planes.SequenceEqual(x));
+            Assert.Contains(r.Dimensions, dm => dm.Parameter == "Depth" && dm.Planes.SequenceEqual(y));
+            Assert.Contains(r.Dimensions, dm => dm.Parameter == "Height" && dm.Planes.SequenceEqual(z));
+        }
+
+        [Fact]
+        public void BoxRecipeCentredUsesEqualDimensions()
+        {
+            var r = Recipe(Box(-500, -300, 500, 300));
+            Sizes(r, 1000, 600, 750);
+            foreach (var n in new[] { CadBoxRecipe.Left, CadBoxRecipe.Right, CadBoxRecipe.Front, CadBoxRecipe.Back })
+                Assert.False(r.Plane(n)!.Pinned);
+            Assert.Contains(r.Dimensions, d => d.Equal && d.Planes.SequenceEqual(new[] { CadBoxRecipe.Left, FamilyRecipe.CenterLeftRight, CadBoxRecipe.Right }));
+            Assert.Contains(r.Dimensions, d => d.Equal && d.Planes.SequenceEqual(new[] { CadBoxRecipe.Front, FamilyRecipe.CenterFrontBack, CadBoxRecipe.Back }));
+            Assert.Equal(-500, r.Plane(CadBoxRecipe.Left)!.At, 9);
+            Assert.Equal(300, r.Plane(CadBoxRecipe.Back)!.At, 9);
+            var f = r.Forms[0];
+            Assert.Equal("Body Material", f.Material);
+            Assert.False(f.Plan);
+            Assert.True(f.FrontBack && f.LeftRight);
+            Assert.Equal(("Width", "Depth", "Height"), (r.Flex!.X, r.Flex.Y, r.Flex.Z));
+            Assert.Equal("text", r.Parameter(CadFamilies.BlockParameter)!.Spec);
+            Assert.Equal("DESK", ((JsonString)r.Types[0].ValueOf(CadFamilies.BlockParameter)!).Value);
+            Assert.Equal("GF-R10.dwg", ((JsonString)r.Types[0].ValueOf(CadFamilies.SourceParameter)!).Value);
+            Assert.Equal("material", r.Parameter("Body Material")!.Spec);
+        }
+
+        [Fact]
+        public void BoxRecipeOffCentreKeepsTheEdgeNearestTheBasePoint()
+        {
+            var r = Recipe(Box(200, 100, 1400, 700));
+            Sizes(r, 1200, 600, 750);
+            Assert.True(r.Plane(CadBoxRecipe.Left)!.Pinned);
+            Assert.True(r.Plane(CadBoxRecipe.Front)!.Pinned);
+            var n = Recipe(Box(-1400, -700, -200, -100));
+            Sizes(n, 1200, 600, 750);
+            Assert.True(n.Plane(CadBoxRecipe.Right)!.Pinned);
+            Assert.False(n.Plane(CadBoxRecipe.Left)!.Pinned);
+            Assert.True(n.Plane(CadBoxRecipe.Back)!.Pinned);
+            Assert.False(n.Plane(CadBoxRecipe.Front)!.Pinned);
+        }
+
+        [Fact]
+        public void BoxRecipeCornerBasePointUsesTheCentrePlanes()
+        {
+            var r = Recipe(Box(0, 0, 900, 450, 820, inPlan: true));
+            Sizes(r, 900, 450, 820);
+            Assert.Null(r.Plane(CadBoxRecipe.Left));
+            Assert.Null(r.Plane(CadBoxRecipe.Front));
+            Assert.Equal(new[] { FamilyRecipe.CenterLeftRight, CadBoxRecipe.Right }, r.Forms[0].BoxX);
+            Assert.Equal(new[] { FamilyRecipe.CenterFrontBack, CadBoxRecipe.Back }, r.Forms[0].BoxY);
+            Assert.False(r.Plane(CadBoxRecipe.Right)!.Pinned);
+            Assert.True(r.Forms[0].Plan);
+
+            var top = Recipe(Box(-900, -450, 0, 0));
+            Sizes(top, 900, 450, 750);
+            Assert.Null(top.Plane(CadBoxRecipe.Right));
+            Assert.Null(top.Plane(CadBoxRecipe.Back));
+            Assert.False(top.Plane(CadBoxRecipe.Left)!.Pinned);
+        }
+
+        [Fact]
+        public void BoxRecipeZeroMinOnOneAxisOnly()
+        {
+            var r = Recipe(Box(0, -250, 600, 250));
+            Sizes(r, 600, 500, 750);
+            Assert.Equal(CadBoxRecipe.Right, r.Forms[0].BoxX![1]);
+            Assert.Equal(FamilyRecipe.CenterLeftRight, r.Forms[0].BoxX![0]);
+            Assert.False(r.Plane(CadBoxRecipe.Front)!.Pinned);
+            Assert.Contains(r.Dimensions, d => d.Equal && d.Planes[0] == CadBoxRecipe.Front);
+            var nearZero = Recipe(Box(0.0001, -0.0002, 600, 400));
+            Assert.Equal(FamilyRecipe.CenterLeftRight, nearZero.Forms[0].BoxX![0]);
+            Assert.Equal(FamilyRecipe.CenterFrontBack, nearZero.Forms[0].BoxY![0]);
+        }
+
+        [Fact]
+        public void BoxRecipeNameClashesAreReportedByTheRecipeRules()
+        {
+            var b = Box(-500, -300, 500, 300);
+            b.MaterialParameter = "Width";
+            var issues = new List<Issue>();
+            FamilyRecipe.Parse(CadBoxRecipe.Args(b, LengthUnit.Millimetre), LengthUnit.Millimetre, "$.args", issues);
+            Assert.Contains(issues, i => i.IsError && i.Message.Contains("declared twice"));
+        }
     }
 }
