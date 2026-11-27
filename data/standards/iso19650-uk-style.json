@@ -1,0 +1,1062 @@
+{
+  "$schema": "../schemas/standard.schema.json",
+  "id": "iso19650-uk-style",
+  "name": "ISO 19650 UK-style project standard (architecture and interiors, metric)",
+  "version": "1.0",
+  "description": "A starting project standard in the style of UK public-sector ISO 19650 practice: Uniclass-classified layer names in the ISO 13567 field order used by the DfE Projects Information Standard, ISO 19650-2 UK National Annex container names, suitability and revision codes, metric scales and plotted text heights. Built from public guidance; it is not the text of ISO 19650, ISO 13567 or the National Annex.",
+  "jurisdiction": "United Kingdom (style preset; not a code or a licensed standard)",
+  "notes": [
+    "STATUS: style preset. ISO 13567, ISO 19650-2 and its UK National Annex are paywalled; nothing here is presented as their official content. Sources: UK Department for Education Projects Information Standard (ER-DFE-XX-XX-T-X-0003 C01), which states it is aligned to BS EN ISO 19650-2 NA incl. the Feb 2021 corrigendum [S14]; UK BIM Framework Guidance Part C [S15]; Symetri [S17]; Wikipedia ISO 13567 [S12]; Wikipedia ISO 216 [N06]; ISO 128-20 sample pages [N05]; ISO 3098 sample pages [S80, search excerpt]; Uniclass 2015 online tables, NBS (uniclass.thenbs.com; Systems table v1.44 and CAD table v1.3, read 2026-11-27). Source ids resolve in references/practice/_SOURCES.md and research/05-expert-practice-and-standards.md.",
+    "LAYER SCHEME CHOSEN, AND WHY: Uniclass-style names in ISO 13567 field order, exactly as DfE specifies: Agent (discipline code followed by '-'), Element (Uniclass code truncated to 6 characters with underscores removed: Ss_25_10_20 -> Ss2510), Presentation ('--'), Description (Uniclass title in PascalCase): A-Ss2510--CurtainWallingSystems, S-Ss2030--Columns [S14]. DfE requires DWG and IFC outputs to conform to BS EN ISO 13567-2 [S14]. The full 9-field ISO 13567 form (status, sector, phase, projection, scale, work package) was NOT used: its field lengths are known only from a secondary summary of the paywalled text [S12] and no public source gives its presentation or status code letters, so a checker built on it would enforce unsourced codes. The DfE form was read first-hand, is current UK public-sector practice and uses a free classification (Uniclass).",
+    "HOW THE SCHEME IS ENCODED: filler '-' (DfE pads with '-'), case 'any' (Uniclass codes are mixed case). Field agent (2, required) uses codeList disciplines. Field element (6, required) is matched by PREFIX against the Uniclass tables usable for layers (EF, Ss, Pr, SL, Zz): this validates the table prefix and shape, NOT that the numeric code exists in Uniclass; that check is PARTIAL. Field presentation (2) is optional because DfE always writes '--'. The description is the user-defined part. Uniclass codes shorter than 6 characters are padded with the filler: Zz_90 -> Zz90--.",
+    "STATUS AND PHASE IN LAYER NAMES: the DfE form has no status field. Projects that need new/existing/demolish layers should add a suffix to the description (for example ...Existing, ...Demolish) and list those layers; this preset does not invent status letters.",
+    "CONTAINER NAMES (fileNaming) [S14][S17]: Project-Originator-Functional breakdown-Spatial breakdown-Form-Discipline-Number, hyphen reserved as separator. Originator 3 characters; functional and spatial breakdown 2 characters each (ZZ multiple, XX none, 00 site, 01... buildings or levels); Form from NA.3.6 (codeList forms, COMPLETE per DfE); Discipline from NA.3.7 (codeList disciplines, COMPLETE per DfE; I, J, K are DfE allocations of NA spare codes; spare N, U, V are omitted); Number exactly 4 digits (DfE project rule). The project code length is not fixed by the source; [A-Z0-9]+ is a default. Status and revision are metadata, not part of the name, except for files held outside the CDE, where DfE appends description, suitability and revision (example 3) [S14][S21]; the optional trailing fields model that. Projects on the 2018 NA field names use two-character Type codes (DR, M3) and Role [S17][S83]; the full legacy Type and Role lists were NOT found in a public source, so they are not included.",
+    "SHEET NUMBERS: DfE puts the full container name in the drawing number [S14], so sheetNumbering is the container name without extension and with Form = D (drawing). Projects that number sheets by a short code should replace this rule.",
+    "SUITABILITY (statusCodes) [S15] Table 2, NA Table NA.1: COMPLETE for S0-S4, S6, S7 and CR; S5 is withdrawn and omitted. A and B codes are numbered per project (A1, An / B1, Bn); A1 and B1 are listed and patterns.suitability accepts any number. Clients redefine codes (DfE redefines S4 and S5 and adds stage-linked A0-A6, B0-B5) [S14]: edit the project copy.",
+    "REVISIONS [S15] NA.4.3: P01.01 work in progress (preliminary revision and version), P01 shared, C01 published (contractual) [S15][S14].",
+    "SCALES: 1:100 shape and layout; 1:50 junctions; 1:20, 1:10, 1:5 and 1:2 assembly details; models at 1:1 [S14]. 1:200, 1:500, 1:1250 for site plans are typical practice (sheets-sets.md section 6), not sourced.",
+    "PLOTTED TEXT HEIGHTS: 1.8 and 2.5 mm general text, dimensions and notes; 3.5 mm sub-headings; 5 mm titles and drawing numbers; 7 mm major titles, Arial [S14]. 10, 14, 20 mm complete the ISO 3098 series [S80, search excerpt only]. Text must stay legible when printed reduced to A3 [S14]: check 1.8 mm text on A1 sheets.",
+    "LINEWEIGHTS: every starter layer uses a value of the ISO 128-20 series 0.13, 0.18, 0.25, 0.35, 0.5, 0.7, 1.0 mm [N05]; which value each layer gets follows drawing-conventions.md section 2.2 (typical practice) and is a DEFAULT. Colours are DEFAULTS chosen so one colour maps to one series width (8 0.13, 1 0.18, 3 0.25, 4 0.35, 2 0.5, 6 0.7, 5 1.0); codeLists.plotColours is that default map, not a sourced pen table.",
+    "SENSIBLE DEFAULTS, NOT SOURCED (a project should override them): the starter layer selection, all colours, linetypes and lineweight assignments, text and dimension style names and settings other than 2.5 mm dimension text and Arial [S14], title block field names, patterns, codeLists.xrefLayers and codeLists.plotColours.",
+    "SHEET SIZES: codeLists.sheetSizes lists ISO A0-A4 in millimetres (width x height, portrait) [N06]. A sizes keep the root-2 ratio, so A1 printed on A3 is exactly half scale [N06]. The schema has no numeric sheet size member, so the size is in each code's name.",
+    "UNICLASS TITLES used in layer descriptions were read from the NBS Uniclass browser on 2026-11-27 (Systems v1.44, CAD v1.3). Zz_90 'Readme and plotting lines' is used for non-plotting content; NBS shows its child codes as not in use, so only the group code is used.",
+    "LAYER ROLES, VIEW NAMES, PURGE AND TITLE BLOCK: layerRoles names the layer for viewport frames, xref inserts and the title block insert; viewNaming is the view name rule (the same default as patterns.viewName); purge.keep lists names a purge must keep beyond what the standard already lists, and is empty here; titleBlock.blockName and titleBlock.familyType are not set, because the title block is the project's own. All four are DEFAULTS, not sourced: a project sets its own."
+  ],
+  "units": {
+    "length": "mm"
+  },
+  "codeLists": {
+    "disciplines": [
+      {
+        "code": "A",
+        "name": "architecture"
+      },
+      {
+        "code": "B",
+        "name": "building surveyor"
+      },
+      {
+        "code": "C",
+        "name": "civil engineering"
+      },
+      {
+        "code": "D",
+        "name": "demolition / dismantling"
+      },
+      {
+        "code": "E",
+        "name": "electrical engineering"
+      },
+      {
+        "code": "F",
+        "name": "facilities / asset management"
+      },
+      {
+        "code": "G",
+        "name": "ground engineering"
+      },
+      {
+        "code": "H",
+        "name": "highways and transport engineering"
+      },
+      {
+        "code": "I",
+        "name": "interior architecture (DfE allocation of a spare NA code)"
+      },
+      {
+        "code": "J",
+        "name": "acoustic engineering (DfE allocation of a spare NA code)"
+      },
+      {
+        "code": "K",
+        "name": "fire engineering (DfE allocation of a spare NA code)"
+      },
+      {
+        "code": "L",
+        "name": "landscape architecture"
+      },
+      {
+        "code": "M",
+        "name": "mechanical engineering"
+      },
+      {
+        "code": "O",
+        "name": "other discipline"
+      },
+      {
+        "code": "P",
+        "name": "public health engineering"
+      },
+      {
+        "code": "Q",
+        "name": "quantity surveying / cost consultancy"
+      },
+      {
+        "code": "R",
+        "name": "project management"
+      },
+      {
+        "code": "S",
+        "name": "structural engineering"
+      },
+      {
+        "code": "T",
+        "name": "town and country planning and building control"
+      },
+      {
+        "code": "W",
+        "name": "water engineering"
+      },
+      {
+        "code": "X",
+        "name": "non-discipline specific / not applicable"
+      },
+      {
+        "code": "Y",
+        "name": "topographical surveying"
+      },
+      {
+        "code": "Z",
+        "name": "multiple disciplines"
+      }
+    ],
+    "forms": [
+      {
+        "code": "D",
+        "name": "drawing"
+      },
+      {
+        "code": "G",
+        "name": "diagram"
+      },
+      {
+        "code": "I",
+        "name": "image"
+      },
+      {
+        "code": "L",
+        "name": "list"
+      },
+      {
+        "code": "M",
+        "name": "model"
+      },
+      {
+        "code": "T",
+        "name": "textual"
+      },
+      {
+        "code": "V",
+        "name": "video / audio"
+      }
+    ],
+    "uniclassTables": [
+      {
+        "code": "Ac",
+        "name": "Activities"
+      },
+      {
+        "code": "Co",
+        "name": "Complexes"
+      },
+      {
+        "code": "En",
+        "name": "Entities"
+      },
+      {
+        "code": "SL",
+        "name": "Spaces / locations"
+      },
+      {
+        "code": "EF",
+        "name": "Elements / functions"
+      },
+      {
+        "code": "Ss",
+        "name": "Systems"
+      },
+      {
+        "code": "Pr",
+        "name": "Products"
+      },
+      {
+        "code": "TE",
+        "name": "Tools and equipment"
+      },
+      {
+        "code": "PM",
+        "name": "Project management"
+      },
+      {
+        "code": "Ro",
+        "name": "Roles"
+      },
+      {
+        "code": "RK",
+        "name": "Risk"
+      },
+      {
+        "code": "Ma",
+        "name": "Materials"
+      },
+      {
+        "code": "PC",
+        "name": "Properties and characteristics"
+      },
+      {
+        "code": "FI",
+        "name": "Form of information"
+      },
+      {
+        "code": "Zz",
+        "name": "CAD"
+      }
+    ],
+    "layerElementTables": [
+      {
+        "code": "EF",
+        "name": "Elements / functions"
+      },
+      {
+        "code": "Ss",
+        "name": "Systems"
+      },
+      {
+        "code": "Pr",
+        "name": "Products"
+      },
+      {
+        "code": "SL",
+        "name": "Spaces / locations"
+      },
+      {
+        "code": "Zz",
+        "name": "CAD"
+      }
+    ],
+    "sheetSizes": [
+      {
+        "code": "A0",
+        "name": "841 x 1189 mm"
+      },
+      {
+        "code": "A1",
+        "name": "594 x 841 mm"
+      },
+      {
+        "code": "A2",
+        "name": "420 x 594 mm"
+      },
+      {
+        "code": "A3",
+        "name": "297 x 420 mm"
+      },
+      {
+        "code": "A4",
+        "name": "210 x 297 mm"
+      }
+    ],
+    "plotColours": [
+      {
+        "code": "1",
+        "name": "0.18 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "2",
+        "name": "0.5 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "3",
+        "name": "0.25 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "4",
+        "name": "0.35 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "5",
+        "name": "1.0 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "6",
+        "name": "0.7 mm",
+        "description": "Default colour-to-width map, not sourced"
+      },
+      {
+        "code": "8",
+        "name": "0.13 mm",
+        "description": "Default colour-to-width map, not sourced"
+      }
+    ],
+    "xrefLayers": [
+      {
+        "code": "Z-Zz3030--ExternalReferences",
+        "name": "Xref insert layer (Uniclass Zz_30_30 External references)"
+      }
+    ],
+    "approvedFonts": [
+      {
+        "code": "Arial",
+        "name": "Arial TrueType [S14]"
+      }
+    ]
+  },
+  "layerNaming": {
+    "scheme": "iso13567",
+    "description": "DfE form of ISO 13567 with Uniclass element codes: Agent-Element-Presentation-Description [S14].",
+    "examples": [
+      "A-Ss2510--CurtainWallingSystems",
+      "S-Ss2030--Columns",
+      "A-Zz2020--Dimensions",
+      "Z-Zz90----ReadmeAndPlottingLines"
+    ],
+    "filler": "-",
+    "case": "any",
+    "fields": [
+      {
+        "name": "agent",
+        "length": 2,
+        "required": true,
+        "codeList": "disciplines",
+        "description": "Discipline code (NA.3.7 per DfE) followed by '-' [S14]"
+      },
+      {
+        "name": "element",
+        "length": 6,
+        "required": true,
+        "match": "prefix",
+        "codeList": "layerElementTables",
+        "description": "Uniclass code, underscores removed, truncated to 6 characters [S14]; only the table prefix is validated (partial)"
+      },
+      {
+        "name": "presentation",
+        "length": 2,
+        "description": "DfE writes '--' [S14]"
+      }
+    ],
+    "userDefined": {
+      "allowed": true,
+      "description": "Uniclass title in PascalCase [S14]"
+    }
+  },
+  "layers": [
+    {
+      "name": "A-Ss2510--FramedWallSystems",
+      "color": 2,
+      "lineweight": 0.5,
+      "plot": true,
+      "description": "Framed walls cut in plan. Element: Uniclass Ss_25_10 Framed wall systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss2511--MonolithicWallStructureSystems",
+      "color": 2,
+      "lineweight": 0.5,
+      "plot": true,
+      "description": "Concrete and other monolithic walls. Element: Uniclass Ss_25_11 Monolithic wall structure systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss2513--UnitWallStructureSystems",
+      "color": 2,
+      "lineweight": 0.5,
+      "plot": true,
+      "description": "Masonry and blockwork walls. Element: Uniclass Ss_25_13 Unit wall structure systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss2520--WallCladdingSystems",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Cladding. Element: Uniclass Ss_25_20 Wall cladding systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss2525--WallLiningSystems",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Linings and drylining. Element: Uniclass Ss_25_25 Wall lining systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss2530--DoorAndWindowSystems",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Doors and windows. Element: Uniclass Ss_25_30 Door and window systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss3010--RoofStructureSystems",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Roof structure. Element: Uniclass Ss_30_10 Roof structure systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss3012--FloorAndDeckStructureSystems",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Floor structure edges. Element: Uniclass Ss_30_12 Floor and deck structure systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss3020--FlooringAndDeckingSystems",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Flooring. Element: Uniclass Ss_30_20 Flooring and decking systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss3025--CeilingAndSoffitSystems",
+      "color": 1,
+      "linetype": "ACAD_ISO02W100",
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Ceilings (above the cut plane). Element: Uniclass Ss_30_25 Ceiling and soffit systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss3510--StairAndRampStructureSystems",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Stairs and ramps. Element: Uniclass Ss_35_10 Stair and ramp structure systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Ss4015--GeneralFittingsFurnishingsAndEquipmentSystems",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "FF&E drawn by architecture. Element: Uniclass Ss_40_15 General fittings furnishings and equipment systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz2010--Annotation",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "General text and notes. Element: Uniclass Zz_20_10 Annotation [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz2020--Dimensions",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Dimensions. Element: Uniclass Zz_20_20 Dimensions [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz2040--Hatching",
+      "color": 8,
+      "lineweight": 0.13,
+      "plot": true,
+      "description": "Hatching and poche. Element: Uniclass Zz_20_40 Hatching [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz2080--Symbols",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Section, elevation and detail marks, north arrow. Element: Uniclass Zz_20_80 Symbols [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz1070--Revisions",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Revision clouds and tags. Element: Uniclass Zz_10_70 Revisions [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz5010--Boundaries",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Room and area boundaries (closed polylines). Element: Uniclass Zz_50_10 Boundaries [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz6055--MatchLines",
+      "color": 6,
+      "lineweight": 0.7,
+      "plot": true,
+      "description": "Match lines. Element: Uniclass Zz_60_55 Match lines [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz6045--Levels",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Level datums. Element: Uniclass Zz_60_45 Levels [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "A-Zz8030--Entourage",
+      "color": 8,
+      "lineweight": 0.13,
+      "plot": true,
+      "description": "Entourage. Element: Uniclass Zz_80_30 Entourage [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Ss2525--WallLiningSystems",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Interior linings and partitions. Element: Uniclass Ss_25_25 Wall lining systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Ss3042--FloorCoveringAndFinishingSystems",
+      "color": 8,
+      "lineweight": 0.13,
+      "plot": true,
+      "description": "Floor finishes. Element: Uniclass Ss_30_42 Floor covering and finishing systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Ss3025--CeilingAndSoffitSystems",
+      "color": 1,
+      "linetype": "ACAD_ISO02W100",
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Interior ceilings. Element: Uniclass Ss_30_25 Ceiling and soffit systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Ss4015--GeneralFittingsFurnishingsAndEquipmentSystems",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Furniture and equipment. Element: Uniclass Ss_40_15 General fittings furnishings and equipment systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Ss4045--LivingSpaceFFESystems",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Residential FF&E. Element: Uniclass Ss_40_45 Living space FF&E systems [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Zz2010--Annotation",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Interior text and finish notes. Element: Uniclass Zz_20_10 Annotation [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Zz2020--Dimensions",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Interior dimensions. Element: Uniclass Zz_20_20 Dimensions [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "I-Zz5010--Boundaries",
+      "color": 1,
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Interior room and area boundaries. Element: Uniclass Zz_50_10 Boundaries [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "S-Ss2030--StructuralColumns",
+      "color": 2,
+      "lineweight": 0.5,
+      "plot": true,
+      "description": "Columns. Element: Uniclass Ss_20_30 Structural columns [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "S-Zz3540--Gridlines",
+      "color": 1,
+      "linetype": "ACAD_ISO04W100",
+      "lineweight": 0.18,
+      "plot": true,
+      "description": "Grid lines. Element: Uniclass Zz_35_40 Gridlines [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "Z-Zz1020--DrawingFrame",
+      "color": 2,
+      "lineweight": 0.5,
+      "plot": true,
+      "description": "Drawing frame and title block (paper space). Element: Uniclass Zz_10_20 Drawing frame [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "Z-Zz2090--TitleAnnotation",
+      "color": 4,
+      "lineweight": 0.35,
+      "plot": true,
+      "description": "Title annotation. Element: Uniclass Zz_20_90 Title annotation [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "Z-Zz3030--ExternalReferences",
+      "color": 3,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Xref inserts. Element: Uniclass Zz_30_30 External references [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "Z-Zz3040--Images",
+      "color": 8,
+      "lineweight": 0.13,
+      "plot": true,
+      "description": "Raster images. Element: Uniclass Zz_30_40 Images [NBS Uniclass]. Colour and lineweight are defaults; lineweight from the ISO 128 series [N05]."
+    },
+    {
+      "name": "Z-Zz90----ReadmeAndPlottingLines",
+      "color": 9,
+      "lineweight": "default",
+      "plot": false,
+      "description": "Viewport frames, construction lines and notes to self. Element: Uniclass Zz_90 Readme and plotting lines [NBS Uniclass]. Not plotted; colour is a default."
+    }
+  ],
+  "layerRoles": {
+    "description": "Layers by role. Defaults, not sourced.",
+    "viewport": "Z-Zz90----ReadmeAndPlottingLines",
+    "xref": "Z-Zz3030--ExternalReferences",
+    "titleBlock": "Z-Zz1020--DrawingFrame"
+  },
+  "textStyles": [
+    {
+      "name": "NOTES",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "General text, dimensions, notes: 2.5 mm (1.8 mm for dense notes) [S14]"
+    },
+    {
+      "name": "HEADINGS",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "Sub-headings, room names: 3.5 mm [S14]"
+    },
+    {
+      "name": "TITLES",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "Titles and drawing numbers 5 mm, major titles 7 mm [S14]"
+    }
+  ],
+  "dimStyles": [
+    {
+      "name": "MM-ANNO",
+      "description": "Annotative metric dimensions in whole millimetres, ticks, text above the line. DIMTXT 2.5 mm and millimetre units per [S14]; other values are defaults.",
+      "annotative": true,
+      "settings": {
+        "DIMLUNIT": 2,
+        "DIMDEC": 0,
+        "DIMRND": 0,
+        "DIMTXT": 2.5,
+        "DIMTXSTY": "NOTES",
+        "DIMBLK": "ArchTick",
+        "DIMASZ": 1.5,
+        "DIMEXE": 1.5,
+        "DIMEXO": 1.5,
+        "DIMGAP": 1,
+        "DIMTAD": 1,
+        "DIMTIH": 0,
+        "DIMTOH": 0,
+        "DIMZIN": 8,
+        "DIMLFAC": 1
+      }
+    }
+  ],
+  "sheetNumbering": {
+    "description": "Drawing number = full container name with Form D [S14].",
+    "case": "any",
+    "fields": [
+      {
+        "name": "project",
+        "pattern": "[A-Z0-9]+"
+      },
+      {
+        "name": "originator",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{3}"
+      },
+      {
+        "name": "functional",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{2}"
+      },
+      {
+        "name": "spatial",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{2}"
+      },
+      {
+        "name": "form",
+        "separator": "-",
+        "codes": [
+          {
+            "code": "D",
+            "name": "drawing"
+          }
+        ]
+      },
+      {
+        "name": "discipline",
+        "separator": "-",
+        "codeList": "disciplines"
+      },
+      {
+        "name": "number",
+        "separator": "-",
+        "pattern": "[0-9]{4}"
+      }
+    ],
+    "examples": [
+      "ABCDE-XYZ-ZZ-02-D-A-0001",
+      "ABCDE-XYZ-01-00-D-I-2101"
+    ]
+  },
+  "fileNaming": {
+    "description": "ISO 19650-2 UK NA container name as amended: Project-Originator-Functional-Spatial-Form-Discipline-Number [S14][S17]; optional description, suitability and revision only for files held outside the CDE [S14].",
+    "case": "any",
+    "extensions": [
+      ".dwg",
+      ".dxf",
+      ".rvt",
+      ".rfa",
+      ".ifc",
+      ".nwc",
+      ".nwd",
+      ".pdf",
+      ".docx",
+      ".xlsx",
+      ".csv"
+    ],
+    "fields": [
+      {
+        "name": "project",
+        "pattern": "[A-Z0-9]+"
+      },
+      {
+        "name": "originator",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{3}"
+      },
+      {
+        "name": "functional",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{2}",
+        "description": "ZZ multiple, XX none, 00 site, 01... buildings [S14]"
+      },
+      {
+        "name": "spatial",
+        "separator": "-",
+        "pattern": "[A-Z0-9]{2}",
+        "description": "Level or location, e.g. 00, 01, ZZ, XX [S14]"
+      },
+      {
+        "name": "form",
+        "separator": "-",
+        "codeList": "forms"
+      },
+      {
+        "name": "discipline",
+        "separator": "-",
+        "codeList": "disciplines"
+      },
+      {
+        "name": "number",
+        "separator": "-",
+        "pattern": "[0-9]{4}"
+      },
+      {
+        "name": "description",
+        "separator": "-",
+        "pattern": "[A-Za-z0-9 ]+",
+        "optional": true,
+        "description": "Outside the CDE only [S14]"
+      },
+      {
+        "name": "suitability",
+        "separator": "-",
+        "pattern": "S[0-4]|S[67]|A[0-9]+|B[0-9]+|CR",
+        "optional": true,
+        "description": "Outside the CDE only [S14]"
+      },
+      {
+        "name": "revision",
+        "separator": "-",
+        "pattern": "[PC][0-9]{2}(\\.[0-9]{2})?",
+        "optional": true,
+        "description": "Outside the CDE only [S14]"
+      }
+    ],
+    "examples": [
+      "ABCDE-XYZ-ZZ-ZZ-L-A-0001.xlsx",
+      "ABCDE-XYZ-ZZ-02-D-A-0001.pdf",
+      "ABCDE-XYZ-ZZ-XX-M-A-0001.rvt",
+      "ABCDE-XYZ-ZZ-XX-L-A-0001-Door Schedule-S3-P01.xlsx"
+    ]
+  },
+  "viewNaming": {
+    "description": "Two-digit sequence number, ' - ', then the view title (letters, digits, spaces, brackets, '&' and '-'). A default, not sourced.",
+    "case": "any",
+    "fields": [
+      {
+        "name": "sequence",
+        "pattern": "[0-9]{2}"
+      },
+      {
+        "name": "title",
+        "separator": " - ",
+        "pattern": "[A-Za-z0-9 ()&-]+"
+      }
+    ],
+    "examples": [
+      "01 - Ground Floor"
+    ]
+  },
+  "statusCodes": [
+    {
+      "code": "S0",
+      "name": "Initial status",
+      "description": "WIP; preliminary revision and version [S15]"
+    },
+    {
+      "code": "S1",
+      "name": "Suitable for coordination",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "S2",
+      "name": "Suitable for information",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "S3",
+      "name": "Suitable for review and comment",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "S4",
+      "name": "Suitable for stage approval",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "S6",
+      "name": "Suitable for PIM authorization",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "S7",
+      "name": "Suitable for AIM authorization",
+      "description": "Shared; preliminary [S15]"
+    },
+    {
+      "code": "A1",
+      "name": "Authorized and accepted (An numbered per project)",
+      "description": "Published; contractual [S15]"
+    },
+    {
+      "code": "B1",
+      "name": "Partial sign-off with comments (Bn numbered per project)",
+      "description": "Published; preliminary [S15]"
+    },
+    {
+      "code": "CR",
+      "name": "As constructed record document",
+      "description": "Published for AIM acceptance; contractual [S15]"
+    }
+  ],
+  "revisionCodes": {
+    "description": "UK NA revision codes [S15] Figure 5 (NA.4.3); DfE ranges P01.01-Pnn.nn, P01-Pnn, C01-Cnn [S14].",
+    "formats": [
+      {
+        "name": "wip",
+        "pattern": "P[0-9]{2}\\.[0-9]{2}",
+        "description": "Work in progress: preliminary revision and version",
+        "example": "P01.01"
+      },
+      {
+        "name": "shared",
+        "pattern": "P[0-9]{2}",
+        "description": "Shared, preliminary (non-contractual)",
+        "example": "P01"
+      },
+      {
+        "name": "published",
+        "pattern": "C[0-9]{2}",
+        "description": "Published, contractual",
+        "example": "C01"
+      }
+    ]
+  },
+  "scales": [
+    {
+      "name": "1:1",
+      "use": "Full size; all models are at 1:1 [S14]"
+    },
+    {
+      "name": "1:2",
+      "use": "Assembly details [S14]"
+    },
+    {
+      "name": "1:5",
+      "use": "Assembly details [S14]"
+    },
+    {
+      "name": "1:10",
+      "use": "Assembly details [S14]"
+    },
+    {
+      "name": "1:20",
+      "use": "Assembly details, enlarged plans, wall sections [S14]"
+    },
+    {
+      "name": "1:50",
+      "use": "Junctions, setting-out plans [S14]"
+    },
+    {
+      "name": "1:100",
+      "use": "Shape and layout: general arrangement plans, elevations, sections [S14]"
+    },
+    {
+      "name": "1:200",
+      "use": "Site and key plans (typical practice)"
+    },
+    {
+      "name": "1:500",
+      "use": "Site plans (typical practice)"
+    },
+    {
+      "name": "1:1250",
+      "use": "Location plans (typical practice)"
+    }
+  ],
+  "textHeights": [
+    {
+      "name": "small",
+      "plotted": 1.8,
+      "unit": "mm",
+      "use": "Dense notes [S14]"
+    },
+    {
+      "name": "body",
+      "plotted": 2.5,
+      "unit": "mm",
+      "use": "General text, dimensions, notes [S14]"
+    },
+    {
+      "name": "heading",
+      "plotted": 3.5,
+      "unit": "mm",
+      "use": "Sub-headings; general text on A0 [S14]"
+    },
+    {
+      "name": "title",
+      "plotted": 5,
+      "unit": "mm",
+      "use": "Titles and drawing numbers [S14]"
+    },
+    {
+      "name": "major-title",
+      "plotted": 7,
+      "unit": "mm",
+      "use": "Major titles [S14]"
+    },
+    {
+      "name": "iso-10",
+      "plotted": 10,
+      "unit": "mm",
+      "use": "ISO 3098 series [S80, search excerpt]"
+    },
+    {
+      "name": "iso-14",
+      "plotted": 14,
+      "unit": "mm",
+      "use": "ISO 3098 series [S80, search excerpt]"
+    },
+    {
+      "name": "iso-20",
+      "plotted": 20,
+      "unit": "mm",
+      "use": "ISO 3098 series [S80, search excerpt]"
+    }
+  ],
+  "titleBlock": {
+    "description": "Field names are defaults; content per sheets-sets.md section 2 [S14][S22]. Suitability and revision come from CDE metadata [S14].",
+    "fields": [
+      {
+        "name": "PROJECT",
+        "required": true,
+        "source": "project.name"
+      },
+      {
+        "name": "PROJECT_NUMBER",
+        "source": "project.number"
+      },
+      {
+        "name": "CLIENT",
+        "source": "project.client"
+      },
+      {
+        "name": "ORIGINATOR",
+        "source": "project.originator"
+      },
+      {
+        "name": "DRAWING_TITLE",
+        "required": true,
+        "source": "sheet.name"
+      },
+      {
+        "name": "DRAWING_NUMBER",
+        "required": true,
+        "source": "sheet.number",
+        "description": "Full container name [S14]"
+      },
+      {
+        "name": "SUITABILITY",
+        "required": true,
+        "source": "issue.status",
+        "description": "Code from statusCodes [S15]"
+      },
+      {
+        "name": "REVISION",
+        "required": true,
+        "source": "revision.current",
+        "description": "P01.01 / P01 / C01 form [S15]"
+      },
+      {
+        "name": "SCALE",
+        "required": true,
+        "source": "sheet.scale",
+        "description": "At the stated paper size"
+      },
+      {
+        "name": "PAPER_SIZE",
+        "source": "sheet.paperSize"
+      },
+      {
+        "name": "DATE",
+        "source": "issue.date"
+      },
+      {
+        "name": "DRAWN"
+      },
+      {
+        "name": "CHECKED"
+      },
+      {
+        "name": "APPROVED"
+      }
+    ]
+  },
+  "purge": {
+    "description": "Names a purge keeps in addition to everything this standard lists (layers and their linetypes, text and dimension styles, layerRoles, titleBlock.blockName). Empty by default; a project adds its title block and symbol blocks.",
+    "keep": []
+  },
+  "patterns": {
+    "dimensionLayer": "[A-Z]-Zz2020.*",
+    "wallLayer": "[A-Z]-Ss25(10|11|12|13|20|25).*",
+    "areaLayer": "[A-Z]-Zz50.*",
+    "titleBlockLayer": "[A-Z]-Zz(1020|2090).*",
+    "widthAllowedLayer": "[A-Z]-Zz.*",
+    "splineAllowedLayer": "[LY]-.*|[A-Z]-Ss45.*|[A-Z]-Zz(20|80).*",
+    "cadLinkWorkset": "(?i).*(CAD|DWG).*",
+    "revitLinkWorkset": "(?i).*(Revit|RVT).*",
+    "ffeWorkset": "(?i).*(FF&?E|furnitur).*",
+    "ifcExportView": "(?i).*\\bIFC\\b.*",
+    "suitability": "S[0-4]|S[67]|A[0-9]+|B[0-9]+|CR",
+    "viewName": "[0-9]{2} - [A-Za-z0-9 ()&-]+"
+  }
+}

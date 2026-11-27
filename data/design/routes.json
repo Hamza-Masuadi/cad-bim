@@ -1,0 +1,704 @@
+{
+  "topic": "Corridors, accessible routes and turning spaces",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "routes.us.ada.clear_width.min",
+      "quantity": "Minimum clear width of walking surfaces",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.5.1"
+      },
+      "note": "May reduce to 32 in (815 mm) for 24 in (610 mm) maximum length, separated by segments at least 48 in long and 36 in wide.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.turn_180.approach.min",
+      "quantity": "Clear width approaching and leaving a 180-degree turn around an element less than 48 in wide",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.5.2"
+      },
+      "note": "Not required where the width at the turn is at least 60 in (1525 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.turn_180.at_turn.min",
+      "quantity": "Clear width at a 180-degree turn",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.5.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.passing_interval.max",
+      "quantity": "Maximum interval between passing spaces when route is narrower than 60 in",
+      "value": 61,
+      "min": null,
+      "max": 61,
+      "unit": "m",
+      "imperial": {
+        "value": 200,
+        "unit": "ft",
+        "converted": false
+      },
+      "applies_to": "Accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.5.3"
+      },
+      "note": "Passing space: 60 x 60 in (1525 x 1525 mm), or a T-intersection with arms extending 48 in (1220 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.passing_space.min",
+      "quantity": "Passing space size (square)",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible routes narrower than 60 in",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.5.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.turning_circle.min",
+      "quantity": "Circular turning space diameter",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair turning space",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "304.3.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.t_turn.square.min",
+      "quantity": "T-shaped turning space: enclosing square",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair turning space",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "304.3.2"
+      },
+      "note": "Arms and base 36 in (915 mm) wide; each arm clear 12 in (305 mm) each direction; base clear 24 in (610 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.t_turn.arm_width.min",
+      "quantity": "T-shaped turning space: arm and base width",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair turning space",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "304.3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.clear_floor_space.width.min",
+      "quantity": "Clear floor space width",
+      "value": 760,
+      "min": 760,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair clear floor or ground space",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "305.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.clear_floor_space.length.min",
+      "quantity": "Clear floor space length",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair clear floor or ground space",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "305.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.alcove_forward.width.min",
+      "quantity": "Alcove width for forward approach where depth exceeds 24 in (610 mm)",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Clear floor space in alcoves",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "305.7.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.alcove_parallel.width.min",
+      "quantity": "Alcove width for parallel approach where depth exceeds 15 in (380 mm)",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Clear floor space in alcoves",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "305.7.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.cross_slope.max",
+      "quantity": "Maximum cross slope of walking surfaces",
+      "value": 48,
+      "min": 48,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 48,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.3"
+      },
+      "note": "Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 48 (no steeper than 1:48).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.level_change_vertical.max",
+      "quantity": "Maximum vertical change in level without bevel",
+      "value": 6.4,
+      "min": null,
+      "max": 6.4,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.25,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Floor surfaces on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "303.2"
+      },
+      "note": "Between 1/4 and 1/2 in (6.4-13 mm): bevel no steeper than 1:2 (303.3). Above 1/2 in: ramp (303.4).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.protrusion.max",
+      "quantity": "Maximum protrusion into circulation path (leading edge 27-80 in above floor)",
+      "value": 100,
+      "min": null,
+      "max": 100,
+      "unit": "mm",
+      "imperial": {
+        "value": 4,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Circulation paths",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "307.2"
+      },
+      "note": "Handrails may protrude 4.5 in (115 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.knee_clearance.height",
+      "quantity": "Knee clearance zone top (above floor)",
+      "value": 685,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 27,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Knee clearance under elements",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "306.3"
+      },
+      "note": "Knee zone 9-27 in (230-685 mm); depth at least 11 in (280 mm) at 9 in and 8 in (205 mm) at 27 in, max 25 in (635 mm); width at least 30 in (760 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.us.ada.toe_clearance.height",
+      "quantity": "Toe clearance zone height (above floor)",
+      "value": 230,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 9,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toe clearance under elements",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "306.2"
+      },
+      "note": "Toe depth 17-25 in (430-635 mm) where required; width at least 30 in (760 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.nondwelling.corridor.min",
+      "quantity": "Minimum unobstructed corridor width",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Corridors and passageways, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.14(b)"
+      },
+      "note": "Schools: 2700 mm preferred where lockers are in the corridor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.nondwelling.passing_place.min",
+      "quantity": "Passing place size where corridor is narrower than 1800 mm",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 70.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Corridors, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.14(c)"
+      },
+      "note": "At least 1800 mm long and 1800 mm wide, at reasonable intervals such as junctions.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.nondwelling.corridor_level.max",
+      "quantity": "Gradient up to which a corridor is treated as level",
+      "value": 60,
+      "min": 60,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 60,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Corridors, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.14(d)-(e)"
+      },
+      "note": "Between 1:60 and 1:20: rise no more than 500 mm without a 1500 mm level rest area; 1:20 or steeper is a ramp. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 60 (no steeper than 1:60).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.approach.width.min",
+      "quantity": "Minimum surface width of level approach",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Approach from site boundary and parking, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.13(a)"
+      },
+      "note": "Free of obstructions to 2.1 m height.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.approach.passing_place",
+      "quantity": "Passing place on level approach",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 70.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Approach routes",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.13(b)"
+      },
+      "note": "At least 1800 mm wide and 2000 mm long, within sight of each other, no more than 50 m apart.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.approach.crossfall.max",
+      "quantity": "Maximum cross-fall of approach",
+      "value": 40,
+      "min": 40,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 40,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Approach routes",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.13(c)"
+      },
+      "note": "Gradient along length no steeper than 1:60, or less steep than 1:20 with level landings for each 500 mm rise. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 40 (no steeper than 1:40).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.turning_space.min",
+      "quantity": "Wheelchair turning space (square)",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings (lift landings, accessible bedrooms, toilets)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.28(a); Diagrams 17, 18"
+      },
+      "note": "1500 x 1500 mm.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.lobby.width_single.min",
+      "quantity": "Minimum internal lobby width with single-leaf doors",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Internal lobbies, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.16(c)"
+      },
+      "note": "Or (DL1 or DL2) + 300 mm, whichever is greater; 1800 mm with double-leaf doors.",
+      "confidence": "read_in_source",
+      "formula": "width >= max(1200, max(DL1, DL2) + 300) mm"
+    },
+    {
+      "id": "routes.uk.lobby.length_double.min",
+      "quantity": "Minimum lobby length with double swing doors",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": null,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Internal lobbies",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.16(b)"
+      },
+      "note": "DP1 and DP2 are the door projections into the lobby of the two doors, in mm.",
+      "confidence": "read_in_source",
+      "formula": "length >= DP1 + DP2 + 1570 mm"
+    },
+    {
+      "id": "routes.uk.m42.hall.min",
+      "quantity": "Minimum clear width of every hall or landing",
+      "value": 900,
+      "min": 900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.22(a)"
+      },
+      "note": "Localised obstructions (e.g. radiator) no longer than 2 m and never reducing the corridor below 750 mm, not opposite or near a door.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.m43.hall.min",
+      "quantity": "Minimum clear width of every hallway, approach or landing",
+      "value": 1050,
+      "min": 1050,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 41.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Wheelchair user dwellings, M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.24(a)"
+      },
+      "note": "1200 mm where approach to a doorway is not head-on (3.24(b)).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "routes.uk.dwelling.localised_obstruction.max",
+      "quantity": "Maximum depth of a localised obstruction",
+      "value": 150,
+      "min": null,
+      "max": 150,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings (Approved Document M vol 1 key term)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix A: localised obstruction"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    }
+  ]
+}

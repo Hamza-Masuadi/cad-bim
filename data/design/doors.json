@@ -1,0 +1,1399 @@
+{
+  "topic": "Doors and doorways",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "doors.us.ada.clear_width.min",
+      "quantity": "Minimum clear opening width (door open 90 degrees, face of door to stop)",
+      "value": 815,
+      "min": 815,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 32,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.deep_opening.clear_width.min",
+      "quantity": "Minimum clear width where opening is more than 24 in (610 mm) deep",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.threshold.max",
+      "quantity": "Maximum threshold height",
+      "value": 13,
+      "min": null,
+      "max": 13,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.5"
+      },
+      "note": "Existing or altered thresholds up to 3/4 in (19 mm) with 1:2 bevels each side are allowed.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.hardware.height",
+      "quantity": "Height of operable parts of door hardware",
+      "value": 865,
+      "min": 865,
+      "max": 1220,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.7"
+      },
+      "note": "Range 865-1220 mm (34-48 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.series.min",
+      "quantity": "Distance between doors in series (plus width of any door swinging into the space)",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.6"
+      },
+      "note": "",
+      "confidence": "read_in_source",
+      "formula": "clear_distance >= 48 in (1220 mm) + width of doors swinging into the space"
+    },
+    {
+      "id": "doors.us.ada.vision_light.max",
+      "quantity": "Maximum height of bottom of glazed panel in doors with vision lights",
+      "value": 1090,
+      "min": null,
+      "max": 1090,
+      "unit": "mm",
+      "imperial": {
+        "value": 43,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.11"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.smooth_bottom.min",
+      "quantity": "Height of smooth push-side surface at bottom of swinging doors",
+      "value": 255,
+      "min": 255,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 10,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.10"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.opening_force.max",
+      "quantity": "Maximum opening force, interior hinged, sliding or folding doors",
+      "value": 22.2,
+      "min": null,
+      "max": 22.2,
+      "unit": "N",
+      "imperial": {
+        "value": 5,
+        "unit": "lbf",
+        "converted": false
+      },
+      "applies_to": "Doors on accessible routes (not fire doors)",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.9"
+      },
+      "note": "Fire doors: minimum force allowed by the authority. Does not include force to retract latches.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.closer_time.min",
+      "quantity": "Minimum closing time from 90 degrees open to 12 degrees from latch",
+      "value": 5,
+      "min": 5,
+      "max": null,
+      "unit": "s",
+      "imperial": {
+        "value": 5,
+        "unit": "s",
+        "converted": false
+      },
+      "applies_to": "Doors with closers on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.8.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.front.pull.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Front approach, pull side",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.front.pull.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Front approach, pull side",
+      "value": 455,
+      "min": 455,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 18,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.front.push.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Front approach, push side",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 12 in (305 mm) parallel clearance if closer and latch provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.front.push.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Front approach, push side",
+      "value": 0,
+      "min": 0,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 0,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 12 in (305 mm) parallel clearance if closer and latch provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.pull_a.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Hinge-side approach, pull side (option 1)",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.pull_a.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Hinge-side approach, pull side (option 1)",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.pull_b.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Hinge-side approach, pull side (option 2)",
+      "value": 1370,
+      "min": 1370,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 54,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.pull_b.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Hinge-side approach, pull side (option 2)",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.push.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Hinge-side approach, push side",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Parallel clearance is beyond hinge side. Add 6 in (150 mm) perpendicular if closer and latch provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.hinge.push.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Hinge-side approach, push side",
+      "value": 560,
+      "min": 560,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 22,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Parallel clearance is beyond hinge side. Add 6 in (150 mm) perpendicular if closer and latch provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.latch.pull.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Latch-side approach, pull side",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 6 in (150 mm) perpendicular if closer provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.latch.pull.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Latch-side approach, pull side",
+      "value": 610,
+      "min": 610,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 6 in (150 mm) perpendicular if closer provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.latch.push.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Latch-side approach, push side",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 6 in (150 mm) perpendicular if closer provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.swing.latch.push.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway (beyond latch side unless noted): Latch-side approach, push side",
+      "value": 610,
+      "min": 610,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Manual swinging doors and gates",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.1"
+      },
+      "note": "Add 6 in (150 mm) perpendicular if closer provided.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.front.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Front approach",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.front.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway: Front approach",
+      "value": 0,
+      "min": 0,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 0,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.side.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Side approach (doorway with no door only)",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.side.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway: Side approach (doorway with no door only)",
+      "value": 0,
+      "min": 0,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 0,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.pocket_hinge.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Pocket/hinge side approach",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "Parallel clearance beyond pocket/hinge side.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.pocket_hinge.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway: Pocket/hinge side approach",
+      "value": 560,
+      "min": 560,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 22,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "Parallel clearance beyond pocket/hinge side.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.stop_latch.perpendicular",
+      "quantity": "Manoeuvring clearance perpendicular to doorway: Stop/latch side approach",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.manoeuvring.sliding.stop_latch.parallel",
+      "quantity": "Manoeuvring clearance parallel to doorway: Stop/latch side approach",
+      "value": 610,
+      "min": 610,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Doorways less than 36 in wide without doors, sliding and folding doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 404.2.4.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ada.recess_trigger",
+      "quantity": "Latch-side obstruction depth (within 18 in / 455 mm) that triggers forward-approach clearances",
+      "value": 205,
+      "min": null,
+      "max": 205,
+      "unit": "mm",
+      "imperial": {
+        "value": 8,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Recessed doors",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "404.2.4.3"
+      },
+      "note": "Applies when an obstruction within 18 in of the latch side projects more than 8 in beyond the door face.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.us.ibc.threshold.max",
+      "quantity": "Maximum threshold height",
+      "value": 12.7,
+      "min": null,
+      "max": 12.7,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial buildings (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1010.7 (as cited in handout)"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "doors.uk.nondwelling.straight_on.new.min",
+      "quantity": "Minimum effective clear width, new buildings: Straight-on approach (no turn or oblique approach)",
+      "value": 800,
+      "min": 800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, new",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "Effective clear width measured per Diagram 9 (door stop to projecting ironmongery or door leaf).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.straight_on.existing.min",
+      "quantity": "Minimum effective clear width, existing buildings: Straight-on approach (no turn or oblique approach)",
+      "value": 750,
+      "min": 750,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, existing",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.right_angle_1500.new.min",
+      "quantity": "Minimum effective clear width, new buildings: At right angles to an access route at least 1500 mm wide",
+      "value": 800,
+      "min": 800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, new",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "Effective clear width measured per Diagram 9 (door stop to projecting ironmongery or door leaf).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.right_angle_1500.existing.min",
+      "quantity": "Minimum effective clear width, existing buildings: At right angles to an access route at least 1500 mm wide",
+      "value": 750,
+      "min": 750,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, existing",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.right_angle_1200.new.min",
+      "quantity": "Minimum effective clear width, new buildings: At right angles to an access route at least 1200 mm wide",
+      "value": 825,
+      "min": 825,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 32.48,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, new",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "Effective clear width measured per Diagram 9 (door stop to projecting ironmongery or door leaf).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.right_angle_1200.existing.min",
+      "quantity": "Minimum effective clear width, existing buildings: At right angles to an access route at least 1200 mm wide",
+      "value": 775,
+      "min": 775,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30.51,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, existing",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.external_public.new.min",
+      "quantity": "Minimum effective clear width, new buildings: External doors to buildings used by the general public",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, new",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "Effective clear width measured per Diagram 9 (door stop to projecting ironmongery or door leaf).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.external_public.existing.min",
+      "quantity": "Minimum effective clear width, existing buildings: External doors to buildings used by the general public",
+      "value": 775,
+      "min": 775,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30.51,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings, existing",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.leading_edge_space.min",
+      "quantity": "Unobstructed space on pull side between leading edge and return wall",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Internal doors, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.10(c)"
+      },
+      "note": "Not needed for power-operated doors or standard hotel bedroom doors.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.opening_force_0_30.max",
+      "quantity": "Maximum opening force at leading edge, 0-30 degrees",
+      "value": 30,
+      "min": null,
+      "max": 30,
+      "unit": "N",
+      "imperial": {
+        "value": 6.74,
+        "unit": "lbf",
+        "converted": true
+      },
+      "applies_to": "Doors in buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "paras 2.13(a), 3.10(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.opening_force_30_60.max",
+      "quantity": "Maximum opening force at leading edge, 30-60 degrees",
+      "value": 22.5,
+      "min": null,
+      "max": 22.5,
+      "unit": "N",
+      "imperial": {
+        "value": 5.06,
+        "unit": "lbf",
+        "converted": true
+      },
+      "applies_to": "Doors in buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "paras 2.13(a), 3.10(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.threshold.max",
+      "quantity": "Maximum total height of an unavoidable raised threshold",
+      "value": 15,
+      "min": null,
+      "max": 15,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.59,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Accessible entrances, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 2.7(e)"
+      },
+      "note": "Upstands over 5 mm chamfered or rounded.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.entrance_landing.min",
+      "quantity": "Level landing in front of accessible entrance (each side)",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Accessible entrances",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 2.7(d)"
+      },
+      "note": "1500 x 1500 mm clear of door swings.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.nondwelling.vision_zone",
+      "quantity": "Vision panel zone of visibility above floor",
+      "value": 500,
+      "min": 500,
+      "max": 1500,
+      "unit": "mm",
+      "imperial": {
+        "value": 19.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Door leaves and side panels wider than 450 mm",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.10(h)"
+      },
+      "note": "May be interrupted between 800 and 1150 mm. Range 500-1500 mm (about 19.69-59.06 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.door750.corridor_head_on.min",
+      "quantity": "Minimum corridor clear passageway width for a 750 mm clear opening door",
+      "value": 900,
+      "min": 900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to optional requirement M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Door 750 mm or wider, approached head-on.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.door750.corridor_not_head_on.min",
+      "quantity": "Minimum corridor clear passageway width for a 750 mm clear opening door",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to optional requirement M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Approach not head-on.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.door775.corridor_not_head_on.min",
+      "quantity": "Minimum corridor clear passageway width for a 775 mm clear opening door",
+      "value": 1050,
+      "min": 1050,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 41.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to optional requirement M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Approach not head-on. A standard 826 mm leaf (up to 44 mm thick) is deemed to give 775 mm.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.door800.corridor_not_head_on.min",
+      "quantity": "Minimum corridor clear passageway width for a 800 mm clear opening door",
+      "value": 900,
+      "min": 900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to optional requirement M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Approach not head-on.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.entrance_door.min",
+      "quantity": "Minimum clear opening width of principal private entrance door",
+      "value": 850,
+      "min": 850,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.20(d)"
+      },
+      "note": "Measured per Diagram 2.2 (inside face of open door to frame or stop). Same value for principal communal entrance (para 2.14(d)).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.leading_edge_nib.min",
+      "quantity": "Nib to leading edge of entrance door, maintained 1200 mm beyond",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "paras 2.14(f), 2.20(f)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.reveal.max",
+      "quantity": "Maximum reveal depth on leading side of entrance door",
+      "value": 200,
+      "min": null,
+      "max": 200,
+      "unit": "mm",
+      "imperial": {
+        "value": 7.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.20(g)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m43.door.min",
+      "quantity": "Minimum clear opening width of every internal door",
+      "value": 850,
+      "min": 850,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Wheelchair user dwellings, M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.24(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m43.following_edge_nib.min",
+      "quantity": "Nib to following edge of every door",
+      "value": 200,
+      "min": 200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 7.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Wheelchair user dwellings, M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.24(g)"
+      },
+      "note": "Plus 300 mm nib to leading edge (3.24(f)).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.dwelling.accessible_threshold.max",
+      "quantity": "Maximum total height of an accessible threshold",
+      "value": 15,
+      "min": null,
+      "max": 15,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.59,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings (Approved Document M vol 1 key term)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix A: accessible threshold"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "doors.uk.m42.entry_controls.height",
+      "quantity": "Door entry control height above finished ground level",
+      "value": 900,
+      "min": 900,
+      "max": 1000,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Communal entrances, M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.14(k)"
+      },
+      "note": "At least 300 mm from any projecting corner. Range 900-1000 mm (about 35.43-39.37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

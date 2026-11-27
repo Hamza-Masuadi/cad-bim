@@ -1,0 +1,339 @@
+{
+  "jobId": "sa-test-acad-21-p1-plant-ops",
+  "title": "P1: defects planted with ops",
+  "description": "Plants D06, D07, D08-D10 (layers only), D12, D13, D14 (style only), D15, D16 (style only), D17, D18, D19, D31 and D35. The entities no op can draw are in 23-p1-plant-script.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "d06",
+      "op": "dim.linear",
+      "args": {
+        "start": [
+          1000,
+          100
+        ],
+        "end": [
+          1100,
+          100
+        ],
+        "offset": 12,
+        "orientation": "horizontal",
+        "dimStyle": "ARCH-ANNO",
+        "layer": "A-WALL"
+      },
+      "note": "D06 ac-004.dims-on-dim-layer"
+    },
+    {
+      "id": "d07",
+      "op": "text.add",
+      "args": {
+        "text": "WALL NOTE",
+        "position": [
+          1000,
+          130
+        ],
+        "height": 0.09375,
+        "annotative": true,
+        "scale": "1/4\" = 1'-0\"",
+        "style": "NOTES",
+        "layer": "A-WALL"
+      },
+      "note": "D07 ac-004.text-on-wall-layer"
+    },
+    {
+      "id": "d08_d10",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "WALLS-NEW",
+            "color": 7,
+            "lineweight": 0.3
+          },
+          {
+            "name": "THICK",
+            "color": 7,
+            "lineweight": 0.5
+          },
+          {
+            "name": "A-EQPM",
+            "color": 30,
+            "lineweight": 0.2
+          }
+        ],
+        "fromStandard": true
+      },
+      "note": "D08 ac-005 (WALLS-NEW), D09 ac-005 + ac-042 (THICK), D10 ac-035 (A-EQPM colour 30). Their lines are in the script job. Name warnings are expected."
+    },
+    {
+      "id": "d12a",
+      "op": "dim.linear",
+      "args": {
+        "start": [
+          1000,
+          210
+        ],
+        "end": [
+          1100,
+          210
+        ],
+        "offset": 12,
+        "orientation": "horizontal",
+        "dimStyle": "ARCH-ANNO",
+        "layer": "A-ANNO-DIMS",
+        "textOverride": "10'-0\""
+      },
+      "note": "D12 ac-009.dim-override: the defect"
+    },
+    {
+      "id": "d12b",
+      "op": "dim.linear",
+      "args": {
+        "start": [
+          1000,
+          240
+        ],
+        "end": [
+          1100,
+          240
+        ],
+        "offset": 12,
+        "orientation": "horizontal",
+        "dimStyle": "ARCH-ANNO",
+        "layer": "A-ANNO-DIMS",
+        "textOverride": "<> TYP"
+      },
+      "note": "D12 control, not a finding"
+    },
+    {
+      "id": "d12c",
+      "op": "dim.linear",
+      "args": {
+        "start": [
+          1000,
+          270
+        ],
+        "end": [
+          1100,
+          270
+        ],
+        "offset": 12,
+        "orientation": "horizontal",
+        "dimStyle": "ARCH-ANNO",
+        "layer": "A-ANNO-DIMS",
+        "textOverride": "EQ"
+      },
+      "note": "D12 control, not a finding"
+    },
+    {
+      "id": "d13_style",
+      "op": "dimstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "ARCH-FINE",
+            "basedOn": "ARCH-ANNO",
+            "settings": {
+              "DIMDEC": 4
+            }
+          }
+        ],
+        "fromStandard": true
+      },
+      "note": "D13 ac-011.dim-precision and ac-025.dim-styles-listed: 1/16 in precision, not in the standard."
+    },
+    {
+      "id": "d13_dim",
+      "op": "dim.linear",
+      "args": {
+        "start": [
+          1000,
+          300
+        ],
+        "end": [
+          1100,
+          300
+        ],
+        "offset": 12,
+        "orientation": "horizontal",
+        "dimStyle": "ARCH-FINE",
+        "layer": "A-ANNO-DIMS"
+      },
+      "note": "D13: a dimension that uses ARCH-FINE"
+    },
+    {
+      "id": "d14_style",
+      "op": "textstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "TITLES",
+            "font": "Arial",
+            "annotative": false
+          }
+        ],
+        "update": true
+      },
+      "note": "D14 ac-013.annotative-styles: TITLES no longer annotative. Its paper text is in the script job."
+    },
+    {
+      "id": "d15a",
+      "op": "text.add",
+      "args": {
+        "text": "NOTE 0.1 A",
+        "position": [
+          1000,
+          330
+        ],
+        "height": 0.1,
+        "annotative": true,
+        "scale": "1/4\" = 1'-0\"",
+        "style": "NOTES",
+        "layer": "A-ANNO-TEXT"
+      },
+      "note": "D15 ac-014.text-height"
+    },
+    {
+      "id": "d15b",
+      "op": "text.add",
+      "args": {
+        "text": "NOTE 0.1 B",
+        "position": [
+          1000,
+          350
+        ],
+        "height": 0.1,
+        "annotative": true,
+        "scale": "1/4\" = 1'-0\"",
+        "style": "NOTES",
+        "layer": "A-ANNO-TEXT"
+      },
+      "note": "D15 ac-014.text-height"
+    },
+    {
+      "id": "d16_style",
+      "op": "textstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "OLDTEXT",
+            "font": "Arial",
+            "annotative": false
+          }
+        ],
+        "fromStandard": false
+      },
+      "note": "D16 ac-025.text-styles-listed. Its paper text is in the script job."
+    },
+    {
+      "id": "d17",
+      "op": "textstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "TAGS",
+            "font": "romans.shx"
+          }
+        ],
+        "update": true
+      },
+      "note": "D17 ac-030.fonts: TAGS (used by OFFICE 101) gets an SHX font; annotative stays as the standard says."
+    },
+    {
+      "id": "d18",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-101",
+        "paperCentre": [
+          28,
+          14
+        ],
+        "modelWindow": [
+          [
+            990,
+            -10
+          ],
+          [
+            1210,
+            710
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": false,
+        "layer": "G-ANNO-NPLT"
+      },
+      "note": "D18 ac-015.viewport-locked"
+    },
+    {
+      "id": "d19",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-101",
+        "paperCentre": [
+          33,
+          4
+        ],
+        "modelCentre": [
+          1150,
+          400
+        ],
+        "width": 3,
+        "height": 2,
+        "scale": "1:1328.4",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      },
+      "note": "D19 ac-036.viewport-scale: custom ratio 1328.4"
+    },
+    {
+      "id": "d31",
+      "op": "room.create",
+      "args": {
+        "boundary": [
+          [
+            1000,
+            620
+          ],
+          [
+            1100,
+            620
+          ],
+          [
+            1100,
+            660
+          ],
+          [
+            1000,
+            660
+          ]
+        ],
+        "name": "D31 BRICK",
+        "layer": "A-WALL-PATT",
+        "tag": false,
+        "hatch": {
+          "pattern": "AR-BRSTD",
+          "scale": 2,
+          "layer": "A-WALL-PATT"
+        }
+      },
+      "note": "D31 ac-045.real-size-hatch-scale: associative AR-BRSTD at scale 2"
+    },
+    {
+      "id": "d35",
+      "op": "layout.create",
+      "args": {
+        "name": "EMPTY",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape"
+      },
+      "note": "D35 ac-044.empty-layouts: the engine builds the layout without a model viewport."
+    }
+  ]
+}

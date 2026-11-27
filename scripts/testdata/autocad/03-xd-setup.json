@@ -1,0 +1,34 @@
+{
+  "jobId": "sa-test-acad-03-xd-setup",
+  "title": "Reference XD.dwg: units and layer",
+  "description": "Prepares the reference drawing XD.dwg (inches, layer A-WALL from the standard). Run in XD.dwg.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/XD.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "units",
+      "op": "doc.setup",
+      "args": {
+        "insUnits": "in",
+        "measurement": "imperial"
+      }
+    },
+    {
+      "id": "layer",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "A-WALL"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "jobId": "sa-test-acad-32-p1-fix-xref-missing",
+  "title": "P1: find XC again",
+  "description": "Fix op of ac-017.xref-unresolved: repath XC to the copy kept in the spare folder. No verify here: a rehearsal never reloads, so the check would still see XC unresolved and fail the rehearsal. Audit after the commit instead.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "f017missing",
+      "op": "xref.repath",
+      "args": {
+        "names": [
+          "XC"
+        ],
+        "searchFolders": [
+          "C:/SA-Test/autocad/spare"
+        ],
+        "pathType": "relative",
+        "reload": true
+      }
+    }
+  ]
+}

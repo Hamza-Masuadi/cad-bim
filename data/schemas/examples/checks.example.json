@@ -1,0 +1,107 @@
+{
+  "$schema": "../checks.schema.json",
+  "version": 1,
+  "description": "A few checks showing every part of the format. The full sets live in data/checks/.",
+  "checks": [
+    {
+      "id": "layers.naming",
+      "app": "autocad",
+      "title": "Layer names follow the project's layer naming scheme",
+      "severity": "warning",
+      "why": "Consultants filter, freeze and translate layers by name. A layer outside the scheme is invisible to their filters and gets lost on exchange.",
+      "evaluator": "names_match_scheme",
+      "params": { "table": "layers", "field": "name", "scheme": "layer", "ignore": [ "0", "Defpoints" ] },
+      "fix": { "kind": "op", "op": "layer.translate", "args": { "map": {} }, "note": "Put each finding's value (the old layer name) into map with its target layer before running." },
+      "groups": [ "standards", "layers" ],
+      "source": "Project standard, layer naming section"
+    },
+    {
+      "id": "layers.in_standard",
+      "app": "autocad",
+      "title": "Every layer in use is listed in the standard",
+      "severity": "info",
+      "why": "Layers missing from the standard have no agreed colour, lineweight or plot setting.",
+      "evaluator": "value_in_standard_list",
+      "params": { "table": "layers", "field": "name", "list": "layers", "ignore": [ "0", "Defpoints" ] },
+      "fix": { "kind": "manual", "instructions": "Add the layer to the standard, or translate its contents to a listed layer." },
+      "groups": [ "standards", "layers" ]
+    },
+    {
+      "id": "entities.bylayer_color",
+      "app": "autocad",
+      "title": "Entities take their colour from the layer",
+      "severity": "warning",
+      "why": "Colour overrides break plot styles and make layer changes ineffective.",
+      "evaluator": "field_equals",
+      "params": { "table": "entities", "field": "color", "equals": "bylayer", "negate": true },
+      "fix": { "kind": "op", "op": "fix.bylayer", "args": { "properties": [ "color" ] } },
+      "groups": [ "cleanup" ]
+    },
+    {
+      "id": "sheets.numbering",
+      "app": "both",
+      "title": "Sheet numbers follow the standard",
+      "severity": "error",
+      "why": "Sheet references, drawing lists and transmittals rely on the numbering scheme.",
+      "evaluator": "names_match_scheme",
+      "params": { "table": "sheets", "field": "number", "scheme": "sheet" },
+      "fix": { "kind": "manual", "instructions": "Renumber the sheet; update cross-references after." },
+      "groups": [ "standards", "sheets" ]
+    },
+    {
+      "id": "sheets.title_fields",
+      "app": "both",
+      "title": "Title blocks have a drawing title",
+      "severity": "error",
+      "why": "A sheet without a title cannot be listed or issued.",
+      "evaluator": "field_missing",
+      "params": { "table": "titleblocks", "field": "SHEET_TITLE" },
+      "fix": { "kind": "op", "op": "titleblock.fill", "args": { "layouts": [ "{{recordId}}" ], "values": { "SHEET_TITLE": "" } } },
+      "groups": [ "sheets" ]
+    },
+    {
+      "id": "text.plotted_height",
+      "app": "autocad",
+      "title": "Text plots at a standard height",
+      "severity": "warning",
+      "why": "Odd text heights look careless and can fall below the legible minimum when plotted.",
+      "evaluator": "text_height_standard",
+      "params": { "table": "text", "heightField": "height", "scaleField": "scale", "tolerance": 0.02 },
+      "fix": { "kind": "op", "op": "entity.setprops", "args": { "handles": [ "{{recordId}}" ], "setLayer": "A-ANNO-TEXT" }, "note": "Height changes are made by hand or with text.add; this moves the text to the annotation layer." },
+      "groups": [ "annotation" ]
+    },
+    {
+      "id": "geometry.duplicate_lines",
+      "app": "autocad",
+      "title": "No duplicate lines",
+      "severity": "warning",
+      "why": "Overlapping duplicates double plot weight, inflate quantities and confuse edits.",
+      "evaluator": "duplicates_by_key",
+      "params": { "table": "lines", "keys": [ "layer", "x1", "y1", "x2", "y2" ], "precision": 0.001 },
+      "fix": { "kind": "manual", "instructions": "Delete the duplicate listed in each finding (OVERKILL does this in bulk)." },
+      "groups": [ "cleanup", "geometry" ]
+    },
+    {
+      "id": "model.warnings",
+      "app": "revit",
+      "title": "The model has few warnings",
+      "severity": "warning",
+      "why": "Hundreds of warnings slow the model and hide the few that matter.",
+      "evaluator": "count_over_threshold",
+      "params": { "table": "warnings", "max": 100 },
+      "fix": { "kind": "manual", "instructions": "Triage warnings by type and fix the largest groups first." },
+      "groups": [ "health" ]
+    },
+    {
+      "id": "walls.open_ends",
+      "app": "both",
+      "title": "Walls meant to close a room have no open ends",
+      "severity": "error",
+      "why": "Gaps stop rooms and boundaries from closing and give wrong areas.",
+      "evaluator": "wall_open_ends",
+      "params": { "tolerance": 1 },
+      "groups": [ "walls", "geometry" ],
+      "source": "Engine-specific evaluator; reported not_implemented where an engine lacks it"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "../design-data.schema.json",
+  "topic": "Example entries (one of each kind)",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "example.doors.clear_width.min",
+      "quantity": "Minimum clear opening width of a door on an accessible route",
+      "value": 815,
+      "min": 815,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 32, "unit": "in", "converted": false },
+      "applies_to": "Doors on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": { "title": "2010 ADA Standards for Accessible Design", "publisher": "U.S. Department of Justice", "edition": "2010", "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/", "clause": "404.2.3" },
+      "note": "The source states 32 in; 815 mm is the metric figure given alongside it.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "example.stairs.rise.range",
+      "quantity": "Rise per step",
+      "value": 170,
+      "min": 150,
+      "max": 220,
+      "unit": "mm",
+      "imperial": { "value": 6.69, "unit": "in", "converted": true },
+      "applies_to": "Private stair",
+      "jurisdiction": "England",
+      "source": { "title": "Approved Document K", "publisher": "HM Government", "edition": "2013 edition", "url": "https://www.gov.uk/government/publications/protection-from-falling-collision-and-impact-approved-document-k", "clause": "Table 1.1" },
+      "note": "value is a typical design choice inside the range.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "example.ramps.gradient.max",
+      "quantity": "Steepest ramp gradient",
+      "value": 12,
+      "min": 12,
+      "max": null,
+      "unit": "1:n",
+      "imperial": { "value": 12, "unit": "1:n", "converted": false },
+      "applies_to": "Ramp runs on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": { "title": "2010 ADA Standards for Accessible Design", "publisher": "U.S. Department of Justice", "edition": "2010", "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/", "clause": "405.2" },
+      "note": "1:n gradients: a larger n is gentler, so the limit is a minimum n.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "example.parking.accessible.count",
+      "quantity": "Accessible parking spaces for 501 to 1000 total spaces",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "count",
+      "imperial": { "value": null, "unit": "count", "converted": false },
+      "applies_to": "Parking facilities",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": { "title": "2010 ADA Standards for Accessible Design", "publisher": "U.S. Department of Justice", "edition": "2010", "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/", "clause": "Table 208.2" },
+      "note": "Rule-only entry: the number depends on the total.",
+      "confidence": "read_in_source",
+      "formula": "ceil(0.02 * total)"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "jobId": "sa-test-acad-14-b-purge-verify",
+  "title": "B: purge and verify the baseline",
+  "description": "Baseline B, spec section 1 step 7: purge everything unused (regapps too), then verify that every automatic check passes. A failing check of severity error or critical rolls the job back and the report names it: fix B, do not change the expected counts.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/B.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "purge",
+      "op": "fix.purge",
+      "args": {
+        "kinds": [
+          "all",
+          "regapps"
+        ],
+        "repeat": true
+      }
+    }
+  ],
+  "verify": {
+    "checks": [
+      "ac-001.layer-zero",
+      "ac-002.defpoints",
+      "ac-003.color-bylayer",
+      "ac-003.linetype-bylayer",
+      "ac-003.lineweight-bylayer",
+      "ac-004.dims-on-dim-layer",
+      "ac-004.text-on-wall-layer",
+      "ac-005.layer-names",
+      "ac-006.block-properties",
+      "ac-009.dim-override",
+      "ac-011.dim-precision",
+      "ac-012.insunits",
+      "ac-013.annotative-styles",
+      "ac-014.text-height",
+      "ac-015.viewport-locked",
+      "ac-016.xref-layer",
+      "ac-017.xref-full-path",
+      "ac-017.xref-unresolved",
+      "ac-018.attach-nesting",
+      "ac-020.purge",
+      "ac-022.duplicate-lines",
+      "ac-023.hatch-associative",
+      "ac-025.dim-styles-listed",
+      "ac-025.text-styles-listed",
+      "ac-027.flat",
+      "ac-028.area-polylines-closed",
+      "ac-030.fonts",
+      "ac-031.polyline-width",
+      "ac-032.titleblock-loose-text",
+      "ac-033.off-axis",
+      "ac-034.dimlfac",
+      "ac-035.plot-colours",
+      "ac-036.viewport-scale",
+      "ac-037.image-frames",
+      "ac-038.xref-depth",
+      "ac-039.layout-count",
+      "ac-040.splines",
+      "ac-042.layers-by-weight",
+      "ac-043.saved-in-layout",
+      "ac-044.empty-layouts",
+      "ac-045.real-size-hatch-scale",
+      "ac-046.msltscale",
+      "ac-046.psltscale",
+      "ac-048.lineweight-hierarchy"
+    ]
+  }
+}

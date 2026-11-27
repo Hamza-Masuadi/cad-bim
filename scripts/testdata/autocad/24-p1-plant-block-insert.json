@@ -1,0 +1,28 @@
+{
+  "jobId": "sa-test-acad-24-p1-plant-block-insert",
+  "title": "P1: insert BAD-BLOCK",
+  "description": "D11 ac-006.block-properties: one insert of the block the script job defined.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "d11",
+      "op": "block.insert",
+      "args": {
+        "name": "BAD-BLOCK",
+        "position": [
+          1200,
+          40
+        ],
+        "layer": "A-FURN"
+      },
+      "note": "D11 ac-006.block-properties"
+    }
+  ]
+}

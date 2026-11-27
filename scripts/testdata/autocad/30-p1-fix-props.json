@@ -1,0 +1,154 @@
+{
+  "jobId": "sa-test-acad-30-p1-fix-props",
+  "title": "P1: fix layers, properties, styles, Z",
+  "description": "Applies the fix op of ac-001, ac-002, ac-003 (three), ac-004 (two), ac-005 and ac-042, ac-013, ac-016, ac-027 and ac-030, using filters instead of the handles the audit names, then verifies those checks pass.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "f001",
+      "op": "entity.setprops",
+      "args": {
+        "filter": {
+          "layer": "0",
+          "type": "LINE",
+          "space": "model"
+        },
+        "setLayer": "A-WALL"
+      },
+      "note": "ac-001: the two D01 lines"
+    },
+    {
+      "id": "f002",
+      "op": "entity.setprops",
+      "args": {
+        "filter": {
+          "layer": "Defpoints",
+          "type": "CIRCLE",
+          "space": "model"
+        },
+        "setLayer": "A-ANNO-NOTE"
+      },
+      "note": "ac-002: the D02 circle"
+    },
+    {
+      "id": "f004dims",
+      "op": "entity.setprops",
+      "args": {
+        "filter": {
+          "layer": "A-WALL",
+          "type": "DIMENSION",
+          "space": "model"
+        },
+        "setLayer": "A-ANNO-DIMS"
+      },
+      "note": "ac-004.dims-on-dim-layer: D06"
+    },
+    {
+      "id": "f004text",
+      "op": "entity.setprops",
+      "args": {
+        "filter": {
+          "layer": "A-WALL",
+          "type": "TEXT",
+          "space": "model"
+        },
+        "setLayer": "A-ANNO-TEXT"
+      },
+      "note": "ac-004.text-on-wall-layer: D07"
+    },
+    {
+      "id": "f016",
+      "op": "entity.setprops",
+      "args": {
+        "filter": {
+          "type": "INSERT",
+          "block": "XD",
+          "layer": "A-ANNO-NOTE",
+          "space": "model"
+        },
+        "setLayer": "G-ANNO-REFR"
+      },
+      "note": "ac-016.xref-layer: the XD insert"
+    },
+    {
+      "id": "f003",
+      "op": "fix.bylayer",
+      "args": {
+        "properties": [
+          "color",
+          "linetype",
+          "lineweight"
+        ],
+        "includeBlocks": false,
+        "space": "all"
+      },
+      "note": "ac-003 colour, linetype, lineweight: D03-D05"
+    },
+    {
+      "id": "f005",
+      "op": "layer.translate",
+      "args": {
+        "map": {
+          "WALLS-NEW": "A-WALL",
+          "THICK": "A-WALL"
+        },
+        "createTargets": true,
+        "deleteEmptied": true
+      },
+      "note": "ac-005.layer-names and ac-042.layers-by-weight: D08, D09"
+    },
+    {
+      "id": "f013_030",
+      "op": "textstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "TITLES",
+            "font": "Arial"
+          },
+          {
+            "name": "TAGS",
+            "font": "Arial"
+          }
+        ],
+        "fromStandard": true,
+        "update": true
+      },
+      "note": "ac-013 (TITLES annotative again) and ac-030 (TAGS back to Arial)"
+    },
+    {
+      "id": "f027",
+      "op": "fix.flattenZ",
+      "args": {
+        "tolerance": 0,
+        "includeBlocks": true,
+        "space": "model"
+      },
+      "note": "ac-027.flat: D26"
+    }
+  ],
+  "verify": {
+    "checks": [
+      "ac-001.layer-zero",
+      "ac-002.defpoints",
+      "ac-003.color-bylayer",
+      "ac-003.linetype-bylayer",
+      "ac-003.lineweight-bylayer",
+      "ac-004.dims-on-dim-layer",
+      "ac-004.text-on-wall-layer",
+      "ac-005.layer-names",
+      "ac-013.annotative-styles",
+      "ac-016.xref-layer",
+      "ac-027.flat",
+      "ac-030.fonts",
+      "ac-042.layers-by-weight"
+    ]
+  }
+}

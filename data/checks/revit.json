@@ -1,0 +1,1524 @@
+{
+  "$schema": "../schemas/checks.schema.json",
+  "version": 1,
+  "description": "Revit audit checks, one or more per mistake of references/practice/mistakes-revit.md (ids keep the mistake id as their first part: rv-001.*). Facts tables and new evaluators are specified in FACTS.md.",
+  "checks": [
+    {
+      "id": "rv-001.in-place-count",
+      "app": "revit",
+      "title": "In-place families are reported with their count",
+      "severity": "info",
+      "why": "Each in-place copy is a separate definition that bloats the model and cannot become a loadable family. Practitioners treat any number as a smell; the project sets the gate.",
+      "evaluator": "count_over_threshold",
+      "params": {
+        "table": "types",
+        "where": {
+          "isInPlace": true
+        },
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Replace repeated in-place families with loadable families in the right category."
+      },
+      "groups": [
+        "families",
+        "health",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-001 (detection: Auto); sources S23 S35 S36 S22 S37, see references/practice/_SOURCES.md. Autodesk Model Analytics counts in-place families but publishes no threshold [S24]"
+    },
+    {
+      "id": "rv-002.in-place-generic",
+      "app": "revit",
+      "title": "No in-place family is in Generic Models",
+      "severity": "error",
+      "why": "Generic Models are missing from category schedules, tags and filters and export to IFC as proxies.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "types",
+        "where": {
+          "isInPlace": true
+        },
+        "field": "category",
+        "equals": "OST_GenericModel"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Recategorise the in-place family (Family Category and Parameters) or rebuild it as a loadable family in the right category."
+      },
+      "groups": [
+        "families",
+        "data"
+      ],
+      "source": "mistakes-revit.md RV-002 (detection: Auto); sources S22 S70, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-003.warning-types",
+      "app": "revit",
+      "title": "Warnings are reported by type with their counts",
+      "severity": "info",
+      "why": "Ignored warnings slow the model and hide errors; practitioners cite 700 to 1,000+ as harmful [S23][S39] and thousands as the problem level [S36]. Fixing the largest types first is fastest.",
+      "evaluator": "group_count_over_threshold",
+      "params": {
+        "table": "warnings",
+        "key": "failureDefinitionId",
+        "labelField": "description",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Triage by type: fix the largest groups first; review ramp, stair and room warnings at once."
+      },
+      "groups": [
+        "warnings",
+        "health",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-003 (detection: Auto); sources S23 S35 S36 S39, see references/practice/_SOURCES.md. No authoritative threshold; the project sets max per type"
+    },
+    {
+      "id": "rv-004.separation-overlap",
+      "app": "revit",
+      "title": "No room separation line overlaps a wall",
+      "severity": "warning",
+      "why": "Overlapping separation lines make room boundaries ambiguous and are among the commonest warnings.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "warnings",
+        "field": "description",
+        "negate": true,
+        "ignoreCase": true,
+        "pattern": ".*wall and a room separation line overlap.*"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Delete the room separation line named in the warning (the wall already bounds the room), after confirming."
+      },
+      "groups": [
+        "warnings",
+        "rooms"
+      ],
+      "source": "mistakes-revit.md RV-004 (detection: Auto); sources S23 S39, see references/practice/_SOURCES.md. Matches the English warning text; engines should also set failureDefinitionId"
+    },
+    {
+      "id": "rv-005.duplicate-mark",
+      "app": "revit",
+      "title": "Mark values are unique within each category",
+      "severity": "critical",
+      "why": "Duplicate marks make schedules and tags ambiguous.",
+      "evaluator": "duplicates_by_key",
+      "params": {
+        "table": "elements",
+        "keys": [
+          "category",
+          "mark"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "param.set",
+        "args": {
+          "elements": [
+            "{{recordId}}"
+          ],
+          "values": {
+            "Mark": ""
+          }
+        },
+        "note": "Fill Mark with the next free number in the project's scheme before running."
+      },
+      "groups": [
+        "data"
+      ],
+      "source": "mistakes-revit.md RV-005 (detection: Auto); sources S23 S39, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-005.duplicate-room-number",
+      "app": "revit",
+      "title": "Room numbers are unique",
+      "severity": "critical",
+      "why": "Duplicate room numbers break room schedules, door numbering and finish schedules.",
+      "evaluator": "duplicates_by_key",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_Rooms"
+        },
+        "keys": [
+          "number"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "param.set",
+        "args": {
+          "elements": [
+            "{{recordId}}"
+          ],
+          "values": {
+            "Number": ""
+          }
+        },
+        "note": "Fill Number from the project's numbering scheme before running."
+      },
+      "groups": [
+        "data",
+        "rooms"
+      ],
+      "source": "mistakes-revit.md RV-005 (detection: Auto); sources S23 S39 S75, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-006.off-axis",
+      "app": "revit",
+      "title": "No element is slightly off axis",
+      "severity": "error",
+      "why": "Elements a fraction of a degree off axis make joins, dimensions and rooms misbehave.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "warnings",
+        "field": "description",
+        "negate": true,
+        "ignoreCase": true,
+        "pattern": ".*slightly off axis.*"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Rotate or redraw the element to the exact angle (the warning names it)."
+      },
+      "groups": [
+        "warnings",
+        "modelling"
+      ],
+      "source": "mistakes-revit.md RV-006 (detection: Auto); sources S39, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-007.hidden-elements",
+      "app": "revit",
+      "title": "No view hides elements one by one",
+      "severity": "error",
+      "why": "Elements hidden in view are invisible state others cannot see or manage; filters and templates should control visibility.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "views",
+        "where": {
+          "isTemplate": false
+        },
+        "field": "hiddenElementCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reveal hidden elements in the view and control visibility with filters or the view template."
+      },
+      "groups": [
+        "views"
+      ],
+      "source": "mistakes-revit.md RV-007 (detection: Auto); sources S37 S34 S47 S91, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-008.graphic-fakes",
+      "app": "revit",
+      "title": "Drawings are not faked with overrides and filled regions",
+      "severity": "error",
+      "why": "Overrides and filled regions over the model make drawings differ from the model.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review per-element graphic overrides and filled regions over model elements; fix the model or the type instead."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review per-element graphic overrides and filled regions over model elements; fix the model or the type instead."
+      },
+      "groups": [
+        "views",
+        "annotation",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-008 (detection: Heur); sources S47, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-009.typed-tags",
+      "app": "revit",
+      "title": "Text notes do not imitate tags",
+      "severity": "warning",
+      "why": "A typed door or room number goes stale when the element changes.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_TextNotes"
+        },
+        "field": "text",
+        "negate": true,
+        "pattern": "[A-Z]{0,2}-?[0-9]{2,4}[A-Z]?"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Replace the text note with a tag of the element it names."
+      },
+      "groups": [
+        "annotation",
+        "heuristic"
+      ],
+      "source": "mistakes-revit.md RV-009 (detection: Heur); sources S34 S38, see references/practice/_SOURCES.md. Text that is only a mark or number, such as 101 or D-12; severity capped for a heuristic"
+    },
+    {
+      "id": "rv-010.text-legends",
+      "app": "revit",
+      "title": "Plan notes are keynotes or schedule-driven, not text legends",
+      "severity": "warning",
+      "why": "Numbered text legends get out of step with the notes they number.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review legends with numbered text notes and the absence of keynote tags."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review legends with numbered text notes and the absence of keynote tags."
+      },
+      "groups": [
+        "annotation",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-010 (detection: Heur); sources S34, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-011.detail-lines-as-model",
+      "app": "revit",
+      "title": "Model elements are modelled, not drawn with detail lines",
+      "severity": "error",
+      "why": "Detail lines drawing walls or stairs are absent from 3D, schedules and coordination.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review plan views for detail or model lines forming stair or wall patterns."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review plan views for detail or model lines forming stair or wall patterns."
+      },
+      "groups": [
+        "annotation",
+        "modelling",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-011 (detection: Heur); sources S34, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-012.cad-imported",
+      "app": "revit",
+      "title": "CAD is linked, not imported",
+      "severity": "error",
+      "why": "Imported CAD brings junk styles, memory load and corruption risk.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "cad"
+        },
+        "field": "isLinked",
+        "equals": false
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Delete the import (with approval) and link the file instead, on the CAD link workset."
+      },
+      "groups": [
+        "links",
+        "health"
+      ],
+      "source": "mistakes-revit.md RV-012 (detection: Auto); sources S22 S35 S36 S34 S37, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-013.exploded-cad",
+      "app": "revit",
+      "title": "No exploded CAD in the project",
+      "severity": "error",
+      "why": "Exploding CAD creates hundreds of line styles, fill patterns and text types.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Compare line style, fill pattern and text type counts (document facts) with the office template; look for names matching DWG layer names."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Compare line style, fill pattern and text type counts (document facts) with the office template; look for names matching DWG layer names."
+      },
+      "groups": [
+        "links",
+        "health",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-013 (detection: Auto); sources S34 S36, see references/practice/_SOURCES.md. Kept manual: the signal is a spike against the template, and the template is not in the model"
+    },
+    {
+      "id": "rv-014.cad-link-path",
+      "app": "revit",
+      "title": "CAD links use relative paths",
+      "severity": "error",
+      "why": "Absolute paths break when the project moves.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "cad",
+          "isLinked": true
+        },
+        "field": "pathType",
+        "equals": "absolute"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reload the link with a relative path (Manage Links)."
+      },
+      "groups": [
+        "links"
+      ],
+      "source": "mistakes-revit.md RV-014 (detection: Auto); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-014.cad-link-pinned",
+      "app": "revit",
+      "title": "CAD links are pinned",
+      "severity": "error",
+      "why": "An unpinned link moves with one accidental drag.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "cad",
+          "isLinked": true
+        },
+        "field": "isPinned",
+        "equals": false
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Pin the link after checking its position."
+      },
+      "groups": [
+        "links"
+      ],
+      "source": "mistakes-revit.md RV-014 (detection: Auto); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-014.cad-link-workset",
+      "app": "revit",
+      "title": "CAD links are on the CAD link workset",
+      "severity": "error",
+      "why": "A link on another workset cannot be unloaded or hidden with the other links.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "cad",
+          "isLinked": true,
+          "isWorkshared": true
+        },
+        "ifField": "worksetName",
+        "ifStandardPattern": "cadLinkWorkset",
+        "ifNegate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "workset.assign",
+        "args": {
+          "elements": [
+            "{{recordId}}"
+          ],
+          "workset": ""
+        },
+        "note": "Set workset to the project's CAD link workset (patterns.cadLinkWorkset)."
+      },
+      "groups": [
+        "links",
+        "worksharing"
+      ],
+      "source": "mistakes-revit.md RV-014 (detection: Auto); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-015.link-placement",
+      "app": "revit",
+      "title": "Revit links are placed per the agreed basis",
+      "severity": "critical",
+      "why": "Links placed on the wrong basis give a misaligned federated model.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Compare each link's position with the BEP: shared coordinates or origin to origin [S22]; check with the BIM coordinator."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Compare each link's position with the BEP: shared coordinates or origin to origin [S22]; check with the BIM coordinator."
+      },
+      "groups": [
+        "links",
+        "coordinates",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-015 (detection: Heur); sources S22 S28, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-015.revit-link-own-workset",
+      "app": "revit",
+      "title": "Each Revit link is on its own workset",
+      "severity": "error",
+      "why": "Links sharing a workset cannot be loaded and unloaded separately.",
+      "evaluator": "duplicates_by_key",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "revit",
+          "isWorkshared": true
+        },
+        "keys": [
+          "worksetName"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "workset.assign",
+        "args": {
+          "elements": [
+            "{{recordId}}"
+          ],
+          "workset": "",
+          "create": true
+        },
+        "note": "Give the link a workset of its own, named per the project convention."
+      },
+      "groups": [
+        "links",
+        "worksharing"
+      ],
+      "source": "mistakes-revit.md RV-015 (detection: Heur); sources S22 S28, see references/practice/_SOURCES.md. Automatic for the workset part; severity error as for rv-015.revit-link-path"
+    },
+    {
+      "id": "rv-015.revit-link-path",
+      "app": "revit",
+      "title": "Revit links use relative paths",
+      "severity": "error",
+      "why": "Absolute paths break when the project moves.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "links",
+        "where": {
+          "kind": "revit"
+        },
+        "field": "pathType",
+        "equals": "absolute"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reload the link with a relative path (Manage Links)."
+      },
+      "groups": [
+        "links"
+      ],
+      "source": "mistakes-revit.md RV-015 (detection: Heur); sources S22 S28, see references/practice/_SOURCES.md. Automatic for the path part; severity error because a wrong path is a major problem, the critical placement part is rv-015.link-placement"
+    },
+    {
+      "id": "rv-016.far-from-origin",
+      "app": "revit",
+      "title": "Model geometry is within 20 miles (32 km) of the internal origin",
+      "severity": "critical",
+      "why": "Geometry far from the origin loses precision and breaks graphics and coordinates.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "extentsMaxDistanceMm",
+        "max": 32186880
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Relocate with the BIM coordinator; never move a shared model unasked."
+      },
+      "groups": [
+        "coordinates",
+        "setup"
+      ],
+      "source": "mistakes-revit.md RV-016 (detection: Auto); sources S27 S34, see references/practice/_SOURCES.md. 20 miles is the Autodesk figure [S27]; 32,186,880 mm"
+    },
+    {
+      "id": "rv-017.datums-pinned",
+      "app": "revit",
+      "title": "Levels and grids are pinned",
+      "severity": "error",
+      "why": "An unpinned grid or level moved by accident shifts the whole model.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "elements",
+        "where": {
+          "isDatum": true
+        },
+        "field": "isPinned",
+        "equals": false
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Pin the level or grid after checking its position against the structural model."
+      },
+      "groups": [
+        "coordinates",
+        "modelling"
+      ],
+      "source": "mistakes-revit.md RV-017 (detection: Auto); sources S34 S45, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-018.drag-on-selection",
+      "app": "revit",
+      "title": "'Drag elements on selection' is off",
+      "severity": "warning",
+      "why": "With it on, a click can move an element.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "UI setting: ask the user to turn it off (status bar). It is not stored in the model."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "UI setting: ask the user to turn it off (status bar). It is not stored in the model."
+      },
+      "groups": [
+        "setup",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-018 (detection: UI); sources S34, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-019.worksets-as-layers",
+      "app": "revit",
+      "title": "Worksets are few and not used like layers",
+      "severity": "warning",
+      "why": "Many layer-like worksets add complexity without benefit.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review the workset list against the project norm; consolidate and use filters and templates for visibility."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review the workset list against the project norm; consolidate and use filters and templates for visibility."
+      },
+      "groups": [
+        "worksharing",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-019 (detection: Heur); sources S34, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-020.ffe-workset",
+      "app": "revit",
+      "title": "Furniture is on the FF&E workset",
+      "severity": "warning",
+      "why": "Elements on the wrong workset load and display wrongly and need the wrong permissions.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "elements",
+        "where": {
+          "isWorkshared": true
+        },
+        "field": "category",
+        "in": [
+          "OST_Furniture",
+          "OST_FurnitureSystems"
+        ],
+        "ifField": "worksetName",
+        "ifStandardPattern": "ffeWorkset",
+        "ifNegate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "workset.assign",
+        "args": {
+          "elements": [
+            "{{recordId}}"
+          ],
+          "workset": ""
+        },
+        "note": "Set workset to the FF&E workset; the element must be owned by the user or available."
+      },
+      "groups": [
+        "worksharing",
+        "heuristic"
+      ],
+      "source": "mistakes-revit.md RV-020 (detection: Heur); sources S22 S75, see references/practice/_SOURCES.md. Only the furniture rule is automatic; other category-to-workset rules are project-specific"
+    },
+    {
+      "id": "rv-021.phases",
+      "app": "revit",
+      "title": "Elements are in the right phase and link phases are mapped",
+      "severity": "critical",
+      "why": "Wrong phases show existing and new work wrongly and give wrong quantities.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review Phase Created and Demolished against the view phases; check phase mapping for every link."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review Phase Created and Demolished against the view phases; check phase mapping for every link."
+      },
+      "groups": [
+        "modelling",
+        "links",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-021 (detection: Heur); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-022.design-options",
+      "app": "revit",
+      "title": "Design option sets are reported",
+      "severity": "info",
+      "why": "Options left after the decision cost computation and confuse the team; whether options are still live depends on the stage.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "designOptionSetCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "When the option is decided, accept the primary and delete the option set, with the user's approval."
+      },
+      "groups": [
+        "modelling",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-022 (detection: Auto); sources S23 S36, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-023.group-count",
+      "app": "revit",
+      "title": "Model and detail group instances are reported with their count",
+      "severity": "info",
+      "why": "Groups add overhead and odd behaviour, especially arrays left grouped; the project sets the gate.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "groupInstanceCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Ungroup where groups are not needed for repetition."
+      },
+      "groups": [
+        "modelling",
+        "health",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-023 (detection: Auto); sources S23 S35 S36 S25, see references/practice/_SOURCES.md. No sourced threshold"
+    },
+    {
+      "id": "rv-023.unused-group-types",
+      "app": "revit",
+      "title": "No unused group types",
+      "severity": "error",
+      "why": "Unused group types are dead weight that purge removes.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "unusedGroupTypeCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Purge unused group types (Purge Unused) after confirming none is kept for later use."
+      },
+      "groups": [
+        "modelling",
+        "health"
+      ],
+      "source": "mistakes-revit.md RV-023 (detection: Auto); sources S23 S35 S36 S25, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-024.over-constraining",
+      "app": "revit",
+      "title": "No locked dimensions or constraints in the project",
+      "severity": "warning",
+      "why": "Project-level locks add recalculation overhead and constraint errors.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review locked dimension constraints and 'constraints are not satisfied' warnings; remove project-level locks."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review locked dimension constraints and 'constraints are not satisfied' warnings; remove project-level locks."
+      },
+      "groups": [
+        "modelling",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-024 (detection: Heur); sources S23 S35 S36 S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-025.over-modelling",
+      "app": "revit",
+      "title": "Families and elements are not over-modelled",
+      "severity": "warning",
+      "why": "Modelling detail that drawings do not need costs file weight and time.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review large families and tiny solids (under about 100 mm / 4 in, practitioner guidance [S34]); simplify with symbolic lines and detail levels."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review large families and tiny solids (under about 100 mm / 4 in, practitioner guidance [S34]); simplify with symbolic lines and detail levels."
+      },
+      "groups": [
+        "families",
+        "health",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-025 (detection: Heur); sources S34 S35 S36, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-026.downloaded-families",
+      "app": "revit",
+      "title": "Downloaded and manufacturer families are vetted",
+      "severity": "error",
+      "why": "Unvetted content brings bloat, junk and advertising parameters.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review large family files, high parameter counts and non-standard parameter names; clean or replace with office content."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review large family files, high parameter counts and non-standard parameter names; clean or replace with office content."
+      },
+      "groups": [
+        "families",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-026 (detection: Heur); sources S34 S35, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-027.type-copy-names",
+      "app": "revit",
+      "title": "Type names carry no copy suffixes",
+      "severity": "warning",
+      "why": "Types like 'Wall 2 2' are duplicates nobody renamed; people pick the wrong one.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "types",
+        "field": "name",
+        "negate": true,
+        "ignoreCase": true,
+        "pattern": ".*\\s[0-9]+\\s[0-9]+|.*\\bcopy(\\s?\\(?[0-9]+\\)?)?|copy of .*"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Rename the type to the naming standard, or merge it into the original type and purge it."
+      },
+      "groups": [
+        "families",
+        "data"
+      ],
+      "source": "mistakes-revit.md RV-027 (detection: Auto); sources S37, see references/practice/_SOURCES.md. Matches repeated trailing numbers and 'copy'; a single trailing number is too often legitimate to flag"
+    },
+    {
+      "id": "rv-028.default-view-names",
+      "app": "revit",
+      "title": "Views have project names, not default or copy names",
+      "severity": "warning",
+      "why": "'Section 1' and 'Copy of' views pile up and nobody knows which is live.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "views",
+        "where": {
+          "isTemplate": false
+        },
+        "field": "name",
+        "negate": true,
+        "pattern": "(Section|Elevation|Callout|Detail|Drafting View|3D View|Camera|Legend|Schedule|Plan Region) [0-9]+( - [a-z])?|.*\\bCopy( [0-9]+)?|Copy of .*"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "view.rename",
+        "args": {
+          "views": [
+            {
+              "view": "{{recordId}}",
+              "name": ""
+            }
+          ]
+        },
+        "note": "Give the name from the project's view naming convention."
+      },
+      "groups": [
+        "views"
+      ],
+      "source": "mistakes-revit.md RV-028 (detection: Auto); sources S23 S35 S34, see references/practice/_SOURCES.md. English default names; localised Revit versions need their own pattern"
+    },
+    {
+      "id": "rv-028.views-not-on-sheets",
+      "app": "revit",
+      "title": "Views not on sheets are reported with their count",
+      "severity": "info",
+      "why": "Working views accumulate and add weight; the project decides how many to keep.",
+      "evaluator": "count_over_threshold",
+      "params": {
+        "table": "views",
+        "where": {
+          "isTemplate": false,
+          "onSheet": false,
+          "isSchedule": false
+        },
+        "max": 0
+      },
+      "fix": {
+        "kind": "op",
+        "op": "cleanup.unusedViews",
+        "args": {
+          "ids": [
+            "{{recordId}}"
+          ],
+          "includeTemplates": false,
+          "keepWithDependents": true
+        },
+        "note": "The count finding has no record id: fill ids from the views table (onSheet false) and get approval first."
+      },
+      "groups": [
+        "views",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-028 (detection: Auto); sources S23 S35 S34 S46, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-029.sheet-views-template",
+      "app": "revit",
+      "title": "Views on sheets have a view template",
+      "severity": "error",
+      "why": "Without templates, graphics on sheets differ view by view.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "views",
+        "where": {
+          "onSheet": true,
+          "isTemplate": false,
+          "templateApplicable": true
+        },
+        "field": "hasTemplate",
+        "equals": false
+      },
+      "fix": {
+        "kind": "op",
+        "op": "viewtemplate.apply",
+        "args": {
+          "views": [
+            "{{recordId}}"
+          ],
+          "template": ""
+        },
+        "note": "Set template to the project's template for this view type."
+      },
+      "groups": [
+        "views",
+        "sheets"
+      ],
+      "source": "mistakes-revit.md RV-029 (detection: Auto); sources S91 S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-030.walls-spanning-levels",
+      "app": "revit",
+      "title": "Walls span no more than two levels",
+      "severity": "info",
+      "why": "Walls through many levels update slowly and associate with the wrong level.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_Walls"
+        },
+        "field": "levelSpan",
+        "max": 2
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Split the wall at levels (with the user's approval)."
+      },
+      "groups": [
+        "modelling",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-030 (detection: Auto); sources S31 S25 S22, see references/practice/_SOURCES.md. The two-level figure is from one published custom checkset [S31]; the project sets the limit"
+    },
+    {
+      "id": "rv-031.offset-from-level",
+      "app": "revit",
+      "title": "Elements are within 200 mm of their host level",
+      "severity": "info",
+      "why": "Elements far off their level break schedules by level and coordination.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "elements",
+        "field": "levelOffsetAbsMm",
+        "max": 200,
+        "skipMissing": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Re-host the element to the right level, keeping its position."
+      },
+      "groups": [
+        "modelling",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-031 (detection: Auto); sources S31 S22, see references/practice/_SOURCES.md. 200 mm is from one published custom checkset [S31]; the project sets the limit"
+    },
+    {
+      "id": "rv-032.openings-as-windows",
+      "app": "revit",
+      "title": "Wall openings are not used in place of windows",
+      "severity": "error",
+      "why": "An opening has no window data and is missing from schedules.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review wall openings with no hosted door or window."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review wall openings with no hosted door or window."
+      },
+      "groups": [
+        "modelling",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-032 (detection: Heur); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-033.curtain-doors",
+      "app": "revit",
+      "title": "Curtain wall doors use curtain panel door families",
+      "severity": "warning",
+      "why": "Ordinary doors substituted into curtain panels behave and schedule wrongly.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review doors in curtain wall panel positions that are not the project's curtain door family."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review doors in curtain wall panel positions that are not the project's curtain door family."
+      },
+      "groups": [
+        "modelling",
+        "families",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-033 (detection: Heur); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-034.walls-attached",
+      "app": "revit",
+      "title": "Walls are not attached to floors or roofs where the owner forbids it",
+      "severity": "info",
+      "why": "Attached walls create dependencies the owner standard forbids.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_Walls"
+        },
+        "field": "isAttached",
+        "equals": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Detach the wall and set its constraints or profile; only where the owner rule applies."
+      },
+      "groups": [
+        "modelling",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-034 (detection: Auto); sources S22, see references/practice/_SOURCES.md. An owner rule (NY OGS), not a universal one"
+    },
+    {
+      "id": "rv-035.mass-instances",
+      "app": "revit",
+      "title": "No mass instances in the documentation model",
+      "severity": "info",
+      "why": "Masses used for real elements are missing from the right schedules and categories.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "elements",
+        "field": "category",
+        "equals": "OST_Mass"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Replace the mass with the proper element; delete massing studies at documentation stages with the user's approval."
+      },
+      "groups": [
+        "modelling",
+        "families"
+      ],
+      "source": "mistakes-revit.md RV-035 (detection: Auto); sources S22, see references/practice/_SOURCES.md. Severity info: whether masses are still legitimate depends on the project stage, which the model does not record"
+    },
+    {
+      "id": "rv-036.delete-redraw",
+      "app": "revit",
+      "title": "Elements are modified, not deleted and redrawn",
+      "severity": "error",
+      "why": "Redrawing loses element identity and orphans hosted items.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Compare element ids between versions and look for orphaned hosted elements."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Compare element ids between versions and look for orphaned hosted elements."
+      },
+      "groups": [
+        "modelling",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-036 (detection: Heur); sources S36, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-037.rooms",
+      "app": "revit",
+      "title": "Every room is placed, enclosed and not redundant",
+      "severity": "critical",
+      "why": "Unplaced, unenclosed and redundant rooms give wrong areas and 'Not Enclosed' in schedules.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_Rooms"
+        },
+        "field": "roomState",
+        "in": [
+          "unplaced",
+          "not_enclosed",
+          "redundant"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "cleanup.unplacedRooms",
+        "args": {
+          "ids": [
+            "{{recordId}}"
+          ],
+          "includeNotEnclosed": false,
+          "includeRedundant": false
+        },
+        "note": "Destructive and only for unplaced rooms, with the user's approval; close boundaries for not enclosed rooms instead."
+      },
+      "groups": [
+        "rooms"
+      ],
+      "source": "mistakes-revit.md RV-037 (detection: Auto); sources S79, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-038.duplicate-spaces",
+      "app": "revit",
+      "title": "One space per room",
+      "severity": "error",
+      "why": "Several spaces in one room give wrong loads.",
+      "evaluator": "duplicates_by_key",
+      "params": {
+        "table": "elements",
+        "where": {
+          "category": "OST_MEPSpaces"
+        },
+        "keys": [
+          "roomId"
+        ]
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Report to the MEP author; delete duplicate spaces only in your own model, with approval."
+      },
+      "groups": [
+        "rooms"
+      ],
+      "source": "mistakes-revit.md RV-038 (detection: Auto); sources S75, see references/practice/_SOURCES.md. Unassigned MEP components are not checked: outside architecture and interiors scope"
+    },
+    {
+      "id": "rv-039.wrong-category",
+      "app": "revit",
+      "title": "Families are in the right category",
+      "severity": "error",
+      "why": "A wrong category hides elements from schedules, tags, filters and IFC/COBie mapping.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Run a 'Generic Models - To Reclassify' and a multi-category schedule [S70]; compare categories with names."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Run a 'Generic Models - To Reclassify' and a multi-category schedule [S70]; compare categories with names."
+      },
+      "groups": [
+        "families",
+        "data",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-039 (detection: Heur); sources S70, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-040.nested-shared",
+      "app": "revit",
+      "title": "Nested families that must be scheduled are shared",
+      "severity": "warning",
+      "why": "Non-shared nested families cannot be tagged or scheduled.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review families whose sub-components appear in schedules; make the nested family shared and reload."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review families whose sub-components appear in schedules; make the nested family shared and reload."
+      },
+      "groups": [
+        "families",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-040 (detection: Heur); sources S69, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-041.paste-orphans",
+      "app": "revit",
+      "title": "No orphaned families or types from copy and paste",
+      "severity": "warning",
+      "why": "Pasting between projects leaves renamed duplicates.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for families and types with '1' or '2' suffixes after pasting; merge to the original types and purge."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for families and types with '1' or '2' suffixes after pasting; merge to the original types and purge."
+      },
+      "groups": [
+        "families",
+        "cleanup",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-041 (detection: Heur); sources S75, see references/practice/_SOURCES.md. Repeated-number suffixes are also reported by rv-027"
+    },
+    {
+      "id": "rv-042.unused-families",
+      "app": "revit",
+      "title": "Loaded families with no instances are reported",
+      "severity": "info",
+      "why": "An over-populated template or project carries families nobody uses.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "unusedFamilyCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Purge unused families with the user's approval; keep annotation families the template needs."
+      },
+      "groups": [
+        "families",
+        "health",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-042 (detection: Auto); sources S36 S25, see references/practice/_SOURCES.md. No sourced threshold"
+    },
+    {
+      "id": "rv-043.sync-relinquish",
+      "app": "revit",
+      "title": "Users synchronise and relinquish regularly",
+      "severity": "error",
+      "why": "Borrowed elements block others and unsynchronised work is lost.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review elements owned by inactive users and the sync history; advise the user. Never sync or relinquish unasked."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review elements owned by inactive users and the sync history; advise the user. Never sync or relinquish unasked."
+      },
+      "groups": [
+        "worksharing",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-043 (detection: Heur); sources S29 S87, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-044.same-build",
+      "app": "revit",
+      "title": "The whole team is on the same Revit build",
+      "severity": "error",
+      "why": "Mixed builds cause worksharing problems.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Read the build numbers in the central model's worksharing log (.slog) or ask the BIM manager."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Read the build numbers in the central model's worksharing log (.slog) or ask the BIM manager."
+      },
+      "groups": [
+        "worksharing",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-044 (detection: Auto); sources S28, see references/practice/_SOURCES.md. Kept manual: the build history is in a log file beside the central model, not in the model"
+    },
+    {
+      "id": "rv-045.dim-precision",
+      "app": "revit",
+      "title": "Linear dimension types display no finer than a buildable precision",
+      "severity": "error",
+      "why": "Revit's 1/256 in default shows a precision nobody can build.",
+      "evaluator": "dim_precision_min",
+      "params": {
+        "table": "types",
+        "where": {
+          "category": "OST_Dimensions",
+          "dimensionStyle": "linear"
+        },
+        "field": "stepMm",
+        "systemField": "unitSystem",
+        "imperialMinIn": 0.25,
+        "metricMinMm": 1
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the dimension type's Units Format rounding to 1/2 in (1/4 in at most) or whole millimetres; see dimensions-annotation.md section 4."
+      },
+      "groups": [
+        "annotation",
+        "data"
+      ],
+      "source": "mistakes-revit.md RV-045 (detection: Auto); sources S49, see references/practice/_SOURCES.md. The guide's target is 1/2 in; the check fails only below 1/4 in, which S49 allows occasionally"
+    },
+    {
+      "id": "rv-046.annotation-on-sheets",
+      "app": "revit",
+      "title": "Text notes and detail items are in views, not on sheets",
+      "severity": "info",
+      "why": "Notes placed on the sheet detach from the view they describe when views move.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "elements",
+        "where": {
+          "isViewSpecific": true
+        },
+        "field": "ownerViewKind",
+        "equals": "sheet"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move the note into the view it describes; sheet-wide general notes may stay on the sheet if the standard allows."
+      },
+      "groups": [
+        "annotation",
+        "sheets",
+        "heuristic"
+      ],
+      "source": "mistakes-revit.md RV-046 (detection: Auto); sources S22, see references/practice/_SOURCES.md. Severity info: sheet-level general notes are legitimate (drawing-conventions.md section 7)"
+    },
+    {
+      "id": "rv-047.entourage-in-documents",
+      "app": "revit",
+      "title": "No entourage or planting is visible in views on sheets",
+      "severity": "warning",
+      "why": "Entourage clutters construction documents and slows them.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "views",
+        "where": {
+          "onSheet": true,
+          "isTemplate": false
+        },
+        "field": "entourageVisible",
+        "equals": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Hide the Entourage and Planting categories in the documentation template, or put them on a workset closed by default."
+      },
+      "groups": [
+        "views",
+        "sheets"
+      ],
+      "source": "mistakes-revit.md RV-047 (detection: Auto); sources S34, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-048.images",
+      "app": "revit",
+      "title": "Imported raster images are reported with their count",
+      "severity": "info",
+      "why": "Images count against model health and slow the model.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "importedImageCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Remove unused images (Manage Images)."
+      },
+      "groups": [
+        "health",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-048 (detection: Auto); sources S24 S23 S25, see references/practice/_SOURCES.md. Autodesk Model Analytics counts images but publishes no threshold [S24]"
+    },
+    {
+      "id": "rv-048.plan-regions",
+      "app": "revit",
+      "title": "Plan regions are reported with their count",
+      "severity": "info",
+      "why": "Plan regions count against model health and slow views.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "planRegionCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Merge or remove plan regions that are not needed."
+      },
+      "groups": [
+        "health",
+        "views",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-048 (detection: Auto); sources S24 S23 S25, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-049.copy-monitor",
+      "app": "revit",
+      "title": "Copy/Monitor coordination alerts are resolved",
+      "severity": "error",
+      "why": "Ignored alerts let levels and grids drift between disciplines.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Open Coordination Review and resolve each pending item."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Open Coordination Review and resolve each pending item."
+      },
+      "groups": [
+        "coordinates",
+        "worksharing",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-049 (detection: Heur); sources S22, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-050.received-content",
+      "app": "revit",
+      "title": "Received models are parametric and tagged, not drawn",
+      "severity": "error",
+      "why": "Families with no type parameters and text in place of tags cannot be scheduled or maintained.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Review families with no type parameters and text notes next to untagged elements; report to the sender."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Review families with no type parameters and text notes next to untagged elements; report to the sender."
+      },
+      "groups": [
+        "families",
+        "data",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-050 (detection: Heur); sources S38, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-051.ifc-view-fine",
+      "app": "revit",
+      "title": "IFC export views are at Fine detail level",
+      "severity": "warning",
+      "why": "Elements shown only at Fine are silently missing from an IFC exported from a Coarse or Medium view.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "views",
+        "where": {
+          "isTemplate": false
+        },
+        "field": "detailLevel",
+        "equals": "fine",
+        "negate": true,
+        "ifField": "name",
+        "ifStandardPattern": "ifcExportView"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the export view's detail level to Fine (or export from a Fine 3D export view)."
+      },
+      "groups": [
+        "export",
+        "heuristic"
+      ],
+      "source": "mistakes-revit.md RV-051 (detection: Auto); sources S59 S22, see references/practice/_SOURCES.md. Export views are found by name (patterns.ifcExportView), a convention, so the check is a heuristic; raise severity when the project names export views by that rule"
+    },
+    {
+      "id": "rv-052.export-proxies",
+      "app": "revit",
+      "title": "The IFC export has no unintended proxies or NOTDEFINED types",
+      "severity": "error",
+      "why": "Downstream tools cannot classify proxies.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Open the exported IFC and count IfcBuildingElementProxy and NOTDEFINED; map categories and IFC classes."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Open the exported IFC and count IfcBuildingElementProxy and NOTDEFINED; map categories and IFC classes."
+      },
+      "groups": [
+        "export",
+        "manual"
+      ],
+      "source": "mistakes-revit.md RV-052 (detection: Auto); sources S59 S14 S58, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "rv-052.generic-ifc-class",
+      "app": "revit",
+      "title": "Generic Model types have an IFC export class",
+      "severity": "error",
+      "why": "Generic models without an IFC class export as IfcBuildingElementProxy and cannot be classified downstream.",
+      "evaluator": "field_missing",
+      "params": {
+        "table": "types",
+        "where": {
+          "category": "OST_GenericModel"
+        },
+        "field": "ifcExportAs"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the type's IfcExportAs (and IfcExportType) to the right IFC class and predefined type, or recategorise the family."
+      },
+      "groups": [
+        "export",
+        "families",
+        "data"
+      ],
+      "source": "mistakes-revit.md RV-052 (detection: Auto); sources S59 S14 S58, see references/practice/_SOURCES.md. Proxy and NOTDEFINED counts in an export file are a separate review"
+    },
+    {
+      "id": "rv-053.warning-gate",
+      "app": "revit",
+      "title": "The warning total is within the project's issue gate",
+      "severity": "info",
+      "why": "Issuing with warnings above the gate gives poor deliverables and fails BIM manager audits.",
+      "evaluator": "count_over_threshold",
+      "params": {
+        "table": "warnings",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the project's gate in this check's max, raise severity to error, and triage before issue."
+      },
+      "groups": [
+        "warnings",
+        "health",
+        "issue",
+        "report-only"
+      ],
+      "source": "mistakes-revit.md RV-053 (detection: Auto); sources S84 S36, see references/practice/_SOURCES.md. Ships with max 0 so the total is always reported; the project sets its gate"
+    }
+  ]
+}

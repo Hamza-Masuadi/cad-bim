@@ -1,0 +1,1806 @@
+{
+  "topic": "Dwelling space standards",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "dwellings.uk.ndss.gia.1b1p.1storey",
+      "quantity": "Minimum gross internal area, 1b1p, 1-storey dwelling",
+      "value": 39,
+      "min": 39,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 419.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 1 bedroom(s), 1 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls. May be 37 m2 where a shower room replaces the bathroom (note 3).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.1b1p",
+      "quantity": "Minimum built-in storage, 1b1p",
+      "value": 1.0,
+      "min": 1.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 10.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 1b1p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.1b2p.1storey",
+      "quantity": "Minimum gross internal area, 1b2p, 1-storey dwelling",
+      "value": 50,
+      "min": 50,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 538.2,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 1 bedroom(s), 2 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.1b2p.2storey",
+      "quantity": "Minimum gross internal area, 1b2p, 2-storey dwelling",
+      "value": 58,
+      "min": 58,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 624.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 1 bedroom(s), 2 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.1b2p",
+      "quantity": "Minimum built-in storage, 1b2p",
+      "value": 1.5,
+      "min": 1.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 16.1,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 1b2p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.2b3p.1storey",
+      "quantity": "Minimum gross internal area, 2b3p, 1-storey dwelling",
+      "value": 61,
+      "min": 61,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 656.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2 bedroom(s), 3 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.2b3p.2storey",
+      "quantity": "Minimum gross internal area, 2b3p, 2-storey dwelling",
+      "value": 70,
+      "min": 70,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 753.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2 bedroom(s), 3 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.2b3p",
+      "quantity": "Minimum built-in storage, 2b3p",
+      "value": 2.0,
+      "min": 2.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 21.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2b3p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.2b4p.1storey",
+      "quantity": "Minimum gross internal area, 2b4p, 1-storey dwelling",
+      "value": 70,
+      "min": 70,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 753.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2 bedroom(s), 4 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.2b4p.2storey",
+      "quantity": "Minimum gross internal area, 2b4p, 2-storey dwelling",
+      "value": 79,
+      "min": 79,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 850.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2 bedroom(s), 4 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.2b4p",
+      "quantity": "Minimum built-in storage, 2b4p",
+      "value": 2.0,
+      "min": 2.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 21.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 2b4p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b4p.1storey",
+      "quantity": "Minimum gross internal area, 3b4p, 1-storey dwelling",
+      "value": 74,
+      "min": 74,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 796.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 4 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b4p.2storey",
+      "quantity": "Minimum gross internal area, 3b4p, 2-storey dwelling",
+      "value": 84,
+      "min": 84,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 904.2,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 4 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b4p.3storey",
+      "quantity": "Minimum gross internal area, 3b4p, 3-storey dwelling",
+      "value": 90,
+      "min": 90,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 968.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 4 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.3b4p",
+      "quantity": "Minimum built-in storage, 3b4p",
+      "value": 2.5,
+      "min": 2.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 26.9,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3b4p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b5p.1storey",
+      "quantity": "Minimum gross internal area, 3b5p, 1-storey dwelling",
+      "value": 86,
+      "min": 86,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 925.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 5 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b5p.2storey",
+      "quantity": "Minimum gross internal area, 3b5p, 2-storey dwelling",
+      "value": 93,
+      "min": 93,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1001,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 5 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b5p.3storey",
+      "quantity": "Minimum gross internal area, 3b5p, 3-storey dwelling",
+      "value": 99,
+      "min": 99,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1065.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 5 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.3b5p",
+      "quantity": "Minimum built-in storage, 3b5p",
+      "value": 2.5,
+      "min": 2.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 26.9,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3b5p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b6p.1storey",
+      "quantity": "Minimum gross internal area, 3b6p, 1-storey dwelling",
+      "value": 95,
+      "min": 95,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1022.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 6 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b6p.2storey",
+      "quantity": "Minimum gross internal area, 3b6p, 2-storey dwelling",
+      "value": 102,
+      "min": 102,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1097.9,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 6 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.3b6p.3storey",
+      "quantity": "Minimum gross internal area, 3b6p, 3-storey dwelling",
+      "value": 108,
+      "min": 108,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1162.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3 bedroom(s), 6 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.3b6p",
+      "quantity": "Minimum built-in storage, 3b6p",
+      "value": 2.5,
+      "min": 2.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 26.9,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 3b6p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b5p.1storey",
+      "quantity": "Minimum gross internal area, 4b5p, 1-storey dwelling",
+      "value": 90,
+      "min": 90,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 968.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 5 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b5p.2storey",
+      "quantity": "Minimum gross internal area, 4b5p, 2-storey dwelling",
+      "value": 97,
+      "min": 97,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1044.1,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 5 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b5p.3storey",
+      "quantity": "Minimum gross internal area, 4b5p, 3-storey dwelling",
+      "value": 103,
+      "min": 103,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1108.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 5 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.4b5p",
+      "quantity": "Minimum built-in storage, 4b5p",
+      "value": 3.0,
+      "min": 3.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 32.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4b5p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b6p.1storey",
+      "quantity": "Minimum gross internal area, 4b6p, 1-storey dwelling",
+      "value": 99,
+      "min": 99,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1065.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 6 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b6p.2storey",
+      "quantity": "Minimum gross internal area, 4b6p, 2-storey dwelling",
+      "value": 106,
+      "min": 106,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1141,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 6 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b6p.3storey",
+      "quantity": "Minimum gross internal area, 4b6p, 3-storey dwelling",
+      "value": 112,
+      "min": 112,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1205.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 6 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.4b6p",
+      "quantity": "Minimum built-in storage, 4b6p",
+      "value": 3.0,
+      "min": 3.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 32.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4b6p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b7p.1storey",
+      "quantity": "Minimum gross internal area, 4b7p, 1-storey dwelling",
+      "value": 108,
+      "min": 108,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1162.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 7 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b7p.2storey",
+      "quantity": "Minimum gross internal area, 4b7p, 2-storey dwelling",
+      "value": 115,
+      "min": 115,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1237.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 7 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b7p.3storey",
+      "quantity": "Minimum gross internal area, 4b7p, 3-storey dwelling",
+      "value": 121,
+      "min": 121,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1302.4,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 7 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.4b7p",
+      "quantity": "Minimum built-in storage, 4b7p",
+      "value": 3.0,
+      "min": 3.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 32.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4b7p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b8p.1storey",
+      "quantity": "Minimum gross internal area, 4b8p, 1-storey dwelling",
+      "value": 117,
+      "min": 117,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1259.4,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 8 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b8p.2storey",
+      "quantity": "Minimum gross internal area, 4b8p, 2-storey dwelling",
+      "value": 124,
+      "min": 124,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1334.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 8 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.4b8p.3storey",
+      "quantity": "Minimum gross internal area, 4b8p, 3-storey dwelling",
+      "value": 130,
+      "min": 130,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1399.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4 bedroom(s), 8 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.4b8p",
+      "quantity": "Minimum built-in storage, 4b8p",
+      "value": 3.0,
+      "min": 3.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 32.3,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 4b8p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b6p.1storey",
+      "quantity": "Minimum gross internal area, 5b6p, 1-storey dwelling",
+      "value": 103,
+      "min": 103,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1108.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 6 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b6p.2storey",
+      "quantity": "Minimum gross internal area, 5b6p, 2-storey dwelling",
+      "value": 110,
+      "min": 110,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1184,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 6 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b6p.3storey",
+      "quantity": "Minimum gross internal area, 5b6p, 3-storey dwelling",
+      "value": 116,
+      "min": 116,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1248.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 6 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.5b6p",
+      "quantity": "Minimum built-in storage, 5b6p",
+      "value": 3.5,
+      "min": 3.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 37.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5b6p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b7p.1storey",
+      "quantity": "Minimum gross internal area, 5b7p, 1-storey dwelling",
+      "value": 112,
+      "min": 112,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1205.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 7 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b7p.2storey",
+      "quantity": "Minimum gross internal area, 5b7p, 2-storey dwelling",
+      "value": 119,
+      "min": 119,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1280.9,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 7 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b7p.3storey",
+      "quantity": "Minimum gross internal area, 5b7p, 3-storey dwelling",
+      "value": 125,
+      "min": 125,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1345.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 7 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.5b7p",
+      "quantity": "Minimum built-in storage, 5b7p",
+      "value": 3.5,
+      "min": 3.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 37.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5b7p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b8p.1storey",
+      "quantity": "Minimum gross internal area, 5b8p, 1-storey dwelling",
+      "value": 121,
+      "min": 121,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1302.4,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 8 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b8p.2storey",
+      "quantity": "Minimum gross internal area, 5b8p, 2-storey dwelling",
+      "value": 128,
+      "min": 128,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1377.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 8 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.5b8p.3storey",
+      "quantity": "Minimum gross internal area, 5b8p, 3-storey dwelling",
+      "value": 134,
+      "min": 134,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1442.4,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5 bedroom(s), 8 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.5b8p",
+      "quantity": "Minimum built-in storage, 5b8p",
+      "value": 3.5,
+      "min": 3.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 37.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 5b8p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b7p.1storey",
+      "quantity": "Minimum gross internal area, 6b7p, 1-storey dwelling",
+      "value": 116,
+      "min": 116,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1248.6,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 7 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b7p.2storey",
+      "quantity": "Minimum gross internal area, 6b7p, 2-storey dwelling",
+      "value": 123,
+      "min": 123,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1324,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 7 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b7p.3storey",
+      "quantity": "Minimum gross internal area, 6b7p, 3-storey dwelling",
+      "value": 129,
+      "min": 129,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1388.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 7 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.6b7p",
+      "quantity": "Minimum built-in storage, 6b7p",
+      "value": 4.0,
+      "min": 4.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 43.1,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6b7p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b8p.1storey",
+      "quantity": "Minimum gross internal area, 6b8p, 1-storey dwelling",
+      "value": 125,
+      "min": 125,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1345.5,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 8 bedspaces, 1 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b8p.2storey",
+      "quantity": "Minimum gross internal area, 6b8p, 2-storey dwelling",
+      "value": 132,
+      "min": 132,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1420.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 8 bedspaces, 2 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia.6b8p.3storey",
+      "quantity": "Minimum gross internal area, 6b8p, 3-storey dwelling",
+      "value": 138,
+      "min": 138,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 1485.4,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6 bedroom(s), 8 bedspaces, 3 storey(s), where the local plan adopts NDSS",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Gross internal area measured to internal faces of perimeter walls.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.storage.6b8p",
+      "quantity": "Minimum built-in storage, 6b8p",
+      "value": 4.0,
+      "min": 4.0,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 43.1,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "New dwelling, 6b8p",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "Table 1"
+      },
+      "note": "Included within the GIA; includes 0.5 m2 allowance for fixed services (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.single_bedroom.area.min",
+      "quantity": "Single bedroom floor area",
+      "value": 7.5,
+      "min": 7.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 80.7,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.single_bedroom.width.min",
+      "quantity": "Single bedroom width",
+      "value": 2.15,
+      "min": 2.15,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.05,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.double_bedroom.area.min",
+      "quantity": "Double or twin bedroom floor area",
+      "value": 11.5,
+      "min": 11.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 123.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.first_double.width.min",
+      "quantity": "Width of one double (or twin) bedroom",
+      "value": 2.75,
+      "min": 2.75,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 9.02,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(e)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.other_double.width.min",
+      "quantity": "Width of every other double (or twin) bedroom",
+      "value": 2.55,
+      "min": 2.55,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 8.37,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(e)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.ceiling.min",
+      "quantity": "Floor to ceiling height over at least 75% of GIA",
+      "value": 2.3,
+      "min": 2.3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.55,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(i)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.ndss.gia_headroom.min",
+      "quantity": "Headroom below which area is excluded from GIA (unless storage)",
+      "value": 1.5,
+      "min": 1.5,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "NDSS dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Technical housing standards - nationally described space standard",
+        "publisher": "Department for Communities and Local Government",
+        "edition": "March 2015 (notes added 19 May 2016)",
+        "url": "https://assets.publishing.service.gov.uk/media/6123c60e8fa8f53dd1f9b04d/160519_Nationally_Described_Space_Standard.pdf",
+        "clause": "para 10(f)"
+      },
+      "note": "Storage with 0.9-1.5 m headroom counts at 50%; below 0.9 m not counted (10(g)). Under-stair storage: assume 1 m2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.m42.kitchen_clear.min",
+      "quantity": "Clear space in front of and between kitchen units and appliances",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.24(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.m42.bedroom_access_zone.min",
+      "quantity": "Clear access zone/route width in bedrooms",
+      "value": 750,
+      "min": 750,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.25"
+      },
+      "note": "Principal double: both sides and foot of bed; other doubles: one side and foot; singles/twins: one side of each bed; route door to window 750 mm.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.m42.living_glazing.max",
+      "quantity": "Height above floor at which principal living-room glazing starts",
+      "value": 850,
+      "min": null,
+      "max": 850,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.24(c)"
+      },
+      "note": "Or the minimum needed for Part K guarding.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.m43.wheelchair_store.depth.min",
+      "quantity": "Wheelchair storage and transfer space depth",
+      "value": 1100,
+      "min": 1100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 43.31,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Wheelchair user dwellings, M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.25(a)"
+      },
+      "note": "1100 deep x 1700 wide on the entrance storey, reached from a space 1200 mm wide, with a power socket.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.uk.m43.wheelchair_store.width.min",
+      "quantity": "Wheelchair storage and transfer space width",
+      "value": 1700,
+      "min": 1700,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 66.93,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Wheelchair user dwellings, M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.25(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.us.seattle.habitable_room.dimension.min",
+      "quantity": "Minimum habitable room plan dimension",
+      "value": 2134,
+      "min": 2134,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 84,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Habitable rooms (Seattle Residential Code)",
+      "jurisdiction": "United States - Seattle, Washington (Seattle Residential Code 2015, based on the IRC)",
+      "source": {
+        "title": "2015 SRC Code Solution: SRC Section R304.1 & R304.2 Habitable Room Size",
+        "publisher": "City of Seattle Department of Construction and Inspections",
+        "edition": "Release date October 2017 (2015 Seattle Residential Code)",
+        "url": "https://seattle.gov/documents/Departments/SDCI/Codes/R304.1%20Habitable%20Room%20Areas.pdf",
+        "clause": "SRC R304.2"
+      },
+      "note": "Stated as 7 feet in all directions; only parts of the room where a 7 ft x 7 ft square fits count toward the area. Seattle's code is based on the IRC; the model IRC R304 values were not read directly. Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.us.seattle.habitable_room.area.min",
+      "quantity": "Minimum habitable room floor area",
+      "value": 6.5,
+      "min": 6.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 70,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Habitable rooms (Seattle Residential Code)",
+      "jurisdiction": "United States - Seattle, Washington (Seattle Residential Code 2015, based on the IRC)",
+      "source": {
+        "title": "2015 SRC Code Solution: SRC Section R304.1 & R304.2 Habitable Room Size",
+        "publisher": "City of Seattle Department of Construction and Inspections",
+        "edition": "Release date October 2017 (2015 Seattle Residential Code)",
+        "url": "https://seattle.gov/documents/Departments/SDCI/Codes/R304.1%20Habitable%20Room%20Areas.pdf",
+        "clause": "SRC R304.1"
+      },
+      "note": "Source states 70 sq ft only; 6.5 m2 is a conversion (70 x 0.0929 = 6.50). Seattle's code is based on the IRC.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "dwellings.us.irc.ceiling_habitable.min",
+      "quantity": "Minimum ceiling height: habitable space, hallways",
+      "value": 2134,
+      "min": 2134,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 84,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC, as restated by City of Boise, Idaho)",
+      "source": {
+        "title": "IRC Code Handout #434: Ceiling Height (restates IRC R305)",
+        "publisher": "City of Boise Planning and Development Services",
+        "edition": "01/2022 (IRC edition not stated on handout)",
+        "url": "https://www.cityofboise.org/media/3924/434-irc-code-section-r305-ceiling-height.pdf",
+        "clause": "IRC R305.1"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Stated as 7 feet (2134 mm). Sloped ceilings: required floor area at least 5 ft (1524 mm) and at least 50% of it at 7 ft. Basement beams/ducts may project to 6 ft 4 in (1931 mm).",
+      "confidence": "secondary"
+    },
+    {
+      "id": "dwellings.us.irc.ceiling_bathroom.min",
+      "quantity": "Minimum ceiling height: bathrooms, toilet rooms, laundry",
+      "value": 2032,
+      "min": 2032,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC, as restated by City of Boise, Idaho)",
+      "source": {
+        "title": "IRC Code Handout #434: Ceiling Height (restates IRC R305)",
+        "publisher": "City of Boise Planning and Development Services",
+        "edition": "01/2022 (IRC edition not stated on handout)",
+        "url": "https://www.cityofboise.org/media/3924/434-irc-code-section-r305-ceiling-height.pdf",
+        "clause": "IRC R305.1"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Stated as 6 feet 8 inches (2032 mm).",
+      "confidence": "secondary"
+    }
+  ]
+}

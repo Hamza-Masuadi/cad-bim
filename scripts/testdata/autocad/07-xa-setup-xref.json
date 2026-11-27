@@ -1,0 +1,50 @@
+{
+  "jobId": "sa-test-acad-07-xa-setup-xref",
+  "title": "Reference XA.dwg: units, layer, nested XB",
+  "description": "Prepares XA.dwg and attaches XB.dwg into it as an Attach reference with a relative path, so P1 later sees XB at depth 2.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/XA.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "units",
+      "op": "doc.setup",
+      "args": {
+        "insUnits": "in",
+        "measurement": "imperial"
+      }
+    },
+    {
+      "id": "layer",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "A-WALL"
+          }
+        ]
+      }
+    },
+    {
+      "id": "xb",
+      "op": "xref.attach",
+      "args": {
+        "path": "XB.dwg",
+        "name": "XB",
+        "mode": "attach",
+        "pathType": "relative",
+        "layer": "A-WALL",
+        "position": [
+          0,
+          0
+        ]
+      },
+      "note": "XB attached (not overlaid) so it nests into drawings that attach XA."
+    }
+  ]
+}

@@ -1,0 +1,2386 @@
+{
+  "$schema": "../schemas/standard.schema.json",
+  "id": "us-ncs-style",
+  "name": "US NCS-style project standard (architecture and interiors, imperial)",
+  "version": "1.0",
+  "description": "A starting project standard in the style of the US National CAD Standard: AIA-style delimited layer names, Uniform Drawing System sheet identifiers, imperial scales and plotted text heights. Built from public owner standards that republish NCS codes; it is not the licensed NCS text.",
+  "jurisdiction": "United States (style preset; not a code or a licensed standard)",
+  "notes": [
+    "STATUS: style preset. The licensed NCS v7 (AIA CAD Layer Guidelines, UDS, Plotting Guidelines) is paywalled [S07]; nothing here is presented as its official content. Code lists come from public derivatives: City of Calgary [S01][S02][S04], State of Missouri FMDC [S09], Illinois State University [S10], Draftsperson.net [S05], Archtoolbox [S06][S11], NY State OGS [S22], AUGI [S48]. Source ids resolve in references/practice/_SOURCES.md and research/05-expert-practice-and-standards.md.",
+    "LAYER FORMAT [S05][S01][S02]: discipline designator (1 character plus an optional 1-character modifier), major group (4), up to two minor groups (4 each), optional 1-character status written last; hyphen separated. The second designator character is a modifier, written without a hyphen (AD-WALL).",
+    "CODE LIST COMPLETENESS: codeLists.disciplines is COMPLETE as published by Calgary [S01] (NCS-derived, level 1). codeLists.disciplineModifiers is PARTIAL: only modifiers seen in public examples [S06]; the full level-2 list was not found publicly. layerNaming.majorGroup is COMPLETE for the Calgary derivative [S02] plus the Missouri codes it lacks [S09]; it is NOT identical to NCS (Calgary writes SPKL where NCS writes SPRN, for example). layerNaming.minorGroup is PARTIAL: codes seen in public examples [S05][S09]; Calgary publishes several hundred more [S03]; allowOther is true because NCS-derived standards allow documented user-defined 4-character minor groups [S02][S03]. layerNaming.status is COMPLETE per [S05] (not checked against licensed NCS v7 text). codeLists.sheetTypes is COMPLETE [S04][S06]. codeLists.setOrder is COMPLETE per [S06].",
+    "TILDE PADDING: NCS-derived standards pad short user-defined minor groups with '~' [S02][S03]. The engine's US scheme accepts '~' only inside listed codes (AIR~, GAS~, OIL~ are listed major groups); a padded user-defined minor group is reported as not alphanumeric. Add it to minorGroup.codes if the project uses one.",
+    "OWNER VARIANTS: Missouri sets sheet type 7 = reflected ceiling plans [S09]; NY OGS uses its own type digits and a discipline-type-floor-sector pattern [S22]; older owner standards put status in a 4-character minor group (NEWW, EXST, DEMO...) [S09], which the minor group list accepts. Override in the project copy.",
+    "SENSIBLE DEFAULTS, NOT SOURCED (a project should override them): the starter layer list (which layers, their descriptions), every layer colour, linetype and lineweight, the text style and dimension style names and settings, the title block field names, statusCodes (issue descriptions), revisionCodes, the patterns, codeLists.xrefLayers beyond G-ANNO-REFR, and codeLists.approvedFonts beyond Arial. Starter layer colours were chosen so that a layer's lineweight equals the plotted width Missouri's colour-dependent pen table gives its colour (1 .008 in, 2 .006, 3 .004, 4 .002, 5 .010, 6 .016, 7 .012, 8 .020 in) [S09], rounded to the nearest AutoCAD lineweight; plotting by CTB or by layer lineweight then gives the same weight. The assignment of colours to layers is a default.",
+    "PLOTTED TEXT HEIGHTS: 3/32 in for notes, dimensions and labels and 1/8 in for tags [S10][S22]; view titles 3/16 in is a default inside the 3/16-5/16 in range [S10]; 5/16 in titles and 3/8, 1/2, 1 in sheet numbers on ARCH C, D, E [S10]. Model height = plotted height x scale factor: 3/32 in at 1/4\" = 1'-0\" (factor 48) is 4.5 in [S10].",
+    "SCALES: factors and model text heights per the Illinois State scaling chart [S10]; 1/32\" = 1'-0\" from [S11]. 1:1 is listed for full-size details.",
+    "DIMENSIONS: architectural units, 1/4 in display precision. AIA guidance: round to the nearest 1/2 in, occasionally 1/4 in, never finer [S49]; AUGI rounds to 1/4 in [S48]. Set DIMRND 0.5 in the project copy for 1/2 in rounding. Draw at 1:1, one unit = one inch, DIMSCALE from the Fit tab (or annotative) [S10]. Settings other than DIMLUNIT, DIMDEC and DIMTXT are defaults.",
+    "LINETYPE SCALE: use one method per project (cad-standards.md section 6): Illinois State LTSCALE = half the scale factor with PSLTSCALE 0 [S10], or PSLTSCALE 1, MSLTSCALE 1, LTSCALE 1 (typical practice). The shipped checks expect PSLTSCALE 1 and MSLTSCALE 1; change them in the project's checks copy for the other method.",
+    "SHEET SIZES: codeLists.sheetSizes lists ARCH and ANSI sizes in inches (width x height) [S81, search excerpt only][S10 for ARCH C, D, E, E1]. The schema has no numeric sheet size member, so the size is in each code's name.",
+    "FILE NAMING: no public US file naming standard was sourced, so this preset has no fileNaming rule. Add the project's rule.",
+    "LAYER ROLES, VIEW NAMES, PURGE AND TITLE BLOCK: layerRoles names the layer for viewport frames, xref inserts and the title block insert; viewNaming is the view name rule (the same default as patterns.viewName); purge.keep lists names a purge must keep beyond what the standard already lists, and is empty here; titleBlock.blockName and titleBlock.familyType are not set, because the title block is the project's own. All four are DEFAULTS, not sourced: a project sets its own."
+  ],
+  "units": {
+    "length": "in"
+  },
+  "codeLists": {
+    "disciplines": [
+      {
+        "code": "A",
+        "name": "Architectural"
+      },
+      {
+        "code": "B",
+        "name": "Geotechnical"
+      },
+      {
+        "code": "C",
+        "name": "Civil"
+      },
+      {
+        "code": "D",
+        "name": "Process"
+      },
+      {
+        "code": "E",
+        "name": "Electrical"
+      },
+      {
+        "code": "F",
+        "name": "Fire Protection"
+      },
+      {
+        "code": "G",
+        "name": "General"
+      },
+      {
+        "code": "H",
+        "name": "Hazardous Materials"
+      },
+      {
+        "code": "I",
+        "name": "Interior"
+      },
+      {
+        "code": "L",
+        "name": "Landscape"
+      },
+      {
+        "code": "M",
+        "name": "Mechanical"
+      },
+      {
+        "code": "O",
+        "name": "Operations"
+      },
+      {
+        "code": "P",
+        "name": "Plumbing"
+      },
+      {
+        "code": "Q",
+        "name": "Equipment"
+      },
+      {
+        "code": "R",
+        "name": "Resource"
+      },
+      {
+        "code": "S",
+        "name": "Structural"
+      },
+      {
+        "code": "T",
+        "name": "Telecommunications"
+      },
+      {
+        "code": "V",
+        "name": "Survey / Mapping"
+      },
+      {
+        "code": "W",
+        "name": "Distributed Energy"
+      },
+      {
+        "code": "X",
+        "name": "Other Disciplines"
+      },
+      {
+        "code": "Z",
+        "name": "Contractor / Shop Drawings"
+      }
+    ],
+    "disciplineModifiers": [
+      {
+        "code": "D",
+        "name": "Demolition (as in AD, architectural demolition) [S06]"
+      },
+      {
+        "code": "P",
+        "name": "Power (as in EP) or piping (as in MP) [S06]"
+      },
+      {
+        "code": "L",
+        "name": "Lighting (as in EL) [S06]"
+      },
+      {
+        "code": "A",
+        "name": "Alarm (as in FA) or existing (as in RA) [S06]"
+      },
+      {
+        "code": "H",
+        "name": "HVAC (as in MH) or hospital equipment (as in QH) [S06]"
+      }
+    ],
+    "layerStatus": [
+      {
+        "code": "N",
+        "name": "New work"
+      },
+      {
+        "code": "E",
+        "name": "Existing to remain"
+      },
+      {
+        "code": "D",
+        "name": "Existing to demolish"
+      },
+      {
+        "code": "F",
+        "name": "Future work"
+      },
+      {
+        "code": "T",
+        "name": "Temporary work"
+      },
+      {
+        "code": "M",
+        "name": "Items to be moved"
+      },
+      {
+        "code": "R",
+        "name": "Relocated items"
+      },
+      {
+        "code": "X",
+        "name": "Not in contract"
+      }
+    ],
+    "sheetTypes": [
+      {
+        "code": "0",
+        "name": "General (symbols legend, notes, etc.)"
+      },
+      {
+        "code": "1",
+        "name": "Plans (horizontal views; combination plan and profile)"
+      },
+      {
+        "code": "2",
+        "name": "Elevations and profiles (vertical views)"
+      },
+      {
+        "code": "3",
+        "name": "Sections (sectional views, wall sections)"
+      },
+      {
+        "code": "4",
+        "name": "Large-scale views (plans, elevations or sections that are not details)"
+      },
+      {
+        "code": "5",
+        "name": "Details"
+      },
+      {
+        "code": "6",
+        "name": "Schedules and diagrams"
+      },
+      {
+        "code": "7",
+        "name": "User defined (incl. typical detail sheets)"
+      },
+      {
+        "code": "8",
+        "name": "User defined"
+      },
+      {
+        "code": "9",
+        "name": "3D representations (isometrics, perspectives, photographs)"
+      }
+    ],
+    "setOrder": [
+      {
+        "code": "Cover",
+        "name": "Set position 1 [S06]"
+      },
+      {
+        "code": "G",
+        "name": "Set position 2 [S06]"
+      },
+      {
+        "code": "H",
+        "name": "Set position 3 [S06]"
+      },
+      {
+        "code": "V",
+        "name": "Set position 4 [S06]"
+      },
+      {
+        "code": "B",
+        "name": "Set position 5 [S06]"
+      },
+      {
+        "code": "C",
+        "name": "Set position 6 [S06]"
+      },
+      {
+        "code": "L",
+        "name": "Set position 7 [S06]"
+      },
+      {
+        "code": "S",
+        "name": "Set position 8 [S06]"
+      },
+      {
+        "code": "A",
+        "name": "Set position 9 [S06]"
+      },
+      {
+        "code": "I",
+        "name": "Set position 10 [S06]"
+      },
+      {
+        "code": "Q",
+        "name": "Set position 11 [S06]"
+      },
+      {
+        "code": "F",
+        "name": "Set position 12 [S06]"
+      },
+      {
+        "code": "P",
+        "name": "Set position 13 [S06]"
+      },
+      {
+        "code": "D",
+        "name": "Set position 14 [S06]"
+      },
+      {
+        "code": "M",
+        "name": "Set position 15 [S06]"
+      },
+      {
+        "code": "E",
+        "name": "Set position 16 [S06]"
+      },
+      {
+        "code": "W",
+        "name": "Set position 17 [S06]"
+      },
+      {
+        "code": "T",
+        "name": "Set position 18 [S06]"
+      },
+      {
+        "code": "R",
+        "name": "Set position 19 [S06]"
+      },
+      {
+        "code": "X",
+        "name": "Set position 20 [S06]"
+      },
+      {
+        "code": "Z",
+        "name": "Set position 21 [S06]"
+      },
+      {
+        "code": "O",
+        "name": "Set position 22 [S06]"
+      }
+    ],
+    "sheetSizes": [
+      {
+        "code": "ARCH A",
+        "name": "9 x 12 in"
+      },
+      {
+        "code": "ARCH B",
+        "name": "12 x 18 in"
+      },
+      {
+        "code": "ARCH C",
+        "name": "18 x 24 in"
+      },
+      {
+        "code": "ARCH D",
+        "name": "24 x 36 in"
+      },
+      {
+        "code": "ARCH E",
+        "name": "36 x 48 in"
+      },
+      {
+        "code": "ARCH E1",
+        "name": "30 x 42 in"
+      },
+      {
+        "code": "ANSI A",
+        "name": "8.5 x 11 in"
+      },
+      {
+        "code": "ANSI B",
+        "name": "11 x 17 in"
+      },
+      {
+        "code": "ANSI C",
+        "name": "17 x 22 in"
+      },
+      {
+        "code": "ANSI D",
+        "name": "22 x 34 in"
+      },
+      {
+        "code": "ANSI E",
+        "name": "34 x 44 in"
+      }
+    ],
+    "plotColours": [
+      {
+        "code": "1",
+        "name": "Red, plots .008 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "2",
+        "name": "Yellow, plots .006 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "3",
+        "name": "Green, plots .004 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "4",
+        "name": "Cyan, plots .002 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "5",
+        "name": "Blue, plots .010 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "6",
+        "name": "Magenta, plots .016 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "7",
+        "name": "Black/White, plots .012 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      },
+      {
+        "code": "8",
+        "name": "Gray, plots .020 in",
+        "description": "Missouri FMDC colour-to-width table [S09]"
+      }
+    ],
+    "xrefLayers": [
+      {
+        "code": "G-ANNO-REFR",
+        "name": "Xref insert layer suggested for NCS layering [S48]"
+      }
+    ],
+    "approvedFonts": [
+      {
+        "code": "Arial",
+        "name": "Arial TrueType; NY OGS standard text font [S22]"
+      }
+    ]
+  },
+  "layerNaming": {
+    "scheme": "us",
+    "description": "AIA / NCS-style long format: discipline designator, major group, up to two minor groups, optional status [S05][S01][S02].",
+    "examples": [
+      "A-WALL",
+      "A-WALL-FIRE",
+      "A-DOOR-SWNG",
+      "AD-WALL",
+      "A-ANNO-TTLB-N",
+      "I-FURN-PNLS",
+      "S-GRID",
+      "G-ANNO-REFR"
+    ],
+    "separator": "-",
+    "case": "upper",
+    "discipline": {
+      "codeList": "disciplines",
+      "description": "Author of the graphic information, not the trade of the object [S05]. Complete per Calgary [S01].",
+      "modifiers": {
+        "codeList": "disciplineModifiers",
+        "description": "Second designator character. PARTIAL list [S06]."
+      }
+    },
+    "majorGroup": {
+      "length": 4,
+      "codes": [
+        {
+          "code": "ACCS",
+          "name": "Access",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ACID",
+          "name": "Acid",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "AIR~",
+          "name": "Air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ALRM",
+          "name": "Alarm system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ALGN",
+          "name": "Alignment",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ANNO",
+          "name": "Annotation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "AFRZ",
+          "name": "Anti-freeze",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "AFFF",
+          "name": "Aqueous film-forming foam",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "AREA",
+          "name": "Area",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ARMR",
+          "name": "Armour",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ASMB",
+          "name": "Assembly",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "AUXL",
+          "name": "Auxiliary systems",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BARR",
+          "name": "Barrier",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BEAM",
+          "name": "Beams",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BELL",
+          "name": "Bell system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BORE",
+          "name": "Borings",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BRCG",
+          "name": "Bracing",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BRDG",
+          "name": "Bridge",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BRIN",
+          "name": "Brine",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BCST",
+          "name": "Broadcast",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "BLDG",
+          "name": "Buildings and primary structures",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CABL",
+          "name": "Cable systems",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CTCH",
+          "name": "Catchment",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CATH",
+          "name": "Cathodic protection",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CLNG",
+          "name": "Ceiling",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CHEM",
+          "name": "Chemical",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CWTR",
+          "name": "Chilled water",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CHIM",
+          "name": "Chimneys and stacks",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CLOK",
+          "name": "Clock",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CCTV",
+          "name": "CCTV",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CO2S",
+          "name": "CO2 system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "COLS",
+          "name": "Columns",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "COMM",
+          "name": "Communications",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CMPA",
+          "name": "Compressed/processed air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CNDW",
+          "name": "Condenser water",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CTRL",
+          "name": "Control points",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CONT",
+          "name": "Controls and instrumentation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CONV",
+          "name": "Conveying systems",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CORR",
+          "name": "Corridor",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "CVAL",
+          "name": "Culvert valve",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DATA",
+          "name": "Data/LAN",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DECK",
+          "name": "Deck",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DETL",
+          "name": "Detail",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DEVP",
+          "name": "Development",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DIAG",
+          "name": "Diagrams",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DICT",
+          "name": "Dictation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DOMW",
+          "name": "Domestic water",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DOOR",
+          "name": "Doors",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DRAN",
+          "name": "Drains",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DUAL",
+          "name": "Dual temperature",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "DUST",
+          "name": "Dust and fume collection",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ELHT",
+          "name": "Electric heat",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ELEV",
+          "name": "Elevation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ENER",
+          "name": "Energy management",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "EMCS",
+          "name": "Energy monitoring control",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "RCOV",
+          "name": "Energy recovery",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "EQPM",
+          "name": "Equipment",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "EROS",
+          "name": "Erosion and sediment control",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "EXCV",
+          "name": "Excavation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "EXHS",
+          "name": "Exhaust",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "REFR",
+          "name": "External files (images, pdfs, xrefs)",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FABR",
+          "name": "Fabricated",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FSTN",
+          "name": "Fasteners and connections",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FEAT",
+          "name": "Feature line",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FENC",
+          "name": "Fences",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PROT",
+          "name": "Fire protection system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FLOR",
+          "name": "Floor",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FNDN",
+          "name": "Foundation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FRAM",
+          "name": "Frame",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FUEL",
+          "name": "Fuel",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FUME",
+          "name": "Fume hood",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "FURN",
+          "name": "Furnishings",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GAS~",
+          "name": "Gas",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GATE",
+          "name": "Gate",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GLAZ",
+          "name": "Glazing",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GLYC",
+          "name": "Glycol",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GTHP",
+          "name": "Geothermal",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GRLN",
+          "name": "Grade line",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GRTG",
+          "name": "Grating",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GREY",
+          "name": "Greywater",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GRID",
+          "name": "Grids",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "GRND",
+          "name": "Ground system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "HALN",
+          "name": "Halon",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "HWTR",
+          "name": "Hot water heating",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "HVAC",
+          "name": "HVAC",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "HYDR",
+          "name": "Hydraulic structure",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "IGAS",
+          "name": "Inert gas",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "INST",
+          "name": "Instrumentation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "INSL",
+          "name": "Insulating oil",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "INTC",
+          "name": "Intercom/PA",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "INTS",
+          "name": "Intersection",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "IRRG",
+          "name": "Irrigation",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "JNTS",
+          "name": "Joints",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "JOIS",
+          "name": "Joists",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LGAS",
+          "name": "Laboratory gas",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LITE",
+          "name": "Lighting",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LTNG",
+          "name": "Lightning protection",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LOCN",
+          "name": "Limits of construction",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LNTL",
+          "name": "Lintels",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LIQD",
+          "name": "Liquid",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LOGS",
+          "name": "Logs",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "LUBE",
+          "name": "Lubricating oil",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MACH",
+          "name": "Machine shop",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MKUP",
+          "name": "Makeup air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MASS",
+          "name": "Mass haul",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MATL",
+          "name": "Material",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MDGS",
+          "name": "Medical gas",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MISC",
+          "name": "Miscellaneous features",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MPIP",
+          "name": "Misc piping",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MITR",
+          "name": "Miter",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MAIR",
+          "name": "Mixed air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MONP",
+          "name": "Monitoring point",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "MNTG",
+          "name": "Mounting system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "NGAS",
+          "name": "Natural gas",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "NODE",
+          "name": "Node",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "OBST",
+          "name": "Obstructions",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "OIL~",
+          "name": "Oil",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "OTLN",
+          "name": "Outline",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PADS",
+          "name": "Pads",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PGNG",
+          "name": "Paging",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PRCL",
+          "name": "Parcel",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PRKG",
+          "name": "Parking lots",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PVMT",
+          "name": "Pavement",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PVMD",
+          "name": "Photovoltaic modules",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PIPE",
+          "name": "Piping",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PLNT",
+          "name": "Plant and landscape material",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PLAT",
+          "name": "Platform",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "POLE",
+          "name": "Pole",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "POND",
+          "name": "Pond",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "POWR",
+          "name": "Power",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PRES",
+          "name": "Pressure",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PROC",
+          "name": "Process systems",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PROF",
+          "name": "Profile",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PROJ",
+          "name": "Projector system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PROP",
+          "name": "Property",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "RAIL",
+          "name": "Railroad",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "RWTR",
+          "name": "Raw water",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "REFG",
+          "name": "Refrigeration",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "REIN",
+          "name": "Reinforcing",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "RAIR",
+          "name": "Relief air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ROAD",
+          "name": "Roadways",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "ROOF",
+          "name": "Roof",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SAFT",
+          "name": "Safety",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SAMP",
+          "name": "Sample",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SSWR",
+          "name": "Sanitary sewer",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SECT",
+          "name": "Section",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SERT",
+          "name": "Security system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SIGN",
+          "name": "Sign",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SITE",
+          "name": "Site features",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SLAB",
+          "name": "Slab",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SLUR",
+          "name": "Slurry",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SMOK",
+          "name": "Smoke extraction",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SOUN",
+          "name": "Sound system",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SPCL",
+          "name": "Special systems",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SPKL",
+          "name": "Sprinkler",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "STRS",
+          "name": "Stairs",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "STEM",
+          "name": "Steam",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "STIF",
+          "name": "Stiffener",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "STRM",
+          "name": "Storm sewer",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "SURV",
+          "name": "Survey",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "PHON",
+          "name": "Telephone",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TVVS",
+          "name": "Television/video",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TEST",
+          "name": "Test equipment",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TOPO",
+          "name": "Topographic feature",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TRAF",
+          "name": "Traffic",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TAIR",
+          "name": "Transfer air",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TRAN",
+          "name": "Transmission",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "TRUS",
+          "name": "Trusses",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "UTIL",
+          "name": "Utilities",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "VACU",
+          "name": "Vacuum",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "WALK",
+          "name": "Walkway",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "WWAY",
+          "name": "Waterway",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "WALL",
+          "name": "Walls",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "WATR",
+          "name": "Water supply",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "WELL",
+          "name": "Well",
+          "description": "City of Calgary major group list [S02]"
+        },
+        {
+          "code": "1LIN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "ABLT",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "AFLD",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "BLIN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "BRAC",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Bracing"
+        },
+        {
+          "code": "CASE",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Casework"
+        },
+        {
+          "code": "CATV",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Cable television"
+        },
+        {
+          "code": "CEME",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "CHAN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "DFLD",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "DRIV",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Driveways"
+        },
+        {
+          "code": "DTCH",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "ELEC",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Electrical"
+        },
+        {
+          "code": "ESMT",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Easements"
+        },
+        {
+          "code": "EVAC",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "FIRE",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Fire"
+        },
+        {
+          "code": "FIXT",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Fixtures"
+        },
+        {
+          "code": "FLHA",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "FOTO",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Photographs"
+        },
+        {
+          "code": "FRUN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "GRAT",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Grating"
+        },
+        {
+          "code": "HOTW",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Hot water"
+        },
+        {
+          "code": "JACK",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "JBOX",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Junction boxes"
+        },
+        {
+          "code": "LEGN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Legend"
+        },
+        {
+          "code": "MSGS",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "NURS",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "PERC",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "RBAR",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Reinforcing bar"
+        },
+        {
+          "code": "RCLG",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Reflected ceiling"
+        },
+        {
+          "code": "RISR",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Risers"
+        },
+        {
+          "code": "RIVR",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Rivers"
+        },
+        {
+          "code": "RRAP",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "SANR",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Sanitary"
+        },
+        {
+          "code": "SEAL",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Seal / stamp"
+        },
+        {
+          "code": "SGHT",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "SOIL",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Soils"
+        },
+        {
+          "code": "SPRN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Sprinklers"
+        },
+        {
+          "code": "STEP",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Steps"
+        },
+        {
+          "code": "SWLK",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Sidewalks"
+        },
+        {
+          "code": "TINN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "TRAL",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "TVAN",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]; meaning not stated in the extracted list"
+        },
+        {
+          "code": "WETL",
+          "description": "State of Missouri FMDC layer list, not in the Calgary list [S09]",
+          "name": "Wetlands"
+        }
+      ],
+      "description": "Any major group may combine with any discipline provided its definition is unchanged [S02]. Calgary master list [S02] plus Missouri additions [S09]."
+    },
+    "minorGroup": {
+      "length": 4,
+      "maxCount": 2,
+      "allowOther": true,
+      "codes": [
+        {
+          "code": "SWNG",
+          "name": "Door swing [S05]"
+        },
+        {
+          "code": "FIRE",
+          "name": "Fire-rated [S05]"
+        },
+        {
+          "code": "GRID",
+          "name": "Grid [S05][S09]"
+        },
+        {
+          "code": "RBAR",
+          "name": "Reinforcing [S05]"
+        },
+        {
+          "code": "DUCT",
+          "name": "Duct [S05]"
+        },
+        {
+          "code": "DOMW",
+          "name": "Domestic water [S05]"
+        },
+        {
+          "code": "EMER",
+          "name": "Emergency [S05]"
+        },
+        {
+          "code": "PANL",
+          "name": "Panels [S05]"
+        },
+        {
+          "code": "CLHD",
+          "name": "Ceiling heads [S05]"
+        },
+        {
+          "code": "SPOT",
+          "name": "Spot elevations [S05]"
+        },
+        {
+          "code": "GRND",
+          "name": "Ground [S05]"
+        },
+        {
+          "code": "JACK",
+          "name": "Jacks [S05]"
+        },
+        {
+          "code": "PNLS",
+          "name": "Panels (furniture systems) [S05]"
+        },
+        {
+          "code": "PATT",
+          "name": "Pattern / hatch [S05][S09]"
+        },
+        {
+          "code": "DIMS",
+          "name": "Dimensions [S09]"
+        },
+        {
+          "code": "IDEN",
+          "name": "Identification tags [S09]"
+        },
+        {
+          "code": "KEYN",
+          "name": "Keynotes [S09]"
+        },
+        {
+          "code": "LABL",
+          "name": "Labels [S09]"
+        },
+        {
+          "code": "LEGN",
+          "name": "Legends [S09]"
+        },
+        {
+          "code": "MARK",
+          "name": "Markers [S09]"
+        },
+        {
+          "code": "MATC",
+          "name": "Match lines [S09]"
+        },
+        {
+          "code": "NOTE",
+          "name": "Notes [S09]"
+        },
+        {
+          "code": "NPLT",
+          "name": "Not plotted [S09]"
+        },
+        {
+          "code": "REFR",
+          "name": "External references [S09][S48]"
+        },
+        {
+          "code": "REVC",
+          "name": "Revision clouds [S09]"
+        },
+        {
+          "code": "SCHD",
+          "name": "Schedules [S09]"
+        },
+        {
+          "code": "SYMB",
+          "name": "Symbols [S09]"
+        },
+        {
+          "code": "TEXT",
+          "name": "Text [S09]"
+        },
+        {
+          "code": "TTLB",
+          "name": "Title block and border [S09]"
+        },
+        {
+          "code": "NEWW",
+          "name": "New work (older AIA status-as-minor style) [S09]"
+        },
+        {
+          "code": "EXST",
+          "name": "Existing (older style) [S09]"
+        },
+        {
+          "code": "DEMO",
+          "name": "Demolish (older style) [S09]"
+        },
+        {
+          "code": "FUTR",
+          "name": "Future (older style) [S09]"
+        },
+        {
+          "code": "TEMP",
+          "name": "Temporary (older style) [S09]"
+        },
+        {
+          "code": "MOVE",
+          "name": "Moved (older style) [S09]"
+        },
+        {
+          "code": "RELO",
+          "name": "Relocated (older style) [S09]"
+        },
+        {
+          "code": "NICN",
+          "name": "Not in contract (older style) [S09]"
+        },
+        {
+          "code": "PHS1",
+          "name": "Phase 1 (older style) [S09]"
+        },
+        {
+          "code": "PHS2",
+          "name": "Phase 2 (older style) [S09]"
+        },
+        {
+          "code": "PHS3",
+          "name": "Phase 3 (older style) [S09]"
+        },
+        {
+          "code": "PHS4",
+          "name": "Phase 4 (older style) [S09]"
+        },
+        {
+          "code": "PHS5",
+          "name": "Phase 5 (older style) [S09]"
+        },
+        {
+          "code": "PHS6",
+          "name": "Phase 6 (older style) [S09]"
+        },
+        {
+          "code": "PHS7",
+          "name": "Phase 7 (older style) [S09]"
+        },
+        {
+          "code": "PHS8",
+          "name": "Phase 8 (older style) [S09]"
+        },
+        {
+          "code": "PHS9",
+          "name": "Phase 9 (older style) [S09]"
+        }
+      ],
+      "description": "PARTIAL list from public examples [S05][S09]; documented user-defined 4-character groups are allowed [S02][S03]."
+    },
+    "status": {
+      "codeList": "layerStatus",
+      "description": "Single character, always last [S05]."
+    }
+  },
+  "layers": [
+    {
+      "name": "A-WALL",
+      "color": 6,
+      "lineweight": 0.4,
+      "plot": true,
+      "description": "Walls cut in plan [default; colour 6 plots at .016 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-WALL-PATT",
+      "color": 4,
+      "lineweight": 0.05,
+      "plot": true,
+      "description": "Wall poche / hatch [default; colour 4 plots at .002 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-WALL-FIRE",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Fire-rated wall indication [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-WALL-E",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Existing walls to remain [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-WALL-D",
+      "color": 2,
+      "linetype": "HIDDEN2",
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Existing walls to demolish [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-DOOR",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Doors (frames and leaves) [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-DOOR-SWNG",
+      "color": 3,
+      "lineweight": 0.09,
+      "plot": true,
+      "description": "Door swings [default; colour 3 plots at .004 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-GLAZ",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Windows and glazing [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-COLS",
+      "color": 7,
+      "lineweight": 0.3,
+      "plot": true,
+      "description": "Architectural column enclosures [default; colour 7 plots at .012 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-FLOR-PATT",
+      "color": 4,
+      "lineweight": 0.05,
+      "plot": true,
+      "description": "Floor patterns and finishes [default; colour 4 plots at .002 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-CLNG",
+      "color": 3,
+      "lineweight": 0.09,
+      "plot": true,
+      "description": "Ceiling information [default; colour 3 plots at .004 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-CLNG-GRID",
+      "color": 3,
+      "lineweight": 0.09,
+      "plot": true,
+      "description": "Ceiling grid [default; colour 3 plots at .004 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ROOF",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Roof [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-STRS",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Stairs [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-CASE",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Casework [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-EQPM",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Equipment [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-FURN",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Furniture (when drawn by architecture) [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ELEV",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Elevation linework [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-SECT",
+      "color": 7,
+      "lineweight": 0.3,
+      "plot": true,
+      "description": "Section linework [default; colour 7 plots at .012 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-AREA",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Area and room boundaries (closed polylines) [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-AREA-IDEN",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Room names, numbers and area tags [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-DIMS",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Dimensions [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-TEXT",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "General text [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-NOTE",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Notes [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-KEYN",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Keynotes [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-SYMB",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Symbols: section, elevation and detail marks, north arrow [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-REVC",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Revision clouds and tags [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-LEGN",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Legends [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-SCHD",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Schedules [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-MATC",
+      "color": 6,
+      "lineweight": 0.4,
+      "plot": true,
+      "description": "Match lines [default; colour 6 plots at .016 in in the Missouri pen table]"
+    },
+    {
+      "name": "A-ANNO-NPLT",
+      "color": 4,
+      "lineweight": "default",
+      "plot": false,
+      "description": "Construction lines and notes to self [default; not plotted]"
+    },
+    {
+      "name": "I-WALL",
+      "color": 6,
+      "lineweight": 0.4,
+      "plot": true,
+      "description": "Interior partitions (interiors author) [default; colour 6 plots at .016 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-FURN",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Furniture [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-FURN-PNLS",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Furniture system panels [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-CASE",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Interior casework and millwork [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-EQPM",
+      "color": 1,
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Interior equipment [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-FLOR-PATT",
+      "color": 4,
+      "lineweight": 0.05,
+      "plot": true,
+      "description": "Floor finish patterns [default; colour 4 plots at .002 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-CLNG",
+      "color": 3,
+      "lineweight": 0.09,
+      "plot": true,
+      "description": "Interior ceiling information [default; colour 3 plots at .004 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-AREA-IDEN",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Interior room and area tags [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-ANNO-DIMS",
+      "color": 2,
+      "lineweight": 0.15,
+      "plot": true,
+      "description": "Interior dimensions [default; colour 2 plots at .006 in in the Missouri pen table]"
+    },
+    {
+      "name": "I-ANNO-TEXT",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Interior text and finish notes [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "S-GRID",
+      "color": 1,
+      "linetype": "CENTER2",
+      "lineweight": 0.2,
+      "plot": true,
+      "description": "Structural grid lines [default; colour 1 plots at .008 in in the Missouri pen table]"
+    },
+    {
+      "name": "S-GRID-IDEN",
+      "color": 5,
+      "lineweight": 0.25,
+      "plot": true,
+      "description": "Grid bubbles and labels [default; colour 5 plots at .010 in in the Missouri pen table]"
+    },
+    {
+      "name": "G-ANNO-TTLB",
+      "color": 7,
+      "lineweight": 0.3,
+      "plot": true,
+      "description": "Title block and border (attributed block, paper space) [default; colour 7 plots at .012 in in the Missouri pen table]"
+    },
+    {
+      "name": "G-ANNO-REFR",
+      "color": 7,
+      "lineweight": 0.3,
+      "plot": true,
+      "description": "External reference inserts [default; colour 7 plots at .012 in in the Missouri pen table]"
+    },
+    {
+      "name": "G-ANNO-NPLT",
+      "color": 4,
+      "lineweight": "default",
+      "plot": false,
+      "description": "Viewport frames and other non-plotting content [default; not plotted]"
+    }
+  ],
+  "layerRoles": {
+    "description": "Layers by role. Defaults, not sourced.",
+    "viewport": "G-ANNO-NPLT",
+    "xref": "G-ANNO-REFR",
+    "titleBlock": "G-ANNO-TTLB"
+  },
+  "textStyles": [
+    {
+      "name": "NOTES",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "Notes, dimensions, labels: 3/32 in plotted [S10][S22]"
+    },
+    {
+      "name": "TAGS",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "Room names and tags: 1/8 in plotted [S22]"
+    },
+    {
+      "name": "TITLES",
+      "font": "Arial",
+      "height": 0,
+      "widthFactor": 1,
+      "annotative": true,
+      "use": "View titles 3/16-5/16 in, sheet numbers [S10]"
+    }
+  ],
+  "dimStyles": [
+    {
+      "name": "ARCH-ANNO",
+      "description": "Annotative architectural dimensions: feet and inches, 1/4 in precision, ticks, text above the line. DIMLUNIT, DIMDEC per [S49][S48]; DIMTXT 3/32 in [S10]; other values are defaults.",
+      "annotative": true,
+      "settings": {
+        "DIMLUNIT": 4,
+        "DIMDEC": 2,
+        "DIMRND": 0,
+        "DIMTXT": 0.09375,
+        "DIMTXSTY": "NOTES",
+        "DIMBLK": "ArchTick",
+        "DIMASZ": 0.0625,
+        "DIMEXE": 0.0625,
+        "DIMEXO": 0.0625,
+        "DIMGAP": 0.0625,
+        "DIMTAD": 1,
+        "DIMTIH": 0,
+        "DIMTOH": 0,
+        "DIMLFAC": 1
+      }
+    }
+  ],
+  "sheetNumbering": {
+    "description": "Uniform Drawing System sheet identifier [S06]: discipline letter, a second designator position (modifier letter, or a hyphen when empty), sheet type digit, two-digit sequence: A-101, AD101, I-201. Gaps in the sequence are allowed; sheets run general to specific within a discipline [S06].",
+    "case": "upper",
+    "fields": [
+      {
+        "name": "discipline",
+        "codeList": "disciplines"
+      },
+      {
+        "name": "modifier",
+        "separator": "",
+        "pattern": "[A-Z-]",
+        "description": "Modifier letter, or '-' when there is none"
+      },
+      {
+        "name": "type",
+        "separator": "",
+        "codeList": "sheetTypes"
+      },
+      {
+        "name": "sequence",
+        "separator": "",
+        "pattern": "[0-9]{2}"
+      }
+    ],
+    "examples": [
+      "A-101",
+      "AD101",
+      "A-501",
+      "I-201",
+      "G-001",
+      "S-201"
+    ]
+  },
+  "viewNaming": {
+    "description": "A capital letter or digit, then letters, digits, spaces, brackets, '&' and '-'. A default, not sourced; NY OGS names views LEVEL DISCIPLINE [DEMO] VIEWTYPE [S22].",
+    "case": "any",
+    "fields": [
+      {
+        "name": "title",
+        "pattern": "[A-Z0-9][A-Za-z0-9 ()&-]*"
+      }
+    ],
+    "examples": [
+      "FIRST FLOOR HVAC DEMO PLAN"
+    ]
+  },
+  "statusCodes": [
+    {
+      "code": "SD",
+      "name": "Schematic Design"
+    },
+    {
+      "code": "DD",
+      "name": "Design Development"
+    },
+    {
+      "code": "CD",
+      "name": "Construction Documents"
+    },
+    {
+      "code": "PERMIT",
+      "name": "Issued for Permit"
+    },
+    {
+      "code": "BID",
+      "name": "Issued for Bid"
+    },
+    {
+      "code": "IFC",
+      "name": "Issued for Construction"
+    },
+    {
+      "code": "ADD",
+      "name": "Addendum (number in the revision description)"
+    },
+    {
+      "code": "BUL",
+      "name": "Bulletin (number in the revision description)"
+    }
+  ],
+  "revisionCodes": {
+    "description": "Default: revisions numbered 1, 2, 3 with a delta tag on clouds; Revit numbering per sheet or per project is decided before any revision is entered [S67][S22]. Not sourced as a code format.",
+    "formats": [
+      {
+        "name": "numbered",
+        "pattern": "[1-9][0-9]?",
+        "description": "Revision number in the delta tag",
+        "example": "3"
+      }
+    ]
+  },
+  "scales": [
+    {
+      "name": "1/32\" = 1'-0\"",
+      "use": "Site and key plans [S11]"
+    },
+    {
+      "name": "1/16\" = 1'-0\"",
+      "use": "Site and key plans, large buildings [S10]"
+    },
+    {
+      "name": "3/32\" = 1'-0\"",
+      "use": "Plans of large buildings [S10]"
+    },
+    {
+      "name": "1/8\" = 1'-0\"",
+      "use": "General arrangement plans, elevations, building sections [S10]"
+    },
+    {
+      "name": "3/16\" = 1'-0\"",
+      "use": "Plans and elevations [S10]"
+    },
+    {
+      "name": "1/4\" = 1'-0\"",
+      "use": "Plans for setting out, enlarged plans, interior elevations [S10]"
+    },
+    {
+      "name": "3/8\" = 1'-0\"",
+      "use": "Enlarged plans [S10]"
+    },
+    {
+      "name": "1/2\" = 1'-0\"",
+      "use": "Enlarged plans, interior elevations [S10]"
+    },
+    {
+      "name": "3/4\" = 1'-0\"",
+      "use": "Wall sections [S10]"
+    },
+    {
+      "name": "1\" = 1'-0\"",
+      "use": "Details [S10]"
+    },
+    {
+      "name": "1 1/2\" = 1'-0\"",
+      "use": "Details [S10]"
+    },
+    {
+      "name": "3\" = 1'-0\"",
+      "use": "Details [S10]"
+    },
+    {
+      "name": "1:1",
+      "use": "Full-size details"
+    },
+    {
+      "name": "1\" = 10'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 20'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 30'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 40'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 50'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 60'",
+      "use": "Engineering scale, site [S10]"
+    },
+    {
+      "name": "1\" = 100'",
+      "use": "Engineering scale, site [S10]"
+    }
+  ],
+  "textHeights": [
+    {
+      "name": "body",
+      "plotted": 0.09375,
+      "unit": "in",
+      "use": "Notes, dimensions, labels: 3/32 in [S10][S22]"
+    },
+    {
+      "name": "tag",
+      "plotted": 0.125,
+      "unit": "in",
+      "use": "Tags, room names, sub-headings: 1/8 in [S22][S10]"
+    },
+    {
+      "name": "title",
+      "plotted": 0.1875,
+      "unit": "in",
+      "use": "View titles: 3/16 in (default within the 3/16-5/16 in range)"
+    },
+    {
+      "name": "title-large",
+      "plotted": 0.3125,
+      "unit": "in",
+      "use": "Drawing titles on ARCH C, D, E: 5/16 in [S10]"
+    },
+    {
+      "name": "sheet-number-c",
+      "plotted": 0.375,
+      "unit": "in",
+      "use": "Sheet number on ARCH C: 3/8 in [S10]"
+    },
+    {
+      "name": "sheet-number-d",
+      "plotted": 0.5,
+      "unit": "in",
+      "use": "Sheet number on ARCH D: 1/2 in [S10]"
+    },
+    {
+      "name": "sheet-number-e",
+      "plotted": 1,
+      "unit": "in",
+      "use": "Sheet number on ARCH E: 1 in [S10]"
+    }
+  ],
+  "titleBlock": {
+    "description": "Field names are defaults; content per sheets-sets.md section 2 [S22][S10]. Fill from attributes or parameters, never loose text [S10].",
+    "fields": [
+      {
+        "name": "PROJECT_NAME",
+        "required": true,
+        "source": "project.name"
+      },
+      {
+        "name": "PROJECT_NO",
+        "required": true,
+        "source": "project.number"
+      },
+      {
+        "name": "PROJECT_ADDRESS",
+        "source": "project.address"
+      },
+      {
+        "name": "CLIENT",
+        "source": "project.client"
+      },
+      {
+        "name": "SHEET_TITLE",
+        "required": true,
+        "source": "sheet.name",
+        "description": "e.g. LEVEL 02 FLOOR PLAN, not OVERALL [S22]"
+      },
+      {
+        "name": "SHEET_NO",
+        "required": true,
+        "source": "sheet.number"
+      },
+      {
+        "name": "SCALE",
+        "required": true,
+        "source": "sheet.scale",
+        "description": "As indicated when several scales are on the sheet"
+      },
+      {
+        "name": "ISSUE_DATE",
+        "required": true,
+        "source": "issue.date"
+      },
+      {
+        "name": "ISSUE",
+        "source": "issue.status",
+        "description": "Issue description from statusCodes"
+      },
+      {
+        "name": "REVISION",
+        "source": "revision.current"
+      },
+      {
+        "name": "DRAWN_BY"
+      },
+      {
+        "name": "CHECKED_BY"
+      },
+      {
+        "name": "APPROVED_BY"
+      },
+      {
+        "name": "SEAL",
+        "description": "Professional seal area where the jurisdiction requires it"
+      }
+    ]
+  },
+  "purge": {
+    "description": "Names a purge keeps in addition to everything this standard lists (layers and their linetypes, text and dimension styles, layerRoles, titleBlock.blockName). Empty by default; a project adds its title block and symbol blocks.",
+    "keep": []
+  },
+  "patterns": {
+    "dimensionLayer": "[A-Z]{1,2}-ANNO-DIMS(-[A-Z0-9~]+)*",
+    "wallLayer": "[A-Z]{1,2}-WALL(-[A-Z0-9~]+)*",
+    "areaLayer": "[A-Z]{1,2}-AREA(-(?!IDEN)[A-Z0-9~]+)*",
+    "titleBlockLayer": "[A-Z]{1,2}-ANNO-TTLB(-[A-Z0-9~]+)*",
+    "widthAllowedLayer": "[A-Z]{1,2}-ANNO(-[A-Z0-9~]+)*",
+    "splineAllowedLayer": "[CLV][A-Z]?-.*|[A-Z]{1,2}-(TOPO|PLNT|ANNO)(-[A-Z0-9~]+)*",
+    "cadLinkWorkset": "(?i).*(CAD|DWG).*",
+    "revitLinkWorkset": "(?i).*(Revit|RVT).*",
+    "ffeWorkset": "(?i).*(FF&?E|furnitur).*",
+    "ifcExportView": "(?i).*\\bIFC\\b.*",
+    "viewName": "[A-Z0-9][A-Za-z0-9 ()&-]*"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "topic": "Floor area measurement rules",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "measurement.uk.rics.nia.low_headroom.exclusion",
+      "quantity": "Headroom below which floor area is excluded from Net Internal Area",
+      "value": 1.5,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Net Internal Area (offices, shops, business use)",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "3.19"
+      },
+      "note": "Exclude areas with headroom below 1.5 m. When marketing on NIA it may help to identify areas below full height but above 1.5 m (NIA 7).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.gia.low_headroom.inclusion",
+      "quantity": "Headroom below which floor area is still included in Gross Internal Area",
+      "value": 1.5,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Gross Internal Area",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "2.14"
+      },
+      "note": "GIA includes areas with headroom below 1.5 m; rating uses exclude them except under stairs (APP 6).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.nia.narrow_space.exclusion",
+      "quantity": "Dimension between opposite faces below which space is excluded from NIA as substantially unusable",
+      "value": 0.25,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 0.82,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Net Internal Area",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "3.20; diagram E"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.nia.heating_projection.exclusion",
+      "quantity": "Projection of intermittent heating or cooling apparatus into the usable area at which its space is excluded from NIA",
+      "value": 0.25,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 0.82,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Net Internal Area",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "3.18(b)"
+      },
+      "note": "Permanent and continuous apparatus that renders space substantially unusable is excluded regardless (3.18a).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.efa.low_headroom.exclusion",
+      "quantity": "Headroom below which floor area is excluded from Effective Floor Area",
+      "value": 1.5,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Effective Floor Area (residential)",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "27.9"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.nsa.low_headroom.exclusion",
+      "quantity": "Headroom below which floor area is excluded from Net Sales Area (no usable space above)",
+      "value": 1.5,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Net Sales Area (new or existing dwellings)",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "26.5"
+      },
+      "note": "Only where the dwelling has no usable space vertically above.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.uk.rics.rag.measure_height.max",
+      "quantity": "Height above floor at which residential room dimensions are taken",
+      "value": 1.5,
+      "min": null,
+      "max": 1.5,
+      "unit": "m",
+      "imperial": {
+        "value": 4.92,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential agency room dimensions",
+      "jurisdiction": "United Kingdom (RICS Code of measuring practice, where IPMS is not required)",
+      "source": {
+        "title": "Code of measuring practice, 6th edition (RICS guidance note, global)",
+        "publisher": "Royal Institution of Chartered Surveyors",
+        "edition": "6th edition, effective 1 May 2015 (council-hosted copy)",
+        "url": "https://www.sevenoaks.gov.uk/download/downloads/id/3876/rics_guidance_note_%E2%80%93_code_of_measuring_practice_may_2015.pdf",
+        "clause": "24.1; 24.6"
+      },
+      "note": "Above skirting level and no higher than 1.5 m; in rooms with sloping ceilings measure at 1.5 m and note the slope.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "measurement.us.ma.low_ceiling.exclusion",
+      "quantity": "Ceiling height below which floor area is not counted toward a room's minimum area",
+      "value": 1524,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Rooms with sloped ceilings, Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.2 exception 2"
+      },
+      "note": "Stated as 5 feet (1524 mm).",
+      "confidence": "read_in_source"
+    }
+  ]
+}

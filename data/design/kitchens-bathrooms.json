@@ -1,0 +1,990 @@
+{
+  "topic": "Kitchen and bathroom planning dimensions",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "kitbath.us.ada.kitchen.pass_through.clearance.min",
+      "quantity": "Clearance between opposing base cabinets, counters, appliances or walls in a pass-through kitchen",
+      "value": 1015,
+      "min": 1015,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 40,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Kitchens and kitchenettes that must comply (804)",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.2.1"
+      },
+      "note": "Measured from the furthest projecting face, excluding hardware (Advisory 804.2). Pass-through kitchens have two entries. Spaces without a cooktop or conventional range are exempt from 804.2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.u_shaped.clearance.min",
+      "quantity": "Clearance between opposing faces in a U-shaped kitchen enclosed on three sides",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Kitchens and kitchenettes that must comply (804)",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.2.2"
+      },
+      "note": "Measured from the furthest projecting face, excluding hardware.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.work_surface.width.min",
+      "quantity": "Width of the accessible kitchen work surface section",
+      "value": 760,
+      "min": 760,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Residential dwelling units required to comply with 809",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.3"
+      },
+      "note": "Forward approach clear floor space with knee and toe clearance (804.3.1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.work_surface.height.max",
+      "quantity": "Kitchen work surface height",
+      "value": 865,
+      "min": null,
+      "max": 865,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Residential dwelling units required to comply with 809",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.3.2"
+      },
+      "note": "Exception: a counter adjustable between 29 and 36 in (735-915 mm) is permitted.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.work_surface.adjustable.height",
+      "quantity": "Adjustable kitchen work surface height range",
+      "value": 735,
+      "min": 735,
+      "max": 915,
+      "unit": "mm",
+      "imperial": {
+        "value": 29,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Residential dwelling units required to comply with 809",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.3.2 exception"
+      },
+      "note": "Range 735-915 mm (29-36 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.sink_adjustable.height",
+      "quantity": "Adjustable kitchen sink height range in dwelling units",
+      "value": 735,
+      "min": 735,
+      "max": 915,
+      "unit": "mm",
+      "imperial": {
+        "value": 29,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Residential dwelling unit kitchens",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "606.3 exception 2"
+      },
+      "note": "Permitted where rough-in plumbing allows a sink at 29 in (735 mm). Otherwise sinks and lavatories are 34 in (865 mm) max (sanitary.us.ada.lavatory_rim.max).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.kitchen.storage_accessible.min",
+      "quantity": "Share of kitchen shelf space that complies with 811",
+      "value": 50,
+      "min": 50,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 50,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Kitchens and kitchenettes that must comply (804)",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "804.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.mirror_over_lavatory.bottom.max",
+      "quantity": "Bottom edge of mirror reflecting surface above a lavatory or countertop",
+      "value": 1015,
+      "min": null,
+      "max": 1015,
+      "unit": "mm",
+      "imperial": {
+        "value": 40,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet and bathing rooms",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "603.3"
+      },
+      "note": "Advisory 603.3: top edge 74 in (1880 mm) minimum suggested.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.mirror_other.bottom.max",
+      "quantity": "Bottom edge of a mirror not above a lavatory or countertop",
+      "value": 890,
+      "min": null,
+      "max": 890,
+      "unit": "mm",
+      "imperial": {
+        "value": 35,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet and bathing rooms",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "603.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.bathtub.clearance.width.min",
+      "quantity": "Clearance in front of a bathtub, along its length",
+      "value": 760,
+      "min": 760,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible bathtubs",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "607.2"
+      },
+      "note": "A lavatory is permitted at the control end; with a permanent seat at the head end the clearance extends 12 in (305 mm) beyond the head-end wall.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.shower_transfer.size",
+      "quantity": "Transfer shower compartment clear inside dimension (each way)",
+      "value": 915,
+      "min": 915,
+      "max": 915,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Transfer-type shower compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "608.2.1"
+      },
+      "note": "36 x 36 in (915 x 915 mm) measured at the centre points of opposing sides; entry 36 in (915 mm) wide min; clearance 36 in wide x 48 in long (915 x 1220 mm) from the control wall.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.shower_rollin.width.min",
+      "quantity": "Standard roll-in shower compartment width",
+      "value": 760,
+      "min": 760,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Standard roll-in shower compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "608.2.2"
+      },
+      "note": "Depth 60 in (1525 mm) min; entry 60 in (1525 mm) wide min; clearance 30 x 60 in (760 x 1525 mm) beside the open face.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.shower_rollin.depth.min",
+      "quantity": "Standard roll-in shower compartment depth",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Standard roll-in shower compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "608.2.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.shower_alt_rollin.width.min",
+      "quantity": "Alternate roll-in shower compartment width",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Alternate roll-in shower compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "608.2.3"
+      },
+      "note": "Depth 60 in (1525 mm) min; 36 in (915 mm) entry at one end of the long side.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.shower_alt_rollin.depth.min",
+      "quantity": "Alternate roll-in shower compartment depth",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Alternate roll-in shower compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "608.2.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ada.compartment_toe.height.min",
+      "quantity": "Toe clearance under front and one side partition of a wheelchair accessible compartment",
+      "value": 230,
+      "min": 230,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 9,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair accessible toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.1.4"
+      },
+      "note": "6 in (150 mm) deep beyond the compartment-side face; children's compartments 12 in (305 mm) high. Not required at the front partition of deeper compartments (62 in wall-hung, 65 in floor-mounted).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.kitchen_clear.min",
+      "quantity": "Clear access zone in front of and between all kitchen units and appliances",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.32(b)"
+      },
+      "note": "M4(2) uses 1200 mm (dwellings.uk.m42.kitchen_clear.min).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_adaptable.2p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair adaptable, 2 bedspaces",
+      "value": 4330,
+      "min": 4330,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 170.47,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair adaptable dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.33(a); Table 3.3"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_accessible.2p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair accessible, 2 bedspaces",
+      "value": 6130,
+      "min": 6130,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 241.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(a); Table 3.4"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_adaptable.3_4p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair adaptable, 3-4 bedspaces",
+      "value": 4730,
+      "min": 4730,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 186.22,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair adaptable dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.33(a); Table 3.3"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_accessible.3_4p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair accessible, 3-4 bedspaces",
+      "value": 6530,
+      "min": 6530,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 257.09,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(a); Table 3.4"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_adaptable.5p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair adaptable, 5 bedspaces",
+      "value": 5630,
+      "min": 5630,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 221.65,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair adaptable dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.33(a); Table 3.3"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_accessible.5p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair accessible, 5 bedspaces",
+      "value": 7430,
+      "min": 7430,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 292.52,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(a); Table 3.4"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_adaptable.6_8p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair adaptable, 6-8 bedspaces",
+      "value": 6730,
+      "min": 6730,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 264.96,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair adaptable dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.33(a); Table 3.3"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_accessible.6_8p.min",
+      "quantity": "Minimum kitchen worktop length including fittings and appliances, wheelchair accessible, 6-8 bedspaces",
+      "value": 8530,
+      "min": 8530,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 335.83,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(a); Table 3.4"
+      },
+      "note": "Measured through the mid-line of the worktop (Diagram 3.8 note 2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.adjustable_worktop.length.min",
+      "quantity": "Continuous height-adjustable (or refixable) worktop section with sink, drainer and hob",
+      "value": 2200,
+      "min": 2200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 86.61,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(b)"
+      },
+      "note": "No fixed appliances beneath; open leg space capable of 700 mm clearance above floor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_leg_space.min",
+      "quantity": "Open leg space clearance under the adjustable worktop section",
+      "value": 700,
+      "min": 700,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 27.56,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.sink_depth.max",
+      "quantity": "Sink bowl depth",
+      "value": 150,
+      "min": null,
+      "max": 150,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(c)"
+      },
+      "note": "Insulated underside.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.oven_centreline",
+      "quantity": "Built-in oven centre line above floor",
+      "value": 800,
+      "min": 800,
+      "max": 900,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(e)"
+      },
+      "note": "Range 800-900 mm; value shows the lower bound. Pull-out shelf beneath the oven (3.34f).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_beside_tall.min",
+      "quantity": "Worktop to at least one side of the oven and of a tall fridge or fridge freezer",
+      "value": 400,
+      "min": 400,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(g)"
+      },
+      "note": "Or to one side of a pair of tall appliances at the end of a run.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.m43.worktop_drainage.height",
+      "quantity": "Worktop height range the sink drainage must adapt to",
+      "value": 700,
+      "min": 700,
+      "max": 950,
+      "unit": "mm",
+      "imperial": {
+        "value": 27.56,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair accessible dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.34(i)"
+      },
+      "note": "Range 700-950 mm above finished floor; value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.wc_cistern.width",
+      "quantity": "WC with cistern: width",
+      "value": 500,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 19.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.wc_cistern.length",
+      "quantity": "WC with cistern: length",
+      "value": 700,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 27.56,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.bath.width",
+      "quantity": "Bath: width",
+      "value": 700,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 27.56,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.bath.length",
+      "quantity": "Bath: length",
+      "value": 1700,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 66.93,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.wash_basin.width",
+      "quantity": "Wash hand basin: width",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.wash_basin.depth",
+      "quantity": "Wash hand basin: depth",
+      "value": 450,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.72,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.hand_rinse_basin.width",
+      "quantity": "Hand rinse basin: width",
+      "value": 350,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 13.78,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.uk.adm1.hand_rinse_basin.depth",
+      "quantity": "Hand rinse basin: depth",
+      "value": 200,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 7.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sanitary fittings in M4(2) and M4(3) layouts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D fitting sizes (minima used for the layout diagrams, Diagram 2.5 note 1). The schedule prints each size as two figures without naming them; width and length here follow the printed order, so confirm the orientation against Diagram 2.5.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ma.kitchen_passage.min",
+      "quantity": "Clear passageway between counter fronts and appliances or walls",
+      "value": 914,
+      "min": 914,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Kitchens under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.1"
+      },
+      "note": "Stated as 3 feet (914 mm). Other IBC editions and state amendments may differ; the adopted edition governs.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "kitbath.us.ma.efficiency_unit.working_space.min",
+      "quantity": "Clear working space in front of the sink, cooking appliance and refrigerator of an efficiency unit",
+      "value": 762,
+      "min": 762,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Efficiency dwelling units under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.4 item 3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    }
+  ]
+}

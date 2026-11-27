@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "report.schema.json",
+  "title": "Job report",
+  "description": "The result of run, and what status returns for a finished job. Written by SA.Core.Jobs.Report.",
+  "type": "object",
+  "required": [ "jobId", "status", "mode", "validation", "results", "summary", "checks", "artifacts", "warnings", "timingMs" ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "jobId": { "type": "string", "minLength": 1 },
+    "status": { "enum": [ "unknown", "running", "committed", "rolled_back", "failed" ] },
+    "mode": { "enum": [ "rehearse", "commit" ] },
+    "validation": { "type": "array", "items": { "$ref": "#/$defs/issue" } },
+    "results": { "type": "array", "items": { "$ref": "#/$defs/opResult" } },
+    "summary": {
+      "type": "object", "additionalProperties": false, "required": [ "created", "modified", "deleted" ],
+      "properties": {
+        "created": { "type": "integer", "minimum": 0 },
+        "modified": { "type": "integer", "minimum": 0 },
+        "deleted": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "checks": { "type": "array", "items": { "$ref": "#/$defs/checkResult" } },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": [ "kind", "path" ],
+        "properties": { "kind": { "type": "string" }, "path": { "type": "string" }, "target": { "type": "string" } }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": [ "source", "text" ],
+        "properties": {
+          "source": { "enum": [ "app", "engine" ] }, "text": { "type": "string" }, "opId": { "type": "string" },
+          "code": { "type": "string", "description": "Machine-readable code, e.g. the Revit failure definition GUID" },
+          "severity": { "type": "string", "description": "Severity as the application reports it" },
+          "elements": { "$ref": "#/$defs/ids" }
+        }
+      }
+    },
+    "undo": { "type": "string" },
+    "failedOpId": { "type": "string" },
+    "error": { "$ref": "#/$defs/error" },
+    "timingMs": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "committed": { "type": "boolean", "description": "True when the changes were committed, even if a later step failed" },
+    "document": {
+      "type": "object", "additionalProperties": false, "required": [ "path", "fingerprint" ],
+      "properties": { "path": { "type": "string" }, "fingerprint": { "type": "string" }, "fingerprintBefore": { "type": "string" } }
+    },
+    "dialogs": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false, "required": [ "kind", "dialogId", "message" ],
+        "properties": {
+          "kind": { "type": "string" }, "dialogId": { "type": "string" }, "message": { "type": "string" },
+          "dismissedWith": { "type": "integer" }, "accepted": { "type": "boolean" }
+        }
+      }
+    },
+    "engine": { "type": "object", "description": "Engine release and version that wrote the report" },
+    "visual": {
+      "type": "object", "description": "Summary of the verify.visual comparison; its verdict is the check 'visual.diff'",
+      "required": [ "target", "status" ],
+      "properties": {
+        "target": { "type": "string" },
+        "status": { "enum": [ "pass", "fail", "review", "incomplete" ] },
+        "reason": { "type": "string" },
+        "changedFraction": { "type": "number" },
+        "unexpectedFraction": { "type": "number" },
+        "regions": { "type": "array", "items": { "type": "object" } },
+        "files": { "type": "array", "items": { "type": "object" } }
+      }
+    }
+  },
+  "$defs": {
+    "ids": { "type": "array", "items": { "type": "string" } },
+    "issue": {
+      "type": "object", "additionalProperties": false, "required": [ "path", "code", "severity", "message" ],
+      "properties": {
+        "path": { "type": "string", "pattern": "^\\$" },
+        "code": { "type": "string", "minLength": 1 },
+        "severity": { "enum": [ "error", "warning" ] },
+        "message": { "type": "string" }
+      }
+    },
+    "error": {
+      "type": "object", "additionalProperties": false, "required": [ "code", "message" ],
+      "properties": { "code": { "type": "string" }, "message": { "type": "string" }, "details": { "type": "object" } }
+    },
+    "opResult": {
+      "type": "object", "additionalProperties": false,
+      "required": [ "id", "op", "ok", "created", "modified", "deleted", "readback" ],
+      "properties": {
+        "id": { "type": "string" },
+        "op": { "type": "string" },
+        "ok": { "type": "boolean", "description": "True only when readback matched the request within tolerance" },
+        "created": { "$ref": "#/$defs/ids" },
+        "modified": { "$ref": "#/$defs/ids" },
+        "deleted": { "$ref": "#/$defs/ids" },
+        "unchanged": { "$ref": "#/$defs/ids" },
+        "readback": { "type": "object" },
+        "outputs": { "type": "object" },
+        "error": { "$ref": "#/$defs/error" }
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false, "required": [ "message" ],
+      "properties": {
+        "message": { "type": "string" },
+        "recordId": { "type": "string" },
+        "table": { "type": "string" },
+        "severity": { "enum": [ "info", "warning", "error", "critical" ] },
+        "data": { "type": "object" }
+      }
+    },
+    "checkResult": {
+      "type": "object", "additionalProperties": false, "required": [ "id", "status", "findings" ],
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "enum": [ "pass", "fail", "not_implemented", "error", "review", "incomplete" ] },
+        "review": { "type": "boolean", "description": "Review-by-eye item: list separately, leave out of pass and fail counts" },
+        "reviewInstructions": { "type": "string" },
+        "incomplete": { "type": "boolean", "description": "The facts the check read were cut or partly omitted: never a pass; a fail may have more findings" },
+        "incompleteReason": { "type": "string" },
+        "title": { "type": "string" },
+        "severity": { "enum": [ "info", "warning", "error", "critical" ] },
+        "message": { "type": "string" },
+        "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+        "fixes": { "type": "array", "items": { "type": "object" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "../standard.schema.json",
+  "id": "us-office-example",
+  "name": "US office standard (example)",
+  "version": "1.0",
+  "description": "Small but complete example of a US-style project standard: delimited layer names, discipline-type-sequence sheet numbers, imperial scales.",
+  "jurisdiction": "United States",
+  "units": { "length": "in" },
+  "codeLists": {
+    "disciplines": [
+      { "code": "G", "name": "General" },
+      { "code": "C", "name": "Civil" },
+      { "code": "L", "name": "Landscape" },
+      { "code": "S", "name": "Structural" },
+      { "code": "A", "name": "Architectural" },
+      { "code": "I", "name": "Interiors" },
+      { "code": "M", "name": "Mechanical" },
+      { "code": "P", "name": "Plumbing" },
+      { "code": "E", "name": "Electrical" }
+    ],
+    "sheetTypes": [
+      { "code": "0", "name": "General" },
+      { "code": "1", "name": "Plans" },
+      { "code": "2", "name": "Elevations" },
+      { "code": "3", "name": "Sections" },
+      { "code": "4", "name": "Large-scale views" },
+      { "code": "5", "name": "Details" },
+      { "code": "6", "name": "Schedules and diagrams" },
+      { "code": "9", "name": "3D representations" }
+    ]
+  },
+  "layerNaming": {
+    "scheme": "us",
+    "separator": "-",
+    "case": "upper",
+    "discipline": {
+      "codeList": "disciplines",
+      "modifiers": { "codes": [ { "code": "D", "name": "Demolition" }, { "code": "F", "name": "Fire protection" }, { "code": "S", "name": "Site" } ] }
+    },
+    "majorGroup": {
+      "length": 4,
+      "codes": [
+        { "code": "WALL", "name": "Walls" }, { "code": "DOOR", "name": "Doors" }, { "code": "GLAZ", "name": "Windows and glazing" },
+        { "code": "FLOR", "name": "Floor information" }, { "code": "CLNG", "name": "Ceiling information" }, { "code": "ROOF", "name": "Roof" },
+        { "code": "COLS", "name": "Columns" }, { "code": "GRID", "name": "Grid" }, { "code": "STRS", "name": "Stairs" },
+        { "code": "FURN", "name": "Furniture" }, { "code": "EQPM", "name": "Equipment" }, { "code": "AREA", "name": "Area calculations" },
+        { "code": "ANNO", "name": "Annotation" }
+      ]
+    },
+    "minorGroup": {
+      "length": 4,
+      "maxCount": 2,
+      "allowOther": false,
+      "codes": [
+        { "code": "FULL", "name": "Full height" }, { "code": "PRHT", "name": "Partial height" }, { "code": "PATT", "name": "Hatch" },
+        { "code": "OTLN", "name": "Outline" }, { "code": "IDEN", "name": "Identification tags" }, { "code": "DIMS", "name": "Dimensions" },
+        { "code": "TEXT", "name": "Text" }, { "code": "NOTE", "name": "Notes" }, { "code": "SYMB", "name": "Symbols" },
+        { "code": "TTLB", "name": "Title block" }, { "code": "NPLT", "name": "Not plotted" }, { "code": "HEAD", "name": "Heads" }
+      ]
+    },
+    "status": {
+      "codes": [
+        { "code": "N", "name": "New work" }, { "code": "E", "name": "Existing to remain" }, { "code": "D", "name": "Existing to demolish" },
+        { "code": "F", "name": "Future work" }, { "code": "T", "name": "Temporary work" }, { "code": "M", "name": "Items to be moved" }
+      ]
+    }
+  },
+  "layers": [
+    { "name": "A-WALL", "color": 2, "linetype": "Continuous", "lineweight": 0.5, "plot": true, "description": "Walls cut in plan" },
+    { "name": "A-WALL-PATT", "color": 8, "lineweight": 0.13, "description": "Wall hatch" },
+    { "name": "A-WALL-PRHT", "color": 3, "lineweight": 0.25 },
+    { "name": "A-WALL-D", "color": 1, "linetype": "HIDDEN2", "lineweight": 0.25, "description": "Walls to demolish" },
+    { "name": "AD-WALL", "color": 1, "linetype": "HIDDEN2", "lineweight": 0.25 },
+    { "name": "A-DOOR", "color": 4, "lineweight": 0.25 },
+    { "name": "A-GLAZ", "color": 5, "lineweight": 0.25 },
+    { "name": "A-FLOR-OTLN", "color": 7, "lineweight": 0.35 },
+    { "name": "A-AREA-IDEN", "color": 7, "lineweight": 0.18 },
+    { "name": "A-ANNO-DIMS", "color": 7, "lineweight": 0.18 },
+    { "name": "A-ANNO-TEXT", "color": 7, "lineweight": 0.18 },
+    { "name": "S-GRID", "color": 9, "linetype": "CENTER2", "lineweight": 0.18 },
+    { "name": "S-GRID-IDEN", "color": 7, "lineweight": 0.25 },
+    { "name": "G-ANNO-TTLB", "color": 7, "lineweight": 0.35 },
+    { "name": "G-ANNO-NPLT", "color": "#C0C0C0", "lineweight": "default", "plot": false, "description": "Viewports and construction lines" }
+  ],
+  "textStyles": [
+    { "name": "SA-Text", "font": "Arial", "height": 0, "widthFactor": 1, "annotative": true, "use": "General notes and labels" },
+    { "name": "SA-Title", "font": "Arial Narrow", "height": 0, "widthFactor": 1, "annotative": true, "use": "Titles" }
+  ],
+  "dimStyles": [
+    {
+      "name": "SA-Arch",
+      "description": "Architectural dimensions with ticks, feet and inches",
+      "annotative": true,
+      "settings": { "DIMTXT": 0.09375, "DIMASZ": 0.0625, "DIMBLK": "ArchTick", "DIMTXSTY": "SA-Text", "DIMLUNIT": 4, "DIMDEC": 4, "DIMEXE": 0.0625, "DIMEXO": 0.0625, "DIMTAD": 1 }
+    }
+  ],
+  "sheetNumbering": {
+    "description": "Discipline designator, sheet type digit, two-digit sequence: A-101.",
+    "case": "upper",
+    "fields": [
+      { "name": "discipline", "codeList": "disciplines" },
+      { "name": "type", "separator": "-", "codeList": "sheetTypes" },
+      { "name": "sequence", "pattern": "[0-9]{2}" }
+    ],
+    "examples": [ "A-101", "S-201", "G-001" ]
+  },
+  "fileNaming": {
+    "description": "Project number, discipline, kind, number.",
+    "case": "upper",
+    "extensions": [ ".dwg", ".rvt", ".pdf" ],
+    "fields": [
+      { "name": "project", "pattern": "[0-9]{4}" },
+      { "name": "discipline", "separator": "-", "codeList": "disciplines" },
+      { "name": "kind", "separator": "-", "codes": [ "PLAN", "ELEV", "SECT", "DETL", "MODL", "SHET" ] },
+      { "name": "number", "separator": "-", "pattern": "[A-Z0-9]{2,4}" }
+    ],
+    "examples": [ "2417-A-PLAN-L01.dwg", "2417-S-MODL-01.rvt" ]
+  },
+  "statusCodes": [
+    { "code": "SD", "name": "Schematic design" },
+    { "code": "DD", "name": "Design development" },
+    { "code": "CD", "name": "Construction documents" },
+    { "code": "BID", "name": "Bid set" },
+    { "code": "CON", "name": "Issued for construction" }
+  ],
+  "revisionCodes": {
+    "description": "Revisions are numbered; clouds carry a delta with the number.",
+    "formats": [ { "name": "numbered", "pattern": "[1-9][0-9]?", "example": "3" } ]
+  },
+  "scales": [
+    { "name": "1/16\" = 1'-0\"", "use": "Site and key plans" },
+    { "name": "1/8\" = 1'-0\"", "use": "Floor plans, large buildings" },
+    { "name": "1/4\" = 1'-0\"", "use": "Floor plans, elevations" },
+    { "name": "1/2\" = 1'-0\"", "use": "Enlarged plans" },
+    { "name": "1 1/2\" = 1'-0\"", "use": "Details" },
+    { "name": "3\" = 1'-0\"", "use": "Details" },
+    { "name": "1:1", "ratio": 1 }
+  ],
+  "textHeights": [
+    { "name": "body", "plotted": 0.09375, "unit": "in", "use": "Notes, dimensions, labels (3/32\")" },
+    { "name": "heading", "plotted": 0.125, "unit": "in", "use": "Room names, sub-headings (1/8\")" },
+    { "name": "title", "plotted": 0.25, "unit": "in", "use": "View titles (1/4\")" }
+  ],
+  "titleBlock": {
+    "fields": [
+      { "name": "SHEET_NO", "required": true, "source": "sheet.number" },
+      { "name": "SHEET_TITLE", "required": true, "source": "sheet.name" },
+      { "name": "PROJECT_NAME", "required": true, "source": "project.name" },
+      { "name": "PROJECT_NO", "required": true, "source": "project.number" },
+      { "name": "ISSUE_DATE", "required": true, "source": "issue.date" },
+      { "name": "SCALE", "source": "sheet.scale" },
+      { "name": "DRAWN_BY" },
+      { "name": "CHECKED_BY" },
+      { "name": "REVISION", "source": "revision.current" }
+    ]
+  },
+  "patterns": {
+    "viewName": "[A-Z0-9][A-Za-z0-9 ()-]*",
+    "blockName": "[A-Z][A-Z0-9_-]*"
+  }
+}

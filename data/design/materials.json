@@ -1,0 +1,641 @@
+{
+  "topic": "Finish unit and module sizes for material patterns and textures: resilient flooring, carpet, tile, gypsum board, timber strip, masonry",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "materials.us.ufgs.vct.side",
+      "quantity": "Vinyl composition tile size, square side",
+      "value": 300,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 12, "unit": "in", "converted": false },
+      "applies_to": "Vinyl composition tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.1"
+      },
+      "note": "Bracketed option [300] [_____] mm: the project specification may state another size. Thickness options 2.4 or 3.2 mm (3/32 or 1/8 in). Metric and inch sizes are stated separately (soft-metric equivalents). Use as the model surface pattern module (materials-textures guide section 3).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.sheet_vinyl.width.min",
+      "quantity": "Sheet vinyl flooring, minimum roll width",
+      "value": null,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "ft", "converted": false },
+      "applies_to": "Sheet vinyl flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.2"
+      },
+      "note": "Options [1800 mm 6 feet] [3660 mm 12 feet] minimum width for the first type; other types state 1800 mm (6 ft). Seam lines on setting-out drawings fall at the roll width.",
+      "confidence": "read_in_source",
+      "formula": "minimum width in {1800, 3660} mm ({6, 12} ft)"
+    },
+    {
+      "id": "materials.us.ufgs.rubber_tile.side",
+      "quantity": "Rubber floor tile size, square side",
+      "value": null,
+      "min": 300,
+      "max": 900,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Rubber tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.3"
+      },
+      "note": "Bracketed options; the project specification picks one. Min and max bound the listed options only.",
+      "confidence": "read_in_source",
+      "formula": "side in {300, 450, 600, 900} mm ({12, 18, 24, 36} in)"
+    },
+    {
+      "id": "materials.us.ufgs.rubber_sheet.width.min",
+      "quantity": "Rubber sheet flooring, minimum width",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 36, "unit": "in", "converted": false },
+      "applies_to": "Rubber sheet flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.4"
+      },
+      "note": "Stated as [minimum] [1 m 36 inch] [_____] wide. The source pairs 1 m with 36 in (soft metric).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.lvt.plank_300x600.short",
+      "quantity": "Luxury vinyl tile, rectangular format, short side",
+      "value": 300,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 12, "unit": "in", "converted": false },
+      "applies_to": "Luxury vinyl tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.5"
+      },
+      "note": "Option [300 by 600] mm [12 by 24] in. The guide notes that formats sold as plank are still tile and that sizes offered vary; the project specification governs.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.lvt.plank_300x600.long",
+      "quantity": "Luxury vinyl tile, rectangular format, long side",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 24, "unit": "in", "converted": false },
+      "applies_to": "Luxury vinyl tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.5"
+      },
+      "note": "Pair with materials.us.ufgs.lvt.plank_300x600.short.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.lvt.square.side",
+      "quantity": "Luxury vinyl tile, square format, side",
+      "value": null,
+      "min": 300,
+      "max": 900,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Luxury vinyl tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.5"
+      },
+      "note": "Bracketed options; the project specification picks one.",
+      "confidence": "read_in_source",
+      "formula": "side in {300, 400, 450, 600, 900} mm ({12, 16, 18, 24, 36} in)"
+    },
+    {
+      "id": "materials.us.ufgs.solid_vinyl_tile.side",
+      "quantity": "Solid vinyl tile, square side",
+      "value": null,
+      "min": 300,
+      "max": 900,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Solid vinyl tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.6"
+      },
+      "note": "Bracketed options; the project specification picks one.",
+      "confidence": "read_in_source",
+      "formula": "side in {300, 400, 450, 600, 900} mm ({12, 16, 18, 24, 36} in)"
+    },
+    {
+      "id": "materials.us.ufgs.linoleum_sheet.width.min",
+      "quantity": "Sheet linoleum, minimum width",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 6, "unit": "ft", "converted": false },
+      "applies_to": "Sheet linoleum flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.7"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.linoleum_tile.side.min",
+      "quantity": "Linoleum tile, minimum square side",
+      "value": 450,
+      "min": 450,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 18, "unit": "in", "converted": false },
+      "applies_to": "Linoleum tile flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "2.8"
+      },
+      "note": "Bracketed option [450 mm 18 inch] [_____].",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.resilient.edge_tile.rule",
+      "quantity": "Resilient tile edge (cut) tiles, smallest width",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Setting out vinyl composition, linoleum, solid vinyl and luxury vinyl tile",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 65 00 Resilient Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2065%2000.pdf",
+        "clause": "3.5, 3.6"
+      },
+      "note": "Vary edge width to keep full tiles in the field; no edge tile less than one-half the field tile, except where irregular rooms make it impossible. The matching ceiling rule is ceilings.us.ufgs.border_units.rule. Set the model pattern origin so this holds on finish plans.",
+      "confidence": "read_in_source",
+      "formula": "edge tile width >= 0.5 * field tile size (except irregular rooms)"
+    },
+    {
+      "id": "materials.us.ufgs.carpet.broadloom.width.min",
+      "quantity": "Broadloom carpet, minimum usable width",
+      "value": null,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "ft", "converted": false },
+      "applies_to": "Broadloom carpet (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 68 00 Carpet",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2068%2000.pdf",
+        "clause": "2.1.5.2"
+      },
+      "note": "Options [3.6] [1.8] m ([12] [6] ft) minimum usable width, with optional exceptions for corridors and stairs. Seams fall at the roll width.",
+      "confidence": "read_in_source",
+      "formula": "minimum usable width in {3600, 1800} mm ({12, 6} ft)"
+    },
+    {
+      "id": "materials.us.ufgs.carpet_tile.size",
+      "quantity": "Modular carpet tile size",
+      "value": null,
+      "min": 305,
+      "max": 1219,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Modular carpet tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 68 00 Carpet",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2068%2000.pdf",
+        "clause": "2.1.5.2"
+      },
+      "note": "Bracketed options; the project specification picks one. The 914 x 305 and 1219 x 305 formats are plank tiles; draw them as half or 1/3 bond only if the install method says so. Entrance carpet tile option: 450 x 450 mm (18 x 18 in).",
+      "confidence": "read_in_source",
+      "formula": "size in {450x450, 500x500, 600x600, 914x305, 1219x305} mm ({18x18, 20x20, 24x24, 36x12, 48x12} in)"
+    },
+    {
+      "id": "materials.us.ufgs.carpet_tile.growth_shrink.max",
+      "quantity": "Modular carpet tile growth or shrink rate (dimensional stability)",
+      "value": 0.15,
+      "min": null,
+      "max": 0.15,
+      "unit": "percent",
+      "imperial": { "value": 0.15, "unit": "percent", "converted": false },
+      "applies_to": "Modular carpet tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 68 00 Carpet",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2068%2000.pdf",
+        "clause": "2.1.5.2"
+      },
+      "note": "Tested in accordance with ISO 2551. Stated as a rate; read as an upper limit.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.textile_composite_tile.size",
+      "quantity": "Modular textile composite carpet tile size",
+      "value": null,
+      "min": 305,
+      "max": 1219,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Textile composite carpet tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 68 00 Carpet",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "November 2024",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2068%2000.pdf",
+        "clause": "2.1.5.2"
+      },
+      "note": "The source's inch options read [12 by 48] [18 by 36] [24 by 24]: the middle pair does not match 450 by 450 mm. Treat the metric list as the options and confirm with the project specification.",
+      "confidence": "read_in_source",
+      "formula": "size in {305x1219, 450x450, 610x610} mm"
+    },
+    {
+      "id": "materials.us.ufgs.porcelain_tile.size",
+      "quantity": "Porcelain tile nominal size",
+      "value": null,
+      "min": 150,
+      "max": 600,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Porcelain floor and wall tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.1"
+      },
+      "note": "Bracketed options; thickness options [8] [10] mm ([3/8] [5/16] in, as the source pairs them). Nominal sizes: set the pattern module from the actual size plus the joint (materials-textures guide section 3).",
+      "confidence": "read_in_source",
+      "formula": "size in {150x150, 300x300, 450x450, 300x600} mm ({6x6, 12x12, 18x18, 12x24} in)"
+    },
+    {
+      "id": "materials.us.ufgs.gauged_porcelain.size",
+      "quantity": "Gauged porcelain tile and panel nominal size",
+      "value": null,
+      "min": 375,
+      "max": 3000,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Gauged porcelain tile, panels and slabs (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.2"
+      },
+      "note": "Bracketed options; thickness options [3] [6] mm ([1/8] [1/4] in). Large panels need a single-image texture per panel so repeats do not show.",
+      "confidence": "read_in_source",
+      "formula": "size in {750x375, 750x750, 1500x750, 1500x1500, 3000x1500} mm ({30x15, 30x30, 60x30, 60x60, 120x60} in)"
+    },
+    {
+      "id": "materials.us.ufgs.quarry_tile.side",
+      "quantity": "Quarry tile nominal size, square side",
+      "value": 150,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 6, "unit": "in", "converted": false },
+      "applies_to": "Quarry tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.3"
+      },
+      "note": "Bracketed option [150 by 150] [_____] mm, 13 mm (1/2 in) thick.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.mosaic_tile.size",
+      "quantity": "Mosaic tile nominal size",
+      "value": null,
+      "min": 25,
+      "max": 50,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Ceramic, porcelain, glass, stone or metal mosaic tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.4"
+      },
+      "note": "Bracketed options, or a mixture of standard sizes in a stock pattern. At these sizes a model pattern is too dense for most plan scales; show it in enlarged elevations only and rely on the texture elsewhere.",
+      "confidence": "read_in_source",
+      "formula": "size in {25x25, 25x50, 50x50} mm ({1x1, 1x2, 2x2} in)"
+    },
+    {
+      "id": "materials.us.ufgs.glass_tile_large.side.min",
+      "quantity": "Large-format glass tile, smallest nominal side",
+      "value": 75,
+      "min": 75,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 3, "unit": "in", "converted": false },
+      "applies_to": "Large-format glass tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.5"
+      },
+      "note": "Stated as [75 by 75] [_____] mm (3 by 3 in) or greater.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.glazed_wall_tile.size",
+      "quantity": "Glazed ceramic wall tile nominal size",
+      "value": null,
+      "min": 106,
+      "max": 150,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Glazed ceramic wall tile (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "2.1.6"
+      },
+      "note": "Bracketed options; the project specification picks one.",
+      "confidence": "read_in_source",
+      "formula": "size in {106x106, 106x150, 150x150} mm ({4-1/4x4-1/4, 4-1/4x6, 6x6} in)"
+    },
+    {
+      "id": "materials.us.ufgs.floor_tile.joint.mortar_bed",
+      "quantity": "Floor tile joint width on a workable or cured mortar bed",
+      "value": null,
+      "min": 6,
+      "max": 10,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Floor tile set on a workable or cured mortar bed (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 30 10 Ceramic, Quarry, and Glass Tiling",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2030%2010.pdf",
+        "clause": "3.5.2"
+      },
+      "note": "Minimum 6 mm (1/4 in) to maximum 10 mm (3/8 in), uniform width. Other setting methods leave joint widths to the manufacturer and project; take them from the product data. Pattern module = tile size + joint.",
+      "confidence": "read_in_source",
+      "formula": "6 <= joint <= 10 mm (1/4 to 3/8 in), uniform width"
+    },
+    {
+      "id": "materials.us.ufgs.gypsum_board.width",
+      "quantity": "Gypsum board width",
+      "value": 1200,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 48, "unit": "in", "converted": false },
+      "applies_to": "Gypsum board for walls and ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 29 00 Gypsum Board",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2024, Change 1 - 05/25",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2029%2000.pdf",
+        "clause": "2.1.1.1"
+      },
+      "note": "Stated for regular board and repeated for most other board types; thickness [12.7] [15.9] mm ([1/2] [5/8] in). Painted board joints are not drawn as a surface pattern.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.wood_strip.face_width",
+      "quantity": "Wood strip and plank flooring, face width",
+      "value": 55,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 2.25, "unit": "in", "converted": false },
+      "applies_to": "Wood strip and plank flooring (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 64 29 Wood Strip and Plank Flooring",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2016, Change 2 - 11/18",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2064%2029.pdf",
+        "clause": "2.1.1"
+      },
+      "note": "55 mm (2-1/4 in) face width, [19] [26] mm ([3/4] [33/32] in) thick, standard lengths (not stated). Wider plank products are common in practice; take their width from the product data.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.brick.modular.length",
+      "quantity": "Modular brick, specified length",
+      "value": 194,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 7.625, "unit": "in", "converted": false },
+      "applies_to": "Solid clay or shale brick (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "2.2.2.2"
+      },
+      "note": "Modular size 92 thick x 57 high x 194 long mm (3-5/8 x 2-1/4 x 7-5/8 in). Pattern module = unit + joint (materials.us.ufgs.brick.joint.rule).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.brick.modular.height",
+      "quantity": "Modular brick, specified height",
+      "value": 57,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 2.25, "unit": "in", "converted": false },
+      "applies_to": "Solid clay or shale brick (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "2.2.2.2"
+      },
+      "note": "Closure size is 92 high (3-5/8 in); utility size is 92 high x 295 long (3-5/8 x 11-5/8 in).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.brick.modular.thickness",
+      "quantity": "Modular brick, specified thickness (bed depth)",
+      "value": 92,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 3.625, "unit": "in", "converted": false },
+      "applies_to": "Solid clay or shale brick (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "2.2.2.2"
+      },
+      "note": "Same thickness for modular, closure and utility sizes. Use for the brick layer of wall types.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.brick.utility.length",
+      "quantity": "Utility brick, specified length",
+      "value": 295,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 11.625, "unit": "in", "converted": false },
+      "applies_to": "Solid clay or shale brick (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "2.2.2.2"
+      },
+      "note": "Utility size 92 x 92 x 295 mm (3-5/8 x 3-5/8 x 11-5/8 in).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.brick.joint.rule",
+      "quantity": "Brick mortar joint width",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Brick masonry (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "3.3.1.1.4 a"
+      },
+      "note": "Joint width equals the difference between the specified and nominal dimensions, within the tolerances of TMS 402/602. For modular brick the nominal size is not stated in this clause; the 8 in (203 mm) length and three courses to 8 in are the usual US modular nominal (derived, not read in this source).",
+      "confidence": "read_in_source",
+      "formula": "joint = nominal dimension - specified dimension"
+    },
+    {
+      "id": "materials.us.ufgs.cmu.joint",
+      "quantity": "Concrete masonry mortar joint width",
+      "value": 10,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": { "value": 0.375, "unit": "in", "converted": false },
+      "applies_to": "Concrete masonry units except the prefaced side of prefaced units (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "3.3.1.1.4 b"
+      },
+      "note": "Block coursing pattern module = unit size + 10 mm (3/8 in).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "materials.us.ufgs.cmu.prefaced.face_joint",
+      "quantity": "Prefaced concrete masonry, joint width on the prefaced side",
+      "value": null,
+      "min": 5,
+      "max": 6,
+      "unit": "mm",
+      "imperial": { "value": null, "unit": "in", "converted": false },
+      "applies_to": "Prefaced concrete masonry units (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 04 20 00 Unit Masonry",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "May 2025",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2004%2020%2000.pdf",
+        "clause": "3.3.1.1.4 c"
+      },
+      "note": "Not less than 5 mm (3/16 in) nor more than 6 mm (1/4 in) on the prefaced side; 10 mm (3/8 in) on the unfaced side.",
+      "confidence": "read_in_source",
+      "formula": "5 <= joint <= 6 mm (3/16 to 1/4 in) on the prefaced side"
+    }
+  ]
+}

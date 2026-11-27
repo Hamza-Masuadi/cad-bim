@@ -1,0 +1,133 @@
+{
+  "jobId": "sa-test-revit-20-r1-plant-views",
+  "title": "R1: views, sheets, types, families, notes",
+  "description": "Plants P18 (before P05), P06, P17, P19, P26, P27, the family load of P02, and P29.",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/R1.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "p18_copy",
+      "op": "view.plan.create",
+      "args": {
+        "level": "Level 1",
+        "name": "L1 - Plan Copy 1",
+        "template": "Architectural Plan"
+      },
+      "note": "P18 rv-028.default-view-names: created with the name Duplicate would give (no op duplicates a view)."
+    },
+    {
+      "id": "p18_section",
+      "op": "view.section.create",
+      "args": {
+        "start": [
+          20,
+          -5
+        ],
+        "end": [
+          20,
+          35
+        ],
+        "depth": 30,
+        "bottom": -1,
+        "top": 13,
+        "name": "Section 1"
+      },
+      "note": "P18 rv-028.default-view-names: section across room 101."
+    },
+    {
+      "id": "p06",
+      "op": "text.note",
+      "args": {
+        "view": "L1 - Plan",
+        "text": "101",
+        "position": [
+          50,
+          50
+        ]
+      },
+      "note": "P06 rv-009.typed-tags"
+    },
+    {
+      "id": "p17",
+      "op": "type.duplicate",
+      "args": {
+        "source": "Generic - 8\"",
+        "category": "Walls",
+        "newName": "SA Wall 2 2"
+      },
+      "note": "P17 rv-027.type-copy-names"
+    },
+    {
+      "id": "p19_plan",
+      "op": "view.plan.create",
+      "args": {
+        "level": "Level 2",
+        "name": "L2 - Plan"
+      },
+      "note": "P19 rv-029.sheet-views-template: no template"
+    },
+    {
+      "id": "p19_sheet",
+      "op": "sheet.create",
+      "args": {
+        "number": "A-102",
+        "name": "LEVEL 2 PLAN"
+      }
+    },
+    {
+      "id": "p19_vp",
+      "op": "viewport.place",
+      "args": {
+        "sheet": "sheet:A-102",
+        "view": "L2 - Plan",
+        "centre": [
+          1.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "p26",
+      "op": "view.3d.create",
+      "args": {
+        "name": "IFC Export"
+      },
+      "note": "P26 rv-051.ifc-view-fine: a new 3D view is not at Fine detail (check by hand; set Medium if it is)."
+    },
+    {
+      "id": "p27",
+      "op": "family.load",
+      "args": {
+        "path": "C:/SA-Test/revit/Chair.rfa"
+      },
+      "note": "P27 rv-042.unused-families: loaded, never placed"
+    },
+    {
+      "id": "p02",
+      "op": "family.load",
+      "args": {
+        "path": "C:/SA-Test/revit/SA-Generic-Box.rfa"
+      },
+      "note": "P02: the instance is placed by hand"
+    },
+    {
+      "id": "p29",
+      "op": "text.note",
+      "args": {
+        "view": "sheet:A-101",
+        "text": "GENERAL NOTES",
+        "position": [
+          0.2,
+          0.2
+        ]
+      },
+      "note": "P29 rv-046.annotation-on-sheets"
+    }
+  ]
+}

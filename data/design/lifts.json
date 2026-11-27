@@ -1,0 +1,582 @@
+{
+  "topic": "Lifts and elevators",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "lifts.us.ada.centred_door.door.min",
+      "quantity": "Elevator door clear width: Centred door",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.centred_door.width.min",
+      "quantity": "Inside car, side to side: Centred door",
+      "value": 2030,
+      "min": 2030,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.centred_door.back_to_return.min",
+      "quantity": "Inside car, back wall to front return: Centred door",
+      "value": 1295,
+      "min": 1295,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 51,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.centred_door.back_to_door.min",
+      "quantity": "Inside car, back wall to inside face of door: Centred door",
+      "value": 1370,
+      "min": 1370,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 54,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.side_door.door.min",
+      "quantity": "Elevator door clear width: Side (off-centre) door",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "Door width tolerance minus 5/8 in (16 mm) permitted.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.side_door.width.min",
+      "quantity": "Inside car, side to side: Side (off-centre) door",
+      "value": 1725,
+      "min": 1725,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 68,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.side_door.back_to_return.min",
+      "quantity": "Inside car, back wall to front return: Side (off-centre) door",
+      "value": 1295,
+      "min": 1295,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 51,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.side_door.back_to_door.min",
+      "quantity": "Inside car, back wall to inside face of door: Side (off-centre) door",
+      "value": 1370,
+      "min": 1370,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 54,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.any_door.door.min",
+      "quantity": "Elevator door clear width: any door location (deep car option)",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "Car 54 in (1370 mm) side to side x 80 in (2030 mm) deep; tolerance minus 5/8 in (16 mm) on door.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.any_door.width.min",
+      "quantity": "Inside car side to side: any door location (deep car option)",
+      "value": 1370,
+      "min": 1370,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 54,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.any_door.depth.min",
+      "quantity": "Inside car depth: any door location (deep car option)",
+      "value": 2030,
+      "min": 2030,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.square_car.min",
+      "quantity": "Inside car 60 x 60 in option (any door location, 36 in door)",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 407.4.1"
+      },
+      "note": "Other configurations giving a 304 turning space with the door closed are allowed.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.lula.width.min",
+      "quantity": "LULA car clear width",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Limited-use/limited-application elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "408.4.1"
+      },
+      "note": "Clear depth 54 in (1370 mm); doors at narrow end, 32 in (815 mm) clear.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.us.ada.lula.depth.min",
+      "quantity": "LULA car clear depth",
+      "value": 1370,
+      "min": 1370,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 54,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Limited-use/limited-application elevators",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "408.4.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.car.width.min",
+      "quantity": "Minimum lift car width",
+      "value": 1100,
+      "min": 1100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 43.31,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.34(c), Diagram 11"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.car.depth.min",
+      "quantity": "Minimum lift car depth",
+      "value": 1400,
+      "min": 1400,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 55.12,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.34(c), Diagram 11"
+      },
+      "note": "Car 2000 x 1400 mm accommodates any wheelchair with other passengers and allows a 180-degree turn (para 3.29).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.large_car.width",
+      "quantity": "Larger lift car width (any wheelchair plus passengers, 180-degree turn)",
+      "value": 2000,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 78.74,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.29"
+      },
+      "note": "Design consideration, not a minimum.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.door.min",
+      "quantity": "Effective clear width of lift doors",
+      "value": 800,
+      "min": 800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.34(e)"
+      },
+      "note": "Nominal; power-operated horizontal sliding doors.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.landing.min",
+      "quantity": "Unobstructed manoeuvring space in front of lifting device",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Lifting devices",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.28(a)"
+      },
+      "note": "1500 x 1500 mm, or a straight access route 900 mm wide.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.car_controls.height",
+      "quantity": "Car control height above car floor",
+      "value": 900,
+      "min": 900,
+      "max": 1200,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.34(g)"
+      },
+      "note": "Preferably 1100 mm; at least 400 mm from any return wall. Range 900-1200 mm (about 35.43-47.24 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.nondwelling.landing_buttons.height",
+      "quantity": "Landing call button height",
+      "value": 900,
+      "min": 900,
+      "max": 1100,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Passenger lifts",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.34(h)"
+      },
+      "note": "At least 500 mm from any return wall. Range 900-1100 mm (about 35.43-43.31 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.m42.car.width.min",
+      "quantity": "Lift car inside width",
+      "value": 1100,
+      "min": 1100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 43.31,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Communal lifts serving M4(2) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.16(c)"
+      },
+      "note": "Car 1100 wide x 1400 deep; doors 800 mm clear; landing 1500 x 1500 mm; controls 900-1200 mm; initial dwell 5 s; BS EN 81-70 type 2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.m42.car.depth.min",
+      "quantity": "Lift car inside depth",
+      "value": 1400,
+      "min": 1400,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 55.12,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Communal lifts serving M4(2) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.16(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "lifts.uk.m42.dwell.min",
+      "quantity": "Initial door dwell time before closing",
+      "value": 5,
+      "min": 5,
+      "max": null,
+      "unit": "s",
+      "imperial": {
+        "value": 5,
+        "unit": "s",
+        "converted": false
+      },
+      "applies_to": "Communal lifts serving M4(2) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.16(f)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    }
+  ]
+}

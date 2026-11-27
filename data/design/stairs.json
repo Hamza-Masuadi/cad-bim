@@ -1,0 +1,1952 @@
+{
+  "topic": "Stairs, handrails and guarding",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "stairs.uk.private.rise.min",
+      "quantity": "Minimum rise per step",
+      "value": 150,
+      "min": 150,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Private stair (stair intended for use by only one dwelling)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.private.rise.max",
+      "quantity": "Maximum rise per step",
+      "value": 220,
+      "min": null,
+      "max": 220,
+      "unit": "mm",
+      "imperial": {
+        "value": 8.66,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Private stair (stair intended for use by only one dwelling)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.private.going.min",
+      "quantity": "Minimum going",
+      "value": 220,
+      "min": 220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 8.66,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Private stair (stair intended for use by only one dwelling)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.private.going.max",
+      "quantity": "Maximum going",
+      "value": 300,
+      "min": null,
+      "max": 300,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Private stair (stair intended for use by only one dwelling)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.utility.rise.min",
+      "quantity": "Minimum rise per step",
+      "value": 150,
+      "min": 150,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Utility stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.utility.rise.max",
+      "quantity": "Maximum rise per step",
+      "value": 190,
+      "min": null,
+      "max": 190,
+      "unit": "mm",
+      "imperial": {
+        "value": 7.48,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Utility stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.utility.going.min",
+      "quantity": "Minimum going",
+      "value": 250,
+      "min": 250,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 9.84,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Utility stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.utility.going.max",
+      "quantity": "Maximum going",
+      "value": 400,
+      "min": null,
+      "max": 400,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Utility stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.general.rise.min",
+      "quantity": "Minimum rise per step",
+      "value": 150,
+      "min": 150,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "General access stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.general.rise.max",
+      "quantity": "Maximum rise per step",
+      "value": 170,
+      "min": null,
+      "max": 170,
+      "unit": "mm",
+      "imperial": {
+        "value": 6.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "General access stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.general.going.min",
+      "quantity": "Minimum going",
+      "value": 250,
+      "min": 250,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 9.84,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "General access stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.general.going.max",
+      "quantity": "Maximum going",
+      "value": 400,
+      "min": null,
+      "max": 400,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "General access stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.2r_plus_g",
+      "quantity": "Normal relationship of rise and going (2R + G)",
+      "value": 550,
+      "min": 550,
+      "max": 700,
+      "unit": "mm",
+      "imperial": {
+        "value": 21.65,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "All three stair categories in Table 1.1",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1 note *"
+      },
+      "note": "R = rise of one step, G = going of one step, both in mm; twice the rise plus the going should lie between 550 and 700 mm. Range 550-700 mm (about 21.65-27.56 in); value shows the lower bound.",
+      "confidence": "read_in_source",
+      "formula": "550 <= 2*R + G <= 700"
+    },
+    {
+      "id": "stairs.uk.private.pitch.max",
+      "quantity": "Maximum pitch",
+      "value": 42,
+      "min": null,
+      "max": 42,
+      "unit": "deg",
+      "imperial": {
+        "value": 42,
+        "unit": "deg",
+        "converted": false
+      },
+      "applies_to": "Private stair",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1 note 1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.external_tapered.going.min",
+      "quantity": "Minimum going of external tapered steps",
+      "value": 280,
+      "min": 280,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.02,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings: external tapered steps and stairs that are part of the building",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1 note 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.school.going.preferred",
+      "quantity": "Preferred going",
+      "value": 280,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.02,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "School buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1 note 3"
+      },
+      "note": "Preferred value, not a limit.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.school.rise.preferred",
+      "quantity": "Preferred rise",
+      "value": 150,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "School buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Table 1.1 note 3"
+      },
+      "note": "Preferred value, not a limit.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.nosing_projection.max",
+      "quantity": "Maximum nosing projection over tread below",
+      "value": 25,
+      "min": null,
+      "max": 25,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.98,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.7(b), Diagram 1.2"
+      },
+      "note": "Avoid projecting nosings where possible.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.nosing_contrast.min",
+      "quantity": "Minimum width of contrasting nosing strip (tread and riser)",
+      "value": 55,
+      "min": 55,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 2.17,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.7(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.open_riser_overlap.min",
+      "quantity": "Minimum tread overlap with open risers",
+      "value": 16,
+      "min": 16,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.63,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.9(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.open_riser_sphere",
+      "quantity": "Sphere that must not pass through open risers",
+      "value": 100,
+      "min": null,
+      "max": 100,
+      "unit": "mm",
+      "imperial": {
+        "value": 3.94,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.9(b)"
+      },
+      "note": "A 100 mm sphere should not pass through the opening.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.headroom.min",
+      "quantity": "Minimum headroom over flights and landings",
+      "value": 2000,
+      "min": 2000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 78.74,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.11, Diagram 1.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.loft.headroom_centre.min",
+      "quantity": "Reduced headroom at centre of stair width (loft conversion)",
+      "value": 1900,
+      "min": 1900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 74.8,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Loft conversions in dwellings where 2 m is not achievable",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.13, Diagram 1.4"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.loft.headroom_side.min",
+      "quantity": "Reduced headroom at side of stair (loft conversion)",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 70.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Loft conversions in dwellings where 2 m is not achievable",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.13, Diagram 1.4"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.width.min",
+      "quantity": "Minimum stair width between enclosing walls, strings or upstands",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.15(a)"
+      },
+      "note": "Escape stairs may need more: see Approved Document B.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.width_between_handrails.min",
+      "quantity": "Minimum width between handrails",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.15(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.flight_division.max",
+      "quantity": "Flight width above which the flight is divided (divisions at least 1000 mm wide)",
+      "value": 2000,
+      "min": null,
+      "max": 2000,
+      "unit": "mm",
+      "imperial": {
+        "value": 78.74,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.15(c), Diagram 1.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.entrance_storey.width.min",
+      "quantity": "Minimum stair width for stepped change of level within the entrance storey",
+      "value": 900,
+      "min": 900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings on severely sloping plots (exceptional)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.16"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.risers_before_turn.max",
+      "quantity": "Risers in consecutive flights before a change of direction is needed",
+      "value": 36,
+      "min": null,
+      "max": 36,
+      "unit": "risers",
+      "imperial": {
+        "value": 36,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.17, Diagram 1.6"
+      },
+      "note": "Above 36 risers, make at least one change of direction of at least 30 degrees.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.utility.risers_per_flight.max",
+      "quantity": "Maximum risers per flight",
+      "value": 16,
+      "min": null,
+      "max": 16,
+      "unit": "risers",
+      "imperial": {
+        "value": 16,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "Utility stairs in buildings other than dwellings and common areas of flats",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.18(b)(i)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.general.risers_per_flight.max",
+      "quantity": "Maximum risers per flight",
+      "value": 12,
+      "min": null,
+      "max": 12,
+      "unit": "risers",
+      "imperial": {
+        "value": 12,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "General access stairs in buildings other than dwellings and common areas of flats",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.18(b)(ii)"
+      },
+      "note": "Exceptionally no more than 16 in small premises where plan area is restricted. No single steps.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.landing.length_rule",
+      "quantity": "Landing width and length at top and bottom of every flight",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": null,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.20, Diagram 1.6"
+      },
+      "note": "At least as great as the smallest width of the flight.",
+      "confidence": "read_in_source",
+      "formula": "landing_length >= flight_width_min and landing_width >= flight_width_min"
+    },
+    {
+      "id": "stairs.uk.nondwelling.landing.length.min",
+      "quantity": "Minimum unobstructed landing length",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.23(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.landing_door_clearance.min",
+      "quantity": "Clear landing depth where a door swings across the bottom landing",
+      "value": 400,
+      "min": 400,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.24, Diagram 1.8"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.landing.ground_gradient.max",
+      "quantity": "Maximum gradient of a landing formed by the ground",
+      "value": 60,
+      "min": 60,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 60,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Landings at top or bottom of a flight formed by paved ground",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.22"
+      },
+      "note": "1:60 maximum along direction of travel. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 60 (no steeper than 1:60).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.handrail.height",
+      "quantity": "Height of top of handrail above pitch line or floor",
+      "value": 900,
+      "min": 900,
+      "max": 1000,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "All buildings (stairs)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.34(a)"
+      },
+      "note": "Range 900-1000 mm (about 35.43-39.37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.all.handrail_both_sides.width",
+      "quantity": "Stair width at or above which handrails are needed on both sides",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.34(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.handrail_landing.height",
+      "quantity": "Handrail height above landings",
+      "value": 900,
+      "min": 900,
+      "max": 1100,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Diagram 1.12"
+      },
+      "note": "Range 900-1100 mm (about 35.43-43.31 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.handrail_extension.min",
+      "quantity": "Horizontal handrail extension beyond top and bottom of flight",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings; common stairs in flats",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Diagrams 1.11 and 1.12"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.lower_handrail.height",
+      "quantity": "Height of second (lower) handrail above pitch line",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings where full-height structural guarding is provided",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.36(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.handrail.diameter",
+      "quantity": "Circular handrail diameter",
+      "value": 32,
+      "min": 32,
+      "max": 50,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.26,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Diagram 1.13"
+      },
+      "note": "Non-circular alternative: 50 mm wide x 39 mm deep with 15 mm minimum edge radius. Range 32-50 mm (about 1.26-1.97 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.handrail.wall_clearance",
+      "quantity": "Clearance between handrail and wall",
+      "value": 50,
+      "min": 50,
+      "max": 75,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.97,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Diagram 1.13"
+      },
+      "note": "Range 50-75 mm (about 1.97-2.95 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.dwelling.guarding_trigger",
+      "quantity": "Drop above which stairs and landings need guarding",
+      "value": 600,
+      "min": 600,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.41"
+      },
+      "note": "Guard where the drop is more than 600 mm.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.nondwelling.guarding_trigger",
+      "quantity": "Number of risers at which flights need guarding",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "risers",
+      "imperial": {
+        "value": 2,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "Buildings other than dwellings and common areas of flats",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.40"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.children.guarding_sphere",
+      "quantity": "Sphere that must not pass through guarding",
+      "value": 100,
+      "min": null,
+      "max": 100,
+      "unit": "mm",
+      "imperial": {
+        "value": 3.94,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings that may be used by children under five",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "paras 1.39(a), 3.3(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.assembly.gangway_pitch.max",
+      "quantity": "Maximum pitch of gangways to spectator seating",
+      "value": 35,
+      "min": null,
+      "max": 35,
+      "unit": "deg",
+      "imperial": {
+        "value": 35,
+        "unit": "deg",
+        "converted": false
+      },
+      "applies_to": "Assembly buildings (stepped gangways)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.4(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.rise",
+      "quantity": "Rise of each step (external stepped access)",
+      "value": 150,
+      "min": 150,
+      "max": 170,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(l)"
+      },
+      "note": "Different rise may be agreed with building control next to existing buildings. Schools prefer 150 mm rise. Range 150-170 mm (about 5.91-6.69 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.going",
+      "quantity": "Going of each step (external stepped access)",
+      "value": 280,
+      "min": 280,
+      "max": 425,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.02,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(m)"
+      },
+      "note": "Schools prefer 280 mm going. Range 280-425 mm (about 11.02-16.73 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.width.min",
+      "quantity": "Minimum flight width between walls, strings or upstands",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(f)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.risers_short_going.max",
+      "quantity": "Maximum risers per flight where going is less than 350 mm",
+      "value": 12,
+      "min": null,
+      "max": 12,
+      "unit": "risers",
+      "imperial": {
+        "value": 12,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(h)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.risers_long_going.max",
+      "quantity": "Maximum risers per flight where going is 350 mm or more",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "risers",
+      "imperial": {
+        "value": 18,
+        "unit": "risers",
+        "converted": false
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(h)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.landing.min",
+      "quantity": "Minimum unobstructed landing length",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings: external stepped access",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.external_access.channel_width",
+      "quantity": "Handrail channel width when flight is divided",
+      "value": 1000,
+      "min": 1000,
+      "max": 1800,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "External stepped access wider than 1800 mm",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.33(p)"
+      },
+      "note": "Range 1000-1800 mm (about 39.37-70.87 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.m42.stair_clear_width.min",
+      "quantity": "Minimum clear width of stair from entrance storey (measured 450 mm above pitch line)",
+      "value": 850,
+      "min": 850,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings built to optional requirement M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.23(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.m42.external_steps.rise",
+      "quantity": "Rise of external steps on an additional route",
+      "value": 150,
+      "min": 150,
+      "max": 170,
+      "unit": "mm",
+      "imperial": {
+        "value": 5.91,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings built to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.11(a)"
+      },
+      "note": "Range 150-170 mm (about 5.91-6.69 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.uk.m42.external_steps.going",
+      "quantity": "Going of external steps on an additional route",
+      "value": 280,
+      "min": 280,
+      "max": 425,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.02,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings built to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.11(a)"
+      },
+      "note": "Range 280-425 mm (about 11.02-16.73 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.riser",
+      "quantity": "Riser height",
+      "value": 100,
+      "min": 100,
+      "max": 180,
+      "unit": "mm",
+      "imperial": {
+        "value": 4,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs on accessible routes / required means of egress under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "504.2"
+      },
+      "note": "All risers in a flight uniform; open risers not permitted (504.3). Range 100-180 mm (4-7 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.tread.min",
+      "quantity": "Minimum tread depth",
+      "value": 280,
+      "min": 280,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "504.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.nosing_projection.max",
+      "quantity": "Maximum nosing projection over tread below",
+      "value": 38,
+      "min": null,
+      "max": 38,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "504.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.nosing_radius.max",
+      "quantity": "Maximum radius at leading edge of tread",
+      "value": 13,
+      "min": null,
+      "max": 13,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "504.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.handrail.height",
+      "quantity": "Top of handrail gripping surface above nosings",
+      "value": 865,
+      "min": 865,
+      "max": 965,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs and ramps under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "505.4"
+      },
+      "note": "Handrails on both sides (505.2). Advisory: children's handrail max 28 in (710 mm). Range 865-965 mm (34-38 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.handrail_top_extension.min",
+      "quantity": "Horizontal handrail extension at top of flight",
+      "value": 305,
+      "min": 305,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "505.10.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.handrail.diameter",
+      "quantity": "Circular handrail outside diameter",
+      "value": 32,
+      "min": 32,
+      "max": 51,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.25,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Stairs and ramps under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "505.7.1"
+      },
+      "note": "Bottom extension: at stair slope for one tread depth beyond last nosing (505.10.3). Range 32-51 mm (1.25-2 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.ada.vertical_clearance.min",
+      "quantity": "Minimum vertical clearance (headroom) on circulation paths",
+      "value": 2030,
+      "min": 2030,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Circulation paths under the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "307.4"
+      },
+      "note": "Guard needed where clearance is lower; door closers may be at 78 in (1980 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "stairs.us.irc.riser.max",
+      "quantity": "Maximum riser height",
+      "value": 196,
+      "min": null,
+      "max": 196,
+      "unit": "mm",
+      "imperial": {
+        "value": 7.75,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC, as restated by City of Boise, Idaho)",
+      "source": {
+        "title": "IRC Code Handout #437: Stair Treads & Risers (restates IRC R311.7.5)",
+        "publisher": "City of Boise Planning and Development Services",
+        "edition": "02/2022 (IRC edition not stated on handout)",
+        "url": "https://www.cityofboise.org/media/14405/437-treads-risers_march-2022.pdf",
+        "clause": "IRC R311.7.5.1"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Greatest riser in a flight may exceed the smallest by no more than 3/8 in (9.5 mm).",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.tread.min",
+      "quantity": "Minimum tread depth",
+      "value": 254,
+      "min": 254,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 10,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC, as restated by City of Boise, Idaho)",
+      "source": {
+        "title": "IRC Code Handout #437: Stair Treads & Risers (restates IRC R311.7.5)",
+        "publisher": "City of Boise Planning and Development Services",
+        "edition": "02/2022 (IRC edition not stated on handout)",
+        "url": "https://www.cityofboise.org/media/14405/437-treads-risers_march-2022.pdf",
+        "clause": "IRC R311.7.5.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Winders: 10 in at walkline, 6 in (152 mm) minimum at any point (R311.7.5.2.1).",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.nosing_projection",
+      "quantity": "Nosing projection",
+      "value": 19,
+      "min": 19,
+      "max": 32,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.75,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC, as restated by City of Boise, Idaho)",
+      "source": {
+        "title": "IRC Code Handout #437: Stair Treads & Risers (restates IRC R311.7.5)",
+        "publisher": "City of Boise Planning and Development Services",
+        "edition": "02/2022 (IRC edition not stated on handout)",
+        "url": "https://www.cityofboise.org/media/14405/437-treads-risers_march-2022.pdf",
+        "clause": "IRC R311.7.5.3"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Not required where tread depth is at least 11 in (279 mm). Range 19-32 mm (0.75-1.25 in); value shows the lower bound.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.width.min",
+      "quantity": "Minimum stairway width",
+      "value": 914,
+      "min": 914,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R311.7.1"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Handrail may project 4.5 in into it; with two handrails keep 27 in clear. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.headroom.min",
+      "quantity": "Minimum headroom",
+      "value": 2032,
+      "min": 2032,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R311.7.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Stated as 6 ft 8 in; measured vertically from the sloped plane of nosings or landing floor. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.landing_depth.min",
+      "quantity": "Minimum landing dimension in direction of travel",
+      "value": 914,
+      "min": 914,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R311.7.6 (landings, as cited in the handout)"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.handrail.height",
+      "quantity": "Handrail height above tread nosings",
+      "value": 864,
+      "min": 864,
+      "max": 965,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "One- and two-family dwellings (IRC), stairs with four or more risers",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R311.7.8"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Range 864-965 mm (34-38 in); value shows the lower bound. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.irc.guard.height.min",
+      "quantity": "Minimum guard height",
+      "value": 914,
+      "min": 914,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "One- and two-family dwellings (IRC): open sides more than 30 in above floor or grade",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R312"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. 4 in sphere must not pass through. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.riser",
+      "quantity": "Riser height",
+      "value": 102,
+      "min": 102,
+      "max": 178,
+      "unit": "mm",
+      "imperial": {
+        "value": 4,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.5.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Range 102-178 mm (4-7 in); value shows the lower bound. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.tread.min",
+      "quantity": "Minimum tread depth",
+      "value": 279,
+      "min": 279,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.5.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.width.min",
+      "quantity": "Minimum stair width",
+      "value": 1118,
+      "min": 1118,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 44,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC), larger occupant loads",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. 36 in where serving an occupant load of 50 or less; otherwise width per 1011.1 but not less than 44 in (handout wording). Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.width_small.min",
+      "quantity": "Minimum stair width, occupant load 50 or less",
+      "value": 914,
+      "min": 914,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.2"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.headroom.min",
+      "quantity": "Minimum headroom",
+      "value": 2032,
+      "min": 2032,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 80,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.2 (as headed in the handout)"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.vertical_rise.max",
+      "quantity": "Maximum vertical rise of a flight between floors or landings",
+      "value": 3658,
+      "min": null,
+      "max": 3658,
+      "unit": "mm",
+      "imperial": {
+        "value": 144,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.8"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Stated as 12 feet. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.landing_depth.cap",
+      "quantity": "Landing depth in direction of travel need not exceed (straight run)",
+      "value": 1219,
+      "min": null,
+      "max": 1219,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.6"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Landing depth equals stair width but need not exceed 48 in on a straight run. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.handrail.height",
+      "quantity": "Handrail height above nosings",
+      "value": 864,
+      "min": 864,
+      "max": 965,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial stairs (IBC)",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1011.11 / 1014"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. Range 864-965 mm (34-38 in); value shows the lower bound. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    },
+    {
+      "id": "stairs.us.ibc.guard.height.min",
+      "quantity": "Minimum guard height",
+      "value": 1067,
+      "min": 1067,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Commercial buildings (IBC): open sides more than 30 in above floor or grade",
+      "jurisdiction": "United States (model IBC 2018, as restated by Humboldt County, Nevada)",
+      "source": {
+        "title": "Stairway & Landing Requirements for Commercial Buildings (restates IBC 2018)",
+        "publisher": "Humboldt County / City of Winnemucca Building Departments, Nevada",
+        "edition": "IBC 2018 handout (dated 4/19 in file name)",
+        "url": "https://humboldtcountynv.gov/DocumentCenter/View/3386/Commercial-Stair-Handout-4-19",
+        "clause": "IBC 1015"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. 4 in sphere up to 34 in high; 4 3/8 in sphere between 34 and 42 in. Source states in only; the metric value is a conversion.",
+      "confidence": "secondary"
+    }
+  ]
+}

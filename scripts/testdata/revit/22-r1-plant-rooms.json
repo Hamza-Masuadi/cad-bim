@@ -1,0 +1,137 @@
+{
+  "jobId": "sa-test-revit-22-r1-plant-rooms",
+  "title": "R1: not enclosed and redundant rooms",
+  "description": "Plants P24 (b) and (c). (a), an unplaced room, has no op (manual step). (b) uses an open boundary and allowNotEnclosed instead of deleting a wall; (c) places the two rooms while a wall divides the rectangle, then deletes that wall, because room.place refuses to create a redundant room.",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/R1.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "p24b_walls",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "path": [
+          [
+            20,
+            -120
+          ],
+          [
+            0,
+            -120
+          ],
+          [
+            0,
+            -140
+          ],
+          [
+            20,
+            -140
+          ]
+        ],
+        "topLevel": "Level 2"
+      },
+      "note": "Open U: the side x = 20 is missing"
+    },
+    {
+      "id": "p24b_room",
+      "op": "room.place",
+      "args": {
+        "level": "Level 1",
+        "point": [
+          10,
+          -130
+        ],
+        "allowNotEnclosed": true,
+        "tag": false
+      },
+      "note": "P24b: not enclosed"
+    },
+    {
+      "id": "p24c_walls",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "path": [
+          [
+            40,
+            -140
+          ],
+          [
+            60,
+            -140
+          ],
+          [
+            60,
+            -120
+          ],
+          [
+            40,
+            -120
+          ]
+        ],
+        "closed": true,
+        "topLevel": "Level 2"
+      }
+    },
+    {
+      "id": "p24c_divider",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          50,
+          -140
+        ],
+        "end": [
+          50,
+          -120
+        ],
+        "topLevel": "Level 2"
+      }
+    },
+    {
+      "id": "p24c_room1",
+      "op": "room.place",
+      "args": {
+        "level": "Level 1",
+        "point": [
+          45,
+          -130
+        ],
+        "tag": false
+      }
+    },
+    {
+      "id": "p24c_room2",
+      "op": "room.place",
+      "args": {
+        "level": "Level 1",
+        "point": [
+          55,
+          -130
+        ],
+        "tag": false
+      }
+    },
+    {
+      "id": "p24c_delete",
+      "op": "element.delete",
+      "args": {
+        "ids": [
+          "$p24c_divider.id"
+        ],
+        "expectCount": 1
+      },
+      "note": "P24c: both rooms now share one region, so one is redundant"
+    }
+  ]
+}

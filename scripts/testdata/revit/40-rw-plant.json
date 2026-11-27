@@ -1,0 +1,54 @@
+{
+  "jobId": "sa-test-revit-40-rw-plant",
+  "title": "RW: two warnings",
+  "description": "Plants W1 (room separation line on a wall's location line) and W2 (a wall 0.05 degrees off axis).",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/RW.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "w1",
+      "op": "room.separator",
+      "args": {
+        "level": "Level 1",
+        "view": "L1 - Plan",
+        "lines": [
+          {
+            "start": [
+              40,
+              5
+            ],
+            "end": [
+              40,
+              25
+            ]
+          }
+        ]
+      },
+      "note": "W1 rv-004.separation-overlap"
+    },
+    {
+      "id": "w2",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          0,
+          -40
+        ],
+        "end": [
+          20,
+          -39.9825467052
+        ],
+        "topLevel": "Level 2"
+      },
+      "note": "W2 rv-006.off-axis: rise 20 x tan(0.05 deg) = 0.0174533 ft. If Revit raises no warning, lower the angle and record it."
+    }
+  ]
+}

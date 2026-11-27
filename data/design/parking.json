@@ -1,0 +1,681 @@
+{
+  "topic": "Parking",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "parking.us.ada.car_space.width.min",
+      "quantity": "Accessible car parking space width",
+      "value": 2440,
+      "min": 2440,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 96,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible parking",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "502.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.van_space.width.min",
+      "quantity": "Van parking space width",
+      "value": 3350,
+      "min": 3350,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 132,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible parking",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "502.2"
+      },
+      "note": "May be 96 in (2440 mm) wide where the access aisle is at least 96 in (2440 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.access_aisle.width.min",
+      "quantity": "Access aisle width (car and van)",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible parking",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "502.3.1"
+      },
+      "note": "Full length of the spaces served (502.3.2); two spaces may share an aisle; must not overlap the vehicular way.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.van_clearance.min",
+      "quantity": "Vertical clearance for van spaces, aisles and routes",
+      "value": 2490,
+      "min": 2490,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 98,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible parking",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "502.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.loading_aisle.width.min",
+      "quantity": "Passenger loading zone access aisle width",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger loading zones",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "503.3.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.loading_clearance.min",
+      "quantity": "Vertical clearance at passenger loading zones",
+      "value": 2895,
+      "min": 2895,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 114,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Passenger loading zones",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "503.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.1_25",
+      "quantity": "Minimum accessible spaces for 1-25 total spaces",
+      "value": 1,
+      "min": 1,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 1,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 1-25 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.26_50",
+      "quantity": "Minimum accessible spaces for 26-50 total spaces",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 2,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 26-50 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.51_75",
+      "quantity": "Minimum accessible spaces for 51-75 total spaces",
+      "value": 3,
+      "min": 3,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 3,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 51-75 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.76_100",
+      "quantity": "Minimum accessible spaces for 76-100 total spaces",
+      "value": 4,
+      "min": 4,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 4,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 76-100 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.101_150",
+      "quantity": "Minimum accessible spaces for 101-150 total spaces",
+      "value": 5,
+      "min": 5,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 5,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 101-150 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.151_200",
+      "quantity": "Minimum accessible spaces for 151-200 total spaces",
+      "value": 6,
+      "min": 6,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 6,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 151-200 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.201_300",
+      "quantity": "Minimum accessible spaces for 201-300 total spaces",
+      "value": 7,
+      "min": 7,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 7,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 201-300 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.301_400",
+      "quantity": "Minimum accessible spaces for 301-400 total spaces",
+      "value": 8,
+      "min": 8,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 8,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 301-400 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.401_500",
+      "quantity": "Minimum accessible spaces for 401-500 total spaces",
+      "value": 9,
+      "min": 9,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 9,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 401-500 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "Count each parking facility separately.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.count.501_1000",
+      "quantity": "Minimum accessible spaces for 501-1000 total spaces",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 2,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 501-1000 spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "2 percent of total; rounding up is an assumption, the table says only '2 percent of total'.",
+      "confidence": "read_in_source",
+      "formula": "ceil(0.02 * total)"
+    },
+    {
+      "id": "parking.us.ada.count.over_1000",
+      "quantity": "Minimum accessible spaces above 1000 total spaces",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": null,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Parking facility with 1001 or more spaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 208.2"
+      },
+      "note": "20, plus 1 for each 100 or fraction thereof over 1000.",
+      "confidence": "read_in_source",
+      "formula": "20 + ceil((total - 1000) / 100)"
+    },
+    {
+      "id": "parking.us.ada.van_ratio",
+      "quantity": "Van spaces among accessible spaces",
+      "value": 6,
+      "min": null,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 6,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Accessible parking",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "208.2.4"
+      },
+      "note": "For every six or fraction of six accessible spaces, at least one van space.",
+      "confidence": "read_in_source",
+      "formula": "ceil(accessible_spaces / 6)"
+    },
+    {
+      "id": "parking.us.ada.hospital_outpatient",
+      "quantity": "Accessible share of patient and visitor parking",
+      "value": 10,
+      "min": 10,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 10,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Hospital outpatient facilities",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "208.2.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.us.ada.rehab",
+      "quantity": "Accessible share of patient and visitor parking",
+      "value": 20,
+      "min": 20,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 20,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Rehabilitation and outpatient physical therapy facilities",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "208.2.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.disabled_bay.width",
+      "quantity": "Designated disabled parking bay width (to centre lines of markings)",
+      "value": 2400,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 94.49,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 2; para 1.18(b)"
+      },
+      "note": "Plus 1200 mm accessibility zone between bays and 1200 mm safety zone on the vehicular side.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.disabled_bay.length",
+      "quantity": "Designated disabled parking bay length (to centre lines of markings)",
+      "value": 4800,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 188.98,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.disabled_bay.zone",
+      "quantity": "Accessibility zone between bays and safety zone on vehicular side",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.18(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.standard_bay.width",
+      "quantity": "Standard parking bay width",
+      "value": 2.4,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.87,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Dwellings (Approved Document M vol 1 key term)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix A: standard parking bay"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.standard_bay.length",
+      "quantity": "Standard parking bay length",
+      "value": 4.8,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 15.75,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Dwellings (Approved Document M vol 1 key term)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix A: standard parking bay"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.m42.private_bay.widenable",
+      "quantity": "Width to which a private-curtilage bay can be widened",
+      "value": 3.3,
+      "min": 3.3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 10.83,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.12(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.m42.communal_bay.access_zone.min",
+      "quantity": "Clear access zone to one side of communal bay",
+      "value": 900,
+      "min": 900,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Blocks of flats to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.12(b)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "parking.uk.m42.dropped_kerb.width.min",
+      "quantity": "Dropped kerb width",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings to M4(2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.13(d)"
+      },
+      "note": "Maximum gradient 1:12.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "topic": "Reach ranges, controls and counters",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "reach.us.ada.forward_unobstructed.high.max",
+      "quantity": "High forward reach, unobstructed",
+      "value": 1220,
+      "min": null,
+      "max": 1220,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.2.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.forward_unobstructed.low.min",
+      "quantity": "Low forward reach, unobstructed",
+      "value": 380,
+      "min": 380,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 15,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.2.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.forward_obstructed_deep.high.max",
+      "quantity": "High forward reach over obstruction deeper than 20 in (510 mm), up to 25 in (635 mm)",
+      "value": 1120,
+      "min": null,
+      "max": 1120,
+      "unit": "mm",
+      "imperial": {
+        "value": 44,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.2.2"
+      },
+      "note": "48 in (1220 mm) where reach depth is 20 in max.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.side_unobstructed.high.max",
+      "quantity": "High side reach, unobstructed (parallel approach)",
+      "value": 1220,
+      "min": null,
+      "max": 1220,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.3.1"
+      },
+      "note": "Low side reach 15 in (380 mm) minimum; an obstruction up to 10 in (255 mm) deep is allowed.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.side_obstructed.height.max",
+      "quantity": "Maximum obstruction height for obstructed side reach",
+      "value": 865,
+      "min": null,
+      "max": 865,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.3.2"
+      },
+      "note": "Obstruction depth max 24 in (610 mm); high reach 48 in for depth up to 10 in, 46 in (1170 mm) for depth up to 24 in.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.side_obstructed_deep.high.max",
+      "quantity": "High side reach over obstruction 10-24 in deep",
+      "value": 1170,
+      "min": null,
+      "max": 1170,
+      "unit": "mm",
+      "imperial": {
+        "value": 46,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Operable parts and reach",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "308.3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.operating_force.max",
+      "quantity": "Maximum force to activate operable parts",
+      "value": 22.2,
+      "min": null,
+      "max": 22.2,
+      "unit": "N",
+      "imperial": {
+        "value": 5,
+        "unit": "lbf",
+        "converted": false
+      },
+      "applies_to": "Operable parts",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "309.4"
+      },
+      "note": "Operable with one hand, no tight grasping, pinching or twisting of the wrist.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.sales_counter.height.max",
+      "quantity": "Maximum height of accessible sales or service counter portion",
+      "value": 915,
+      "min": null,
+      "max": 915,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Sales and service counters",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "904.4.1, 904.4.2"
+      },
+      "note": "Length at least 36 in (915 mm) for parallel approach, 30 in (760 mm) for forward approach with knee and toe space.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.work_surface.height",
+      "quantity": "Height of dining and work surfaces",
+      "value": 710,
+      "min": 710,
+      "max": 865,
+      "unit": "mm",
+      "imperial": {
+        "value": 28,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Dining surfaces and work surfaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "902.3"
+      },
+      "note": "Range 710-865 mm (28-34 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.us.ada.child_9_12.high.max",
+      "quantity": "Children aged 9-12: high reach (advisory)",
+      "value": 1120,
+      "min": null,
+      "max": 1120,
+      "unit": "mm",
+      "imperial": {
+        "value": 44,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Elements used primarily by children",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Advisory 308.1"
+      },
+      "note": "Advisory guidance only. Low reach 16 in (405 mm). Ages 5-8: 40/18 in (1015/455 mm); ages 3-4: 36/20 in (915/510 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.sockets.height",
+      "quantity": "Wall-mounted socket outlets, telephone and TV points",
+      "value": 400,
+      "min": 400,
+      "max": 1000,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 4.30(a)"
+      },
+      "note": "Preference for the lower end of the range. Range 400-1000 mm (about 15.75-39.37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.appliance_switches.height",
+      "quantity": "Switches for permanently wired appliances",
+      "value": 400,
+      "min": 400,
+      "max": 1200,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 4.30(b)"
+      },
+      "note": "Range 400-1200 mm (about 15.75-47.24 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.precise_controls.height",
+      "quantity": "Switches and controls needing precise hand movement",
+      "value": 750,
+      "min": 750,
+      "max": 1200,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 4.30(c)"
+      },
+      "note": "Range 750-1200 mm (about 29.53-47.24 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.push_buttons.max",
+      "quantity": "Simple push-button controls",
+      "value": 1200,
+      "min": null,
+      "max": 1200,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 4.30(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.reception_counter.height.max",
+      "quantity": "Height of lowered section of reception counter",
+      "value": 760,
+      "min": null,
+      "max": 760,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.92,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Reception desks and counters",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.6(e)"
+      },
+      "note": "Section at least 1500 mm wide, knee recess at least 700 mm high.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.reception_counter.width.min",
+      "quantity": "Width of lowered counter section",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Reception desks and counters",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.6(e)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.reception_space_knee.depth.min",
+      "quantity": "Clear manoeuvring depth in front of counter with knee recess (>=500 mm deep)",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Reception desks and counters",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 3.6(d)"
+      },
+      "note": "1200 deep x 1800 wide with knee recess; 1400 deep x 2200 wide without.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.ticket_machine.controls",
+      "quantity": "Ticket machine control height",
+      "value": 750,
+      "min": 750,
+      "max": 1200,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Car parks serving buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.18(d)"
+      },
+      "note": "Range 750-1200 mm (about 29.53-47.24 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "reach.uk.bedroom_window_controls",
+      "quantity": "Openable windows and controls in bedrooms",
+      "value": 800,
+      "min": 800,
+      "max": 1000,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Sleeping accommodation",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 4.24(d)"
+      },
+      "note": "Range 800-1000 mm (about 31.5-39.37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

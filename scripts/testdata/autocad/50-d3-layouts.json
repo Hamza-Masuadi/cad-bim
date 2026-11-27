@@ -1,0 +1,822 @@
+{
+  "jobId": "sa-test-acad-50-d3-layouts",
+  "title": "D3: 19 more layouts, linetype scaling off",
+  "description": "D3, spec section 4 steps 2-3: layouts A-102 to A-120, each with its title block and a locked 1/4\" viewport (the engine does not clone layout content, so each copy is built), and PSLTSCALE and MSLTSCALE set to 0. The paper titles and INSUNITS 0 are in 51.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/D3.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "l102",
+      "op": "layout.create",
+      "args": {
+        "name": "A-102",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-102",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp102",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-102",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l103",
+      "op": "layout.create",
+      "args": {
+        "name": "A-103",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-103",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp103",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-103",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l104",
+      "op": "layout.create",
+      "args": {
+        "name": "A-104",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-104",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp104",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-104",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l105",
+      "op": "layout.create",
+      "args": {
+        "name": "A-105",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-105",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp105",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-105",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l106",
+      "op": "layout.create",
+      "args": {
+        "name": "A-106",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-106",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp106",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-106",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l107",
+      "op": "layout.create",
+      "args": {
+        "name": "A-107",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-107",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp107",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-107",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l108",
+      "op": "layout.create",
+      "args": {
+        "name": "A-108",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-108",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp108",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-108",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l109",
+      "op": "layout.create",
+      "args": {
+        "name": "A-109",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-109",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp109",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-109",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l110",
+      "op": "layout.create",
+      "args": {
+        "name": "A-110",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-110",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp110",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-110",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l111",
+      "op": "layout.create",
+      "args": {
+        "name": "A-111",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-111",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp111",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-111",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l112",
+      "op": "layout.create",
+      "args": {
+        "name": "A-112",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-112",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp112",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-112",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l113",
+      "op": "layout.create",
+      "args": {
+        "name": "A-113",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-113",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp113",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-113",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l114",
+      "op": "layout.create",
+      "args": {
+        "name": "A-114",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-114",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp114",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-114",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l115",
+      "op": "layout.create",
+      "args": {
+        "name": "A-115",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-115",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp115",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-115",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l116",
+      "op": "layout.create",
+      "args": {
+        "name": "A-116",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-116",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp116",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-116",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l117",
+      "op": "layout.create",
+      "args": {
+        "name": "A-117",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-117",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp117",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-117",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l118",
+      "op": "layout.create",
+      "args": {
+        "name": "A-118",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-118",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp118",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-118",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l119",
+      "op": "layout.create",
+      "args": {
+        "name": "A-119",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-119",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp119",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-119",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "l120",
+      "op": "layout.create",
+      "args": {
+        "name": "A-120",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-120",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        }
+      }
+    },
+    {
+      "id": "vp120",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-120",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    },
+    {
+      "id": "ltscale",
+      "op": "doc.setup",
+      "args": {
+        "psLtScale": false,
+        "msLtScale": false
+      },
+      "note": "ac-046.psltscale and ac-046.msltscale"
+    }
+  ]
+}

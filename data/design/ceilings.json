@@ -1,0 +1,415 @@
+{
+  "topic": "Ceiling heights and ceiling grid modules",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "ceilings.au_nsw.adg.habitable.min",
+      "quantity": "Minimum ceiling height, habitable rooms",
+      "value": 2.7,
+      "min": 2.7,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 8.86,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartment and mixed-use buildings in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4C-1, design criterion 1"
+      },
+      "note": "Measured from finished floor level to finished ceiling level.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.au_nsw.adg.non_habitable.min",
+      "quantity": "Minimum ceiling height, non-habitable rooms",
+      "value": 2.4,
+      "min": 2.4,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.87,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartment and mixed-use buildings in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4C-1, design criterion 1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.au_nsw.adg.two_storey_upper.min",
+      "quantity": "Minimum ceiling height, upper floor of a 2-storey apartment",
+      "value": 2.4,
+      "min": 2.4,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.87,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Two-storey apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4C-1, design criterion 1"
+      },
+      "note": "Only where that floor's area does not exceed 50% of the apartment area; the main living floor is 2.7 m.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.au_nsw.adg.attic_edge.min",
+      "quantity": "Minimum ceiling height at the edge of an attic room",
+      "value": 1.8,
+      "min": 1.8,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 5.91,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Attic spaces in NSW apartments",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4C-1, design criterion 1"
+      },
+      "note": "With a 30 degree minimum ceiling slope.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.au_nsw.adg.mixed_use_lower.min",
+      "quantity": "Minimum ceiling height, ground and first floor in mixed-use areas",
+      "value": 3.3,
+      "min": 3.3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 10.83,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Mixed-use areas in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4C-1, design criterion 1"
+      },
+      "note": "To allow future flexibility of use.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ma.occupiable.min",
+      "quantity": "Minimum ceiling height, occupiable and habitable spaces and corridors",
+      "value": 2286,
+      "min": 2286,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 90,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Buildings under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.2"
+      },
+      "note": "Stated as 7 ft 6 in (2286 mm). One- and two-family dwellings follow 780 CMR 5305. The model IBC 2021/2024 text has the same figures (seen in a state council excerpt only).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ma.service_rooms.min",
+      "quantity": "Minimum ceiling height, bathrooms, toilet rooms, kitchens, storage and laundry rooms",
+      "value": 2134,
+      "min": 2134,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 84,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Buildings under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.2"
+      },
+      "note": "Stated as 7 ft (2134 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ma.furred.min",
+      "quantity": "Lowest furred ceiling in a room",
+      "value": 2134,
+      "min": 2134,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 84,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Rooms with furred ceilings, Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.2.1"
+      },
+      "note": "The room needs the minimum ceiling height over two-thirds of its area.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ma.sloped.area_share.min",
+      "quantity": "Share of a sloped-ceiling room that needs the minimum ceiling height",
+      "value": 50,
+      "min": 50,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 50,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Rooms with sloped ceilings, Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.2 exception 2"
+      },
+      "note": "Parts under 5 ft (1524 mm) do not count toward the minimum area (measurement.us.ma.low_ceiling.exclusion).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.exposed_600x600.short",
+      "quantity": "Nominal acoustical ceiling unit size, exposed, short side",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.1.6"
+      },
+      "note": "Exposed-grid units; the guide offers 600 x 1200 and 600 x 600 mm (24 x 48 and 24 x 24 in). Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.exposed_600x600.long",
+      "quantity": "Nominal acoustical ceiling unit size, exposed, long side",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.1.6"
+      },
+      "note": "Exposed-grid units; the guide offers 600 x 1200 and 600 x 600 mm (24 x 48 and 24 x 24 in). Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.exposed_600x1200.short",
+      "quantity": "Nominal acoustical ceiling unit size, exposed, short side",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 24,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.1.6"
+      },
+      "note": "Exposed-grid units. Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.exposed_600x1200.long",
+      "quantity": "Nominal acoustical ceiling unit size, exposed, long side",
+      "value": 1200,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.1.6"
+      },
+      "note": "Exposed-grid units. Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.concealed_300x300.short",
+      "quantity": "Nominal acoustical ceiling unit size, concealed, short side",
+      "value": 300,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.2.6"
+      },
+      "note": "Concealed-grid units; the guide offers 300 x 300, 600 x 600 and 600 x 1200 mm (12 x 12, 24 x 24, 24 x 48 in). Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.module.concealed_300x300.long",
+      "quantity": "Nominal acoustical ceiling unit size, concealed, long side",
+      "value": 300,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Suspended acoustical ceilings (US federal projects)",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.2.2.6"
+      },
+      "note": "Concealed-grid units; the guide offers 300 x 300, 600 x 600 and 600 x 1200 mm (12 x 12, 24 x 24, 24 x 48 in). Bracketed options in an editable guide specification: the project specification picks one. Metric and inch sizes are stated separately (soft-metric equivalents).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ceilings.us.ufgs.border_units.rule",
+      "quantity": "Border (cut) units narrower than half a unit",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": null,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Laying out acoustical ceilings",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "3.1.3"
+      },
+      "note": "Installation text: arrange units so that units less than one-half width are minimised. Setting out the grid from the room centre or a datum achieves it.",
+      "confidence": "read_in_source",
+      "formula": "minimise border units with width < 0.5 * module"
+    },
+    {
+      "id": "ceilings.us.ufgs.access_panel.min",
+      "quantity": "Ceiling access panel size, smallest",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Access panels matching acoustical units",
+      "jurisdiction": "United States (federal DoD guide specification; editable template)",
+      "source": {
+        "title": "UFGS 09 51 00 Acoustical Ceilings",
+        "publisher": "U.S. Army Corps of Engineers / NAVFAC / AFCEC (Unified Facilities Guide Specifications)",
+        "edition": "August 2020",
+        "url": "https://legacy.wbdg.org/FFC/DOD/UFGS/UFGS%2009%2051%2000.pdf",
+        "clause": "2.5"
+      },
+      "note": "Not less than 300 x 300 mm (12 x 12 in) nor more than 300 x 600 mm (12 x 24 in).",
+      "confidence": "read_in_source"
+    }
+  ]
+}

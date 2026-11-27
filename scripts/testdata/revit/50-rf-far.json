@@ -1,0 +1,33 @@
+{
+  "jobId": "sa-test-revit-50-rf-far",
+  "title": "RF: wall about 32.9 km from the origin",
+  "description": "F1 rv-016.far-from-origin, main variant. If Revit refuses the geometry, use 51 instead (on a fresh copy of RB).",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/RF.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "f1",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          108000,
+          0
+        ],
+        "end": [
+          108020,
+          0
+        ],
+        "topLevel": "Level 2"
+      },
+      "note": "F1 rv-016.far-from-origin"
+    }
+  ]
+}

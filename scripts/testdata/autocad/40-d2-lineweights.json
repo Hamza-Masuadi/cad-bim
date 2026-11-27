@@ -1,0 +1,66 @@
+{
+  "jobId": "sa-test-acad-40-d2-lineweights",
+  "title": "D2: every layer at 0.25 mm",
+  "description": "D2, spec section 3: lineweight 0.25 mm on layer 0 and every layer of B (Defpoints is left alone: it never plots, and ac-048 reads plotting layers only). Expect ac-048.lineweight-hierarchy to fail with 1 finding. Its fix is manual.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/D2.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "lw",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "0",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-WALL",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-WALL-PATT",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-DOOR",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-AREA",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-AREA-IDEN",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-ANNO-DIMS",
+            "lineweight": 0.25
+          },
+          {
+            "name": "A-ANNO-TEXT",
+            "lineweight": 0.25
+          },
+          {
+            "name": "G-ANNO-TTLB",
+            "lineweight": 0.25
+          },
+          {
+            "name": "G-ANNO-NPLT",
+            "lineweight": 0.25
+          }
+        ],
+        "fromStandard": true,
+        "update": true
+      },
+      "note": "Layer 0 is not in the standard: its name warning is expected."
+    }
+  ]
+}

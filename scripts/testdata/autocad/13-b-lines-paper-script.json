@@ -1,0 +1,24 @@
+{
+  "jobId": "sa-test-acad-13-b-lines-paper-script",
+  "title": "B: wall lines, paper title, layout cleanup",
+  "description": "Baseline B: the four A-WALL lines, the paper TEXT \"FLOOR PLAN\" on A-101, the title block's attribute text style set to NOTES (block.define gives attribute definitions the current style, Standard, which ac-025.text-styles-listed flags), and the deletion of Layout1 and Layout2 (no op deletes layouts). Run after 12, with A-101 current.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/B.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "lisp",
+      "op": "script.lisp",
+      "args": {
+        "code": "(progn\n (vl-load-com)\n ((lambda ( / doc ms lays res try bylayer setprops mkline mkpline paperblock ptext)\n   (setq doc (vla-get-ActiveDocument (vlax-get-acad-object))\n         ms (vla-get-ModelSpace doc)\n         lays (vla-get-Layouts doc)\n         res nil)\n   (defun try (tag fn / r)\n     (setq r (vl-catch-all-apply fn nil))\n     (setq res (cons (list tag (cond ((vl-catch-all-error-p r) (strcat \"FAILED: \" (vl-catch-all-error-message r)))\n                                     (r \"ok\")\n                                     (T \"FAILED: returned nil\"))) res)))\n   (defun bylayer (o)\n     (vla-put-Color o 256) (vla-put-Linetype o \"ByLayer\") (vla-put-Lineweight o -1) o)\n   (defun setprops (o lay props)\n     (vla-put-Layer o lay) (bylayer o)\n     (foreach p props (vlax-put-property o (car p) (cadr p)))\n     o)\n   (defun mkline (lay p1 p2 props)\n     (setprops (vla-AddLine ms (vlax-3d-point p1) (vlax-3d-point p2)) lay props))\n   (defun mkpline (lay pts closed width / flat o)\n     (foreach p pts (setq flat (append flat (list (car p) (cadr p)))))\n     (setq o (vla-AddLightWeightPolyline ms (vlax-make-variant (vlax-safearray-fill (vlax-make-safearray vlax-vbDouble (cons 0 (1- (length flat)))) flat))))\n     (vla-put-Closed o (if closed :vlax-true :vlax-false))\n     (vla-put-ConstantWidth o width)\n     (setprops o lay nil))\n   (defun paperblock (name) (vla-get-Block (vla-Item lays name)))\n   (defun ptext (layout str x y h style lay / o)\n     (setq o (vla-AddText (paperblock layout) str (vlax-3d-point x y 0.0) h))\n     (vla-put-StyleName o style)\n     (vla-put-Layer o lay)\n     (bylayer o))\n   (try \"wall-s\" (function (lambda () (mkline \"A-WALL\" '(0.0 0.0 0.0) '(240.0 0.0 0.0) nil))))\n   (try \"wall-e\" (function (lambda () (mkline \"A-WALL\" '(240.0 0.0 0.0) '(240.0 180.0 0.0) nil))))\n   (try \"wall-n\" (function (lambda () (mkline \"A-WALL\" '(240.0 180.0 0.0) '(0.0 180.0 0.0) nil))))\n   (try \"wall-w\" (function (lambda () (mkline \"A-WALL\" '(0.0 180.0 0.0) '(0.0 0.0 0.0) nil))))\n   (try \"paper-title\" (function (lambda () (ptext \"A-101\" \"FLOOR PLAN\" 2.0 2.0 0.1875 \"TITLES\" \"A-ANNO-TEXT\"))))\n   (try \"attdef-style\" (function (lambda () (progn (vlax-for e (vla-Item (vla-get-Blocks doc) \"TB-ARCHD\") (if (= (vla-get-ObjectName e) \"AcDbAttributeDefinition\") (vla-put-StyleName e \"NOTES\"))) T))))\n   (try \"attrib-style\" (function (lambda () (progn (vlax-for e (paperblock \"A-101\") (if (and (= (vla-get-ObjectName e) \"AcDbBlockReference\") (= (strcase (vla-get-EffectiveName e)) \"TB-ARCHD\")) (foreach a (vlax-invoke e 'GetAttributes) (vla-put-StyleName a \"NOTES\")))) T))))\n   (try \"delete-Layout1\" (function (lambda () (progn (vla-Delete (vla-Item lays \"Layout1\")) T))))\n   (try \"delete-Layout2\" (function (lambda () (progn (vla-Delete (vla-Item lays \"Layout2\")) T))))\n   (reverse res))))",
+        "purpose": "Baseline B: four wall lines, paper title text on A-101, title block attributes in style NOTES, delete Layout1 and Layout2.",
+        "timeoutSeconds": 60
+      }
+    }
+  ]
+}

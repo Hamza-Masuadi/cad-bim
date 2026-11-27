@@ -1,0 +1,174 @@
+{
+  "topic": "Retail, hospitality and assembly fit-out (accessibility figures)",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "fitout.us.ada.wheelchair_space.single.width.min",
+      "quantity": "Width of a single wheelchair space in an assembly area",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Assembly areas",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "802.1.2"
+      },
+      "note": "Two adjacent spaces: 33 in (840 mm) each.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.wheelchair_space.adjacent.width.min",
+      "quantity": "Width of each of two adjacent wheelchair spaces",
+      "value": 840,
+      "min": 840,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Assembly areas",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "802.1.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.wheelchair_space.front_rear.depth.min",
+      "quantity": "Depth of a wheelchair space entered from front or rear",
+      "value": 1220,
+      "min": 1220,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 48,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Assembly areas",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "802.1.3"
+      },
+      "note": "Spaces adjoin accessible routes; routes and circulation paths may not overlap them (802.1.4, 802.1.5).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.wheelchair_space.side.depth.min",
+      "quantity": "Depth of a wheelchair space entered only from the side",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Assembly areas",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "802.1.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.checkout_counter.height.max",
+      "quantity": "Check-out aisle counter surface height",
+      "value": 965,
+      "min": null,
+      "max": 965,
+      "unit": "mm",
+      "imperial": {
+        "value": 38,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Check-out aisles",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "904.3.2"
+      },
+      "note": "Counter edge protection 2 in (51 mm) max above the counter on the aisle side. Aisles comply with 403 (36 in, 915 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.service_counter.parallel.length.min",
+      "quantity": "Accessible length of a sales or service counter, parallel approach",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Sales and service counters",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "904.4.1"
+      },
+      "note": "That portion 36 in (915 mm) high max (reach.us.ada.sales_counter.height.max); clear floor space for a parallel approach beside it.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "fitout.us.ada.service_counter.forward.length.min",
+      "quantity": "Accessible length of a sales or service counter, forward approach",
+      "value": 760,
+      "min": 760,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Sales and service counters",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "904.4.2"
+      },
+      "note": "36 in (915 mm) high max, with knee and toe space beneath and a forward-approach clear floor space.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

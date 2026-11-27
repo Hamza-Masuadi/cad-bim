@@ -1,0 +1,175 @@
+{
+  "topic": "Workplace and desk layout figures",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "workplace.gb.hse.volume_per_person.min",
+      "quantity": "Room volume per person working in it",
+      "value": 11,
+      "min": 11,
+      "max": null,
+      "unit": "m3",
+      "imperial": {
+        "value": 388.46,
+        "unit": "cu ft",
+        "converted": true
+      },
+      "applies_to": "Workrooms (most workplaces)",
+      "jurisdiction": "Great Britain (Workplace (Health, Safety and Welfare) Regulations 1992)",
+      "source": {
+        "title": "Workplace health, safety and welfare: Workplace (Health, Safety and Welfare) Regulations 1992, Approved Code of Practice and guidance (L24)",
+        "publisher": "Health and Safety Executive",
+        "edition": "Second edition 2013",
+        "url": "https://www.hse.gov.uk/pubns/priced/l24.pdf",
+        "clause": "ACOP para 97"
+      },
+      "note": "Ceiling height above 3.0 m is not counted. Not for retail kiosks, attendants' shelters, control cabs, or rooms used for lectures and meetings (para 98). May be insufficient where furniture and equipment take much of the space.",
+      "confidence": "read_in_source",
+      "formula": "floor_area * min(ceiling_height, 3.0) / people >= 11"
+    },
+    {
+      "id": "workplace.gb.hse.height_counted.max",
+      "quantity": "Ceiling height counted in the 11 m3 calculation",
+      "value": 3,
+      "min": null,
+      "max": 3,
+      "unit": "m",
+      "imperial": {
+        "value": 9.84,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Workrooms (most workplaces)",
+      "jurisdiction": "Great Britain (Workplace (Health, Safety and Welfare) Regulations 1992)",
+      "source": {
+        "title": "Workplace health, safety and welfare: Workplace (Health, Safety and Welfare) Regulations 1992, Approved Code of Practice and guidance (L24)",
+        "publisher": "Health and Safety Executive",
+        "edition": "Second edition 2013",
+        "url": "https://www.hse.gov.uk/pubns/priced/l24.pdf",
+        "clause": "ACOP para 97"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "workplace.gb.hse.floor_area_2_4m",
+      "quantity": "Illustrative floor area per person at a 2.4 m ceiling",
+      "value": 4.6,
+      "min": null,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 49.51,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Workrooms (most workplaces)",
+      "jurisdiction": "Great Britain (Workplace (Health, Safety and Welfare) Regulations 1992)",
+      "source": {
+        "title": "Workplace health, safety and welfare: Workplace (Health, Safety and Welfare) Regulations 1992, Approved Code of Practice and guidance (L24)",
+        "publisher": "Health and Safety Executive",
+        "edition": "Second edition 2013",
+        "url": "https://www.hse.gov.uk/pubns/priced/l24.pdf",
+        "clause": "Guidance para 99"
+      },
+      "note": "Illustrative and approximate (for example 2.0 x 2.3 m). At 3.0 m or higher the figure is 3.7 m2 (for example 2.0 x 1.85 m).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "workplace.gb.hse.floor_area_3m",
+      "quantity": "Illustrative floor area per person at a 3.0 m or higher ceiling",
+      "value": 3.7,
+      "min": null,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 39.83,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Workrooms (most workplaces)",
+      "jurisdiction": "Great Britain (Workplace (Health, Safety and Welfare) Regulations 1992)",
+      "source": {
+        "title": "Workplace health, safety and welfare: Workplace (Health, Safety and Welfare) Regulations 1992, Approved Code of Practice and guidance (L24)",
+        "publisher": "Health and Safety Executive",
+        "edition": "Second edition 2013",
+        "url": "https://www.hse.gov.uk/pubns/priced/l24.pdf",
+        "clause": "Guidance para 99"
+      },
+      "note": "Illustrative and approximate.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "workplace.us.osha.monitor_distance.min",
+      "quantity": "Viewing distance to the monitor",
+      "value": 500,
+      "min": 500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 20,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Computer workstations",
+      "jurisdiction": "United States (federal OSHA guidance; advisory, not a regulation)",
+      "source": {
+        "title": "Computer Workstations eTool: Workstation Components - Desks",
+        "publisher": "U.S. Department of Labor, Occupational Safety and Health Administration",
+        "edition": "web page as retrieved 2026-11-27",
+        "url": "https://www.osha.gov/etools/computer-workstations/components/desks",
+        "clause": "Desk or work surface areas"
+      },
+      "note": "Source gives 20 in (50 cm). Work surface depth should allow it.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "workplace.us.osha.leg_clearance.height",
+      "quantity": "Leg clearance height under the desk top",
+      "value": 500,
+      "min": 500,
+      "max": 720,
+      "unit": "mm",
+      "imperial": {
+        "value": 20,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Computer workstations (height-adjustable desks)",
+      "jurisdiction": "United States (federal OSHA guidance; advisory, not a regulation)",
+      "source": {
+        "title": "Computer Workstations eTool: Workstation Components - Desks",
+        "publisher": "U.S. Department of Labor, Occupational Safety and Health Administration",
+        "edition": "web page as retrieved 2026-11-27",
+        "url": "https://www.osha.gov/etools/computer-workstations/components/desks",
+        "clause": "Areas under the desk or work surface"
+      },
+      "note": "Source gives 20-28 in (50-72 cm); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "workplace.us.ada.work_surfaces.share.min",
+      "quantity": "Share of work surfaces (for other than employees) and of dining seating and standing spaces that comply with 902",
+      "value": 5,
+      "min": 5,
+      "max": null,
+      "unit": "percent",
+      "imperial": {
+        "value": 5,
+        "unit": "percent",
+        "converted": false
+      },
+      "applies_to": "Dining and work surfaces in facilities covered by the ADA",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "226.1"
+      },
+      "note": "Work surfaces used only by employees are not covered (Advisory 226.1). Surfaces 28-34 in (710-865 mm) high (reach.us.ada.work_surface.height), forward approach with knee and toe clearance (902.2).",
+      "confidence": "read_in_source"
+    }
+  ]
+}

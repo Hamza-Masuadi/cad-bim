@@ -1,0 +1,40 @@
+{
+  "jobId": "sa-test-acad-52-d3-fix",
+  "title": "D3: units and linetype scaling back",
+  "description": "Fix ops of ac-012.insunits (fix.units, allowed in a unitless drawing) and ac-046 (doc.setup). ac-039 and ac-043 have manual fixes.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/D3.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "f012",
+      "op": "fix.units",
+      "args": {
+        "insUnits": "in",
+        "scaleContents": false
+      },
+      "note": "ac-012.insunits"
+    },
+    {
+      "id": "f046",
+      "op": "doc.setup",
+      "args": {
+        "psLtScale": true,
+        "msLtScale": true
+      },
+      "note": "ac-046.psltscale and ac-046.msltscale"
+    }
+  ],
+  "verify": {
+    "checks": [
+      "ac-012.insunits",
+      "ac-046.msltscale",
+      "ac-046.psltscale"
+    ]
+  }
+}

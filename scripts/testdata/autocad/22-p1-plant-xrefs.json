@@ -1,0 +1,63 @@
+{
+  "jobId": "sa-test-acad-22-p1-plant-xrefs",
+  "title": "P1: external references",
+  "description": "Plants D20 (XA attached, nested XB at depth 2), D21 (XD overlaid with a full path on a non-xref layer) and D22 part 1 (XC overlaid; it becomes 'not found' in a manual step).",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "d20",
+      "op": "xref.attach",
+      "args": {
+        "path": "XA.dwg",
+        "name": "XA",
+        "mode": "attach",
+        "pathType": "relative",
+        "layer": "G-ANNO-REFR",
+        "position": [
+          0,
+          0
+        ]
+      },
+      "note": "D20 ac-018.attach-nesting, ac-038.xref-depth"
+    },
+    {
+      "id": "d21",
+      "op": "xref.attach",
+      "args": {
+        "path": "XD.dwg",
+        "name": "XD",
+        "mode": "overlay",
+        "pathType": "full",
+        "layer": "A-ANNO-NOTE",
+        "position": [
+          0,
+          0
+        ]
+      },
+      "note": "D21 ac-016.xref-layer, ac-017.xref-full-path"
+    },
+    {
+      "id": "d22",
+      "op": "xref.attach",
+      "args": {
+        "path": "XC.dwg",
+        "name": "XC",
+        "mode": "overlay",
+        "pathType": "relative",
+        "layer": "G-ANNO-REFR",
+        "position": [
+          0,
+          0
+        ]
+      },
+      "note": "D22 ac-017.xref-unresolved (after the manual step)"
+    }
+  ]
+}

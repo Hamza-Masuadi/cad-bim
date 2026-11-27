@@ -1,0 +1,40 @@
+{
+  "jobId": "sa-test-revit-51-rf-fallback-1km",
+  "title": "RF fallback: wall about 1.006 km away, 1 km test check",
+  "description": "F1 fallback: only if 50 was refused. Needs rf-1km-check.json copied into the model folder (relative checks files resolve against it). The copy of rv-016 has max 1,000,000 mm and severity warning, so its failure is reported without rolling the job back.",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/RF.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "f1",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          3300,
+          0
+        ],
+        "end": [
+          3320,
+          0
+        ],
+        "topLevel": "Level 2"
+      },
+      "note": "F1 fallback"
+    }
+  ],
+  "verify": {
+    "checks": [
+      "rv-016.far-from-origin-1km"
+    ],
+    "checksFile": "rf-1km-check.json",
+    "checksMode": "add"
+  }
+}

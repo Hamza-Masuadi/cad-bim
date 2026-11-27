@@ -1,0 +1,98 @@
+{
+  "jobId": "sa-test-revit-30-r1-fix-by-filter",
+  "title": "R1: fixes that need no ids",
+  "description": "Fix ops of rv-005 (both), rv-020, rv-028.default-view-names and rv-029, then verify them. rv-020 relies on the manual P14 desk having Comments = P14.",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/R1.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "f005mark",
+      "op": "param.set",
+      "args": {
+        "filter": {
+          "category": "Doors",
+          "where": {
+            "Comments": "P03"
+          }
+        },
+        "values": {
+          "Mark": "D2"
+        }
+      },
+      "note": "rv-005.duplicate-mark"
+    },
+    {
+      "id": "f005room",
+      "op": "param.set",
+      "args": {
+        "filter": {
+          "category": "Rooms",
+          "where": {
+            "Name": "P04 ROOM"
+          }
+        },
+        "values": {
+          "Number": "102"
+        }
+      },
+      "note": "rv-005.duplicate-room-number"
+    },
+    {
+      "id": "f028",
+      "op": "view.rename",
+      "args": {
+        "views": [
+          {
+            "view": "L1 - Plan Copy 1",
+            "name": "L1 - Plan Working"
+          },
+          {
+            "view": "Section 1",
+            "name": "OFFICE SECTION"
+          }
+        ]
+      },
+      "note": "rv-028.default-view-names"
+    },
+    {
+      "id": "f029",
+      "op": "viewtemplate.apply",
+      "args": {
+        "views": [
+          "L2 - Plan"
+        ],
+        "template": "Architectural Plan"
+      },
+      "note": "rv-029.sheet-views-template"
+    },
+    {
+      "id": "f020",
+      "op": "workset.assign",
+      "args": {
+        "filter": {
+          "category": "Furniture",
+          "where": {
+            "Comments": "P14"
+          }
+        },
+        "workset": "A_FFE"
+      },
+      "note": "rv-020.ffe-workset"
+    }
+  ],
+  "verify": {
+    "checks": [
+      "rv-005.duplicate-mark",
+      "rv-005.duplicate-room-number",
+      "rv-020.ffe-workset",
+      "rv-028.default-view-names",
+      "rv-029.sheet-views-template"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "jobId": "sa-test-acad-12-b-layout",
+  "title": "B: layout A-101 with title block and viewport",
+  "description": "Baseline B, spec section 1 step 6 (the paper text and the deletion of Layout1 and Layout2 are in the script job).",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/B.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "a101",
+      "op": "layout.create",
+      "args": {
+        "name": "A-101",
+        "paperSize": "ARCH_D_(36.00_x_24.00_Inches)",
+        "orientation": "landscape",
+        "titleBlock": "TB-ARCHD",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-101",
+          "SHEET_TITLE": "FLOOR PLAN",
+          "PROJECT_NAME": "SA PLANTED DEFECT TEST",
+          "PROJECT_NO": "0001",
+          "ISSUE_DATE": "2026-11-28",
+          "SCALE": "1/4\" = 1'-0\""
+        },
+        "makeCurrent": true
+      },
+      "note": "Title block goes on the standard's titleBlock layer G-ANNO-TTLB."
+    },
+    {
+      "id": "vp",
+      "op": "viewport.create",
+      "args": {
+        "layout": "A-101",
+        "paperCentre": [
+          18,
+          13
+        ],
+        "modelWindow": [
+          [
+            -12,
+            -36
+          ],
+          [
+            252,
+            192
+          ]
+        ],
+        "scale": "1/4\" = 1'-0\"",
+        "lock": true,
+        "layer": "G-ANNO-NPLT"
+      }
+    }
+  ]
+}

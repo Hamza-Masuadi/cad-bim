@@ -1,0 +1,49 @@
+{
+  "jobId": "sa-test-acad-20-p1-prep",
+  "title": "P1: layers and linetypes used by the defects",
+  "description": "Spec section 2, 'Before planting'.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "layers",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "A-FURN"
+          },
+          {
+            "name": "A-ANNO-NOTE"
+          },
+          {
+            "name": "G-ANNO-REFR"
+          }
+        ],
+        "fromStandard": true
+      }
+    },
+    {
+      "id": "linetypes",
+      "op": "linetype.ensure",
+      "args": {
+        "linetypes": [
+          {
+            "name": "HIDDEN2",
+            "file": "acad.lin"
+          },
+          {
+            "name": "PHANTOM2",
+            "file": "acad.lin"
+          }
+        ]
+      }
+    }
+  ]
+}

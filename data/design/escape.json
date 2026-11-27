@@ -1,0 +1,1040 @@
+{
+  "topic": "Means of escape (headline figures only)",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "escape.uk.travel.2a_residential_institutional.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Residential (institutional), purpose group 2(a)",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (institutional), purpose group 2(a)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2a_residential_institutional.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Residential (institutional), purpose group 2(a)",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (institutional), purpose group 2(a)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_in_bedrooms.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Residential (other) 2(b): within bedrooms",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): within bedrooms",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_in_bedrooms.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Residential (other) 2(b): within bedrooms",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): within bedrooms",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_bedroom_corridors.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Residential (other) 2(b): in bedroom corridors",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): in bedroom corridors",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_bedroom_corridors.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Residential (other) 2(b): in bedroom corridors",
+      "value": 35,
+      "min": null,
+      "max": 35,
+      "unit": "m",
+      "imperial": {
+        "value": 114.83,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): in bedroom corridors",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_elsewhere.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Residential (other) 2(b): elsewhere",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): elsewhere",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.2b_elsewhere.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Residential (other) 2(b): elsewhere",
+      "value": 35,
+      "min": null,
+      "max": 35,
+      "unit": "m",
+      "imperial": {
+        "value": 114.83,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Residential (other) 2(b): elsewhere",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.3_office.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Office, purpose group 3",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Office, purpose group 3",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.3_office.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Office, purpose group 3",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Office, purpose group 3",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.4_shop.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Shop and commercial, purpose group 4",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Shop and commercial, purpose group 4",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.4_shop.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Shop and commercial, purpose group 4",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Shop and commercial, purpose group 4",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_disabled.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Assembly: buildings primarily for disabled people",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly: buildings primarily for disabled people",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_disabled.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Assembly: buildings primarily for disabled people",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly: buildings primarily for disabled people",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_seating_rows.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Assembly: areas with seating in rows",
+      "value": 15,
+      "min": null,
+      "max": 15,
+      "unit": "m",
+      "imperial": {
+        "value": 49.21,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly: areas with seating in rows",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_seating_rows.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Assembly: areas with seating in rows",
+      "value": 32,
+      "min": null,
+      "max": 32,
+      "unit": "m",
+      "imperial": {
+        "value": 104.99,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly: areas with seating in rows",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_elsewhere.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Assembly and recreation: elsewhere",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly and recreation: elsewhere",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.5_elsewhere.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Assembly and recreation: elsewhere",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Assembly and recreation: elsewhere",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.6_industrial_normal.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Industrial, normal hazard",
+      "value": 25,
+      "min": null,
+      "max": 25,
+      "unit": "m",
+      "imperial": {
+        "value": 82.02,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Industrial, normal hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.6_industrial_normal.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Industrial, normal hazard",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Industrial, normal hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.6_industrial_higher.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Industrial, higher hazard",
+      "value": 12,
+      "min": null,
+      "max": 12,
+      "unit": "m",
+      "imperial": {
+        "value": 39.37,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Industrial, higher hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.6_industrial_higher.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Industrial, higher hazard",
+      "value": 25,
+      "min": null,
+      "max": 25,
+      "unit": "m",
+      "imperial": {
+        "value": 82.02,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Industrial, higher hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.7_storage_normal.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Storage and other non-residential, normal hazard",
+      "value": 25,
+      "min": null,
+      "max": 25,
+      "unit": "m",
+      "imperial": {
+        "value": 82.02,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Storage and other non-residential, normal hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.7_storage_normal.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Storage and other non-residential, normal hazard",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Storage and other non-residential, normal hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.7_storage_higher.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Storage and other non-residential, higher hazard",
+      "value": 12,
+      "min": null,
+      "max": 12,
+      "unit": "m",
+      "imperial": {
+        "value": 39.37,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Storage and other non-residential, higher hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.7_storage_higher.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Storage and other non-residential, higher hazard",
+      "value": 25,
+      "min": null,
+      "max": 25,
+      "unit": "m",
+      "imperial": {
+        "value": 82.02,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Storage and other non-residential, higher hazard",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.special_fire_hazard.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Place of special fire hazard (within room/area)",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Place of special fire hazard (within room/area)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.special_fire_hazard.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Place of special fire hazard (within room/area)",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Place of special fire hazard (within room/area)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_room.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Plant room or roof-top plant: distance within the room",
+      "value": 9,
+      "min": null,
+      "max": 9,
+      "unit": "m",
+      "imperial": {
+        "value": 29.53,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant room or roof-top plant: distance within the room",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_room.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Plant room or roof-top plant: distance within the room",
+      "value": 35,
+      "min": null,
+      "max": 35,
+      "unit": "m",
+      "imperial": {
+        "value": 114.83,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant room or roof-top plant: distance within the room",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_route_enclosed.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Plant: escape route not in open air (overall)",
+      "value": 18,
+      "min": null,
+      "max": 18,
+      "unit": "m",
+      "imperial": {
+        "value": 59.06,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant: escape route not in open air (overall)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_route_enclosed.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Plant: escape route not in open air (overall)",
+      "value": 45,
+      "min": null,
+      "max": 45,
+      "unit": "m",
+      "imperial": {
+        "value": 147.64,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant: escape route not in open air (overall)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_route_open_air.one_direction.max",
+      "quantity": "Maximum travel distance, one direction only: Plant: escape route in open air (overall)",
+      "value": 60,
+      "min": null,
+      "max": 60,
+      "unit": "m",
+      "imperial": {
+        "value": 196.85,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant: escape route in open air (overall)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. If layout is unknown, use direct distance = two-thirds of travel distance (note 1).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.travel.plant_route_open_air.more_than_one.max",
+      "quantity": "Maximum travel distance, more than one direction: Plant: escape route in open air (overall)",
+      "value": 100,
+      "min": null,
+      "max": 100,
+      "unit": "m",
+      "imperial": {
+        "value": 328.08,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Plant: escape route in open air (overall)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.1"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exit_width.up_to_60.min",
+      "quantity": "Minimum width of escape route or exit for up to 60 people",
+      "value": 750,
+      "min": 750,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.3"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. 750 may reduce to 530 mm between fixed storage racking (not public areas of shops). Widths below 1050 mm are not interpolated; AD M may require more.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exit_width.up_to_110.min",
+      "quantity": "Minimum width of escape route or exit for up to 110 people",
+      "value": 850,
+      "min": 850,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.3"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. Widths below 1050 mm are not interpolated; AD M may require more.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exit_width.up_to_220.min",
+      "quantity": "Minimum width of escape route or exit for up to 220 people",
+      "value": 1050,
+      "min": 1050,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 41.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.3"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. Widths below 1050 mm are not interpolated; AD M may require more.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exit_width.over_220",
+      "quantity": "Escape route or exit width for more than 220 people",
+      "value": 5,
+      "min": 5,
+      "max": null,
+      "unit": "mm per person",
+      "imperial": {
+        "value": 5,
+        "unit": "mm per person",
+        "converted": false
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.3"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. Unit means 5 mm per person (value 5). Discount the largest exit when several are available (para 2.21).",
+      "confidence": "read_in_source",
+      "formula": "width_mm >= 5 * people"
+    },
+    {
+      "id": "escape.uk.exits.up_to_60",
+      "quantity": "Minimum number of escape routes/exits for up to 60 people",
+      "value": 1,
+      "min": 1,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 1,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Room, tier or storey",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.2"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exits.up_to_600",
+      "quantity": "Minimum number of escape routes/exits for up to 600 people",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 2,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Room, tier or storey",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.2"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.exits.over_600",
+      "quantity": "Minimum number of escape routes/exits for more than 600 people",
+      "value": 3,
+      "min": 3,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 3,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Room, tier or storey",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "Table 2.2"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "escape.uk.final_exit_merge",
+      "quantity": "Final exit width where a ground storey exit and a stair share a final exit",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": null,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document B: Fire safety, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2019 edition incorporating 2020, 2022, 2025 and 2026 amendments (online copy also shows forthcoming 2029 changes)",
+        "url": "https://assets.publishing.service.gov.uk/media/6aa3bb7492e72b8ac437f145/AD_B2_2026.pdf",
+        "clause": "para 2.23, Diagram 2.6"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. W = final exit width (m); N = people served by ground floor storey exit; S = stair width (m). Worked example: N=250, S=1.2 gives 2.150 m. If N > 60, keep 2 m from stair foot/storey exit to final exit.",
+      "confidence": "read_in_source",
+      "formula": "W = ((N / 2.5) + (60 * S)) / 80"
+    },
+    {
+      "id": "escape.uk.gangway.width.min",
+      "quantity": "Minimum gangway width in assembly seating",
+      "value": 1100,
+      "min": 1100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 43.31,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Assembly buildings with stepped gangways",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 1.4(j)"
+      },
+      "note": "Headline figure only. Fire strategy and means of escape are specialist work; confirm with a fire engineer and building control. 900 mm where used by not more than 50 persons.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "jobId": "sa-test-acad-31-p1-fix-xref-path",
+  "title": "P1: make XD's path relative",
+  "description": "Fix op of ac-017.xref-full-path. xref.repath reloads in commit only and the reload is not undone, so it is alone in its job.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "f017path",
+      "op": "xref.repath",
+      "args": {
+        "names": [
+          "XD"
+        ],
+        "pathType": "relative",
+        "reload": true
+      }
+    }
+  ],
+  "verify": {
+    "checks": [
+      "ac-017.xref-full-path"
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "job.schema.json",
+  "title": "Job",
+  "description": "One typed job sent with run or validate. This schema covers the job's structure. Each op's args are checked against the op schemas built into the engine (list them with `sa ops --json`); `sa job lint` runs both checks offline.",
+  "type": "object",
+  "required": [ "jobId", "app", "units", "ops" ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "jobId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$", "description": "Unique forever; a repeat is refused with duplicate_job" },
+    "title": { "type": "string", "description": "Names the undo step: 'SA: <title>'" },
+    "description": { "type": "string" },
+    "app": { "enum": [ "autocad", "revit" ] },
+    "document": {
+      "type": "object", "additionalProperties": false,
+      "description": "Copied from the snapshot. A mismatch gives wrong_document or document_changed and nothing runs",
+      "properties": { "path": { "type": "string" }, "fingerprint": { "type": "string" } }
+    },
+    "units": {
+      "type": "object", "additionalProperties": false, "required": [ "length" ],
+      "properties": { "length": { "enum": [ "mm", "cm", "m", "in", "ft" ] } }
+    },
+    "standard": { "type": "string", "description": "Path of the project standard file" },
+    "outputDir": { "type": "string" },
+    "ownership": {
+      "enum": [ "refuse", "skip" ],
+      "description": "Revit worksharing. refuse (default): the job is refused with not_owned if any existing element it would change is owned by someone else or changed in central. skip: those elements are left out of every op, each is reported, and the rest of the job runs"
+    },
+    "ops": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "id", "op" ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_-]{0,63}$" },
+          "op": { "type": "string", "pattern": "^[a-z0-9]+(\\.[A-Za-z0-9]+)+$" },
+          "args": { "type": "object" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "verify": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "checks": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "checksFile": {
+          "description": "Checks file or folder (every *.json inside), or a list, defining the ids in checks. Replaces the bundled checks unless checksMode is add",
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+          ]
+        },
+        "checksMode": { "enum": [ "replace", "add" ] },
+        "capture": {
+          "type": "array",
+          "items": { "type": "object", "required": [ "target" ], "properties": { "target": { "type": "string", "minLength": 1 } } }
+        },
+        "visual": {
+          "description": "Capture target before the first op and after the last, compare the pixels and report check visual.diff (FORMATS.md section 7)",
+          "type": "object", "additionalProperties": false, "required": [ "target" ],
+          "properties": {
+            "target": { "type": "string", "minLength": 1 },
+            "window": {
+              "description": "AutoCAD model target only: the model window [[x1, y1], [x2, y2]] in drawing units",
+              "type": "array", "minItems": 2, "maxItems": 2,
+              "items": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } }
+            },
+            "pixelWidth": { "description": "Revit only: image width in pixels", "type": "integer", "minimum": 32, "maximum": 15000 },
+            "maxUnexpectedChange": { "description": "Largest fraction of the image's pixels that may change outside the expected region", "type": "number", "minimum": 0, "maximum": 1 },
+            "threshold": { "description": "Per-channel difference (0-255) below which a pixel counts as unchanged", "type": "integer", "minimum": 0, "maximum": 255 },
+            "padding": { "description": "Pixels added around each touched element's extents", "type": "integer", "minimum": 0, "maximum": 1000 },
+            "expectChange": { "description": "true: the view must change; false: nothing may change; left out: must change when the job created elements that should show", "type": [ "boolean", "null" ] }
+          }
+        }
+      }
+    }
+  }
+}

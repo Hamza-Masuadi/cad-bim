@@ -1,0 +1,22 @@
+{
+  "$schema": "../job.schema.json",
+  "jobId": "2026-11-27T10-15-00Z-room-01",
+  "title": "Meeting room walls and door",
+  "app": "autocad",
+  "document": { "path": "C:/proj/2417-A-PLAN-L01.dwg", "fingerprint": "f3a9c1-2417-88" },
+  "units": { "length": "mm" },
+  "standard": "data/standards/us-office.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "A-WALL" }, { "name": "A-DOOR" } ] } },
+    { "id": "walls", "op": "wall.draw", "note": "Room 4000 x 3000 on centrelines",
+      "args": {
+        "thickness": 100, "layer": "A-WALL", "cornerStyle": "mitre",
+        "chains": [ { "points": [ [0, 0], [4000, 0], [4000, 3000], [0, 3000] ], "closed": true, "idPrefix": "rm" } ]
+      } },
+    { "id": "door", "op": "opening.place",
+      "args": { "kind": "door", "block": "DOOR-SINGLE", "host": "$walls", "wallId": "rm1", "offset": 800, "width": 900, "hinge": "start", "swingSide": "left", "layer": "A-DOOR", "mark": "D01" } },
+    { "id": "room", "op": "room.create",
+      "args": { "inside": [2000, 1500], "from": "$walls", "name": "Meeting", "number": "1.04" } }
+  ],
+  "verify": { "checks": [ "walls.open_ends", "layers.naming" ], "capture": [ { "target": "activeView" } ] }
+}

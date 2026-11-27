@@ -1,0 +1,1526 @@
+{
+  "$schema": "../schemas/checks.schema.json",
+  "version": 1,
+  "description": "AutoCAD audit checks, one or more per mistake of references/practice/mistakes-autocad.md (ids keep the mistake id as their first part: ac-001.*). Facts tables and new evaluators are specified in FACTS.md.",
+  "checks": [
+    {
+      "id": "ac-001.layer-zero",
+      "app": "autocad",
+      "title": "No geometry or annotation on layer 0 in model or paper space",
+      "severity": "error",
+      "why": "Content on layer 0 has no layer control, and layer-0 content in an xref'd drawing takes the host's insert layer and cannot be managed.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "field": "layer",
+        "equals": "0"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "entity.setprops",
+        "args": {
+          "handles": [
+            "{{recordId}}"
+          ],
+          "setLayer": ""
+        },
+        "note": "Set setLayer to the standard layer for the object type before running."
+      },
+      "groups": [
+        "layers",
+        "standards"
+      ],
+      "source": "mistakes-autocad.md AC-001 (detection: Auto); sources S32 S48 S10, see references/practice/_SOURCES.md. Block definition contents are not in the entities table, so blocks built on 0 are not reported"
+    },
+    {
+      "id": "ac-002.defpoints",
+      "app": "autocad",
+      "title": "Nothing on Defpoints except what AutoCAD puts there",
+      "severity": "critical",
+      "why": "Defpoints never plots, so content on it is silently missing from prints.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "field": "layer",
+        "in": [
+          "Defpoints",
+          "DEFPOINTS",
+          "defpoints"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "entity.setprops",
+        "args": {
+          "handles": [
+            "{{recordId}}"
+          ],
+          "setLayer": ""
+        },
+        "note": "Set setLayer to the correct layer; non-plotting content belongs on a no-plot layer such as A-ANNO-NPLT."
+      },
+      "groups": [
+        "layers",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-002 (detection: Auto); sources S32, see references/practice/_SOURCES.md. Dimension definition points live inside dimension blocks and are not entities, so they are never reported"
+    },
+    {
+      "id": "ac-003.color-bylayer",
+      "app": "autocad",
+      "title": "Colour is ByLayer on every entity in model and paper space",
+      "severity": "error",
+      "why": "Hard-coded properties stop consultants fading an xref'd drawing through its layers, and layer edits no longer propagate.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "field": "color",
+        "equals": "bylayer",
+        "negate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.bylayer",
+        "args": {
+          "properties": [
+            "color"
+          ],
+          "includeBlocks": false,
+          "space": "all"
+        },
+        "note": "Sets every entity in the drawing to ByLayer for this property; check that each layer has the right value first."
+      },
+      "groups": [
+        "layers",
+        "properties"
+      ],
+      "source": "mistakes-autocad.md AC-003 (detection: Auto); sources S48 S32 S33 S40, see references/practice/_SOURCES.md. Contents of block definitions may be ByBlock and are not checked here; see ac-006"
+    },
+    {
+      "id": "ac-003.linetype-bylayer",
+      "app": "autocad",
+      "title": "Linetype is ByLayer on every entity in model and paper space",
+      "severity": "error",
+      "why": "Hard-coded properties stop consultants fading an xref'd drawing through its layers, and layer edits no longer propagate.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "field": "linetype",
+        "equals": "bylayer",
+        "negate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.bylayer",
+        "args": {
+          "properties": [
+            "linetype"
+          ],
+          "includeBlocks": false,
+          "space": "all"
+        },
+        "note": "Sets every entity in the drawing to ByLayer for this property; check that each layer has the right value first."
+      },
+      "groups": [
+        "layers",
+        "properties"
+      ],
+      "source": "mistakes-autocad.md AC-003 (detection: Auto); sources S48 S32 S33 S40, see references/practice/_SOURCES.md. Contents of block definitions may be ByBlock and are not checked here; see ac-006"
+    },
+    {
+      "id": "ac-003.lineweight-bylayer",
+      "app": "autocad",
+      "title": "Lineweight is ByLayer on every entity in model and paper space",
+      "severity": "error",
+      "why": "Hard-coded properties stop consultants fading an xref'd drawing through its layers, and layer edits no longer propagate.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "field": "lineweight",
+        "equals": "bylayer",
+        "negate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.bylayer",
+        "args": {
+          "properties": [
+            "lineweight"
+          ],
+          "includeBlocks": false,
+          "space": "all"
+        },
+        "note": "Sets every entity in the drawing to ByLayer for this property; check that each layer has the right value first."
+      },
+      "groups": [
+        "layers",
+        "properties"
+      ],
+      "source": "mistakes-autocad.md AC-003 (detection: Auto); sources S48 S32 S33 S40, see references/practice/_SOURCES.md. Contents of block definitions may be ByBlock and are not checked here; see ac-006"
+    },
+    {
+      "id": "ac-004.dims-on-dim-layer",
+      "app": "autocad",
+      "title": "Dimensions are on a dimension layer",
+      "severity": "warning",
+      "why": "Dimensions on other layers cannot be frozen, filtered or plotted as a group.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "field": "type",
+        "equals": "DIMENSION",
+        "ifField": "layer",
+        "ifStandardPattern": "dimensionLayer",
+        "ifNegate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "entity.setprops",
+        "args": {
+          "handles": [
+            "{{recordId}}"
+          ],
+          "setLayer": ""
+        },
+        "note": "Set setLayer to the discipline's dimension layer (patterns.dimensionLayer in the standard)."
+      },
+      "groups": [
+        "layers",
+        "annotation",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-004 (detection: Heur); sources S48 S32, see references/practice/_SOURCES.md. Automatic for the object-type-to-layer rule of patterns.dimensionLayer; other wrong-layer cases need review"
+    },
+    {
+      "id": "ac-004.text-on-wall-layer",
+      "app": "autocad",
+      "title": "No text on wall layers",
+      "severity": "warning",
+      "why": "Text on a wall layer disappears when walls are frozen and plots at the wall weight.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "field": "isText",
+        "equals": true,
+        "ifField": "layer",
+        "ifStandardPattern": "wallLayer"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "entity.setprops",
+        "args": {
+          "handles": [
+            "{{recordId}}"
+          ],
+          "setLayer": ""
+        },
+        "note": "Set setLayer to the discipline's text layer."
+      },
+      "groups": [
+        "layers",
+        "annotation",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-004 (detection: Heur); sources S48 S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-005.layer-names",
+      "app": "autocad",
+      "title": "Layer names follow the project's layer naming scheme",
+      "severity": "error",
+      "why": "Recipients filter, freeze and translate layers by name; a layer outside the scheme is lost on exchange.",
+      "evaluator": "names_match_scheme",
+      "params": {
+        "table": "layers",
+        "where": {
+          "isXrefDependent": false
+        },
+        "field": "name",
+        "scheme": "layer",
+        "ignore": [
+          "0",
+          "Defpoints"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "layer.translate",
+        "args": {
+          "map": {}
+        },
+        "note": "Put each finding's value (the old layer name) into map with its target layer, ask the user to confirm, then run."
+      },
+      "groups": [
+        "layers",
+        "standards"
+      ],
+      "source": "mistakes-autocad.md AC-005 (detection: Auto); sources S32 S41, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-006.block-properties",
+      "app": "autocad",
+      "title": "Block definitions have no hard-coded colour, linetype or lineweight",
+      "severity": "error",
+      "why": "Entities with fixed properties inside a block ignore the layer the block is inserted on, so the block cannot be faded or recoloured with its layer.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "blocks",
+        "where": {
+          "isXref": false,
+          "isXrefDependent": false,
+          "isAnonymous": false
+        },
+        "field": "hardPropertyEntities",
+        "max": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Edit the block: put its entities on layer 0 with colour, linetype and lineweight ByBlock (or ByLayer), then redefine it; keep deliberate multi-layer blocks on their own layers but ByLayer."
+      },
+      "groups": [
+        "blocks",
+        "properties"
+      ],
+      "source": "mistakes-autocad.md AC-006 (detection: Auto); sources S32 S33 S10, see references/practice/_SOURCES.md. Entities on non-0 layers with ByLayer properties are allowed because deliberate multi-layer blocks exist; their count is in the blocks table for review"
+    },
+    {
+      "id": "ac-007.exploded-blocks",
+      "app": "autocad",
+      "title": "Doors, windows and other repeated items are block instances, not loose lines",
+      "severity": "error",
+      "why": "Exploded blocks lose counts, attributes and central updates, and bloat the file.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for repeated identical line clusters and loose door-swing arcs on door layers; replace them with block instances of the standard blocks."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for repeated identical line clusters and loose door-swing arcs on door layers; replace them with block instances of the standard blocks."
+      },
+      "groups": [
+        "blocks",
+        "geometry",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-007 (detection: Heur); sources S33 S41 S10, see references/practice/_SOURCES.md. No reliable automatic signal"
+    },
+    {
+      "id": "ac-008.exploded-dims",
+      "app": "autocad",
+      "title": "Dimensions are dimension objects, not exploded lines and text",
+      "severity": "error",
+      "why": "Exploded dimensions no longer measure the geometry and cannot be updated.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for lines, solids and text on dimension layers forming arrow-plus-text patterns; redimension with dimension objects."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for lines, solids and text on dimension layers forming arrow-plus-text patterns; redimension with dimension objects."
+      },
+      "groups": [
+        "annotation",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-008 (detection: Heur); sources S33 S40, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-009.dim-override",
+      "app": "autocad",
+      "title": "No dimension text replaces the measured value",
+      "severity": "critical",
+      "why": "An overridden value hides a geometry error and misleads the builder.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "DIMENSION"
+        },
+        "field": "textOverride",
+        "pattern": "|.*<>.*|EQ\\.?",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Remove the override so the dimension shows <>; if the value was wrong, the geometry is wrong: ask before changing the design."
+      },
+      "groups": [
+        "annotation"
+      ],
+      "source": "mistakes-autocad.md AC-009 (detection: Auto); sources S32 S33 S40 S53, see references/practice/_SOURCES.md. Empty overrides, overrides that keep <> (e.g. '<> TYP') and EQ are accepted"
+    },
+    {
+      "id": "ac-010.fudged-geometry",
+      "app": "autocad",
+      "title": "Geometry is drawn at true size, not fudged",
+      "severity": "critical",
+      "why": "Lengths a fraction off round values make dimensions that do not add up.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Measure key lengths: values within a small epsilon of round values but not equal, or dimensions needing more than 1/4 in precision; ask the designer before correcting."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Measure key lengths: values within a small epsilon of round values but not equal, or dimensions needing more than 1/4 in precision; ask the designer before correcting."
+      },
+      "groups": [
+        "geometry",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-010 (detection: Heur); sources S48 S42, see references/practice/_SOURCES.md. Round values depend on design intent"
+    },
+    {
+      "id": "ac-011.dim-precision",
+      "app": "autocad",
+      "title": "Dimension styles in use display no finer than a buildable precision",
+      "severity": "error",
+      "why": "Precision finer than can be built implies a tolerance nobody can achieve.",
+      "evaluator": "dim_precision_min",
+      "params": {
+        "table": "styles",
+        "where": {
+          "kind": "dim",
+          "isUsed": true
+        },
+        "field": "stepMm",
+        "systemField": "unitSystem",
+        "imperialMinIn": 0.25,
+        "metricMinMm": 1
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set DIMDEC (and DIMRND) so the style shows 1/4 in or 1/2 in (imperial) or whole millimetres (metric); see dimensions-annotation.md section 4."
+      },
+      "groups": [
+        "annotation",
+        "styles"
+      ],
+      "source": "mistakes-autocad.md AC-011 (detection: Auto); sources S49 S42, see references/practice/_SOURCES.md. Thresholds: 1/4 in [S49][S48], 1 mm"
+    },
+    {
+      "id": "ac-012.insunits",
+      "app": "autocad",
+      "title": "Drawing insertion units are set to the project unit",
+      "severity": "critical",
+      "why": "Blocks and xrefs are scaled on insert by the ratio of insertion units; unset or wrong units bring content in at the wrong size.",
+      "evaluator": "units_match_standard",
+      "params": {
+        "table": "document",
+        "field": "insUnits"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.units",
+        "args": {
+          "insUnits": "{{expected}}",
+          "scaleContents": false
+        },
+        "note": "Sets INSUNITS only. Check existing inserts for wrong scale before and after; scaleContents true is a design change to approve first."
+      },
+      "groups": [
+        "setup",
+        "units"
+      ],
+      "source": "mistakes-autocad.md AC-012 (detection: Auto); sources S32 S52 R04, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-013.annotative-styles",
+      "app": "autocad",
+      "title": "Text styles the standard marks annotative are annotative in the drawing",
+      "severity": "warning",
+      "why": "Non-annotative styles force text to be duplicated per scale, which goes wrong when scales change.",
+      "evaluator": "matches_standard_entry",
+      "params": {
+        "table": "styles",
+        "where": {
+          "kind": "text"
+        },
+        "list": "textStyles",
+        "nameField": "name",
+        "properties": {
+          "annotative": "annotative"
+        }
+      },
+      "fix": {
+        "kind": "op",
+        "op": "textstyle.ensure",
+        "args": {
+          "styles": [],
+          "fromStandard": true,
+          "update": true
+        },
+        "note": "Updates the drawing's styles from the standard; existing non-annotative text keeps its height and must be checked."
+      },
+      "groups": [
+        "annotation",
+        "styles",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-013 (detection: Heur); sources S32, see references/practice/_SOURCES.md. Automatic for the style part; duplicated text per scale needs review"
+    },
+    {
+      "id": "ac-013.scale-duplicates",
+      "app": "autocad",
+      "title": "Text is not duplicated per scale on separate layers",
+      "severity": "error",
+      "why": "Copies of the same note at several heights go out of step when one is edited.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for the same string at several heights close together, often on per-scale layers; convert to annotative text with the needed scales."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for the same string at several heights close together, often on per-scale layers; convert to annotative text with the needed scales."
+      },
+      "groups": [
+        "annotation",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-013 (detection: Heur); sources S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-014.text-height",
+      "app": "autocad",
+      "title": "Text plots at a standard height for its scale",
+      "severity": "error",
+      "why": "Odd text heights are inconsistent and can fall below the legible size when plotted.",
+      "evaluator": "text_height_standard",
+      "params": {
+        "table": "entities",
+        "where": {
+          "isText": true
+        },
+        "heightField": "textHeight",
+        "scaleField": "textScaleRatio",
+        "tolerance": 0.02
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the height to the standard plotted height times the scale factor (drawing-conventions.md section 4), or make the text annotative."
+      },
+      "groups": [
+        "annotation"
+      ],
+      "source": "mistakes-autocad.md AC-014 (detection: Auto); sources S10 S14, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-015.viewport-locked",
+      "app": "autocad",
+      "title": "Viewports are locked",
+      "severity": "error",
+      "why": "An unlocked viewport changes scale with one scroll, unnoticed.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "VIEWPORT"
+        },
+        "field": "isLocked",
+        "equals": false
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Check the viewport scale, then lock the display (MVIEW Lock On)."
+      },
+      "groups": [
+        "layouts",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-015 (detection: Auto); sources S32 S33 S41, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-016.xref-layer",
+      "app": "autocad",
+      "title": "Xrefs are inserted on the designated xref layer",
+      "severity": "warning",
+      "why": "An xref lands on the current layer and vanishes when that layer is frozen.",
+      "evaluator": "value_in_standard_list",
+      "params": {
+        "table": "xrefs",
+        "where": {
+          "depth": 1
+        },
+        "whereNot": {
+          "status": "unreferenced"
+        },
+        "field": "insertLayer",
+        "list": "codeList:xrefLayers",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "entity.setprops",
+        "args": {
+          "handles": [
+            "{{recordId}}"
+          ],
+          "setLayer": ""
+        },
+        "note": "Set setLayer to the layer in the standard's codeList xrefLayers (G-ANNO-REFR in the US preset)."
+      },
+      "groups": [
+        "xrefs",
+        "layers"
+      ],
+      "source": "mistakes-autocad.md AC-016 (detection: Auto); sources S48 S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-017.xref-full-path",
+      "app": "autocad",
+      "title": "Xrefs use relative paths",
+      "severity": "error",
+      "why": "Full paths break as soon as the project folder moves or is sent.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "xrefs",
+        "field": "pathType",
+        "equals": "full"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "xref.repath",
+        "args": {
+          "pathType": "relative",
+          "reload": true
+        },
+        "note": "Makes every reference relative where the file is on the same drive; references across drives or servers stay full and must be reported."
+      },
+      "groups": [
+        "xrefs"
+      ],
+      "source": "mistakes-autocad.md AC-017 (detection: Auto); sources S54 S32 S41, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-017.xref-unresolved",
+      "app": "autocad",
+      "title": "Every xref resolves to a file",
+      "severity": "error",
+      "why": "A missing reference leaves content out of the drawing and out of every plot.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "xrefs",
+        "field": "status",
+        "in": [
+          "unresolved",
+          "not_found"
+        ]
+      },
+      "fix": {
+        "kind": "op",
+        "op": "xref.repath",
+        "args": {
+          "searchFolders": [],
+          "pathType": "relative",
+          "reload": true
+        },
+        "note": "Add the folders to search; references that cannot be found are reported to the user, never removed."
+      },
+      "groups": [
+        "xrefs"
+      ],
+      "source": "mistakes-autocad.md AC-017 (detection: Auto); sources S54 S32 S41, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-018.attach-nesting",
+      "app": "autocad",
+      "title": "Directly referenced xrefs that contain references are overlays",
+      "severity": "info",
+      "why": "An attached xref carries its own references into every host, which duplicates or loops nested content.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "xrefs",
+        "where": {
+          "depth": 1,
+          "isOverlay": false
+        },
+        "field": "containsReferences",
+        "equals": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Change the reference type to Overlay in the External References palette unless the host must carry the reference when it is itself xref'd."
+      },
+      "groups": [
+        "xrefs",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-018 (detection: Heur); sources S54 S44, see references/practice/_SOURCES.md. Attach can be intended; a human confirms"
+    },
+    {
+      "id": "ac-019.etransmit",
+      "app": "autocad",
+      "title": "Drawings with references are sent as a package with a transmittal",
+      "severity": "error",
+      "why": "A drawing sent without its references, fonts and plot styles is incomplete at the recipient.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Process item: confirm the issue was packaged with eTransmit (or the project's tool) and a transmittal record exists."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Process item: confirm the issue was packaged with eTransmit (or the project's tool) and a transmittal record exists."
+      },
+      "groups": [
+        "xrefs",
+        "issue",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-019 (detection: Proc); sources S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-020.purge",
+      "app": "autocad",
+      "title": "Nothing is left to purge at issue",
+      "severity": "warning",
+      "why": "Unused blocks, layers, styles and registered applications bloat the file and clutter every list.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "purgeableCount",
+        "max": 0
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.purge",
+        "args": {
+          "kinds": [
+            "all",
+            "regapps"
+          ],
+          "repeat": true
+        },
+        "note": "Destructive: list what will be purged and get the user's approval first."
+      },
+      "groups": [
+        "health",
+        "cleanup",
+        "issue"
+      ],
+      "source": "mistakes-autocad.md AC-020 (detection: Auto); sources S32 S09 S10 S43 R04, see references/practice/_SOURCES.md. Counts one purge pass including registered applications"
+    },
+    {
+      "id": "ac-021.audit",
+      "app": "autocad",
+      "title": "Received and outgoing files have been audited",
+      "severity": "error",
+      "why": "Latent database errors propagate through every file that references or copies the damaged one.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Run AUDIT without fixing on a copy and read the error count; fix and RECOVER if needed (cad-standards.md section 9)."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Run AUDIT without fixing on a copy and read the error count; fix and RECOVER if needed (cad-standards.md section 9)."
+      },
+      "groups": [
+        "health",
+        "issue",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-021 (detection: Heur); sources S43, see references/practice/_SOURCES.md. Kept manual: auditing is an operation on the database, not a fact the collector reads"
+    },
+    {
+      "id": "ac-022.duplicate-lines",
+      "app": "autocad",
+      "title": "No duplicate lines",
+      "severity": "error",
+      "why": "Coincident duplicates double plot weight, inflate quantities and confuse edits.",
+      "evaluator": "duplicates_by_key",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "LINE"
+        },
+        "keys": [
+          "x1",
+          "y1",
+          "x2",
+          "y2"
+        ],
+        "precision": 0.001
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Delete the duplicates listed (OVERKILL removes them in bulk) after confirming with the user."
+      },
+      "groups": [
+        "geometry",
+        "cleanup"
+      ],
+      "source": "mistakes-autocad.md AC-022 (detection: Auto); sources S32 S41 S42, see references/practice/_SOURCES.md. Exact coincident LINEs in any layer; partial collinear overlaps and other entity types need OVERKILL review"
+    },
+    {
+      "id": "ac-023.hatch-associative",
+      "app": "autocad",
+      "title": "Hatches are associative",
+      "severity": "warning",
+      "why": "A non-associative hatch does not follow its boundary when the drawing changes.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "HATCH"
+        },
+        "field": "isAssociative",
+        "equals": false
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Re-hatch with associativity on, picking the boundary."
+      },
+      "groups": [
+        "geometry",
+        "annotation"
+      ],
+      "source": "mistakes-autocad.md AC-023 (detection: Auto); sources S32, see references/practice/_SOURCES.md. Exploded hatches (many small lines) need review"
+    },
+    {
+      "id": "ac-024.arrays",
+      "app": "autocad",
+      "title": "Patterns expected to change are associative arrays",
+      "severity": "warning",
+      "why": "Copies at a regular spacing cannot be edited as a pattern later.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for repeated identical objects at regular spacing; rebuild as an associative array if edits are expected."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for repeated identical objects at regular spacing; rebuild as an associative array if edits are expected."
+      },
+      "groups": [
+        "geometry",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-024 (detection: Heur); sources S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-025.dim-styles-listed",
+      "app": "autocad",
+      "title": "Dimension styles in use are the standard's dimension styles",
+      "severity": "warning",
+      "why": "Many ad hoc dimension styles give inconsistent output.",
+      "evaluator": "value_in_standard_list",
+      "params": {
+        "table": "styles",
+        "where": {
+          "kind": "dim",
+          "isUsed": true
+        },
+        "field": "name",
+        "list": "dimStyles",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move dimensions to the standard style, then purge the unused style."
+      },
+      "groups": [
+        "annotation",
+        "styles"
+      ],
+      "source": "mistakes-autocad.md AC-025 (detection: Auto); sources S32 S41 S44, see references/practice/_SOURCES.md. Style counts above a project limit have no sourced figure; unused styles are reported by ac-020"
+    },
+    {
+      "id": "ac-025.text-styles-listed",
+      "app": "autocad",
+      "title": "Text styles in use are the standard's text styles",
+      "severity": "warning",
+      "why": "Many ad hoc text styles give inconsistent output.",
+      "evaluator": "value_in_standard_list",
+      "params": {
+        "table": "styles",
+        "where": {
+          "kind": "text",
+          "isUsed": true
+        },
+        "field": "name",
+        "list": "textStyles",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move text to the standard style, then purge the unused style."
+      },
+      "groups": [
+        "annotation",
+        "styles"
+      ],
+      "source": "mistakes-autocad.md AC-025 (detection: Auto); sources S32 S41 S44, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-026.near-miss",
+      "app": "autocad",
+      "title": "Endpoints meet exactly; no stacked vertices",
+      "severity": "error",
+      "why": "Near-miss endpoints and stacked vertices break joins, hatches and areas.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for vertices within a tiny tolerance of each other and endpoints near but not on other geometry; snap them together."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for vertices within a tiny tolerance of each other and endpoints near but not on other geometry; snap them together."
+      },
+      "groups": [
+        "geometry",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-026 (detection: Heur); sources S32 S42, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-027.flat",
+      "app": "autocad",
+      "title": "2D entities lie flat at Z = 0",
+      "severity": "error",
+      "why": "Stray Z values and tilted extrusions make snaps, hatches and areas wrong.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "space": "model"
+        },
+        "field": "isFlat",
+        "equals": false
+      },
+      "fix": {
+        "kind": "op",
+        "op": "fix.flattenZ",
+        "args": {
+          "tolerance": 0,
+          "includeBlocks": true,
+          "skip3dSolids": true,
+          "space": "model"
+        }
+      },
+      "groups": [
+        "geometry"
+      ],
+      "source": "mistakes-autocad.md AC-027 (detection: Auto); sources S32, see references/practice/_SOURCES.md. 3D solids, surfaces and meshes are skipped by the collector"
+    },
+    {
+      "id": "ac-028.area-polylines-closed",
+      "app": "autocad",
+      "title": "Polylines on area layers are closed",
+      "severity": "critical",
+      "why": "An open boundary gives a wrong or impossible area.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "isPolyline": true
+        },
+        "field": "isClosed",
+        "equals": false,
+        "ifField": "layer",
+        "ifStandardPattern": "areaLayer"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Close the boundary (PEDIT Close) after checking that the closing segment follows the room outline."
+      },
+      "groups": [
+        "geometry",
+        "rooms"
+      ],
+      "source": "mistakes-autocad.md AC-028 (detection: Auto); sources S42 S10, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-029.foreign-content",
+      "app": "autocad",
+      "title": "No junk from pasted foreign content",
+      "severity": "warning",
+      "why": "Pasting from other versions or software brings foreign styles, anonymous blocks and huge scale lists.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for unknown style and layer names, many anonymous blocks and an inflated annotation scale list; purge, translate layers and reset the scale list."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for unknown style and layer names, many anonymous blocks and an inflated annotation scale list; purge, translate layers and reset the scale list."
+      },
+      "groups": [
+        "health",
+        "cleanup",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-029 (detection: Heur); sources S32, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-030.fonts",
+      "app": "autocad",
+      "title": "Text styles in use use an approved font",
+      "severity": "warning",
+      "why": "SHX and custom fonts make PDFs unsearchable and go missing at the recipient.",
+      "evaluator": "value_in_standard_list",
+      "params": {
+        "table": "styles",
+        "where": {
+          "kind": "text",
+          "isUsed": true
+        },
+        "field": "font",
+        "list": "codeList:approvedFonts",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "textstyle.ensure",
+        "args": {
+          "styles": [],
+          "fromStandard": true,
+          "update": true
+        },
+        "note": "Remaps the standard's styles; styles not in the standard are moved by hand."
+      },
+      "groups": [
+        "annotation",
+        "styles"
+      ],
+      "source": "mistakes-autocad.md AC-030 (detection: Auto); sources S33 S41, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-031.polyline-width",
+      "app": "autocad",
+      "title": "Polylines have zero width outside annotation layers",
+      "severity": "warning",
+      "why": "Polyline width ignores the plot style and prints inconsistently.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "isPolyline": true
+        },
+        "field": "hasWidth",
+        "equals": true,
+        "ifField": "layer",
+        "ifStandardPattern": "widthAllowedLayer",
+        "ifNegate": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the polyline width to 0 and let the layer lineweight give the weight."
+      },
+      "groups": [
+        "geometry",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-031 (detection: Auto); sources S40, see references/practice/_SOURCES.md. 'Non-graphic layers' read as layers outside patterns.widthAllowedLayer"
+    },
+    {
+      "id": "ac-032.exploded-titleblock-review",
+      "app": "autocad",
+      "title": "Title block data is in attributes of the standard title block",
+      "severity": "error",
+      "why": "Typed text in place of attributes cannot be filled or updated across sheets.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Open each layout: title block values must be attributes of the title block insert; reinsert the standard title block and transfer values."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Open each layout: title block values must be attributes of the title block insert; reinsert the standard title block and transfer values."
+      },
+      "groups": [
+        "layouts",
+        "sheets",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-032 (detection: Heur); sources S40 S10, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-032.titleblock-loose-text",
+      "app": "autocad",
+      "title": "No loose text on the title block layer in paper space",
+      "severity": "warning",
+      "why": "Loose text on the title block layer usually means the title block was exploded or typed over.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "space": "paper"
+        },
+        "field": "isText",
+        "equals": true,
+        "ifField": "layer",
+        "ifStandardPattern": "titleBlockLayer"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reinsert the standard attributed title block and transfer the values into its attributes."
+      },
+      "groups": [
+        "layouts",
+        "sheets",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-032 (detection: Heur); sources S40 S10, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-033.off-axis",
+      "app": "autocad",
+      "title": "Lines meant to be orthogonal are exactly orthogonal",
+      "severity": "error",
+      "why": "Lines a fraction of a degree off axis make joins and dimensions misbehave.",
+      "evaluator": "field_within",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "LINE"
+        },
+        "field": "offOrthoDeg",
+        "min": 1e-06,
+        "minExclusive": true,
+        "max": 0.5
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Rotate or redraw the line to the exact angle."
+      },
+      "groups": [
+        "geometry"
+      ],
+      "source": "mistakes-autocad.md AC-033 (detection: Auto); sources S40 S48, see references/practice/_SOURCES.md. Deviation measured from the WCS axes; a deliberately rotated plan should be drawn in a rotated UCS and reviewed"
+    },
+    {
+      "id": "ac-034.dimlfac",
+      "app": "autocad",
+      "title": "Model-space dimensions use a linear scale factor of 1",
+      "severity": "critical",
+      "why": "A DIMLFAC other than 1 makes a dimension show a value that is not the geometry, which fakes a scale.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "DIMENSION",
+          "space": "model"
+        },
+        "field": "dimLfac",
+        "equals": 1,
+        "negate": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Draw at 1:1 and set DIMLFAC to 1; if the geometry is not at true size, scale it with the user's approval."
+      },
+      "groups": [
+        "geometry",
+        "annotation"
+      ],
+      "source": "mistakes-autocad.md AC-034 (detection: Heur); sources S33 S10 S14, see references/practice/_SOURCES.md. Automatic for the DIMLFAC signal; implausible extents need review"
+    },
+    {
+      "id": "ac-034.not-full-size",
+      "app": "autocad",
+      "title": "Model space is drawn at 1:1",
+      "severity": "critical",
+      "why": "Geometry not at true size makes every dimension and scale wrong.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Compare dimension measurements and overall extents with known sizes (a door, a grid bay); report implausible values."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Compare dimension measurements and overall extents with known sizes (a door, a grid bay); report implausible values."
+      },
+      "groups": [
+        "geometry",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-034 (detection: Heur); sources S33 S10 S14, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-035.plot-colours",
+      "app": "autocad",
+      "title": "Plotted layers use colours in the plot-style colour map",
+      "severity": "error",
+      "why": "With colour-dependent plot styles colour is the lineweight; a colour outside the map plots at the wrong weight.",
+      "evaluator": "value_in_standard_list",
+      "params": {
+        "table": "layers",
+        "where": {
+          "plottable": true,
+          "isXrefDependent": false
+        },
+        "field": "colorKey",
+        "list": "codeList:plotColours",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Recolour the layer to a colour of the project's plot-style map (codeList plotColours) that gives the intended weight."
+      },
+      "groups": [
+        "layers",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-035 (detection: Auto); sources S09, see references/practice/_SOURCES.md. Layers only; entity colour overrides are reported by ac-003.color-bylayer"
+    },
+    {
+      "id": "ac-036.viewport-scale",
+      "app": "autocad",
+      "title": "Viewport scales are approved scales",
+      "severity": "critical",
+      "why": "A drawing at a non-standard scale (1:1328.4) cannot be scaled or measured.",
+      "evaluator": "scale_in_standard",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "VIEWPORT"
+        },
+        "field": "vpScaleRatio",
+        "tolerance": 0.001
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set an approved scale from the standard, then re-check annotation and lock the viewport."
+      },
+      "groups": [
+        "layouts",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-036 (detection: Auto); sources S44, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-037.image-frames",
+      "app": "autocad",
+      "title": "Image frames do not plot",
+      "severity": "warning",
+      "why": "Plotted image frames print as boxes around every raster image.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "document",
+        "where": {
+          "hasRasterImages": true
+        },
+        "field": "imageFrame",
+        "equals": 1
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set IMAGEFRAME to 2 (shown, not plotted) or 0."
+      },
+      "groups": [
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-037 (detection: Auto); sources S44, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-038.xref-depth",
+      "app": "autocad",
+      "title": "Xrefs are nested no more than one level deep",
+      "severity": "warning",
+      "why": "Deep reference chains are fragile and slow to load.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "xrefs",
+        "field": "depth",
+        "max": 1
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reference each source drawing directly in the host and overlay it, instead of through another xref."
+      },
+      "groups": [
+        "xrefs"
+      ],
+      "source": "mistakes-autocad.md AC-038 (detection: Auto); sources S44, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-039.layout-count",
+      "app": "autocad",
+      "title": "The drawing has fewer than 20 layouts",
+      "severity": "info",
+      "why": "A master DWG with many layouts that everyone pastes into loses traceability.",
+      "evaluator": "count_over_threshold",
+      "params": {
+        "table": "layouts",
+        "max": 19
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Propose splitting into referenced drawings on a shared origin; do not do it unasked."
+      },
+      "groups": [
+        "health",
+        "layouts",
+        "heuristic",
+        "report-only"
+      ],
+      "source": "mistakes-autocad.md AC-039 (detection: Heur); sources S88, see references/practice/_SOURCES.md. The 20-layout figure comes from one practitioner thread; content far from the origin needs review"
+    },
+    {
+      "id": "ac-039.master-dwg",
+      "app": "autocad",
+      "title": "The drawing is not a single master file with content far from the origin",
+      "severity": "error",
+      "why": "Content pasted in at random positions cannot be referenced on a shared origin.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Check drawing extents against the agreed project origin and whether disciplines paste into one file."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Check drawing extents against the agreed project origin and whether disciplines paste into one file."
+      },
+      "groups": [
+        "health",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-039 (detection: Heur); sources S88, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-040.splines",
+      "app": "autocad",
+      "title": "No splines on layers for built work",
+      "severity": "error",
+      "why": "Splines cannot be set out on site and give odd dimensions.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "field": "type",
+        "equals": "SPLINE",
+        "ifField": "layer",
+        "ifStandardPattern": "splineAllowedLayer",
+        "ifNegate": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Replace the spline with arcs and lines that can be set out."
+      },
+      "groups": [
+        "geometry"
+      ],
+      "source": "mistakes-autocad.md AC-040 (detection: Auto); sources S42, see references/practice/_SOURCES.md. 'Construction layers' read as layers outside patterns.splineAllowedLayer (landscape, survey, topography, planting, annotation)"
+    },
+    {
+      "id": "ac-041.repeated-content",
+      "app": "autocad",
+      "title": "Repeated content is a block or an xref, not a copy",
+      "severity": "error",
+      "why": "Copies of the same content drift out of sync.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Look for identical geometry repeated across files and multi-discipline sheets with no xrefs; propose blocks or xrefs."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Look for identical geometry repeated across files and multi-discipline sheets with no xrefs; propose blocks or xrefs."
+      },
+      "groups": [
+        "blocks",
+        "xrefs",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-041 (detection: Heur); sources S42, see references/practice/_SOURCES.md. Needs several files; no single-drawing signal"
+    },
+    {
+      "id": "ac-042.layers-by-weight",
+      "app": "autocad",
+      "title": "Layers are named by content, not by line weight",
+      "severity": "warning",
+      "why": "Layers named THIN or THICK cannot be frozen by building system and are useless to anyone who xrefs the drawing.",
+      "evaluator": "field_matches_pattern",
+      "params": {
+        "table": "layers",
+        "where": {
+          "isXrefDependent": false
+        },
+        "field": "name",
+        "negate": true,
+        "ignoreCase": true,
+        "pattern": "(.*[-_ ])?(THIN|THICK|MEDIUM|HEAVY|BOLD|FINE|LIGHTWEIGHT)([-_ ].*)?|(LW|PEN|WEIGHT)[-_ ]?[0-9.]+|[0-9]+([.,][0-9]+)? ?MM"
+      },
+      "fix": {
+        "kind": "op",
+        "op": "layer.translate",
+        "args": {
+          "map": {}
+        },
+        "note": "Map each finding's layer to content layers of the standard; a weight layer usually splits into several."
+      },
+      "groups": [
+        "layers",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-042 (detection: Heur); sources S48, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-043.saved-in-layout",
+      "app": "autocad",
+      "title": "The drawing is saved with a paper-space layout current",
+      "severity": "info",
+      "why": "A drawing saved in model space opens where the recipient cannot plot it as issued.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "document",
+        "field": "tileMode",
+        "equals": 1
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Make the main layout current and save."
+      },
+      "groups": [
+        "layouts",
+        "issue",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-043 (detection: Heur); sources S09, see references/practice/_SOURCES.md. Folder structure for relative xref paths is covered by ac-017"
+    },
+    {
+      "id": "ac-044.empty-layouts",
+      "app": "autocad",
+      "title": "Every layout has at least one viewport",
+      "severity": "warning",
+      "why": "Empty or leftover layouts leave doubt about which sheets are live.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "layouts",
+        "field": "viewportCount",
+        "equals": 0
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Delete the layout with the user's approval, or set it up as a sheet."
+      },
+      "groups": [
+        "layouts",
+        "sheets"
+      ],
+      "source": "mistakes-autocad.md AC-044 (detection: Auto); sources S88 S44, see references/practice/_SOURCES.md. Layouts missing from the sheet list are not detected (sheet set data is outside the DWG)"
+    },
+    {
+      "id": "ac-045.real-size-hatch-scale",
+      "app": "autocad",
+      "title": "Real-size hatch patterns are at scale 1",
+      "severity": "info",
+      "why": "Brick and block patterns are drawn at real size; scaling them makes the coursing wrong.",
+      "evaluator": "conditional_field_equals",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "HATCH"
+        },
+        "field": "patternScale",
+        "equals": 1,
+        "negate": true,
+        "ifField": "patternName",
+        "ifPattern": "AR-(B816|B816C|B88|BRELM|BRSTD|HBONE|PARQ1|RROOF|RSHKE)",
+        "ignoreCase": true
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Reset the pattern scale to 1, unless the pattern file is in the other unit system (an inch acad.pat pattern in a millimetre drawing needs 25.4)."
+      },
+      "groups": [
+        "geometry",
+        "annotation",
+        "heuristic"
+      ],
+      "source": "mistakes-autocad.md AC-045 (detection: Heur); sources S10, see references/practice/_SOURCES.md. A scale of 25.4 or 1/25.4 is right when the pattern file and drawing units differ"
+    },
+    {
+      "id": "ac-046.msltscale",
+      "app": "autocad",
+      "title": "Model-space linetype scaling (MSLTSCALE) is the project value",
+      "severity": "warning",
+      "why": "Inconsistent linetype scaling makes dashed lines look solid or vary between scales.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "document",
+        "field": "msLtScale",
+        "equals": 1,
+        "negate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "doc.setup",
+        "args": {
+          "msLtScale": true
+        },
+        "note": "For the Illinois State method change equals in the project's copy of this check."
+      },
+      "groups": [
+        "setup",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-046 (detection: Auto); sources S10, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-046.psltscale",
+      "app": "autocad",
+      "title": "Paper-space linetype scaling (PSLTSCALE) is the project value",
+      "severity": "warning",
+      "why": "Inconsistent linetype scaling makes dashed lines look solid or vary between viewports.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "document",
+        "field": "psLtScale",
+        "equals": 1,
+        "negate": true
+      },
+      "fix": {
+        "kind": "op",
+        "op": "doc.setup",
+        "args": {
+          "psLtScale": true
+        },
+        "note": "For the Illinois State method (PSLTSCALE 0) change equals to 0 in the project's copy of this check."
+      },
+      "groups": [
+        "setup",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-046 (detection: Auto); sources S10, see references/practice/_SOURCES.md. Default expects the paper-space method of cad-standards.md section 6"
+    },
+    {
+      "id": "ac-047.viewport-placement",
+      "app": "autocad",
+      "title": "Viewports use the sheet well: inside the drawable area, no large blank areas",
+      "severity": "warning",
+      "why": "Crowded or half-empty sheets read badly and break set conventions.",
+      "evaluator": "manual_review",
+      "params": {
+        "instructions": "Check each layout: viewports inside the title block's drawable area, clear of the title strip, plans in the same position across sheets (sheets-sets.md section 5)."
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Check each layout: viewports inside the title block's drawable area, clear of the title strip, plans in the same position across sheets (sheets-sets.md section 5)."
+      },
+      "groups": [
+        "layouts",
+        "sheets",
+        "manual"
+      ],
+      "source": "mistakes-autocad.md AC-047 (detection: Heur); sources S44, see references/practice/_SOURCES.md"
+    },
+    {
+      "id": "ac-048.lineweight-hierarchy",
+      "app": "autocad",
+      "title": "Plotted layers in use do not all share one lineweight",
+      "severity": "error",
+      "why": "Without a lineweight hierarchy cut, projection and pattern read the same and the drawing is flat.",
+      "evaluator": "distinct_count_min",
+      "params": {
+        "table": "layers",
+        "where": {
+          "isUsed": true,
+          "plottable": true,
+          "isXrefDependent": false
+        },
+        "field": "lineweight",
+        "min": 2
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Apply the standard's layer lineweights (layer.ensure with update true) or the project's plot style; see drawing-conventions.md section 2."
+      },
+      "groups": [
+        "layers",
+        "plotting"
+      ],
+      "source": "mistakes-autocad.md AC-048 (detection: Auto); sources S44, see references/practice/_SOURCES.md. Covers the all-layers-equal case; a plot style that maps every colour to one width is not visible in the DWG and needs review"
+    }
+  ]
+}

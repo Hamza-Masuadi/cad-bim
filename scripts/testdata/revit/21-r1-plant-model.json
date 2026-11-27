@@ -1,0 +1,151 @@
+{
+  "jobId": "sa-test-revit-21-r1-plant-model",
+  "title": "R1: duplicate mark, duplicate room number, tall wall, floor",
+  "description": "Plants P03 (door in a new wall: a baseline wall can only be named by an id from a snapshot), P04, P20 and the floor and wall of P22 (Attach Top is a manual step).",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/R1.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "p03_wall",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          0,
+          -60
+        ],
+        "end": [
+          20,
+          -60
+        ],
+        "topLevel": "Level 2"
+      }
+    },
+    {
+      "id": "p03",
+      "op": "door.place",
+      "args": {
+        "host": "$p03_wall.id",
+        "type": "Single-Flush : 36\" x 84\"",
+        "offset": 10,
+        "mark": "D1",
+        "parameters": {
+          "Comments": "P03"
+        }
+      },
+      "note": "P03 rv-005.duplicate-mark: same Mark as the RB door. Comments lets the fix job find it."
+    },
+    {
+      "id": "p04_walls",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "path": [
+          [
+            0,
+            -40
+          ],
+          [
+            20,
+            -40
+          ],
+          [
+            20,
+            -20
+          ],
+          [
+            0,
+            -20
+          ]
+        ],
+        "closed": true,
+        "topLevel": "Level 2"
+      }
+    },
+    {
+      "id": "p04_room",
+      "op": "room.place",
+      "args": {
+        "level": "Level 1",
+        "point": [
+          10,
+          -30
+        ],
+        "name": "P04 ROOM",
+        "number": "101",
+        "tag": false
+      },
+      "note": "P04 rv-005.duplicate-room-number"
+    },
+    {
+      "id": "p20",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          0,
+          -80
+        ],
+        "end": [
+          20,
+          -80
+        ],
+        "topLevel": "Level 4"
+      },
+      "note": "P20 rv-030.walls-spanning-levels: Level 1 to Level 4"
+    },
+    {
+      "id": "p22_floor",
+      "op": "floor.create",
+      "args": {
+        "boundary": [
+          [
+            40,
+            -100
+          ],
+          [
+            60,
+            -100
+          ],
+          [
+            60,
+            -90
+          ],
+          [
+            40,
+            -90
+          ]
+        ],
+        "type": "Generic 12\"",
+        "level": "Level 2"
+      }
+    },
+    {
+      "id": "p22_wall",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "start": [
+          40,
+          -95
+        ],
+        "end": [
+          60,
+          -95
+        ],
+        "height": 10
+      },
+      "note": "P22: unconnected 10'; attach its top to the floor by hand"
+    }
+  ]
+}

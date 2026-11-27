@@ -1,0 +1,59 @@
+{
+  "jobId": "sa-test-acad-25-p1-plant-purge-items",
+  "title": "P1: unused named objects (last)",
+  "description": "D23 ac-020.purge, planted last: purge registered applications only, then leave exactly A-ROOF (empty standard layer), PHANTOM2 (loaded in 20, unused) and block SA-UNUSED (no insert) unused. purgeableCount 2 (A-ROOF is a standard layer, so it is not counted), one finding.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "regapps",
+      "op": "fix.purge",
+      "args": {
+        "kinds": [
+          "regapps"
+        ],
+        "repeat": true
+      }
+    },
+    {
+      "id": "aroof",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "A-ROOF"
+          }
+        ],
+        "fromStandard": true
+      }
+    },
+    {
+      "id": "unused_block",
+      "op": "block.define",
+      "args": {
+        "name": "SA-UNUSED",
+        "entities": [
+          {
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../data/schemas/checks.schema.json",
+  "version": 1,
+  "description": "Planted-defect test only: rv-016 with a 1 km limit (RF fallback).",
+  "checks": [
+    {
+      "id": "rv-016.far-from-origin-1km",
+      "app": "revit",
+      "title": "Model geometry is within 1 km of the internal origin (planted-defect test only)",
+      "severity": "warning",
+      "why": "Geometry far from the origin loses precision and breaks graphics and coordinates.",
+      "evaluator": "field_range",
+      "params": {
+        "table": "document",
+        "field": "extentsMaxDistanceMm",
+        "max": 1000000
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Relocate with the BIM coordinator; never move a shared model unasked."
+      },
+      "groups": [
+        "coordinates",
+        "setup"
+      ],
+      "source": "Test copy of rv-016.far-from-origin with a 1 km limit, for the RF fallback of revit-planted-defects.md"
+    }
+  ]
+}

@@ -1,0 +1,726 @@
+{
+  "topic": "Accessible toilets and sanitary provision",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "sanitary.us.ada.wc_centreline",
+      "quantity": "Water closet centreline from side wall",
+      "value": 405,
+      "min": 405,
+      "max": 455,
+      "unit": "mm",
+      "imperial": {
+        "value": 16,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Wheelchair accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.2"
+      },
+      "note": "Ambulatory compartments: 17-19 in (430-485 mm). Range 405-455 mm (16-18 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.wc_clearance.width.min",
+      "quantity": "Clearance around water closet measured from side wall",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.3.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.wc_clearance.depth.min",
+      "quantity": "Clearance around water closet measured from rear wall",
+      "value": 1420,
+      "min": 1420,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 56,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.3.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.wc_seat.height",
+      "quantity": "Water closet seat height (top of seat)",
+      "value": 430,
+      "min": 430,
+      "max": 485,
+      "unit": "mm",
+      "imperial": {
+        "value": 17,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.4"
+      },
+      "note": "Range 430-485 mm (17-19 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.side_grab_bar.length.min",
+      "quantity": "Side wall grab bar length",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.5.1"
+      },
+      "note": "Located 12 in (305 mm) max from rear wall and extending at least 54 in (1370 mm) from rear wall.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.rear_grab_bar.length.min",
+      "quantity": "Rear wall grab bar length",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible water closets",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.5.2"
+      },
+      "note": "Extends 12 in (305 mm) min on one side of WC centreline and 24 in (610 mm) min on the other.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.grab_bar.height",
+      "quantity": "Grab bar height to top of gripping surface",
+      "value": 840,
+      "min": 840,
+      "max": 915,
+      "unit": "mm",
+      "imperial": {
+        "value": 33,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible toilet and bathing facilities (adult)",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "609.4"
+      },
+      "note": "Children's water closets: 18-27 in (455-685 mm). Range 840-915 mm (33-36 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.grab_bar.wall_gap",
+      "quantity": "Space between wall and grab bar",
+      "value": 38,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible toilet and bathing facilities",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "609.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.grab_bar.diameter",
+      "quantity": "Circular grab bar outside diameter",
+      "value": 32,
+      "min": 32,
+      "max": 51,
+      "unit": "mm",
+      "imperial": {
+        "value": 1.25,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Accessible toilet and bathing facilities",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "609.2.1"
+      },
+      "note": "Range 32-51 mm (1.25-2 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.compartment.width.min",
+      "quantity": "Wheelchair accessible compartment width",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.compartment_wallhung.depth.min",
+      "quantity": "Wheelchair accessible compartment depth, wall-hung WC",
+      "value": 1420,
+      "min": 1420,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 56,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.1.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.compartment_floor.depth.min",
+      "quantity": "Wheelchair accessible compartment depth, floor-mounted WC",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.1.1"
+      },
+      "note": "Children's compartments: 59 in (1500 mm) deep for wall-hung and floor-mounted.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.ambulatory.depth.min",
+      "quantity": "Ambulatory accessible compartment depth",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.2.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.ambulatory.width",
+      "quantity": "Ambulatory accessible compartment width",
+      "value": 890,
+      "min": 890,
+      "max": 940,
+      "unit": "mm",
+      "imperial": {
+        "value": 35,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.2.1"
+      },
+      "note": "Range 890-940 mm (35-37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.compartment_latch_clearance.min",
+      "quantity": "Clearance at door side of compartment when approach is to latch side",
+      "value": 1065,
+      "min": 1065,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 42,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Toilet compartments",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "604.8.1.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.us.ada.lavatory_rim.max",
+      "quantity": "Maximum height of front of lavatory rim or counter",
+      "value": 865,
+      "min": null,
+      "max": 865,
+      "unit": "mm",
+      "imperial": {
+        "value": 34,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Lavatories and sinks",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "606.3"
+      },
+      "note": "Forward approach clear floor space with knee and toe clearance (606.2; see 306).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.width.min",
+      "quantity": "Minimum width of unisex wheelchair-accessible toilet",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 18; para 5.10(i)"
+      },
+      "note": "Excluding projecting heat emitters. 2000 mm where it is the only toilet in the building (para 5.10(e)).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.depth.min",
+      "quantity": "Minimum depth of unisex wheelchair-accessible toilet",
+      "value": 2200,
+      "min": 2200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 86.61,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 18"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.only_toilet.width.min",
+      "quantity": "Minimum width where the unisex toilet is the only toilet in the building",
+      "value": 2000,
+      "min": 2000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 78.74,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.10(e)"
+      },
+      "note": "Also include a standing-height washbasin.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.travel.max",
+      "quantity": "Maximum horizontal travel distance to a unisex accessible toilet",
+      "value": 40,
+      "min": null,
+      "max": 40,
+      "unit": "m",
+      "imperial": {
+        "value": 131.23,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.10(h)"
+      },
+      "note": "Same floor, or combined horizontal distance where reached by lift.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.seat.height",
+      "quantity": "WC seat height",
+      "value": 480,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 18.9,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Unisex wheelchair-accessible toilet",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 19"
+      },
+      "note": "Subject to manufacturing tolerance of the pan.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.grab_rail.height",
+      "quantity": "Horizontal grab rail height",
+      "value": 680,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 26.77,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Unisex wheelchair-accessible toilet",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 19"
+      },
+      "note": "Drop-down rails at the same height as other horizontal rails.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.unisex_wc.dropdown_offset",
+      "quantity": "Additional drop-down rail distance from WC centreline (when wall rail is at minimum wall spacing)",
+      "value": 320,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12.6,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Unisex wheelchair-accessible toilet",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.10(j)"
+      },
+      "note": "If the wall rail centreline is 400 mm from the WC centreline, no extra drop-down rail (5.10(k)).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.basin_seated.rim",
+      "quantity": "Washbasin rim height for use from WC / seated",
+      "value": 720,
+      "min": 720,
+      "max": 740,
+      "unit": "mm",
+      "imperial": {
+        "value": 28.35,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Toilet accommodation",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 20"
+      },
+      "note": "Range 720-740 mm (about 28.35-29.13 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.basin_standing.rim",
+      "quantity": "Washbasin rim height for people standing",
+      "value": 780,
+      "min": 780,
+      "max": 800,
+      "unit": "mm",
+      "imperial": {
+        "value": 30.71,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Toilet accommodation",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 20"
+      },
+      "note": "Range 780-800 mm (about 30.71-31.5 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.ambulant_cubicle.depth.min",
+      "quantity": "Ambulant disabled WC cubicle depth",
+      "value": 1465,
+      "min": 1465,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 57.68,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Separate-sex washrooms",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 21"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.ambulant_cubicle.width.min",
+      "quantity": "Ambulant disabled WC cubicle width",
+      "value": 920,
+      "min": 920,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36.22,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Separate-sex washrooms",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Diagram 21"
+      },
+      "note": "Approved Document T also gives cubicle guidance for single-sex toilets (not opened for this data set).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.enlarged_cubicle.trigger",
+      "quantity": "Number of WC cubicles at which one enlarged cubicle is added",
+      "value": 4,
+      "min": 4,
+      "max": null,
+      "unit": "count",
+      "imperial": {
+        "value": 4,
+        "unit": "count",
+        "converted": false
+      },
+      "applies_to": "Separate-sex toilet accommodation",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.7(d)"
+      },
+      "note": "Paragraph number taken from the sequence on page 49 (items d-e precede 5.8).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.changing_places.assembly",
+      "quantity": "Capacity at which an assembly, recreation or entertainment building needs a Changing Places toilet",
+      "value": 350,
+      "min": 350,
+      "max": null,
+      "unit": "persons",
+      "imperial": {
+        "value": 350,
+        "unit": "persons",
+        "converted": false
+      },
+      "applies_to": "Assembly, recreation and entertainment buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.7(e)(i)"
+      },
+      "note": "2000 people for a collection of smaller buildings on one site (zoos, theme parks, venues).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sanitary.uk.changing_places.retail",
+      "quantity": "Gross floor area at which retail premises need a Changing Places toilet",
+      "value": 2500,
+      "min": 2500,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 26909.8,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Retail premises",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 5.7(e)(iii)"
+      },
+      "note": "Shopping centres, malls, retail parks: 30,000 m2 or more (e)(ii); sport and leisure buildings: more than 5000 m2 (e)(iv); hospitals, primary care centres, crematoria and cemetery buildings: always.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

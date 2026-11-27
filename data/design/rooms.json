@@ -1,0 +1,679 @@
+{
+  "topic": "Room sizes and proportions for space planning",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "rooms.uk.m43.principal_double.area.min",
+      "quantity": "Principal double bedroom: minimum floor area",
+      "value": 13.5,
+      "min": 13.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 145.31,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(d)"
+      },
+      "note": "Principal double bedroom width is clear of obstructions such as radiators.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.principal_double.width.min",
+      "quantity": "Principal double bedroom: minimum width",
+      "value": 3,
+      "min": 3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 9.84,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.other_double.area.min",
+      "quantity": "Other double or twin bedroom: minimum floor area",
+      "value": 12.5,
+      "min": 12.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 134.55,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(f)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.other_double.width.min",
+      "quantity": "Other double or twin bedroom: minimum width",
+      "value": 3,
+      "min": 3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 9.84,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(f)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.single.area.min",
+      "quantity": "Single bedroom: minimum floor area",
+      "value": 8.5,
+      "min": 8.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 91.49,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(i)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.single.width.min",
+      "quantity": "Single bedroom: minimum width",
+      "value": 2.4,
+      "min": 2.4,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 7.87,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(i)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.2p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 2 bedspaces",
+      "value": 25,
+      "min": 25,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 269.1,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.3p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 3 bedspaces",
+      "value": 27,
+      "min": 27,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 290.63,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.4p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 4 bedspaces",
+      "value": 29,
+      "min": 29,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 312.15,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.5p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 5 bedspaces",
+      "value": 31,
+      "min": 31,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 333.68,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.6p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 6 bedspaces",
+      "value": 33,
+      "min": 33,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 355.21,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.7p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 7 bedspaces",
+      "value": 35,
+      "min": 35,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 376.74,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.uk.m43.ldk_area.8p.min",
+      "quantity": "Minimum combined living, dining and kitchen floor area, 8 bedspaces",
+      "value": 37,
+      "min": 37,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 398.26,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.31(b); Table 3.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.bedroom.dimension.min",
+      "quantity": "Bedroom minimum dimension (excluding wardrobe space)",
+      "value": 3,
+      "min": 3,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 9.84,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.master_bedroom.area.min",
+      "quantity": "Master bedroom minimum area (excluding wardrobe space)",
+      "value": 10,
+      "min": 10,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 107.64,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.other_bedroom.area.min",
+      "quantity": "Other bedroom minimum area (excluding wardrobe space)",
+      "value": 9,
+      "min": 9,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 96.88,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.living_width.studio_1b.min",
+      "quantity": "Living or living/dining room minimum width, studio and 1-bedroom",
+      "value": 3.6,
+      "min": 3.6,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 11.81,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.living_width.2b_3b.min",
+      "quantity": "Living or living/dining room minimum width, 2- and 3-bedroom",
+      "value": 4,
+      "min": 4,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 13.12,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.cross_through.width.min",
+      "quantity": "Internal width of cross-over or cross-through apartments",
+      "value": 4,
+      "min": 4,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 13.12,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design criterion 4"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.room_depth.max",
+      "quantity": "Maximum habitable room depth",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": null,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-2, design criterion 1"
+      },
+      "note": "Room depth limited to 2.5 times the ceiling height.",
+      "confidence": "read_in_source",
+      "formula": "2.5 * ceiling_height"
+    },
+    {
+      "id": "rooms.au_nsw.adg.open_plan_depth.max",
+      "quantity": "Maximum habitable room depth from a window in open-plan living, dining and kitchen",
+      "value": 8,
+      "min": null,
+      "max": 8,
+      "unit": "m",
+      "imperial": {
+        "value": 26.25,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-2, design criterion 2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.apartment_area.studio.min",
+      "quantity": "Minimum internal apartment area, studio",
+      "value": 35,
+      "min": 35,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 376.74,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-1, design criterion 1"
+      },
+      "note": "Includes one bathroom; each additional bathroom adds 5 m2; a fourth and each further bedroom adds 12 m2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.apartment_area.1b.min",
+      "quantity": "Minimum internal apartment area, 1 bedroom",
+      "value": 50,
+      "min": 50,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 538.2,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-1, design criterion 1"
+      },
+      "note": "Includes one bathroom; each additional bathroom adds 5 m2; a fourth and each further bedroom adds 12 m2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.apartment_area.2b.min",
+      "quantity": "Minimum internal apartment area, 2 bedroom",
+      "value": 70,
+      "min": 70,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 753.47,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-1, design criterion 1"
+      },
+      "note": "Includes one bathroom; each additional bathroom adds 5 m2; a fourth and each further bedroom adds 12 m2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.au_nsw.adg.apartment_area.3b.min",
+      "quantity": "Minimum internal apartment area, 3 bedroom",
+      "value": 90,
+      "min": 90,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 968.75,
+        "unit": "sq ft",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-1, design criterion 1"
+      },
+      "note": "Includes one bathroom; each additional bathroom adds 5 m2; a fourth and each further bedroom adds 12 m2.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.us.ma.habitable_room.dimension.min",
+      "quantity": "Habitable space (other than a kitchen) minimum plan dimension",
+      "value": 2134,
+      "min": 2134,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 84,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Habitable spaces under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.1"
+      },
+      "note": "Stated as 7 feet (2134 mm). Model IBC text of other editions may differ; check the adopted code.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.us.ma.dwelling_main_room.area.min",
+      "quantity": "At least one room per dwelling unit: minimum net floor area",
+      "value": 13.9,
+      "min": 13.9,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 120,
+        "unit": "sq ft",
+        "converted": false
+      },
+      "applies_to": "Dwelling units under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.3"
+      },
+      "note": "Other habitable rooms 70 sq ft (6.5 m2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "rooms.us.ma.other_habitable.area.min",
+      "quantity": "Other habitable rooms: minimum net floor area",
+      "value": 6.5,
+      "min": 6.5,
+      "max": null,
+      "unit": "m2",
+      "imperial": {
+        "value": 70,
+        "unit": "sq ft",
+        "converted": false
+      },
+      "applies_to": "Dwelling units under the Massachusetts building code",
+      "jurisdiction": "United States - Massachusetts (780 CMR, based on the IBC)",
+      "source": {
+        "title": "780 CMR Massachusetts State Building Code, Chapter 12 Interior Environment",
+        "publisher": "Commonwealth of Massachusetts, Board of Building Regulations and Standards",
+        "edition": "chapter as downloaded 2026-11-27; edition not stated in the chapter text",
+        "url": "https://www.mass.gov/doc/12chapter12pdf/download",
+        "clause": "1208.3"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "checks.schema.json",
+  "title": "Checks file",
+  "description": "Audit checks. Loaded by SA.Core.Checks.CheckCatalog; evaluators are looked up by name in the engine's EvaluatorRegistry.",
+  "type": "object",
+  "required": [ "version", "checks" ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "const": 1 },
+    "description": { "type": "string" },
+    "checks": { "type": "array", "items": { "$ref": "#/$defs/check" } }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "id", "app", "title", "severity", "evaluator" ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*(\\.[a-z0-9][a-z0-9_-]*)+$", "description": "Unique, lower-case, dotted: area.name" },
+        "app": { "enum": [ "autocad", "revit", "both" ] },
+        "title": { "type": "string", "minLength": 1 },
+        "severity": { "enum": [ "info", "warning", "error", "critical" ] },
+        "why": { "type": "string", "description": "Why it matters, in one or two sentences" },
+        "evaluator": { "type": "string", "minLength": 1 },
+        "params": { "type": "object", "description": "Evaluator parameters; see FORMATS.md for each neutral evaluator" },
+        "fix": {
+          "oneOf": [
+            {
+              "type": "object", "additionalProperties": false, "required": [ "kind", "op" ],
+              "properties": {
+                "kind": { "const": "op" },
+                "op": { "type": "string", "minLength": 1 },
+                "args": { "type": "object", "description": "Args template; \"{{name}}\" is replaced from the finding's data, \"{{recordId}}\" by its record id" },
+                "note": { "type": "string" }
+              }
+            },
+            {
+              "type": "object", "additionalProperties": false, "required": [ "kind", "instructions" ],
+              "properties": { "kind": { "const": "manual" }, "instructions": { "type": "string", "minLength": 1 } }
+            }
+          ]
+        },
+        "groups": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "source": { "type": "string" }
+      }
+    }
+  }
+}

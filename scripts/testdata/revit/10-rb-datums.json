@@ -1,0 +1,116 @@
+{
+  "jobId": "sa-test-revit-10-rb-datums",
+  "title": "RB: levels, grids, datum workset",
+  "description": "Baseline RB, spec section 1 step 2 (pinning is a manual step) and the datum part of step 3. Run after the manual setup (new project, units, worksharing, worksets).",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/RB.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "levels",
+      "op": "level.ensure",
+      "args": {
+        "levels": [
+          {
+            "name": "Level 1",
+            "elevation": 0,
+            "createPlanView": false
+          },
+          {
+            "name": "Level 2",
+            "elevation": 12,
+            "createPlanView": false
+          },
+          {
+            "name": "Level 3",
+            "elevation": 24,
+            "createPlanView": false
+          },
+          {
+            "name": "Level 4",
+            "elevation": 36,
+            "createPlanView": false
+          }
+        ],
+        "update": true
+      }
+    },
+    {
+      "id": "grids",
+      "op": "grid.create",
+      "args": {
+        "lines": [
+          {
+            "label": "1",
+            "start": [
+              0,
+              -10
+            ],
+            "end": [
+              0,
+              40
+            ]
+          },
+          {
+            "label": "2",
+            "start": [
+              40,
+              -10
+            ],
+            "end": [
+              40,
+              40
+            ]
+          },
+          {
+            "label": "A",
+            "start": [
+              -10,
+              0
+            ],
+            "end": [
+              50,
+              0
+            ]
+          },
+          {
+            "label": "B",
+            "start": [
+              -10,
+              30
+            ],
+            "end": [
+              50,
+              30
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lvl_ws",
+      "op": "workset.assign",
+      "args": {
+        "filter": {
+          "category": "Levels"
+        },
+        "workset": "Shared Levels and Grids"
+      }
+    },
+    {
+      "id": "grid_ws",
+      "op": "workset.assign",
+      "args": {
+        "filter": {
+          "category": "Grids"
+        },
+        "workset": "Shared Levels and Grids"
+      }
+    }
+  ]
+}

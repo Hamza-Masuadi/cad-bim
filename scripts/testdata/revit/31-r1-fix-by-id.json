@@ -1,0 +1,83 @@
+{
+  "jobId": "sa-test-revit-31-r1-fix-by-id",
+  "title": "R1: fixes that need ids from a snapshot",
+  "description": "Fix ops of rv-014.cad-link-workset, rv-015.revit-link-own-workset, rv-037 and rv-028.views-not-on-sheets. Destructive ops take ids from a snapshot: fill the {{...}} placeholders with stamp-job.ps1 -Set (see the README). Run after 30.",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/R1.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "f014ws",
+      "op": "workset.assign",
+      "args": {
+        "elements": [
+          "{{CAD_C_LINK_ID}}"
+        ],
+        "workset": "X_CAD Link"
+      },
+      "note": "rv-014.cad-link-workset: the cad-c.dwg link instance"
+    },
+    {
+      "id": "f015ws",
+      "op": "workset.assign",
+      "args": {
+        "elements": [
+          "{{LINK_DUP_ID}}"
+        ],
+        "workset": "X_Revit Link C",
+        "create": true
+      },
+      "note": "rv-015.revit-link-own-workset: the link-c.rvt instance"
+    },
+    {
+      "id": "f037",
+      "op": "cleanup.unplacedRooms",
+      "args": {
+        "ids": [
+          "{{ROOM_UNPLACED_ID}}",
+          "{{ROOM_NOT_ENCLOSED_ID}}",
+          "{{ROOM_REDUNDANT_ID}}"
+        ],
+        "includeNotEnclosed": true,
+        "includeRedundant": true
+      },
+      "note": "rv-037.rooms"
+    },
+    {
+      "id": "f028section",
+      "op": "element.delete",
+      "args": {
+        "ids": [
+          "{{VIEW_SECTION_ID}}"
+        ],
+        "expectCount": 1,
+        "allowDependents": true
+      },
+      "note": "rv-028.views-not-on-sheets: cleanup.unusedViews skips the section because its marker shows in L1 - Plan, which is on a sheet"
+    },
+    {
+      "id": "f028views",
+      "op": "cleanup.unusedViews",
+      "args": {
+        "ids": [
+          "{{VIEW_PLAN_WORKING_ID}}",
+          "{{VIEW_IFC_EXPORT_ID}}"
+        ]
+      },
+      "note": "rv-028.views-not-on-sheets"
+    }
+  ],
+  "verify": {
+    "checks": [
+      "rv-014.cad-link-workset",
+      "rv-015.revit-link-own-workset",
+      "rv-028.views-not-on-sheets",
+      "rv-037.rooms"
+    ]
+  }
+}

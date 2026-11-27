@@ -1,0 +1,30 @@
+{
+  "jobId": "sa-test-acad-33-p1-fix-purge",
+  "title": "P1: purge everything unused",
+  "description": "Fix op of ac-020.purge. This job names no standard on purpose: with a standard, fix.purge keeps every name the standard lists, so the unused standard layer A-ROOF (planted by D23) would stay and ac-020 would still fail. Verify uses the bundled imperial standard.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/P1.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "ops": [
+    {
+      "id": "f020",
+      "op": "fix.purge",
+      "args": {
+        "kinds": [
+          "all",
+          "regapps"
+        ],
+        "repeat": true
+      }
+    }
+  ],
+  "verify": {
+    "checks": [
+      "ac-020.purge"
+    ]
+  }
+}

@@ -1,0 +1,1111 @@
+{
+  "topic": "Furniture sizes and bedroom and living layout clearances",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "furniture.uk.adm1.armchair.depth",
+      "quantity": "Arm chair (or sofa seat): depth",
+      "value": 850,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.armchair.width",
+      "quantity": "Arm chair (or sofa seat): width",
+      "value": 850,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.settee_2seat.depth",
+      "quantity": "2-seat settee (optional): depth",
+      "value": 850,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.settee_2seat.width",
+      "quantity": "2-seat settee (optional): width",
+      "value": 1300,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 51.18,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.settee_3seat.depth",
+      "quantity": "3-seat settee: depth",
+      "value": 850,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.46,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.settee_3seat.width",
+      "quantity": "3-seat settee: width",
+      "value": 1850,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 72.83,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.tv.depth",
+      "quantity": "TV: depth",
+      "value": 220,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 8.66,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.tv.width",
+      "quantity": "TV: width",
+      "value": 650,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 25.59,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.coffee_table.depth",
+      "quantity": "Coffee table (or 750 mm diameter): depth",
+      "value": 500,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 19.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.coffee_table.length",
+      "quantity": "Coffee table (or 750 mm diameter): length",
+      "value": 1050,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 41.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.occasional_table.depth",
+      "quantity": "Occasional table: depth",
+      "value": 450,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.72,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.occasional_table.width",
+      "quantity": "Occasional table: width",
+      "value": 450,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.72,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_bed_principal.length",
+      "quantity": "Principal bedroom double bed: length",
+      "value": 2000,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 78.74,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_bed_principal.width",
+      "quantity": "Principal bedroom double bed: width",
+      "value": 1500,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_bed_other.length",
+      "quantity": "Other double bedroom double bed: length",
+      "value": 1900,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 74.8,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_bed_other.width",
+      "quantity": "Other double bedroom double bed: width",
+      "value": 1350,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 53.15,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.single_bed.length",
+      "quantity": "Single bed (2 in a twin room): length",
+      "value": 1900,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 74.8,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.single_bed.width",
+      "quantity": "Single bed (2 in a twin room): width",
+      "value": 900,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.bedside_table.depth",
+      "quantity": "Bedside table: depth",
+      "value": 400,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.bedside_table.width",
+      "quantity": "Bedside table: width",
+      "value": 400,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 15.75,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.desk_and_chair.depth",
+      "quantity": "Desk (or table) and chair: depth",
+      "value": 500,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 19.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.desk_and_chair.width",
+      "quantity": "Desk (or table) and chair: width",
+      "value": 1050,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 41.34,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.chest_of_drawers.depth",
+      "quantity": "Chest of drawers: depth",
+      "value": 450,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.72,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.chest_of_drawers.width",
+      "quantity": "Chest of drawers: width",
+      "value": 750,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_wardrobe.depth",
+      "quantity": "Double wardrobe: depth",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.double_wardrobe.width",
+      "quantity": "Double wardrobe: width",
+      "value": 1200,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.depth",
+      "quantity": "Dining table: depth",
+      "value": 800,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes. Length depends on bedspaces (separate entries).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.2p",
+      "quantity": "Dining table length for 2 bedspaces",
+      "value": 800,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 31.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.3p",
+      "quantity": "Dining table length for 3 bedspaces",
+      "value": 1000,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.4p",
+      "quantity": "Dining table length for 4 bedspaces",
+      "value": 1200,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.5p",
+      "quantity": "Dining table length for 5 bedspaces",
+      "value": 1350,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 53.15,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.6p",
+      "quantity": "Dining table length for 6 bedspaces",
+      "value": 1500,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.dining_table.length.7p",
+      "quantity": "Dining table length for 7 bedspaces",
+      "value": 1650,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 64.96,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "One dining chair per bedspace. The 8-bedspace length was not legible in the text of the source table; read the table itself.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.coffee_table.diameter",
+      "quantity": "Coffee table, round alternative: diameter",
+      "value": 750,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Furniture sizes for demonstrating dwelling layouts to M4(2) and M4(3)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Appendix D furniture schedule. Sizes are the ones AD M vol 1 asks layouts to be demonstrated with; they are not product sizes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.bedroom_manoeuvring_square",
+      "quantity": "Bedroom manoeuvring square (each side)",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Bedrooms in M4(3) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D; para 3.35(b),(e)"
+      },
+      "note": "1200 x 1200 mm inside the doorway clear of bed and door (3.35b) and on both sides of the principal double bed (3.35e).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.living_turning_circle",
+      "quantity": "Living room turning circle diameter",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Living rooms in M4(3) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Or a turning ellipse 1400 x 1700 mm (separate entries).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.living_turning_ellipse.width",
+      "quantity": "Living room turning ellipse: width",
+      "value": 1400,
+      "min": 1400,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 55.12,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Living rooms in M4(3) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Alternative to the 1500 mm circle.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.adm1.living_turning_ellipse.length",
+      "quantity": "Living room turning ellipse: length",
+      "value": 1700,
+      "min": 1700,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 66.93,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Living rooms in M4(3) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Appendix D"
+      },
+      "note": "Alternative to the 1500 mm circle.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.m43.bed_access_zone.min",
+      "quantity": "Clear access zone to bed sides and foot and in front of all furniture",
+      "value": 1000,
+      "min": 1000,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 39.37,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Bedrooms in M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 3.35(e),(g),(h); Diagram 3.9"
+      },
+      "note": "Principal double: both sides and foot. Other doubles: one side and foot. Singles and twins: one side of each bed. Furniture may encroach up to 600 mm at the bedhead end only; a chair may encroach anywhere (Diagram 3.9 notes). M4(2) uses 750 mm (dwellings.uk.m42.bedroom_access_zone.min).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.m43.bedhead_encroachment.max",
+      "quantity": "Furniture encroachment into bed access zones at the bedhead end",
+      "value": 600,
+      "min": null,
+      "max": 600,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Bedrooms in M4(3) wheelchair user dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "Diagram 3.9 note 1"
+      },
+      "note": "Bedhead end only.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.uk.m42.bedroom_route.min",
+      "quantity": "Clear access route from bedroom doorway to window",
+      "value": 750,
+      "min": 750,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 29.53,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Every bedroom in M4(2) and M4(3) dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 1: Dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2016 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/5a7f8a82ed915d74e622b17b/BR_PDF_AD_M1_2015_with_2016_amendments_V3.pdf",
+        "clause": "para 2.25(a); 3.35(a)"
+      },
+      "note": "Demonstrate with dimensioned layouts using the Appendix D bed sizes (2.25e).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.us.ada.bed_clear_floor_space",
+      "quantity": "Clear floor space on both sides of a bed in an accessible sleeping area",
+      "value": null,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": null,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Transient lodging guest rooms with mobility features",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "806.2.3"
+      },
+      "note": "Each clear floor space complies with 305 (30 x 48 in, 760 x 1220 mm; see routes.us.ada.clear_floor_space.*), positioned for a parallel approach to the side of the bed. Exception: one such space between two beds is enough (no space needed on both sides of a bed).",
+      "confidence": "read_in_source",
+      "formula": "clear floor space (305) on both sides of the bed, parallel approach"
+    },
+    {
+      "id": "furniture.au_nsw.adg.main_wardrobe.length",
+      "quantity": "Main bedroom (or studio) wardrobe length",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 70.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design guidance"
+      },
+      "note": "Design guidance, not a design criterion: wardrobe 1.8 m long, 0.6 m deep, 2.1 m high. All bedrooms should allow at least 1.5 m length for robes.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.au_nsw.adg.main_wardrobe.depth",
+      "quantity": "Main bedroom (or studio) wardrobe depth",
+      "value": 600,
+      "min": 600,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design guidance"
+      },
+      "note": "Design guidance, not a design criterion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.au_nsw.adg.main_wardrobe.height",
+      "quantity": "Main bedroom (or studio) wardrobe height",
+      "value": 2100,
+      "min": 2100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 82.68,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design guidance"
+      },
+      "note": "Design guidance, not a design criterion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "furniture.au_nsw.adg.robe_length.min",
+      "quantity": "Robe length every bedroom should allow",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Apartments in NSW",
+      "jurisdiction": "Australia - New South Wales (Apartment Design Guide under SEPP 65)",
+      "source": {
+        "title": "Apartment Design Guide: Tools for improving the design of residential apartment development",
+        "publisher": "NSW Department of Planning and Environment",
+        "edition": "July 2015",
+        "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-03/apartment-design-guide.pdf",
+        "clause": "Objective 4D-3, design guidance"
+      },
+      "note": "Design guidance, not a design criterion.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

@@ -1,0 +1,774 @@
+{
+  "topic": "Ramps",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "ramps.uk.gradient_going_10m.max",
+      "quantity": "Maximum gradient for a ramp flight with going of 10 m",
+      "value": 20,
+      "min": 20,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 20,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Ramps in all buildings (AD K) and ramped access (AD M vol 2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 1; also AD K Diagram 2.1"
+      },
+      "note": "Maximum rise 500 mm at this going. Interpolate between 2 m and 10 m goings (e.g. 1:14 at 4 m, 1:19 at 9 m). Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 20 (no steeper than 1:20).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.gradient_going_5m.max",
+      "quantity": "Maximum gradient for a ramp flight with going of 5 m",
+      "value": 15,
+      "min": 15,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 15,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Ramps in all buildings (AD K) and ramped access (AD M vol 2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 1; also AD K Diagram 2.1"
+      },
+      "note": "Maximum rise 333 mm at this going. Interpolate between 2 m and 10 m goings (e.g. 1:14 at 4 m, 1:19 at 9 m). Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 15 (no steeper than 1:15).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.gradient_going_2m.max",
+      "quantity": "Maximum gradient for a ramp flight with going of 2 m",
+      "value": 12,
+      "min": 12,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 12,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Ramps in all buildings (AD K) and ramped access (AD M vol 2)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "Table 1; also AD K Diagram 2.1"
+      },
+      "note": "Maximum rise 166 mm at this going. Interpolate between 2 m and 10 m goings (e.g. 1:14 at 4 m, 1:19 at 9 m). Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 12 (no steeper than 1:12).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.flight.going.max",
+      "quantity": "Maximum going of a ramp flight",
+      "value": 10,
+      "min": null,
+      "max": 10,
+      "unit": "m",
+      "imperial": {
+        "value": 32.81,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings (ramped access)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.26(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.flight.rise.max",
+      "quantity": "Maximum rise of a ramp flight",
+      "value": 500,
+      "min": null,
+      "max": 500,
+      "unit": "mm",
+      "imperial": {
+        "value": 19.69,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings (ramped access)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.26(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.ramp_threshold",
+      "quantity": "Floor gradient at or above which the floor is designed as a ramp",
+      "value": 20,
+      "min": null,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 20,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.3 note"
+      },
+      "note": "A floor of 1:20 or steeper should be designed as a ramp.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.width.min",
+      "quantity": "Minimum ramp width between walls, upstands or kerbs",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.9(a); AD M vol 2 para 1.26(e)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.landing.end.min",
+      "quantity": "Minimum length of landings at foot and head",
+      "value": 1200,
+      "min": 1200,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 47.24,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.13(a); AD M vol 2 para 1.26(h)"
+      },
+      "note": "Clear of door swings and obstructions.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.landing.intermediate.min",
+      "quantity": "Minimum length of intermediate landings",
+      "value": 1500,
+      "min": 1500,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 59.06,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.13(b); AD M vol 2 para 1.26(i)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.landing.passing.min",
+      "quantity": "Passing-place landing (each side)",
+      "value": 1800,
+      "min": 1800,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 70.87,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Ramps with three or more flights or no end-to-end view",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.13(c); AD M vol 2 para 1.26(j)"
+      },
+      "note": "1800 mm wide by 1800 mm long.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.landing.gradient.max",
+      "quantity": "Maximum landing gradient along length",
+      "value": 60,
+      "min": 60,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 60,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.13(d)"
+      },
+      "note": "AD M vol 2 para 1.26(k) adds maximum cross-fall 1:40. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 60 (no steeper than 1:60).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.kerb.min",
+      "quantity": "Minimum kerb height on open side of ramp or landing",
+      "value": 100,
+      "min": 100,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 3.94,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.5(a)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.steps_also.trigger",
+      "quantity": "Ramp rise above which clearly signposted steps are also provided",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.6(a); AD M vol 2 para 1.26(n)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.lift_alternative.trigger",
+      "quantity": "Total ramp rise above which an alternative (e.g. lift) is provided",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 6.56,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "Buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.26(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.headroom.min",
+      "quantity": "Clear headroom over ramp",
+      "value": 2,
+      "min": 2,
+      "max": null,
+      "unit": "m",
+      "imperial": {
+        "value": 6.56,
+        "unit": "ft",
+        "converted": true
+      },
+      "applies_to": "All buildings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "Diagram 2.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.handrail.height",
+      "quantity": "Height of top of handrail above ramp surface",
+      "value": 900,
+      "min": 900,
+      "max": 1000,
+      "unit": "mm",
+      "imperial": {
+        "value": 35.43,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Ramped access (AD M vol 2); dwellings and common areas of flats (AD K)",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.37(a); AD K para 2.12(d)"
+      },
+      "note": "900-1100 mm above landings (AD M vol 2 para 1.37(a)). Handrails both sides in buildings other than dwellings (AD K 2.11). Range 900-1000 mm (about 35.43-39.37 in); value shows the lower bound.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.handrail_extension.min",
+      "quantity": "Horizontal handrail extension beyond top and bottom of ramp",
+      "value": 300,
+      "min": 300,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.81,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Ramped access, buildings other than dwellings",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document M: Access to and use of buildings, Volume 2: Buildings other than dwellings",
+        "publisher": "HM Government",
+        "edition": "2015 edition incorporating 2020 and 2024 amendments",
+        "url": "https://assets.publishing.service.gov.uk/media/66f6c5eec71e42688b65ee11/ADM__V2_with_2024_amendments.pdf",
+        "clause": "para 1.37(d)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.uk.dwelling.no_handrail_rise.max",
+      "quantity": "Ramp height up to which handrails are not needed",
+      "value": 600,
+      "min": null,
+      "max": 600,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.62,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Dwellings and common areas of flats",
+      "jurisdiction": "England",
+      "source": {
+        "title": "Approved Document K: Protection from falling, collision and impact",
+        "publisher": "HM Government",
+        "edition": "2013 edition",
+        "url": "https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf",
+        "clause": "para 2.12(c)"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.running_slope.max",
+      "quantity": "Maximum running slope of ramp runs",
+      "value": 12,
+      "min": 12,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 12,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.2"
+      },
+      "note": "Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 12 (no steeper than 1:12).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.cross_slope.max",
+      "quantity": "Maximum cross slope of ramp runs",
+      "value": 48,
+      "min": 48,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 48,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.3"
+      },
+      "note": "Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 48 (no steeper than 1:48).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.walking_surface_slope.max",
+      "quantity": "Running slope above which a walking surface is a ramp",
+      "value": 20,
+      "min": 20,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 20,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Accessible route walking surfaces",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "403.3"
+      },
+      "note": "Walking surfaces max 1:20 running and 1:48 cross slope. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 20 (no steeper than 1:20).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.clear_width.min",
+      "quantity": "Minimum clear width (between handrails where provided)",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.5"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.run_rise.max",
+      "quantity": "Maximum rise of any ramp run",
+      "value": 760,
+      "min": null,
+      "max": 760,
+      "unit": "mm",
+      "imperial": {
+        "value": 30,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.6"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.landing_length.min",
+      "quantity": "Minimum landing clear length",
+      "value": 1525,
+      "min": 1525,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 60,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.7.3"
+      },
+      "note": "Landing at least as wide as widest run (405.7.2). At change of direction: 60 x 60 in (1525 x 1525 mm) (405.7.4).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.handrail_trigger",
+      "quantity": "Run rise above which handrails are required",
+      "value": 150,
+      "min": 150,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 6,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.8"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.edge_extension.min",
+      "quantity": "Edge protection: surface extension beyond inside face of handrail",
+      "value": 305,
+      "min": 305,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "405.9.1"
+      },
+      "note": "Alternative: curb or barrier preventing passage of a 4 in (100 mm) sphere within 4 in of the surface (405.9.2).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.handrail_extension.min",
+      "quantity": "Horizontal handrail extension at top and bottom of ramp runs",
+      "value": 305,
+      "min": 305,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 12,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Ramps on accessible routes",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "505.10.1"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.existing_1to8.rise.max",
+      "quantity": "Maximum rise for slope steeper than 1:10 but not steeper than 1:8",
+      "value": 75,
+      "min": null,
+      "max": 75,
+      "unit": "mm",
+      "imperial": {
+        "value": 3,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Existing sites where space is limited",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 405.2"
+      },
+      "note": "Slopes steeper than 1:8 prohibited.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.existing_1to10.rise.max",
+      "quantity": "Maximum rise for slope steeper than 1:12 but not steeper than 1:10",
+      "value": 150,
+      "min": null,
+      "max": 150,
+      "unit": "mm",
+      "imperial": {
+        "value": 6,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Existing sites where space is limited",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "Table 405.2"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.curb_ramp_flare.max",
+      "quantity": "Maximum slope of curb ramp flares",
+      "value": 10,
+      "min": 10,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 10,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "Curb ramps",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "406.3"
+      },
+      "note": "Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 10 (no steeper than 1:10).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.ada.curb_ramp_landing.min",
+      "quantity": "Minimum landing length at top of curb ramp",
+      "value": 915,
+      "min": 915,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 36,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Curb ramps",
+      "jurisdiction": "United States (federal, 2010 ADA Standards)",
+      "source": {
+        "title": "2010 ADA Standards for Accessible Design",
+        "publisher": "U.S. Department of Justice",
+        "edition": "2010",
+        "url": "https://www.ada.gov/law-and-regs/design-standards/2010-stds/",
+        "clause": "406.4"
+      },
+      "note": "",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "ramps.us.irc.slope.max",
+      "quantity": "Maximum ramp slope",
+      "value": 12,
+      "min": 12,
+      "max": null,
+      "unit": "1:n",
+      "imperial": {
+        "value": 12,
+        "unit": "1:n",
+        "converted": false
+      },
+      "applies_to": "One- and two-family dwellings (IRC)",
+      "jurisdiction": "United States (model IRC 2015, as restated by City of Des Moines, Iowa)",
+      "source": {
+        "title": "Residential Stairs/Ramps/Handrails handout (restates 2015 IRC)",
+        "publisher": "City of Des Moines Permit & Development Center",
+        "edition": "Revised March 2017, 2015 IRC",
+        "url": "https://cms2.revize.com/revize/desmoines/document_center/Development%20Services/Permit%20Development%20Center/Residential/Residential-Stairs-Ramps-Handrails-2012-IRC-Rev-052014.pdf",
+        "clause": "IRC R311.8"
+      },
+      "note": "Secondary: read in a local government handout that restates the ICC model code, not in the ICC text itself; check the edition the project's jurisdiction has adopted. 3 ft x 3 ft (36 x 36 in) landing at top and bottom, where a door opens onto the ramp and at changes of direction; handrail on at least one side. Gradient written 1:n with value n; steeper means smaller n, so this limit means n >= 12 (no steeper than 1:12).",
+      "confidence": "secondary"
+    }
+  ]
+}

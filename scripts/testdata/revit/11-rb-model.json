@@ -1,0 +1,105 @@
+{
+  "jobId": "sa-test-revit-11-rb-model",
+  "title": "RB: walls, room, door, desk family, plan and sheet",
+  "description": "Baseline RB, spec section 1 steps 4-8 except placing the desk (no op places a family instance; manual step). The door Mark is set to D1 so P03 can copy it. The sheet has no title block (see the README).",
+  "app": "revit",
+  "document": {
+    "path": "C:/SA-Test/revit/RB.rvt",
+    "fingerprint": "STAMP-FROM-SNAPSHOT"
+  },
+  "units": {
+    "length": "ft"
+  },
+  "ops": [
+    {
+      "id": "walls",
+      "op": "wall.create",
+      "args": {
+        "type": "Generic - 8\"",
+        "level": "Level 1",
+        "path": [
+          [
+            0,
+            0
+          ],
+          [
+            40,
+            0
+          ],
+          [
+            40,
+            30
+          ],
+          [
+            0,
+            30
+          ]
+        ],
+        "closed": true,
+        "topLevel": "Level 2"
+      },
+      "note": "Walls Level 1 to Level 2, on the active workset A_Interior"
+    },
+    {
+      "id": "room",
+      "op": "room.place",
+      "args": {
+        "level": "Level 1",
+        "point": [
+          20,
+          15
+        ],
+        "name": "OFFICE",
+        "number": "101",
+        "tag": false
+      }
+    },
+    {
+      "id": "door",
+      "op": "door.place",
+      "args": {
+        "host": "$walls.walls.0",
+        "type": "Single-Flush : 36\" x 84\"",
+        "offset": 10,
+        "mark": "D1"
+      },
+      "note": "Wall (0,0)-(40,0), 10' from its start."
+    },
+    {
+      "id": "desk",
+      "op": "family.load",
+      "args": {
+        "path": "C:/SA-Test/revit/Desk.rfa"
+      }
+    },
+    {
+      "id": "plan",
+      "op": "view.plan.create",
+      "args": {
+        "level": "Level 1",
+        "name": "L1 - Plan",
+        "template": "Architectural Plan"
+      }
+    },
+    {
+      "id": "sheet",
+      "op": "sheet.create",
+      "args": {
+        "number": "A-101",
+        "name": "FLOOR PLAN"
+      }
+    },
+    {
+      "id": "vp",
+      "op": "viewport.place",
+      "args": {
+        "sheet": "sheet:A-101",
+        "view": "L1 - Plan",
+        "centre": [
+          1.5,
+          1
+        ]
+      }
+    }
+  ]
+}

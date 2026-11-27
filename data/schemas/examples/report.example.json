@@ -1,0 +1,36 @@
+{
+  "$schema": "../report.schema.json",
+  "jobId": "2026-11-27T10-15-00Z-room-01",
+  "status": "committed",
+  "mode": "commit",
+  "validation": [
+    { "path": "$.ops[2].args.block", "code": "block_loaded", "severity": "warning", "message": "Block DOOR-SINGLE was loaded from the standard's library" }
+  ],
+  "results": [
+    { "id": "layers", "op": "layer.ensure", "ok": true, "created": [ "2F1" ], "modified": [], "deleted": [], "unchanged": [ "1A0" ],
+      "readback": { "A-WALL": { "color": 2, "lineweight": 0.5 }, "A-DOOR": { "color": 4, "lineweight": 0.25 } } },
+    { "id": "walls", "op": "wall.draw", "ok": true, "created": [ "2F2", "2F3", "2F4", "2F5", "2F6", "2F7", "2F8", "2F9" ], "modified": [], "deleted": [],
+      "readback": { "segments": 8, "openEnds": 0 },
+      "outputs": {
+        "walls": [ { "id": "rm1", "handles": [ "2F2", "2F3" ], "length": 4000, "thickness": 100 } ],
+        "junctions": [ { "point": [0, 0], "kind": "corner", "walls": [ "rm1", "rm4" ] } ],
+        "openEnds": [],
+        "loops": [ [ [-50, -50], [4050, -50], [4050, 3050], [-50, 3050] ], [ [50, 50], [3950, 50], [3950, 2950], [50, 2950] ] ]
+      } },
+    { "id": "door", "op": "opening.place", "ok": true, "created": [ "2FA" ], "modified": [ "2F2", "2F3" ], "deleted": [],
+      "readback": { "width": 900, "offset": 800, "host": "rm1" },
+      "outputs": { "block": "2FA", "centre": [800, 0], "jambs": [ [350, 0], [1250, 0] ] } },
+    { "id": "room", "op": "room.create", "ok": true, "created": [ "2FB", "2FC" ], "modified": [], "deleted": [],
+      "readback": { "area": 11310000, "name": "Meeting" },
+      "outputs": { "boundaryHandle": "2FB", "area": 11310000, "perimeter": 13600, "tagHandle": "2FC" } }
+  ],
+  "summary": { "created": 12, "modified": 2, "deleted": 0 },
+  "checks": [
+    { "id": "walls.open_ends", "status": "pass", "title": "Walls meant to close a room have no open ends", "severity": "error", "findings": [] },
+    { "id": "layers.naming", "status": "pass", "title": "Layer names follow the project's layer naming scheme", "severity": "warning", "findings": [] }
+  ],
+  "artifacts": [ { "kind": "png", "path": "C:/Users/me/AppData/Local/CadBim/jobs/2026-11-27T10-15-00Z-room-01/activeView.png", "target": "activeView" } ],
+  "warnings": [],
+  "undo": "One undo step named 'SA: Meeting room walls and door'",
+  "timingMs": { "validate": 12, "execute": 340, "verify": 80, "capture": 410 }
+}

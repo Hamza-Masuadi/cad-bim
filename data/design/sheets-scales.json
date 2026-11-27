@@ -1,0 +1,1710 @@
+{
+  "topic": "Drawing sheet sizes and scales",
+  "retrieved": "2026-11-27",
+  "entries": [
+    {
+      "id": "sheets.ansi.a.short",
+      "quantity": "ANSI A sheet, short side",
+      "value": 216,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 8.5,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.a.long",
+      "quantity": "ANSI A sheet, long side",
+      "value": 279,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.b.short",
+      "quantity": "ANSI B sheet, short side",
+      "value": 279,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.b.long",
+      "quantity": "ANSI B sheet, long side",
+      "value": 432,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.c.short",
+      "quantity": "ANSI C sheet, short side",
+      "value": 432,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 17.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.c.long",
+      "quantity": "ANSI C sheet, long side",
+      "value": 559,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 22.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.d.short",
+      "quantity": "ANSI D sheet, short side",
+      "value": 559,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 22.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.d.long",
+      "quantity": "ANSI D sheet, long side",
+      "value": 864,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 34.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.e.short",
+      "quantity": "ANSI E sheet, short side",
+      "value": 864,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 34.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.e.long",
+      "quantity": "ANSI E sheet, long side",
+      "value": 1118,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 44.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.f.short",
+      "quantity": "ANSI F sheet, short side",
+      "value": 711,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 28.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.ansi.f.long",
+      "quantity": "ANSI F sheet, long side",
+      "value": 1016,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 40.0,
+        "unit": "in",
+        "converted": true
+      },
+      "applies_to": "Drawing sheets (ANSI series)",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "USACE requires ANSI D for contract documents (E or F for oversized). Source states in only; the metric value is a conversion.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a0.short",
+      "quantity": "ISO A0 sheet, short side",
+      "value": 841,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.1,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a0.long",
+      "quantity": "ISO A0 sheet, long side",
+      "value": 1189,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 46.8,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a1.short",
+      "quantity": "ISO A1 sheet, short side",
+      "value": 594,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.4,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a1.long",
+      "quantity": "ISO A1 sheet, long side",
+      "value": 841,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 33.1,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a2.short",
+      "quantity": "ISO A2 sheet, short side",
+      "value": 420,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 16.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a2.long",
+      "quantity": "ISO A2 sheet, long side",
+      "value": 594,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 23.4,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a3.short",
+      "quantity": "ISO A3 sheet, short side",
+      "value": 297,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.7,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a3.long",
+      "quantity": "ISO A3 sheet, long side",
+      "value": 420,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 16.5,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a4.short",
+      "quantity": "ISO A4 sheet, short side",
+      "value": 210,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 8.3,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.iso.a4.long",
+      "quantity": "ISO A4 sheet, long side",
+      "value": 297,
+      "min": null,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 11.7,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Drawing sheets (ISO A series)",
+      "jurisdiction": "International (ISO 216 A series, as tabulated by USACE)",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 2-1"
+      },
+      "note": "Inches as rounded in the source table. ISO 216 itself is paywalled and was not opened.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "sheets.usace.text.min",
+      "quantity": "Minimum plotted text height (notes, dimensions)",
+      "value": 2.4,
+      "min": 2.4,
+      "max": null,
+      "unit": "mm",
+      "imperial": {
+        "value": 0.09375,
+        "unit": "in",
+        "converted": false
+      },
+      "applies_to": "Plotted drawings, architectural/vertical disciplines",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "5.1.2, Table 5-2"
+      },
+      "note": "Stated as 3/32 in (2.4 mm); subtitles 1/8 in (3 mm), titles 3/16 in (5 mm).",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.1",
+      "quantity": "Imperial drawing scale 12\" = 1'-0\" (full size)",
+      "value": 1,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 1,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 1, i.e. 1:1. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.2",
+      "quantity": "Imperial drawing scale 6\" = 1'-0\"",
+      "value": 2,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 2,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 2, i.e. 1:2. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.4",
+      "quantity": "Imperial drawing scale 3\" = 1'-0\"",
+      "value": 4,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 4,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 4, i.e. 1:4. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.8",
+      "quantity": "Imperial drawing scale 1-1/2\" = 1'-0\"",
+      "value": 8,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 8,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 8, i.e. 1:8. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.12",
+      "quantity": "Imperial drawing scale 1\" = 1'-0\"",
+      "value": 12,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 12,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 12, i.e. 1:12. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.16",
+      "quantity": "Imperial drawing scale 3/4\" = 1'-0\"",
+      "value": 16,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 16,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 16, i.e. 1:16. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.24",
+      "quantity": "Imperial drawing scale 1/2\" = 1'-0\"",
+      "value": 24,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 24,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 24, i.e. 1:24. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.32",
+      "quantity": "Imperial drawing scale 3/8\" = 1'-0\"",
+      "value": 32,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 32,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 32, i.e. 1:32. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.48",
+      "quantity": "Imperial drawing scale 1/4\" = 1'-0\"",
+      "value": 48,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 48,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 48, i.e. 1:48. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.64",
+      "quantity": "Imperial drawing scale 3/16\" = 1'-0\"",
+      "value": 64,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 64,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 64, i.e. 1:64. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.96",
+      "quantity": "Imperial drawing scale 1/8\" = 1'-0\"",
+      "value": 96,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 96,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 96, i.e. 1:96. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.128",
+      "quantity": "Imperial drawing scale 3/32\" = 1'-0\"",
+      "value": 128,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 128,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 128, i.e. 1:128. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.192",
+      "quantity": "Imperial drawing scale 1/16\" = 1'-0\"",
+      "value": 192,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 192,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 192, i.e. 1:192. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.384",
+      "quantity": "Imperial drawing scale 1/32\" = 1'-0\"",
+      "value": 384,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 384,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 384, i.e. 1:384. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.60",
+      "quantity": "Imperial drawing scale 1\" = 5'",
+      "value": 60,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 60,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 60, i.e. 1:60. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.120",
+      "quantity": "Imperial drawing scale 1\" = 10'",
+      "value": 120,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 120,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 120, i.e. 1:120. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.240",
+      "quantity": "Imperial drawing scale 1\" = 20'",
+      "value": 240,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 240,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 240, i.e. 1:240. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.360",
+      "quantity": "Imperial drawing scale 1\" = 30'",
+      "value": 360,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 360,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 360, i.e. 1:360. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.480",
+      "quantity": "Imperial drawing scale 1\" = 40'",
+      "value": 480,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 480,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 480, i.e. 1:480. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.600",
+      "quantity": "Imperial drawing scale 1\" = 50'",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 600,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 600, i.e. 1:600. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.720",
+      "quantity": "Imperial drawing scale 1\" = 60'",
+      "value": 720,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 720,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 720, i.e. 1:720. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.1200",
+      "quantity": "Imperial drawing scale 1\" = 100'",
+      "value": 1200,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 1200,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 1200, i.e. 1:1200. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.2400",
+      "quantity": "Imperial drawing scale 1\" = 200'",
+      "value": 2400,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 2400,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 2400, i.e. 1:2400. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.4800",
+      "quantity": "Imperial drawing scale 1\" = 400'",
+      "value": 4800,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 4800,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 4800, i.e. 1:4800. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.6000",
+      "quantity": "Imperial drawing scale 1\" = 500'",
+      "value": 6000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 6000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 6000, i.e. 1:6000. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.12000",
+      "quantity": "Imperial drawing scale 1\" = 1000'",
+      "value": 12000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 12000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 12000, i.e. 1:12000. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.imperial.24000",
+      "quantity": "Imperial drawing scale 1\" = 2000'",
+      "value": 24000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 24000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Inch-pound drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-4"
+      },
+      "note": "Scale factor (line-type scale) 24000, i.e. 1:24000. Source lists these as common scales, not an exhaustive set.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.1",
+      "quantity": "Metric drawing scale 1:1",
+      "value": 1,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 1,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.2_5",
+      "quantity": "Metric drawing scale 1:2.5",
+      "value": 2.5,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 2.5,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.5",
+      "quantity": "Metric drawing scale 1:5",
+      "value": 5,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 5,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.10",
+      "quantity": "Metric drawing scale 1:10",
+      "value": 10,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 10,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.20",
+      "quantity": "Metric drawing scale 1:20",
+      "value": 20,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 20,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.30",
+      "quantity": "Metric drawing scale 1:30",
+      "value": 30,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 30,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.40",
+      "quantity": "Metric drawing scale 1:40",
+      "value": 40,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 40,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.50",
+      "quantity": "Metric drawing scale 1:50",
+      "value": 50,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 50,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.60",
+      "quantity": "Metric drawing scale 1:60",
+      "value": 60,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 60,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.100",
+      "quantity": "Metric drawing scale 1:100",
+      "value": 100,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 100,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.200",
+      "quantity": "Metric drawing scale 1:200",
+      "value": 200,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 200,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.400",
+      "quantity": "Metric drawing scale 1:400",
+      "value": 400,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 400,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.500",
+      "quantity": "Metric drawing scale 1:500",
+      "value": 500,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 500,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.600",
+      "quantity": "Metric drawing scale 1:600",
+      "value": 600,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 600,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.700",
+      "quantity": "Metric drawing scale 1:700",
+      "value": 700,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 700,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.1000",
+      "quantity": "Metric drawing scale 1:1000",
+      "value": 1000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 1000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.2000",
+      "quantity": "Metric drawing scale 1:2000",
+      "value": 2000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 2000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.5000",
+      "quantity": "Metric drawing scale 1:5000",
+      "value": 5000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 5000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.6000",
+      "quantity": "Metric drawing scale 1:6000",
+      "value": 6000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 6000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.10000",
+      "quantity": "Metric drawing scale 1:10000",
+      "value": 10000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 10000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    },
+    {
+      "id": "scales.metric.20000",
+      "quantity": "Metric drawing scale 1:20000",
+      "value": 20000,
+      "min": null,
+      "max": null,
+      "unit": "scale factor",
+      "imperial": {
+        "value": 20000,
+        "unit": "scale factor",
+        "converted": false
+      },
+      "applies_to": "Metric drawings",
+      "jurisdiction": "International / US federal drafting practice",
+      "source": {
+        "title": "A/E/C Graphics Standard, Release 2.2 (ERDC/ITL SR-23-1)",
+        "publisher": "US Army Corps of Engineers, ERDC CAD/BIM Technology Center",
+        "edition": "August 2023",
+        "url": "https://www.wbdg.org/FFC/AECCAD/ERDC_ITL_SR_23_1_2023.pdf",
+        "clause": "Table 5-5"
+      },
+      "note": "Source lists these as common metric scales; plotted text 2.4 mm x factor.",
+      "confidence": "read_in_source"
+    }
+  ]
+}

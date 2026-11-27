@@ -1,0 +1,138 @@
+{
+  "$schema": "../standard.schema.json",
+  "id": "iso19650-uk-example",
+  "name": "ISO 19650 / ISO 13567 project standard (example)",
+  "version": "1.0",
+  "description": "Small but complete example of an ISO-style standard: fixed-field layer names, ISO 19650 container names, suitability and revision codes, metric scales.",
+  "jurisdiction": "United Kingdom",
+  "units": { "length": "mm" },
+  "codeLists": {
+    "roles": [
+      { "code": "A", "name": "Architect" }, { "code": "B", "name": "Building surveyor" }, { "code": "C", "name": "Civil engineer" },
+      { "code": "E", "name": "Electrical engineer" }, { "code": "L", "name": "Landscape architect" }, { "code": "M", "name": "Mechanical engineer" },
+      { "code": "P", "name": "Public health engineer" }, { "code": "S", "name": "Structural engineer" }, { "code": "W", "name": "Contractor" },
+      { "code": "X", "name": "Subcontractor" }, { "code": "Z", "name": "General (non-disciplinary)" }
+    ],
+    "types": [
+      { "code": "DR", "name": "2D drawing" }, { "code": "M2", "name": "2D model" }, { "code": "M3", "name": "3D model" },
+      { "code": "SP", "name": "Specification" }, { "code": "SH", "name": "Schedule" }, { "code": "CA", "name": "Calculations" },
+      { "code": "RP", "name": "Report" }, { "code": "VS", "name": "Visualisation" }
+    ]
+  },
+  "layerNaming": {
+    "scheme": "iso13567",
+    "filler": "_",
+    "case": "upper",
+    "fields": [
+      { "name": "agent", "length": 2, "required": true, "codeList": "roles", "description": "Agent responsible" },
+      {
+        "name": "element", "length": 6, "required": true, "match": "prefix",
+        "description": "Element by classification (CI/SfB here); finer codes refine to the right",
+        "codes": [
+          { "code": "21", "name": "External walls" }, { "code": "22", "name": "Internal walls" }, { "code": "23", "name": "Floors" },
+          { "code": "24", "name": "Stairs" }, { "code": "27", "name": "Roofs" }, { "code": "28", "name": "Frame" },
+          { "code": "31", "name": "Windows" }, { "code": "32", "name": "Doors" }, { "code": "35", "name": "Suspended ceilings" },
+          { "code": "82", "name": "Furniture" }, { "code": "G25", "name": "Grids" }, { "code": "Z", "name": "General annotation" }
+        ]
+      },
+      {
+        "name": "presentation", "length": 2, "required": true, "description": "Presentation",
+        "codes": [ { "code": "E", "name": "Element graphics" }, { "code": "H", "name": "Hatching" }, { "code": "T", "name": "Text" }, { "code": "D", "name": "Dimensions" }, { "code": "A", "name": "Other annotation" } ]
+      },
+      { "name": "status", "length": 1, "codes": [ "N", "E", "R", "T" ], "description": "N new, E existing, R to remove, T temporary" },
+      { "name": "sector", "length": 4, "description": "Building sector or zone" },
+      { "name": "phase", "length": 1 },
+      { "name": "projection", "length": 1, "codes": [ "P", "S", "E", "3" ] },
+      { "name": "scale", "length": 1 },
+      { "name": "workPackage", "length": 2 }
+    ],
+    "userDefined": { "allowed": true, "maxLength": 20 }
+  },
+  "layers": [
+    { "name": "A_21____E_", "color": 2, "lineweight": 0.5, "description": "External walls" },
+    { "name": "A_21____H_", "color": 8, "lineweight": 0.13, "description": "External wall hatch" },
+    { "name": "A_22____E_", "color": 3, "lineweight": 0.35, "description": "Internal walls" },
+    { "name": "A_22____E_R", "color": 1, "linetype": "DASHED2", "lineweight": 0.25, "description": "Internal walls to remove" },
+    { "name": "A_31____E_", "color": 5, "lineweight": 0.25 },
+    { "name": "A_32____E_", "color": 4, "lineweight": 0.25 },
+    { "name": "A_Z_____T_", "color": 7, "lineweight": 0.18, "description": "Text" },
+    { "name": "A_Z_____D_", "color": 7, "lineweight": 0.18, "description": "Dimensions" },
+    { "name": "S_G25___E_", "color": 9, "linetype": "CENTER2", "lineweight": 0.18 },
+    { "name": "Z_Z_____A_N____NP", "color": 251, "plot": false, "description": "Viewports: status N, sector unused, phase N, projection P (plan); not plotted" }
+  ],
+  "textStyles": [
+    { "name": "SA-Text", "font": "Arial", "height": 0, "annotative": true },
+    { "name": "SA-Title", "font": "Arial", "height": 0, "widthFactor": 1, "annotative": true }
+  ],
+  "dimStyles": [
+    { "name": "SA-Metric", "description": "Metric dimensions, ticks, whole millimetres", "annotative": true,
+      "settings": { "DIMTXT": 2.5, "DIMASZ": 1.5, "DIMBLK": "ArchTick", "DIMTXSTY": "SA-Text", "DIMDEC": 0, "DIMLUNIT": 2, "DIMEXE": 1.25, "DIMEXO": 1.5, "DIMTAD": 1 } }
+  ],
+  "sheetNumbering": {
+    "description": "Sheets carry the role and the number field of their container name: A-1001.",
+    "case": "upper",
+    "fields": [
+      { "name": "role", "codeList": "roles" },
+      { "name": "number", "separator": "-", "pattern": "[0-9]{4}" }
+    ],
+    "examples": [ "A-1001", "S-2101" ]
+  },
+  "fileNaming": {
+    "description": "ISO 19650-2 container name: Project-Originator-Volume-Level-Type-Role-Number.",
+    "case": "upper",
+    "extensions": [ ".dwg", ".rvt", ".pdf", ".ifc" ],
+    "fields": [
+      { "name": "project", "pattern": "[A-Z0-9]{2,6}" },
+      { "name": "originator", "separator": "-", "pattern": "[A-Z0-9]{3,6}" },
+      { "name": "volume", "separator": "-", "pattern": "[A-Z0-9]{2}" },
+      { "name": "level", "separator": "-", "pattern": "[A-Z0-9]{2}" },
+      { "name": "type", "separator": "-", "codeList": "types" },
+      { "name": "role", "separator": "-", "codeList": "roles" },
+      { "name": "number", "separator": "-", "pattern": "[0-9]{4,6}" }
+    ],
+    "examples": [ "PRJ01-ABC-ZZ-01-DR-A-1001.dwg", "PRJ01-ABC-ZZ-XX-M3-A-0001.rvt" ]
+  },
+  "statusCodes": [
+    { "code": "S0", "name": "Initial status (work in progress)" },
+    { "code": "S1", "name": "Suitable for coordination" },
+    { "code": "S2", "name": "Suitable for information" },
+    { "code": "S3", "name": "Suitable for review and comment" },
+    { "code": "S4", "name": "Suitable for stage approval" },
+    { "code": "A1", "name": "Authorised and accepted, stage 1" },
+    { "code": "CR", "name": "As constructed record" }
+  ],
+  "revisionCodes": {
+    "formats": [
+      { "name": "preliminary", "pattern": "P[0-9]{2}(\\.[0-9]{1,2})?", "description": "Work in progress and shared, with optional minor version", "example": "P01.1" },
+      { "name": "contractual", "pattern": "C[0-9]{2}", "description": "Published", "example": "C01" }
+    ]
+  },
+  "scales": [
+    { "name": "1:1" }, { "name": "1:5" }, { "name": "1:10" }, { "name": "1:20" }, { "name": "1:50" },
+    { "name": "1:100" }, { "name": "1:200" }, { "name": "1:500" }, { "name": "1:1250" }
+  ],
+  "textHeights": [
+    { "name": "small", "plotted": 1.8, "unit": "mm" },
+    { "name": "body", "plotted": 2.5, "unit": "mm" },
+    { "name": "heading", "plotted": 3.5, "unit": "mm" },
+    { "name": "title", "plotted": 5, "unit": "mm" },
+    { "name": "large", "plotted": 7, "unit": "mm" }
+  ],
+  "titleBlock": {
+    "fields": [
+      { "name": "PROJECT", "required": true, "source": "project.name" },
+      { "name": "DRAWING_TITLE", "required": true, "source": "sheet.name" },
+      { "name": "DRAWING_NUMBER", "required": true, "source": "sheet.number", "description": "Full container name" },
+      { "name": "SUITABILITY", "required": true, "source": "issue.status" },
+      { "name": "REVISION", "required": true, "source": "revision.current" },
+      { "name": "SCALE", "source": "sheet.scale" },
+      { "name": "DATE", "source": "issue.date" },
+      { "name": "DRAWN" },
+      { "name": "CHECKED" }
+    ]
+  },
+  "patterns": {
+    "viewName": "[0-9]{2} - [A-Za-z0-9 ]+",
+    "sheetName": "[A-Z][A-Za-z0-9 ,()-]+"
+  }
+}

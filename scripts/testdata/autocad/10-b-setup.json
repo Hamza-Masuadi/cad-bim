@@ -1,0 +1,230 @@
+{
+  "jobId": "sa-test-acad-10-b-setup",
+  "title": "B: drawing setup, layers, styles, blocks",
+  "description": "Baseline B, spec section 1 steps 1-4.",
+  "app": "autocad",
+  "document": {
+    "path": "C:/SA-Test/autocad/B.dwg"
+  },
+  "units": {
+    "length": "in"
+  },
+  "standard": "data/standards/us-ncs-style.json",
+  "ops": [
+    {
+      "id": "setup",
+      "op": "doc.setup",
+      "args": {
+        "insUnits": "in",
+        "lengthFormat": "architectural",
+        "measurement": "imperial",
+        "ltScale": 1,
+        "psLtScale": true,
+        "msLtScale": true,
+        "annotationScales": [
+          "1/4\" = 1'-0\""
+        ],
+        "currentAnnotationScale": "1/4\" = 1'-0\""
+      }
+    },
+    {
+      "id": "layers",
+      "op": "layer.ensure",
+      "args": {
+        "layers": [
+          {
+            "name": "A-WALL"
+          },
+          {
+            "name": "A-WALL-PATT"
+          },
+          {
+            "name": "A-DOOR"
+          },
+          {
+            "name": "A-AREA"
+          },
+          {
+            "name": "A-AREA-IDEN"
+          },
+          {
+            "name": "A-ANNO-DIMS"
+          },
+          {
+            "name": "A-ANNO-TEXT"
+          },
+          {
+            "name": "G-ANNO-TTLB"
+          },
+          {
+            "name": "G-ANNO-NPLT"
+          }
+        ],
+        "fromStandard": true
+      }
+    },
+    {
+      "id": "textstyles",
+      "op": "textstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "NOTES",
+            "font": "Arial"
+          },
+          {
+            "name": "TAGS",
+            "font": "Arial"
+          },
+          {
+            "name": "TITLES",
+            "font": "Arial"
+          }
+        ],
+        "fromStandard": true
+      }
+    },
+    {
+      "id": "dimstyle",
+      "op": "dimstyle.ensure",
+      "args": {
+        "styles": [
+          {
+            "name": "ARCH-ANNO"
+          }
+        ],
+        "fromStandard": true
+      }
+    },
+    {
+      "id": "door",
+      "op": "block.define",
+      "args": {
+        "name": "DOOR-36",
+        "entities": [
+          {
+            "kind": "line",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                36,
+                0
+              ]
+            ]
+          },
+          {
+            "kind": "arc",
+            "center": [
+              0,
+              0
+            ],
+            "radius": 36,
+            "startAngle": 0,
+            "endAngle": 90
+          }
+        ]
+      },
+      "note": "Contents on layer 0, so the engine makes them ByBlock."
+    },
+    {
+      "id": "tb",
+      "op": "block.define",
+      "args": {
+        "name": "TB-ARCHD",
+        "entities": [
+          {
+            "kind": "polyline",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                36,
+                0
+              ],
+              [
+                36,
+                24
+              ],
+              [
+                0,
+                24
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "kind": "attdef",
+            "tag": "SHEET_NO",
+            "prompt": "SHEET_NO",
+            "defaultValue": "",
+            "center": [
+              26,
+              1.0
+            ],
+            "height": 0.125
+          },
+          {
+            "kind": "attdef",
+            "tag": "SHEET_TITLE",
+            "prompt": "SHEET_TITLE",
+            "defaultValue": "",
+            "center": [
+              26,
+              1.4
+            ],
+            "height": 0.125
+          },
+          {
+            "kind": "attdef",
+            "tag": "PROJECT_NAME",
+            "prompt": "PROJECT_NAME",
+            "defaultValue": "",
+            "center": [
+              26,
+              1.8
+            ],
+            "height": 0.125
+          },
+          {
+            "kind": "attdef",
+            "tag": "PROJECT_NO",
+            "prompt": "PROJECT_NO",
+            "defaultValue": "",
+            "center": [
+              26,
+              2.2
+            ],
+            "height": 0.125
+          },
+          {
+            "kind": "attdef",
+            "tag": "ISSUE_DATE",
+            "prompt": "ISSUE_DATE",
+            "defaultValue": "",
+            "center": [
+              26,
+              2.6
+            ],
+            "height": 0.125
+          },
+          {
+            "kind": "attdef",
+            "tag": "SCALE",
+            "prompt": "SCALE",
+            "defaultValue": "",
+            "center": [
+              26,
+              3.0
+            ],
+            "height": 0.125
+          }
+        ]
+      }
+    }
+  ]
+}
