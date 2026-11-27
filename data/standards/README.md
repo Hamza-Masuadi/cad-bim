@@ -79,8 +79,8 @@ lists, the full ISO 13567 nine-field codes, NCS v7 lists.
    colour map. Set `layerRoles`, `viewNaming`, the title block's `blockName` (AutoCAD) or `familyType` (Revit,
    `Family : Type`) and any names `purge.keep` must protect.
 5. Add a `fileNaming` rule to the US copy if the project has one.
-6. Validate: `python3 data/schemas/validate.py data/schemas/standard.schema.json <file>`, then load it in the engine,
-   whose self-check reports layer names that do not parse and naming examples that fail.
+6. Validate: `sa standard lint <file>` loads it exactly as the engines do. Then run an audit with `--standard`;
+   the engine's self-check reports layer names that do not parse and naming examples that fail.
 
 ### From an existing template drawing (.dwt or a clean .dwg)
 

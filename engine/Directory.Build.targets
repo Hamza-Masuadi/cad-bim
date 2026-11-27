@@ -1,0 +1,19 @@
+<Project InitialTargets="SaValidateAppYear">
+  <Target Name="SaValidateAppYear">
+    <Error Condition="'$(SaAppTargetFramework)'==''"
+           Text="AppYear '$(AppYear)' is not supported. Use 2024, 2025, 2026 or 2027." />
+  </Target>
+
+  <!-- Lets net48 targets build on machines without the .NET Framework targeting pack (macOS, Linux, CI). -->
+  <ItemGroup Condition="'$(TargetFramework)'=='net48'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--
+    Parallel builders: set the SA_EXCLUDE environment variable to a semicolon-separated list of globs, relative to
+    the project folder, to leave other builders' in-progress folders out of this build. Final builds set nothing.
+  -->
+  <ItemGroup Condition="'$(SA_EXCLUDE)'!=''">
+    <Compile Remove="$(SA_EXCLUDE)" />
+  </ItemGroup>
+</Project>

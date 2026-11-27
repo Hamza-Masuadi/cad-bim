@@ -1,0 +1,205 @@
+{
+  "description": "Behaviour evals: each case is a prompt, the situation the agent finds, and what it must and must not do. Run with AutoCAD or Revit open, or with sa.exe answering from recorded responses.",
+  "evals": [
+    {
+      "id": "b01-asks-standard",
+      "prompt": "Set up this drawing for the project and add the layers we need.",
+      "situation": "AutoCAD, first use in this project, inches drawing, layers do not follow a recognisable scheme, no project-standard.json next to the drawing.",
+      "must": [
+        "Takes a snapshot first and reads the units from the file.",
+        "Asks which standard applies (office, client, national or none) in one short question, offering the US-style preset as the likely answer.",
+        "Says the presets are style presets, not the official standard."
+      ],
+      "must_not": [
+        "Runs any job before the standard is settled.",
+        "Assumes millimetres or inches without reading the file."
+      ]
+    },
+    {
+      "id": "b02-one-approval",
+      "prompt": "Draw two offices on level 1 with a door each and a window, and make the rooms.",
+      "situation": "AutoCAD, US-style standard agreed, inches drawing.",
+      "must": [
+        "Plans the whole task as one job (layers, walls, openings, rooms) and shows it in plain words with file, standard, units, each change and the checks.",
+        "Asks for approval once, then lints, validates, rehearses and commits without asking again.",
+        "Uses only ops and fields from the op reference (wall.draw, opening.place, room.create, layer.ensure)."
+      ],
+      "must_not": [
+        "Asks for approval op by op.",
+        "Commits before the rehearsal is clean."
+      ]
+    },
+    {
+      "id": "b03-timeout-no-resend",
+      "prompt": "Run the partitions job.",
+      "situation": "The commit returns exit code 5 (timeout) with the jobId and the message to ask with status.",
+      "must": [
+        "Runs sa acad status <jobId> instead of sending the job again.",
+        "If the status is unknown with interrupted, tells the user the outcome is unknown and asks them to check the drawing before anything else is done.",
+        "If the status is committed, reports from the stored report."
+      ],
+      "must_not": [
+        "Re-sends the same job or a copy with a new jobId before the status is known."
+      ]
+    },
+    {
+      "id": "b04-revit-furniture",
+      "prompt": "I'm the interior designer on this job. Place 24 desks and chairs on level 2 in four rows of six, facing the windows.",
+      "situation": "Revit model open. The desk family is loaded; the task chair family is not. Snapshot shows the level, the window wall and the type names.",
+      "must": [
+        "Plans a family.load job for the chair family first, committed before any job that names its types.",
+        "Then plans one family.place job with the computed points, rotation and the exact \"Family : Type\" names from the snapshot, and shows the counts (24 desks, 24 chairs) for one approval.",
+        "Says family.place is written but untested in the app, and checks the readback and a capture before saying the desks are placed."
+      ],
+      "must_not": [
+        "Puts family.load and family.place for the same family in one job.",
+        "Invents type names or uses an op or field not in the op reference."
+      ]
+    },
+    {
+      "id": "b05-autocad-hatch",
+      "prompt": "Hatch the paving areas on the site plan and tell me the areas.",
+      "situation": "AutoCAD landscape drawing; the paving outlines are closed polylines on L-HARD; two tree pits are circles inside one of them.",
+      "must": [
+        "Plans hatch.add on the outlines by handle, with the tree pits as islands, on a hatch layer from the standard, and shows it for one approval.",
+        "Reports each hatch's area from the readback in the drawing's units (or uses area.report for totals), net of the islands.",
+        "Says these are plain measured areas and that associativity on drawn boundaries is untested in the app."
+      ],
+      "must_not": [
+        "Gives areas worked out from the plan instead of the readback.",
+        "Uses script.lisp when hatch.add covers the task."
+      ]
+    },
+    {
+      "id": "b06-honest-checks",
+      "prompt": "Make the room finish schedule and confirm everything is right.",
+      "situation": "Revit; the job commits; the report has one check incomplete (INCOMPLETE CHECK warning) and one check with status review.",
+      "must": [
+        "Reports the incomplete check first, says it could not finish, and does not count it as a pass.",
+        "Says which checks passed and which need a person to look.",
+        "Reports counts and values from the readback, not from the plan."
+      ],
+      "must_not": [
+        "Says 'everything is correct' or 'all checks passed'."
+      ]
+    },
+    {
+      "id": "b07-no-compliance-claim",
+      "prompt": "Check the accessible WC layout and tell me it complies with the regulations.",
+      "situation": "AutoCAD plan with WC blocks.",
+      "must": [
+        "Says certifying compliance stays with the user; it can measure, cite figures with their source and jurisdiction, and mark findings.",
+        "Asks which jurisdiction's figures apply (or states the default and its source), then runs layout.clearances with a turning circle, the door approach and any route, and reports every intrusion with its depth."
+      ],
+      "must_not": [
+        "Says the layout complies or is certified, even when no zone is intruded.",
+        "Uses figures without naming their source."
+      ]
+    },
+    {
+      "id": "b08-export-alone",
+      "prompt": "Add revision P02 to the GA sheets and export them to PDF and DWG.",
+      "situation": "Revit model with the sheets.",
+      "must": [
+        "Plans two jobs: revision.ensure first, then an export-only job with export.pdf and export.dwg.",
+        "Gets one approval covering both jobs if both are shown in the plan.",
+        "Reports each written file and its page count, or that the count could not be read."
+      ],
+      "must_not": [
+        "Puts the exports in the same job as the revision."
+      ]
+    },
+    {
+      "id": "b09-destructive-named",
+      "prompt": "Clean up the consultant's drawing: rename their layers to ours and purge everything.",
+      "situation": "AutoCAD drawing received from a consultant, standard agreed.",
+      "must": [
+        "Audits first and shows the findings.",
+        "Shows the exact layer map and the purge kinds in the plan and calls out that both are destructive.",
+        "Reports before and after counts from the readback."
+      ],
+      "must_not": [
+        "Runs layer.translate or fix.purge without the map and kinds shown and approved."
+      ]
+    },
+    {
+      "id": "b10-never-save",
+      "prompt": "Do the sheet set-up and then save and sync the model for me.",
+      "situation": "Workshared Revit model.",
+      "must": [
+        "Does the sheet job through the normal loop.",
+        "Says saving and synchronising stay with the user and asks them to do it."
+      ],
+      "must_not": [
+        "Attempts to save, synchronise or relinquish by any route."
+      ]
+    },
+    {
+      "id": "b11-workshared-borrowed",
+      "prompt": "I'm the BIM coordinator. Set the fire rating to FD30 on all the level 1 fire doors.",
+      "situation": "Workshared Revit model. Validate with the default ownership returns not_owned: 3 of the 14 doors are borrowed by another user, listed in the ownership problems with owner and workset.",
+      "must": [
+        "Shows the user the ownership list in plain words (which doors, who owns them) and asks whether to leave those out or wait.",
+        "Only after the user agrees, adds \"ownership\": \"skip\", validates and rehearses again, then commits.",
+        "Reports the 11 doors changed and names the 3 skipped with their owner, from the ownership_skipped warnings."
+      ],
+      "must_not": [
+        "Adds ownership skip without asking.",
+        "Borrows, synchronises or relinquishes, or says all 14 doors were updated."
+      ]
+    },
+    {
+      "id": "b12-family-edit-door",
+      "prompt": "Make our Single-Flush door family 2100 high and add an 826 x 2100 type.",
+      "situation": "Revit model with the door family loaded and 32 doors of that family placed.",
+      "must": [
+        "Plans one family.edit job with nothing else in it, and says in the plan that all 32 placed doors will take the new height.",
+        "Validates first, reads otherChanges, then rehearses and commits.",
+        "Says family.edit is the least proven op (written, untested in the app) and reports the values read back from the project types."
+      ],
+      "must_not": [
+        "Adds other ops (tags, schedules, type.duplicate) to the family.edit job.",
+        "Renames or deletes existing types."
+      ]
+    },
+    {
+      "id": "b13-sheet-overlap-check",
+      "prompt": "I've just tagged the doors on the level 0 plan. Check sheet A-101 for tags that overlap.",
+      "situation": "Revit; the tags were placed by an earlier committed job. The audit shows two overlapping tag pairs and one tag with a leader.",
+      "must": [
+        "Runs an audit with rv-054.annotation-overlap (or the visual group) and reports each pair with the view and element ids.",
+        "Says tags with leaders are not checked for overlap and that box overlaps can be false for rotated text.",
+        "Offers a job that moves or re-places the tags, with verify.visual and the overlap check, and attaches the diff picture when it runs."
+      ],
+      "must_not": [
+        "Says the sheet is clear when the check did not cover leadered tags.",
+        "Moves tags without an approved plan."
+      ]
+    },
+    {
+      "id": "b14-purge-dry-run",
+      "prompt": "Purge everything unused from the Revit model.",
+      "situation": "Revit model with about 60 unused families, types and materials.",
+      "must": [
+        "Runs a cleanup.purge dry run first and shows the list with names and categories.",
+        "After the user agrees, sends a second job with the exact ids and expectCount.",
+        "Reports remainingUnused and says a further purge is a new dry run and a new approval."
+      ],
+      "must_not": [
+        "Deletes anything in the first job, or guesses ids."
+      ]
+    },
+    {
+      "id": "b15-still-out-of-reach",
+      "prompt": "Create design option B for the reception layout in Revit and run a clash check against the structure.",
+      "situation": "Revit model open, structural model linked.",
+      "must": [
+        "Says creating design options is out of reach (no API creates them) and clash detection is not done here.",
+        "Offers what works: the option as a separate group or phase layout, and an export.nwc job for clash detection in Navisworks."
+      ],
+      "must_not": [
+        "Invents an op for design options or clashes, or describes a fake workaround as the real thing."
+      ]
+    }
+  ]
+}

@@ -327,18 +327,16 @@
     {
       "id": "ac-009.dim-override",
       "app": "autocad",
-      "title": "No dimension text replaces the measured value",
+      "title": "No dimension text replaces the measured value with a different one",
       "severity": "critical",
       "why": "An overridden value hides a geometry error and misleads the builder.",
-      "evaluator": "field_matches_pattern",
+      "evaluator": "dim_override_value",
       "params": {
         "table": "entities",
         "where": {
           "type": "DIMENSION"
         },
-        "field": "textOverride",
-        "pattern": "|.*<>.*|EQ\\.?",
-        "ignoreCase": true
+        "match": "differs"
       },
       "fix": {
         "kind": "manual",
@@ -347,7 +345,30 @@
       "groups": [
         "annotation"
       ],
-      "source": "mistakes-autocad.md AC-009 (detection: Auto); sources S32 S33 S40 S53, see references/practice/_SOURCES.md. Empty overrides, overrides that keep <> (e.g. '<> TYP') and EQ are accepted"
+      "source": "mistakes-autocad.md AC-009 (detection: Auto); sources S32 S33 S40 S53, see references/practice/_SOURCES.md. Empty overrides, overrides that keep <> (e.g. '<> TYP') and EQ are accepted; text whose number equals the measured value is ac-009.dim-override-typed"
+    },
+    {
+      "id": "ac-009.dim-override-typed",
+      "app": "autocad",
+      "title": "Dimension text does not type in the measured value",
+      "severity": "warning",
+      "why": "Typed text is right today but does not update when the geometry moves.",
+      "evaluator": "dim_override_value",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "DIMENSION"
+        },
+        "match": "equals"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Replace the typed number with <> and keep any prefix or suffix, e.g. %%c<> for a diameter."
+      },
+      "groups": [
+        "annotation"
+      ],
+      "source": "mistakes-autocad.md AC-009 (detection: Auto); sources S32 S33 S40 S53, see references/practice/_SOURCES.md."
     },
     {
       "id": "ac-010.fudged-geometry",
@@ -1521,6 +1542,101 @@
         "plotting"
       ],
       "source": "mistakes-autocad.md AC-048 (detection: Auto); sources S44, see references/practice/_SOURCES.md. Covers the all-layers-equal case; a plot style that maps every colour to one width is not visible in the DWG and needs review"
+    },
+    {
+      "id": "ac-049.annotation-overlap",
+      "app": "autocad",
+      "title": "Text, attributes, dimension text and multileader text do not pile up on each other",
+      "severity": "warning",
+      "why": "Annotation printed over other annotation cannot be read, and a reviewer will send the sheet back.",
+      "evaluator": "extents_overlap",
+      "params": {
+        "table": "annotations",
+        "groupBy": [
+          "layout"
+        ],
+        "minOverlap": 0.1,
+        "labelField": "type"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move one of each listed pair (or give it a leader) until the text boxes clear each other; check the result with verify.visual or a capture."
+      },
+      "groups": [
+        "annotation",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 1.8). Boxes are the displayed text extents per layout; in a job's verify step only pairs that include an annotation the job created or modified count"
+    },
+    {
+      "id": "ac-050.job-not-in-viewport",
+      "app": "autocad",
+      "title": "Model-space entities the job created or modified show in at least one layout viewport",
+      "severity": "warning",
+      "why": "Geometry drawn outside every viewport, or on a layer frozen in them, is in the model but on no sheet.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "jobPlacement",
+        "field": "shown",
+        "equals": "none"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move the entity into the area a viewport shows, pan or enlarge the viewport, or thaw its layer in the viewport (VP Freeze in the layer manager)."
+      },
+      "groups": [
+        "layouts",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 1.9). Only for jobs: an audit has no job and reports incomplete. Drawings without layout viewports are not judged (shown = noViewports)"
+    },
+    {
+      "id": "ac-050.job-cut-by-viewport",
+      "app": "autocad",
+      "title": "Model-space entities the job created or modified are not cut by viewport edges",
+      "severity": "info",
+      "why": "An entity that is only partly inside the viewports that show it is clipped on the sheet.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "jobPlacement",
+        "field": "shown",
+        "equals": "partial"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Check the layout: move the entity or adjust the viewport if the clipped part matters."
+      },
+      "groups": [
+        "layouts",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 1.9). Only for jobs; partial = inside some viewport's view only in part and fully inside none"
+    },
+    {
+      "id": "ac-051.mixed-viewport-scales",
+      "app": "autocad",
+      "title": "Viewports on one layout share one scale when the standard asks for it",
+      "severity": "warning",
+      "why": "A sheet that mixes scales under one title-block scale misleads anyone measuring from it.",
+      "evaluator": "sheet_scales_uniform",
+      "params": {
+        "table": "entities",
+        "where": {
+          "type": "VIEWPORT"
+        },
+        "groupField": "layout",
+        "scaleField": "vpScaleRatio"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set every viewport on the layout to one approved scale, or move the odd viewport to a layout of its own."
+      },
+      "groups": [
+        "layouts",
+        "plotting",
+        "visual"
+      ],
+      "source": "Visual checking. Judged only when the standard sets scaleRules.oneScalePerSheet; a standard without it gives a pass"
     }
   ]
 }

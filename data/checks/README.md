@@ -2,12 +2,12 @@
 
 | File | What |
 |---|---|
-| `autocad.json` | 58 checks for the 48 mistakes in `references/practice/mistakes-autocad.md` (44 automatic, 14 review by eye). |
-| `revit.json` | 62 checks for the 53 mistakes in `references/practice/mistakes-revit.md` (40 automatic, 22 review by eye). |
+| `autocad.json` | 63 checks for the 48 mistakes in `references/practice/mistakes-autocad.md` (49 automatic, 14 review by eye). |
+| `revit.json` | 67 checks for the 53 mistakes in `references/practice/mistakes-revit.md` (45 automatic, 22 review by eye). |
 | `FACTS.md` | The contract for engine builders: every facts table and field the checks read, and the evaluators SA.Core does not have yet. |
 
-Both files follow `data/schemas/checks.schema.json` and are described in `data/FORMATS.md` section 2. Validate with
-`python3 data/schemas/validate.py --all`.
+Both files follow `data/schemas/checks.schema.json` and are described in `data/FORMATS.md` section 2. Validate a
+checks file with `sa checks lint <file>`; the core tests check both against the schema.
 
 ## Ids
 

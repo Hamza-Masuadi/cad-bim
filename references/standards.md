@@ -37,14 +37,14 @@ Editing a standard file is a file change in the project folder, not a job: show 
 2. Replace the defaults the project already answers: the client's layer list, colours and lineweights (matching its CTB or STB), text and dimension styles, title block attribute tags (AutoCAD `titleBlock.blockName`, Revit `titleBlock.familyType` as `Family : Type`), issue codes.
 3. Add the project's own codes to the partial lists (minor groups, discipline modifiers, Uniclass codes in use).
 4. Set the `patterns` to the project's layer, workset and view names, the xref layer and the plot colour map; set `layerRoles`, `viewNaming` and the names `purge.keep` must protect.
-5. Validate: `python3 data/schemas/validate.py data/schemas/standard.schema.json project-standard.json`. Then run an audit with `--standard`: the engine reports layer names that do not parse and naming examples that fail.
+5. Validate: `sa standard lint project-standard.json` (no app needed). Then run an audit with `--standard`: the engine reports layer names that do not parse and naming examples that fail.
 
 ### Derive from an office template (.dwt or a clean .dwg)
 
 1. Open the template and run `sa acad snapshot --sections layers,linetypes,textStyles,dimStyles,annotationScales,layouts,blocks`.
 2. Pick the preset whose layer scheme the names already follow (`us` or `iso13567`), so the code lists come with it.
 3. Replace `layers` with the template's layers (leave out `0` and `Defpoints`; lineweights are AutoCAD lineweights in mm, colours ACI numbers or `#RRGGBB`), and `textStyles` and `dimStyles` with the template's styles.
-4. Set `scales` to the template's approved annotation scales and `titleBlock` to the title block's attribute tags.
+4. Set `scales` to the template's approved annotation scales and `titleBlock` to the title block's attribute tags. If the office wants one scale per sheet, add `"scaleRules": { "oneScalePerSheet": true }` (with `exemptViewTypes` such as `Legend`, and `exemptSheets` as a pattern for sheet numbers or layout names); neither preset sets it, and without it the mixed-scale checks find nothing.
 5. Audit the template against the new file. Names that fail either join the code lists (if the project accepts them) or get translated later with `layer.translate`; decide with the user.
 6. Validate as above.
 

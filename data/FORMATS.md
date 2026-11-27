@@ -6,8 +6,8 @@ complete example in `schemas/examples/`. Copy an example and edit it rather than
 Check a file before committing it:
 
 ```
-python3 data/schemas/validate.py --all                                   # every example and data file
-python3 data/schemas/validate.py data/schemas/standard.schema.json my-standard.json
+sa standard lint my-standard.json                                         # a project standard, loaded as the engines load it
+sa checks lint my-checks.json                                             # a checks file
 sa job lint job.json                                                      # a job, including every op's args
 ```
 
@@ -235,6 +235,7 @@ Every one takes `table`, an optional `where` object (field = value pairs a recor
 |---|---|---|
 | `names_match_scheme` | `field`, `scheme` (`layer`, `sheet`, `file`, `view`), `ignore[]` | values that do not parse under the standard's scheme; `error` when the standard has no rule for it |
 | `field_matches_pattern` | `field`, `pattern` or `standardPattern`, `ignoreCase`, `negate` | values not matching (or, with negate, matching) the whole pattern |
+| `dim_override_value` | `match`: `differs` or `equals` | dimension text overrides that drop the measured value (empty, `<>` and `EQ` are accepted) whose number differs from, or equals, the measured value |
 | `count_over_threshold` | `max` | one finding when more than `max` records match |
 | `field_equals` | `field`, `equals` or `in[]`, `negate` | records whose field equals the value (with negate: differs; a missing field never equals) |
 | `field_missing` | `field`, `emptyIsMissing` (default true) | absent, null or blank values |

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(SaAppTargetFramework)</TargetFramework>
+    <AssemblyName>SA.Revit</AssemblyName>
+    <RootNamespace>SA.Revit</RootNamespace>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);$(SaYearDefines)</DefineConstants>
+    <OutputPath>$(SaBinRoot)revit/$(AppYear)/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>$(NoWarn);MSB3277;NU1701</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(SaRevitPackageVersion)" ExcludeAssets="runtime" />
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(SaRevitPackageVersion)" ExcludeAssets="runtime" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SA.Core/SA.Core.csproj" />
+  </ItemGroup>
+</Project>

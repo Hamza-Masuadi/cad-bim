@@ -11,6 +11,8 @@ How to use this file:
 - Section 3 is the base test table (T0-T25).
 - Section 4 is every "behaviour to confirm in the app" from the engine reports, merged, one item each.
 - Section 5 is the planted-defect runs.
+- Section 6 is the wave-2 tests (the 42 newer ops, family editing, ownership "skip", the visual and layout checks),
+  most fragile first. Run it only after Blocks 0 to 5.
 - Write Pass, Fail or a note in each item. For every Fail, collect what section 1.7 lists.
 
 Item ids: `T` base tests, `CX` both apps (install and load), `CA` AutoCAD, `CR` Revit. "Settles" says which file or
@@ -224,12 +226,30 @@ CR-35.
 
 **Block 5:** T21, T23, T24, T25 (mostly not testable yet; see section 3).
 
+**Block 6: wave 2** (section 6), in this order. Items 1 to 4 can lose work or stop every later test of their op.
+
+| # | Item | One line |
+|---|---|---|
+| 1 | CR-36 | `family.edit` commit inside the job's undo step; types take the new values |
+| 2 | CR-37, CA-39 | `verify.visual` image export inside the job; picture frame matches the view |
+| 3 | CA-40 | `layerstate.ensure`: saved states survive a rehearsal and a failed job |
+| 4 | CR-38 | `link.revit` acquire: host geolocation kept or refused |
+| 5 | CR-39, CR-40, CA-41 | Materials, appearance edits, textures, fill patterns |
+| 6 | CR-41 | Key schedules and assigning keys |
+| 7 | CA-42, CA-43 | Copies and mirrors; hatches |
+| 8 | CR-42, CR-43 | Purge with a dry run; Navisworks export |
+| 9 | CR-44 | Ownership "skip" in a workshared model |
+| 10 | CR-45, CA-44, CR-46 | Dimension strings; find and replace text |
+| 11 | CA-45, CR-47 | Clearance checks |
+| 12 | CR-48 to CR-51, CA-46 | Placement, views, annotation, data and the lower-risk ops |
+| 13 | CX-05, CX-06 | Layout checks on real sheets; every recipe rehearses |
+
 ---
 
 ## 3. Base tests
 
-Updated from plan section 8 to what wave 1 actually has. Wave 2 tasks (A28-A35, R33-R49, materials) have no ops
-yet and are not tests. Every job runs as in section 1.6.
+Updated from plan section 8 to what wave 1 has. The wave-2 ops are tested in section 6, after these. Every job runs
+as in section 1.6.
 
 | # | Test | Steps | You should see | Pass / Fail / Notes |
 |---|---|---|---|---|
@@ -244,20 +264,20 @@ yet and are not tests. Every job runs as in section 1.6.
 | T8 | Speed | 100 walls: J-A-WALLS with 25 chains; J-R-WALLS with 25 ops. Time from Enter to report; also read `timingMs` | Times recorded per app and release. Target under 30 s; you judge | |
 | T9 | Units | J-A-WALLS on a metric drawing (`acadiso.dwt`) and on an imperial one (`acad.dwt`, job units `in`, values in inches). Revit: J-R-WALLS on a metric and an imperial template | Lengths in readback and in the app equal the request in each file's own units (measure one wall with DIST / a dimension) | |
 | T10 | Audit finds planted defects | Section 5 | Exactly the counts in the spec's "Expected results" per check | |
-| T11 | Fix | AutoCAD on P1: `fix.bylayer`, `fix.flattenZ`, `fix.purge`, `layer.translate`, then audit again. Revit on R1: `cleanup.unplacedRooms` and `cleanup.unusedViews` (first with `dryRun: true`), then audit. Revit purge is wave 2 | Fixed checks at 0; all other counts unchanged; readback `before`/`after` counts match what you see | |
+| T11 | Fix | AutoCAD on P1: `fix.bylayer`, `fix.flattenZ`, `fix.purge`, `layer.translate`, then audit again. Revit on R1: `cleanup.unplacedRooms` and `cleanup.unusedViews` (first with `dryRun: true`), then audit. Revit purge: CR-42 | Fixed checks at 0; all other counts unchanged; readback `before`/`after` counts match what you see | |
 | T12 | Setup from a standard | AutoCAD blank drawing: `doc.setup` with `applyStandard: true`, once per preset (`data/standards/us-ncs-style.json`, `iso19650-uk-style.json`). Revit blank model: `level.ensure`, `grid.create` | Layers, linetypes, text and dimension styles match the preset; levels and grids as requested, grid heads at top and left (CR-18) | |
 | T13 | Walls and openings | AutoCAD: `wall.draw` (with an L, a T and an X junction) then `opening.place` door and window. Revit: `wall.create`, `door.place`, `window.place` | AutoCAD: no line crossing a junction, wall faces cut at the jambs; Revit: openings hosted at the requested offset (CR-14); counts in the report match the model | |
 | T14 | Rooms and schedules | AutoCAD: `room.create` for two rooms, `schedule.fromBlocks` to a table and CSV. Revit: `room.place` for two rooms, `schedule.create` | Areas match a hand check (AutoCAD AREA, Revit room properties) within 0.5 %; schedule rows match the model | |
 | T15 | Sheets | AutoCAD: `layout.create` (title block), `viewports.layout`, `titleblock.fill` in one job; then J-A-PLOT for those layouts in a **separate** job. Revit: `sheet.create`, `viewports.layout` in one job; then J-R-PDF in a separate job | Viewports inside the drawable area at the asked scale, no overlaps; PDFs named to the rule, one per sheet, at the sheet's paper size | |
 | T16 | Annotation scale | AutoCAD: `doc.setup` scales 1:50 and 1:100, `text.add` annotative with `plottedHeight: 2.5`, two viewports at 1:50 and 1:100 (`viewport.create`), plot both | Text measures 2.5 mm on paper in both viewports (CA-17) | |
-| T17 | Dimensions | AutoCAD: `dim.linear` and `dim.string`. Revit: `dim.grids`. Revit wall dimension strings are wave 2 (R47) | Values equal the measured distance; no text override; Revit witness lines on every grid (CR-27) | |
+| T17 | Dimensions | AutoCAD: `dim.linear` and `dim.string`. Revit: `dim.grids`. Revit wall dimension strings: CR-45 | Values equal the measured distance; no text override; Revit witness lines on every grid (CR-27) | |
 | T18 | Workshared model | Local copy of a workshared model; a second user takes ownership of one wall; run `param.set` on that wall | `not_owned` listing the owner and workset; nothing changed; no sync, borrow or relinquish (CR-24) | |
-| T19 | Families and parameters | `family.load` (new family, then the same again, then with `reload: true`), `type.duplicate`, `param.shared.ensure` (CR-04), `param.set` | Every change read back; unchanged family reported unchanged; reload keeps values. Family editing (R14) has no op in wave 1 | |
+| T19 | Families and parameters | `family.load` (new family, then the same again, then with `reload: true`), `type.duplicate`, `param.shared.ensure` (CR-04), `param.set` | Every change read back; unchanged family reported unchanged; reload keeps values. Family editing: CR-36 | |
 | T20 | Xrefs and blocks | `block.define`, `block.insert` of a dynamic block, `block.dynprops.set`; `xref.attach` (overlay, relative); rename the xref file's folder, then `xref.repath` with `searchFolders` | Dynamic parameter set; path stored relative; repathed reference resolves; a missing one reported unresolved and left unchanged | |
 | T21 | Batch | Not built: no batch op in wave 1. Drop for now | | |
 | T22 | Version spread | T1, T2, T4, T13, T15 on the other release(s) | Same results; differences noted with release | |
 | T23 | Escape hatch | AutoLISP: CA-01. Python: not built in wave 1 (Revit has no script op). Drop the Python half | See CA-01 | |
-| T24 | Second tier | A7 stairs, A19 sheet sets, A26 compare, R8 stairs, R12 model from CAD, R14 family edit, R29 clash, F1-F3: no ops or scripts exist yet. Drop until built | | |
+| T24 | Second tier | A7 stairs, A19 sheet sets, A26 compare, R8 stairs, R12 model from CAD, R29 clash, F1-F3: no ops or scripts exist. Drop until built. R14 family edit: CR-36 | | |
 | T25 | Skill triggering | Not yet: `SKILL.md` is not assembled. Run after skill assembly: ten requests, half unrelated to CAD | The skill loads for the CAD ones only | |
 
 ---
@@ -816,7 +836,7 @@ finding ids, OD = OWNER-DECISIONS item.
 - Result:
 
 **CR-35 · Legend by duplication** · Revit · n/a · OD 39
-- Not testable: no wave 1 op duplicates a legend. Test when the op exists.
+- Moved to CR-50 (e): `view.drafting.create` with `legendFrom` now duplicates a legend.
 
 ---
 
@@ -843,3 +863,241 @@ files by hand from the specifications `scripts/testdata/autocad-planted-defects.
 
 Settles: AUTOCAD-AUDIT-REPORT §4-5 and REVIT-OUTPUT-AUDIT-REPORT §5-6 (the counts and the facts assumptions behind
 them).
+
+---
+
+## 6. Wave 2: confirm in the app
+
+Merged from the "confirm in the app" lists of `engine/reports/WAVE2-AUTOCAD-REPORT.md`, `WAVE2-REVIT-MODEL-REPORT.md`,
+`WAVE2-REVIT-DOCS-REPORT.md`, `FAMILY-WORKSHARING-REPORT.md` §6 and `VISUAL-CHECK-REPORT.md` §7, and the "only the app
+can settle" lists of `engine/reports/review/REVIEW-WAVE2-*.md`. Duplicates are merged. Source short names: W2A, W2RM,
+W2RD, FW and VC for those five reports; RV2-A, RV2-RM, RV2-RD and RV2-RH for the review files, with their finding ids.
+
+Job files: build each from the recipe named (`references/autocad.md` or `references/revit.md`), put the test file's
+names, ids and `document` in it, save it as `C:\sa-test\<name>.json` with the name given, and run it as in 1.6
+(validate, rehearse, commit). Use scratch copies only. Every Revit item runs on 2024 and 2027 first.
+
+### 6.1 Most fragile: can lose work or block every later run
+
+**CR-36 · family.edit inside the job** · Revit · 2024, 2027 · FW 1-7, FW 11, RV2-RH WH-02, WH-03, WH-05 and list 1, 3, 5
+- Job: `w-family-edit.json` from recipe 3.32 on a copy of a door family that has two placed doors and one unplaced
+  type; add one formula and one new type.
+- Steps: (a) `validate`; watch for any dialog. (b) rehearse. (c) commit; open Undo. (d) U once. (e) repeat (c) under a
+  new id with the same values. (f) a family that nests a shared family. (g) an in-place family and a wall type
+  (expect refusals). (h) a second job naming the same family right after (b).
+- Expect: (a) passes, lists `otherChanges`, no `document_changed`; (b) `rolled_back`, project types unchanged, no
+  "No DocumentChanged" warning; (c) `committed`, one undo item `SA: <title>`, both placed doors at the new size, the
+  new type listed with `copyFrom`'s other values, formula read back without a mismatch; (d) everything back;
+  (e) reported `unchanged`; (f) warning for the shared family, the families nesting it intact; (g) refused at
+  validation; (h) not refused as "already being edited".
+- Record: if (c) fails because Revit refused the edit or the load inside the group, the op design must move the
+  reload out of the group. Any family copy the report says stayed open. Load warnings in `warnings`. Whether a reload
+  deleted anything (a nested type).
+- Settles: FAMILY-WORKSHARING-REPORT §6; `Ops/Family/FamilyEdit.cs`.
+- Result:
+
+**CR-37 · verify.visual in Revit** · Revit · 2024, 2027 · VC 2, VC 4, VC 6-7, RV2-RH WH-04 and list 2
+- Job: `w-visual-revit.json` from recipe 3.26 (tags, cloud, `rv-054`, `rv-055.job-outside-crop`, `visual`).
+- Steps: (a) rehearse; (b) commit; open the three PNGs. (c) a job with `expectChange: false` that changes only a
+  parameter value. (d) the same job as (b) on a view with a non-rectangular crop. (e) a view with a rotated crop.
+- Expect: (a) and (b) give `visual.diff` with green boxes on the new tags and cloud, no extra undo item from the
+  captures; picture frame equals the crop box (sheets: the sheet outline); (c) `pass`; (d) `review`, not `fail`;
+  (e) record. A dialog during a capture is reported but does not fail the job.
+- Record: whether `ExportImage` was accepted inside the group; dimension text boxes against what is drawn;
+  whether room tags are found for the overlap check.
+- Settles: VISUAL-CHECK-REPORT §7 items 2, 4, 6, 7.
+- Result:
+
+**CA-39 · verify.visual in AutoCAD** · AutoCAD · 2024, 2027 · VC 1, VC 3, VC 5, VC 8-9, RV2-A W2-11, N-6, N-7
+- Job: `w-visual-acad.json` from recipe 3.18 (cloud, text update, `ac-049`, `visual` with `target: model` and a
+  `window`).
+- Steps: (a) rehearse; (b) commit; open the three PNGs. (c) the same with `target: "layout:<name>"` and with
+  `activeLayout`. (d) a job that changes nothing visible, `expectChange: false`, on a drawing with hatches and
+  dashed lines. (e) model view twisted, or a UCS not at the origin. (f) a layout never opened, with two viewports.
+  (g) a job that edits a dimension style.
+- Expect: (a) `incomplete` (no comparison in a rehearsal); (b) green boxes over the cloud and the changed text, no
+  margin offset; (c) frame from the layout limits; (d) `pass` (no regeneration noise above 0.002); (e) record (only
+  untwisted plans supported); (f) record which viewports were used; (g) `review` or `fail` with change outside: expected.
+- Record: PNG device margins; any shift between boxes and what changed.
+- Settles: VISUAL-CHECK-REPORT §7 items 1, 3, 5, 8, 9.
+- Result:
+
+**CA-40 · layerstate.ensure** · AutoCAD · 2024, 2027 · W2A 1, RV2-A W2-01, N-4
+- Job: `w-layerstates.json` from recipe 3.19. Before it, save a layer state `USER-A` by hand.
+- Steps: (a) rehearse; open the Layer States Manager. (b) commit. (c) a job with `update: true` on `USER-A` that also
+  changes a layer with `layer.ensure` earlier in the same job; rehearse, then commit. (d) the (c) job made to roll back after
+  every op has run, as in J-A-FAIL (duplicate lines and `ac-022.duplicate-lines` in `verify`).
+- Expect: (a) no new state, no "SA rehearsal" state left, `USER-A` unchanged; (b) both states present, restoring each
+  shows the right layers; (c) the state holds the change made earlier in the job; a `.las` backup in the output
+  folder; (d) rolled back and `USER-A` as before.
+- Settles: WAVE2-AUTOCAD-REPORT item 1; W2-01.
+- Result:
+
+**CR-38 · link.revit acquire and link.cad placement** · Revit · 2024, 2027 · W2RM 1, W2RM 7, RV2-RM RM-02, RM-03, RM-14 and list 2, 7
+- Job: `w-links.json` from recipe 3.29; then a second job linking a model with `"coordinates": "acquire"`.
+- Steps: (a) host with no geolocation, link with one: acquire. (b) host and link with the same geolocation.
+  (c) host with one, link with another (expect refusal). (d) the same link placed twice, then acquire (expect
+  refusal). (e) `link.cad` with `placement: "point"` and `unit: "m"`; `centre`; `thisViewOnly` in a section; hidden
+  layers. (f) rehearse (a), then check the linked file is not marked changed when Revit closes.
+- Expect: (a) and (b) shared positions read back; (c) `geolocation_conflict`; (d) validation error; (e) origin where
+  asked, layers hidden; (f) Revit does not ask to save the linked model.
+- Settles: WAVE2-REVIT-MODEL-REPORT items 1 and 7.
+- Result:
+
+### 6.2 Materials and data
+
+**CR-39 · material.ensure appearance** · Revit · 2024, 2027 · W2RM 2, RV2-RM RM-04, RM-06, RM-19, RM-20 and list 3, 4
+- Job: `w-materials.json` from recipe 3.20.
+- Steps: (a) rehearse; (b) commit; render the porcelain on a 600 mm tile face. (c) a second material sharing one
+  appearance with another, `appearance.color` without `shareAsset`, then with it. (d) re-run with `update: true`
+  and a different `from`.
+- Expect: (a) no material or asset left; (b) one texture repeat per 600 mm, colour as asked, mark shown by a
+  material tag; (c) refused, then a warning with the count; (d) record (the asset is not re-copied: known).
+- Record: whether a plain Generic library appearance was found; texture size and rotation units.
+- Settles: WAVE2-REVIT-MODEL-REPORT item 2.
+- Result:
+
+**CR-40 · fillpattern.ensure** · Revit · one release · W2RM 3, RV2-RM RM-12, RM-13 and list 5
+- Steps: recipe 3.20's pattern; a `grids` pattern at 45° with dashes; `update: true` on an existing pattern.
+- Expect: tiles 600 x 600 in the model; the 45° pattern at 45° (radians assumed), dashes the right way; update read
+  back with the name unchanged.
+- Result:
+
+**CA-41 · AutoCAD materials** · AutoCAD · one release · W2A 2, RV2-A W2-08, N-9
+- Job: `w-materials-acad.json` from recipe 3.20.
+- Steps: commit; draw a 24 in square face, assign the tile material, render. Update an existing Advanced material's
+  colour.
+- Expect: one texture repeat per 24 in tile (not 576 times too small or large); the Advanced material keeps its mode.
+- Result:
+
+**CR-41 · schedule.key.create and key assignment** · Revit · 2024, 2027 · W2RD 1, RV2-RD W2D-18 to W2D-20, W2D-29
+- Job: `w-room-style.json` from recipe 3.21, then a `param.set` job setting `Room Style` to `Consult` on two rooms.
+- Steps: commit the key job; open the key schedule; run the `param.set` job; re-run the key job with the name in
+  another case; rename the key parameter of an existing key schedule.
+- Expect: one row per key with the values; rooms show the key's finishes; re-run reported unchanged (not rolled
+  back); rename warns.
+- Record: whether `param.set` accepts the key by name (not known; the recipe says so).
+- Result:
+
+**CR-42 · cleanup.purge** · Revit · 2024, 2027 · W2RM 5, RV2-RM RM-01, RM-22 and list 1
+- Job: `w-purge-list.json` and `w-purge-delete.json` from recipe 3.30.
+- Steps: (a) dry run; open Purge Unused and compare. (b) delete three listed ids. (c) list an id that became used
+  between the jobs. (d) an unused family whose type owns an annotation element.
+- Expect: (a) the same list as Revit's window (note differences); (b) deleted, `remainingUnused` sensible;
+  (c) refused; (d) refused naming the element.
+- Result:
+
+**CR-43 · export.nwc** · Revit · 2024, 2027 · W2RM 4, RV2-RM RM-18
+- Job: `w-nwc.json` from recipe 3.31.
+- Steps: without the Navisworks exporter installed; with it; `scope: view` on a non-default 3D view; shared and
+  internal coordinates; in a job with `export.ifc` (expect refusal).
+- Expect: clear refusal without the exporter; one `.nwc` file (not `.nwc.nwc`); the view's elements only;
+  coordinates as asked; refusal with IFC.
+- Result:
+
+**CR-44 · ownership "skip"** · Revit · 2024, 2027 · FW 8-10, RV2-RH WH-01, WH-07 and list 4, RV2-RD W2D-10
+- Job: `w-ownership.json` from recipe 3.33, on a workshared local copy where a second user has borrowed two of the
+  Level 01 doors.
+- Steps: (a) `validate` without `ownership`; (b) with `"ownership": "skip"`; (c) rehearse and commit; (d) a job
+  whose only door is borrowed; (e) a job moving a wall joined to a borrowed wall; (f) `text.replace` and a category
+  `material.assign` in skip mode.
+- Expect: (a) `not_owned`, the `ownership` list names the user and workset; (b) a validation warning; (c) the other
+  doors changed, two `ownership_skipped` warnings with owner and workset; (d) the op skipped and "Nothing to undo";
+  (e) the join change reported, not hidden; (f) borrowed elements untouched.
+- Record: whether the filter expansion matched what the op would have selected; whether Object Styles ownership
+  covers category materials.
+- Result:
+
+### 6.3 Annotation, text and clearances
+
+**CR-45 · dim.string** · Revit · one release · W2RD 2, W2RD 5, RV2-RD W2D-06, W2D-07
+- Job: from recipe 3.25 (the `dims` op).
+- Steps: `openings: width` across two doors; walls with location line on a finish face; a wall skewed by 1°.
+- Expect: segments in order, matching the readback; faces picked correctly; skewed wall consistently in or out.
+- Result:
+
+**CA-44 · text.replace in AutoCAD** · AutoCAD · one release · W2A 5, RV2-A W2-03, N-3
+- Job: from recipe 3.18 (the `rev` op), on a drawing with a table, MText with bold runs, a multiline attribute and
+  a field.
+- Steps: dry run; commit; check AutoCAD after a long session for a crash.
+- Expect: count as in the dry run; table cells updated (merged, linked and field cells skipped); formatting kept;
+  the field untouched and counted.
+- Result:
+
+**CR-46 · text.replace in Revit** · Revit · one release · W2RD 3, RV2-RD W2D-11 to W2D-14 and list 4
+- Steps: notes with bold and italic around the match and with paragraph breaks; a find with `\n`; a parameter
+  reachable by two names.
+- Expect: formatting and breaks kept; ranges right; each parameter changed once.
+- Result:
+
+**CA-45 · layout.clearances in AutoCAD** · AutoCAD · one release · W2A 8, RV2-A W2-02, W2-09
+- Job: `w-clearances-acad.json` from recipe 3.16, with a block that has attributes inside a zone.
+- Steps: validate; commit with `blockGeometry` by geometry and by `extents`; an xref in the zone.
+- Expect: validation passes; depths differ sensibly between modes; the xref skipped with a warning.
+- Result:
+
+**CR-47 · layout.clearances in Revit** · Revit · one release · W2RD 4, RV2-RD W2D-08 and list 4
+- Job: `w-clearances-revit.json` from recipe 3.27.
+- Steps: a door with furniture in its approach; `maxHeight` 2000 with a wall cabinet above; a corridor with a column.
+- Expect: the door opening is clear (no false wall intrusion); the wall cabinet ignored; the column listed with depth.
+- Result:
+
+### 6.4 Placement, views and the rest
+
+**CR-48 · family.place** · Revit · one release · W2RM 6, RV2-RM RM-08, RM-15 and list 6
+- Job: `w-ffe.json` from recipe 3.15; add a column and a work-plane-based family.
+- Expect: desks at the points and rotation; lights on the ceiling's bottom face; basin at 850; offsets read back;
+  facing after rotation right. Record which offset parameter each family took.
+- Result:
+
+**CR-49 · Crops and callouts** · Revit · one release · W2RD 6, W2RD 7, RV2-RD W2D-01, W2D-21, W2D-30
+- Job: from recipe 3.25; then a callout of a section and one of an elevation; then `detail.draw` and `text.note` in a
+  plan callout.
+- Expect: crops as asked in rotated plans and room crops; callout parents read back; detail lines in the plan
+  callout on the right plane; record where `text.note` lands there (known to be wrong).
+- Result:
+
+**CR-50 · Colour fill, tags, areas, clouds, legends** · Revit · one release · W2RD 8-11, W2RD 14, RV2-RD W2D-03 to W2D-05, W2D-23, W2D-28
+- Jobs: recipes 3.22, 3.23, 3.26.
+- Steps: (a) a new colour scheme and legend on a plan at a level above zero; (b) tags with offset and leader, a
+  material tag, room tags; (c) area boundaries next to an existing area; (d) clouds on a sheet and in a rotated view;
+  (e) `view.drafting.create` with `legendFrom`; `area.plan.create` without a name.
+- Expect: (a) solid fills, legend where asked; (b) heads where asked; (c) record any existing area that changed;
+  (d) bumps outward; (e) the legend copied, default names as documented.
+- Result:
+
+**CA-46 · Other AutoCAD wave-2 ops** · AutoCAD · one release · W2A 3, 4, 6, 7, 9-11, RV2-A W2-04 to W2-07, W2-10, N-1, N-2, N-5, N-8
+- Jobs: recipes 3.13, 3.14, 3.15, 3.17, 3.18.
+- Steps: (a) hatch: rehearse, commit, area against AREA; a curved loop; a raised boundary; draw order. (b) copies
+  and a mirrored copy of Fit and Aligned text and of attributed blocks; rehearse first. (c) grid on a rotated and an
+  L-shaped boundary; a 10 mm module on a big room (expect `grid_too_dense`). (d) `area.report` table and the area
+  cross-check on an ellipse; `block.extract` with dynamic blocks and room tags; a file named `CON.csv` (expect
+  refusal); a later op failing after the files were written. (e) `revcloud.add` with a tag block at 1:50.
+  (f) `entity.delete` on a locked layer; a closed polyline with bulges.
+- Expect: (a) area within 1%, arcs the right way, no rehearsal leak; (b) text reads correctly, copies gone after the
+  rehearsal; (c) cut tiles counted right; (d) table and CSV correct, refusal, files left on disk (known);
+  (e) record the tag size; (f) delete fails, bulges as drawn.
+- Result:
+
+**CR-51 · Lower-risk Revit ops** · Revit · one release · W2RM 8-11, W2RD 12-14, RV2-RM RM-07, RM-11, RM-16, RM-17, RM-21 and list 8, 9
+- Jobs: recipes 3.16 to 3.19, 3.28.
+- Steps: groups placed and copied (check rotation by eye); as-built move, copy and delete; phases with both phases
+  moved later; build-ups, ceilings and skirtings; paint and a category material with `maxInstances`;
+  `schedule.export` on a localised Revit; `data.export` rooms of doors by phase.
+- Expect: as each recipe says; record anything else.
+- Result:
+
+**CX-05 · Layout checks on real sheets** · both · one release each · VC 4-8, RV2-A N-7
+- Steps: on a real project sheet and layout, `sa <app> audit --group visual`; then a job that adds tags that overlap
+  on purpose, with the checks in `verify`. A standard with `scaleRules.oneScalePerSheet` and a sheet of mixed scales.
+- Expect: overlaps found by the job; audit lists every pair; crop and viewport checks `incomplete` in the audit;
+  mixed scales found only with the rule set. Record false overlaps from rotated text.
+- Result:
+
+**CX-06 · Every recipe rehearses** · both · one release each · recipes in `references/autocad.md`, `references/revit.md`
+- Steps: rehearse each recipe job against a test file with matching names. In Revit, also send recipe 3.2's two jobs
+  as one job (expect a "not found" validation error for the new wall type).
+- Expect: each rehearsal `rolled_back` with no validation error other than names you did not replace; the merged
+  job refused as described in `revit.md` section 2.
+- Settles: the recipes; send back each failing recipe number with its report.
+- Result:

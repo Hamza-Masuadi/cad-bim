@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(SaAppTargetFramework)</TargetFramework>
+    <AssemblyName>SA.AutoCAD</AssemblyName>
+    <RootNamespace>SA.AutoCAD</RootNamespace>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);$(SaYearDefines)</DefineConstants>
+    <OutputPath>$(SaBinRoot)autocad/$(AppYear)/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <!-- MSB3277: Autodesk reference assemblies disagree on BCL versions. NU1701: 2024 packages predate netstandard metadata. -->
+    <NoWarn>$(NoWarn);MSB3277;NU1701</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoCAD.NET" Version="$(SaAutoCadPackageVersion)" ExcludeAssets="runtime" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SA.Core/SA.Core.csproj" />
+  </ItemGroup>
+</Project>

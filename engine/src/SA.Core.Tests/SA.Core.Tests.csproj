@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>SA.Core.Tests</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);xUnit1026</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SA.Core/SA.Core.csproj" />
+  </ItemGroup>
+  <!-- The client logic is compiled in here too so its session selection, lint and timeout behaviour are tested. -->
+  <ItemGroup>
+    <Compile Include="../SA.Cli/**/*.cs" Exclude="../SA.Cli/Program.cs;../SA.Cli/obj*/**;../SA.Cli/bin*/**" LinkBase="Cli" />
+  </ItemGroup>
+</Project>

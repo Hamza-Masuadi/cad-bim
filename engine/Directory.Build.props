@@ -1,0 +1,55 @@
+<Project>
+  <!--
+    Shared settings and the build matrix (ARCHITECTURE.md section 3).
+
+    Select a release with -p:AppYear=2024|2025|2026|2027 (default 2027).
+    Set the SA_TAG environment variable to give a builder its own obj/bin folders:
+      SA_TAG=core  ->  <project>/obj-core/<year>/ and engine/bin-core/...
+    Final builds use no tag and write to engine/bin/.
+  -->
+  <PropertyGroup>
+    <AppYear Condition="'$(AppYear)'==''">2027</AppYear>
+    <SaTagSuffix Condition="'$(SA_TAG)'!=''">-$(SA_TAG)</SaTagSuffix>
+    <SaEngineRoot>$(MSBuildThisFileDirectory)</SaEngineRoot>
+    <SaBinRoot>$(SaEngineRoot)bin$(SaTagSuffix)/</SaBinRoot>
+
+    <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)/obj$(SaTagSuffix)/$(AppYear)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildProjectDirectory)/bin$(SaTagSuffix)/$(AppYear)/</BaseOutputPath>
+    <!-- Other variants' obj and bin folders contain generated sources; never compile them. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;obj-*/**;bin/**;bin-*/**</DefaultItemExcludes>
+
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!-- Build matrix: target framework, Autodesk package versions and defines per release. -->
+  <PropertyGroup Condition="'$(AppYear)'=='2024'">
+    <SaAppTargetFramework>net48</SaAppTargetFramework>
+    <SaAutoCadPackageVersion>24.3.0</SaAutoCadPackageVersion>
+    <SaRevitPackageVersion>2024.3.60</SaRevitPackageVersion>
+    <SaYearDefines>Y2024</SaYearDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AppYear)'=='2025'">
+    <SaAppTargetFramework>net8.0-windows</SaAppTargetFramework>
+    <SaAutoCadPackageVersion>25.0.1</SaAutoCadPackageVersion>
+    <SaRevitPackageVersion>2025.4.60</SaRevitPackageVersion>
+    <SaYearDefines>Y2025;Y2025_OR_GREATER</SaYearDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AppYear)'=='2026'">
+    <SaAppTargetFramework>net8.0-windows</SaAppTargetFramework>
+    <SaAutoCadPackageVersion>25.1.0</SaAutoCadPackageVersion>
+    <SaRevitPackageVersion>2026.4.10</SaRevitPackageVersion>
+    <SaYearDefines>Y2026;Y2025_OR_GREATER;Y2026_OR_GREATER</SaYearDefines>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AppYear)'=='2027'">
+    <SaAppTargetFramework>net10.0-windows</SaAppTargetFramework>
+    <SaAutoCadPackageVersion>26.0.0</SaAutoCadPackageVersion>
+    <SaRevitPackageVersion>2027.4.0</SaRevitPackageVersion>
+    <SaYearDefines>Y2027;Y2025_OR_GREATER;Y2026_OR_GREATER;Y2027_OR_GREATER</SaYearDefines>
+  </PropertyGroup>
+</Project>

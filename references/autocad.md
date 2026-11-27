@@ -1,8 +1,8 @@
 # AutoCAD: what the engine does, and recipes
 
-Full AutoCAD 2024 to 2027 on Windows (not LT, not Mac). 33 ops, all 2D. Field details: `jobs/autocad.md`. Loop and approval: `workflow.md`. Every op is "compiles, untested in AutoCAD" until the owner's first test round.
+Full AutoCAD 2024 to 2027 on Windows (not LT, not Mac). 46 ops, all 2D. Field details: `jobs/autocad.md`. Loop and approval: `workflow.md`. Every op is "compiles, untested in AutoCAD" until the owner's first test round; the 13 newest (drawing, hatching, editing, data, clearances, markups, materials) are the least proven, so say "written, untested in the app" when the user relies on them.
 
-Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Recipes · 4 Escape hatch · 5 Version notes
+Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Recipes (3.1 to 3.12 drawing, sheets and clean-up; 3.13 to 3.20 geometry, editing, data, checks and markups) · 4 Escape hatch · 5 Version notes
 
 ## 1. What the engine can do
 
@@ -10,15 +10,20 @@ Contents: 1 What the engine can do · 2 Rules every AutoCAD job follows · 3 Rec
 |---|---|
 | Set-up from a standard | `doc.setup` (units, precision, angles, linetype scaling, annotation scales, and with `applyStandard` every layer, linetype, text and dimension style the standard defines), `layer.ensure`, `linetype.ensure`, `textstyle.ensure`, `dimstyle.ensure` |
 | Plans | `wall.draw` (double-line walls from centrelines, junctions cleaned, ends capped, optional hatch), `opening.place` (door or window block cut into a `wall.draw` wall), `grid.draw`, `room.create` (closed boundary, area, tag) |
-| Annotation | `dim.linear`, `dim.string`, `text.add` (model, plotted or named height), `mleader.add`, `table.create` |
-| Blocks and data | `block.define`, `block.insert`, `block.attrs.set`, `block.dynprops.set`, `schedule.fromBlocks` (attributes to a table and/or CSV) |
+| Free 2D geometry | `draw.entities` (lines, arcs, circles, polylines with bulges, points), `hatch.add` (pattern, solid or user hatch with islands, optionally associative; returns areas) |
+| Editing | `entity.transform` (move, copy, rotate, mirror, scale; arrays with `copies`), `entity.delete` (destructive, `expectCount` required), `text.replace` (find and replace with a dry run) |
+| Set-out | `grid.module` (ceiling, floor or wall tile grid in a boundary, with border sizes) |
+| Annotation | `dim.linear`, `dim.string`, `text.add` (model, plotted or named height), `mleader.add`, `table.create`, `revcloud.add` (revision cloud with tag) |
+| Blocks and data | `block.define`, `block.insert`, `block.attrs.set`, `block.dynprops.set`, `schedule.fromBlocks` (attributes to a table and/or CSV), `block.extract` (every reference with attributes, position and room, to CSV or JSON), `area.report` (areas by layer or room, to a table, CSV or JSON) |
+| Checks | `layout.clearances` (turning circles, door swings, routes and zones against furniture and fixtures; changes nothing unless it draws the zones) |
+| Layers and materials | `layerstate.ensure` (named layer states for options and presentation), `material.ensure`, `material.assign` (render materials on layers or entities) |
 | Sheets and output | `layout.create`, `viewport.create`, `viewports.layout` (packs several views on a sheet), `titleblock.fill`, `plot.pdf` |
 | References | `xref.attach`, `xref.repath` |
 | Clean-up | `entity.setprops`, `layer.translate` (destructive), `fix.bylayer`, `fix.flattenZ`, `fix.purge` (destructive), `fix.units` |
 | Escape hatch | `script.lisp` (section 4) |
-| Read-only methods | `snapshot`, `audit` (58 checks in `data/checks/autocad.json`, groups such as `standards`, `layers`, `annotation`, `layouts`, `xrefs`, `cleanup`, `health`), `capture` (`layout:<name>`, `model`, `activeView`, `activeLayout` to PNG or PDF), `probe` |
+| Read-only methods | `snapshot`, `audit` (63 checks in `data/checks/autocad.json`, groups such as `standards`, `layers`, `annotation`, `layouts`, `xrefs`, `cleanup`, `health`, `visual`), `capture` (`layout:<name>`, `model`, `activeView`, `activeLayout` to PNG or PDF), `probe` |
 
-Not in wave 1 (do not fake them; see `users.md`): free 2D geometry (lines, arcs, polylines), stand-alone hatches, move/copy/rotate/mirror/erase, find-and-replace text, revision clouds, layer states, module grids, clearance checks, block data extraction, area reports, sheet sets, batch over closed drawings, drawing compare.
+Not available (do not fake them; `limits.md`): trim, extend, fillet and offset as typed ops (use the escape hatch, section 4), sheet sets, batch work over closed drawings, comparing two drawings, binding xrefs, 3D.
 
 ## 2. Rules every AutoCAD job follows
 
@@ -29,6 +34,10 @@ Not in wave 1 (do not fake them; see `users.md`): free 2D geometry (lines, arcs,
 - **Dimensions** never carry overrides; `textOverride` must keep the measured value (`"<> CLR"`). Dimensions are not associative (the API offers no association).
 - **Blocks** for doors and windows: X along the wall, leaf to +Y, hinge at −X, origin at the centre or the hinge jamb. Unit-sized blocks (about 1 wide) are scaled to the opening width.
 - **System variables** the job touches are restored at the end, except the ones `doc.setup` sets on purpose.
+- **Selecting by handle or filter.** `entity.transform`, `entity.delete` and `material.assign` take `handles` (from `sa acad snapshot --sections selection` or an earlier op) or a `filter` (layer, DXF type, block name, space). Give `expectCount` whenever you know the number: the op fails, and the job rolls back, if the selection differs. `entity.delete` requires it. Entities on locked layers are skipped and counted (delete refuses them).
+- **Polyline and hatch bulges:** segment i runs from point i to point i+1 (a closed loop has one more, back to the first); a positive bulge arcs to the right of the direction of travel, 1 is a half circle.
+- **Files written by ops** (`block.extract`, `area.report`, `schedule.fromBlocks`, the `layerstate.ensure` backup) are plain names ending `.csv` or `.json`, written into the job's output folder. A rehearsal writes them to a temporary folder. An existing file fails the op unless `overwrite: true`.
+- **Hatch patterns** come from the drawing's pattern file (`acad.pat` for imperial drawings, `acadiso.pat` for metric), or `SOLID`, or `_USER` with `spacing`.
 
 ## 3. Recipes
 
@@ -230,7 +239,7 @@ Write finish codes onto the room tags, then schedule them. The tag block must al
 }
 ```
 
-A finish legend is a `table.create` with codes and descriptions; hatch swatches in the legend are wave 2.
+A finish legend is a `table.create` with codes and descriptions; draw a swatch beside each row with `hatch.add` and a point loop (recipe 3.13).
 
 ### 3.8 Sheets: layout, viewports, title block, then plot
 
@@ -369,7 +378,7 @@ Whether the rehearsal of `xref.attach` leaves an unreferenced definition behind 
 
 ### 3.12 Review markups and counts (accessibility reviewers, facility managers)
 
-Measuring and certifying are not available: the reviewer's findings come from the snapshot, schedules and design data, and are written up as notes. Mark findings with leaders on a markup layer, then plot in a separate job. Never say a design "complies"; say what was measured, against which figure and jurisdiction, and what could not be told from the drawing.
+Certifying is never available. Measuring turning circles, door swings and routes is `layout.clearances` (recipe 3.16); door widths and mounting heights held in attributes come out with `block.extract` (recipe 3.17). Other findings come from the snapshot, schedules and design data, and are written up as notes. Mark findings with leaders (or clouds, recipe 3.18) on a markup layer, then plot in a separate job. Never say a design "complies"; say what was measured, against which figure and jurisdiction, and what could not be told from the drawing.
 
 ```json
 {
@@ -390,6 +399,215 @@ Measuring and certifying are not available: the reviewer's findings come from th
   ]
 }
 ```
+
+### 3.13 Free 2D drawing and hatching (landscape, drafters, interior finish plans, kitchen and bath, retail)
+
+Hardscape edges, worktop outlines, stand plans, tree protection areas and finish-plan floor patterns are `draw.entities` plus `hatch.add`. A later op refers to a drawn entity by position in the `handles` output (`"$edges.handles.1"` is the second entity). Here the terrace has one curved edge (bulge 0.25 on the east side) and a round tree pit left unhatched as an island.
+
+```json
+{
+  "jobId": "2026-11-28T15-00-00Z-terrace-paving",
+  "title": "Terrace edge, tree pit and paving hatch",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-L-SITE.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "L-SITE-EDGE" }, { "name": "L-SITE-PAVE-PATT" } ] } },
+    { "id": "edges", "op": "draw.entities", "args": { "layer": "L-SITE-EDGE", "entities": [
+        { "id": "terrace", "kind": "polyline", "points": [[0, 0], [480, 0], [480, 240], [0, 240]], "bulges": [0, 0.25, 0, 0], "closed": true },
+        { "id": "pit", "kind": "circle", "center": [120, 120], "radius": 30 } ] } },
+    { "id": "paving", "op": "hatch.add", "args": {
+        "boundaries": [ { "handle": "$edges.handles.0", "islands": [ { "handle": "$edges.handles.1" } ] } ],
+        "pattern": "AR-HBONE", "scale": 1, "angle": 0, "layer": "L-SITE-PAVE-PATT", "associative": true } }
+  ],
+  "verify": { "capture": [ { "target": "activeView" } ] }
+}
+```
+
+Report `paving.area` (net of the island, in square inches here: divide by 144 for square feet, or use `area.report`, recipe 3.17). The readback fails if AutoCAD's hatch area differs from the computed one by more than 1%. For a hatch on a boundary that has no entity yet, give `points` and `drawBoundary: true` (needed for `associative`). The loops of one hatch must lie at one elevation (a raised outline is hatched at its own Z), and an associative hatch over a boundary on a locked layer is refused. Untested in the app: associativity on drawn boundaries and the arc direction of curved loops; check the capture.
+
+### 3.14 Move, copy and erase: as-built updates (facility managers, drafters)
+
+Ask the user to select what moves or goes, take the handles from `sa acad snapshot --sections selection`, and list them in the plan with the count. Copies get new handles (`copy.handles`). Erasing is destructive: name the handles and the count.
+
+```json
+{
+  "jobId": "2026-11-28T15-20-00Z-asbuilt-l01",
+  "title": "As-built: move partition, add two desks, remove old counter",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-A-PLAN-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "ops": [
+    { "id": "move", "op": "entity.transform", "args": {
+        "handles": ["3B0", "3B1", "3B2"], "move": { "from": [240, 0], "to": [276, 0] }, "expectCount": 3 } },
+    { "id": "copy", "op": "entity.transform", "args": {
+        "handles": ["4A7"], "move": { "from": [300, 120], "to": [372, 120] }, "copy": true, "copies": 2, "expectCount": 1 } },
+    { "id": "erase", "op": "entity.delete", "args": { "handles": ["41C", "41D"], "expectCount": 2 } }
+  ],
+  "verify": { "checks": ["ac-022.duplicate-lines"], "capture": [ { "target": "activeView" } ] }
+}
+```
+
+`copies: 2` makes two copies, each one step further on (a linear array); `rotate` with `copies` makes a polar array. `mirror` keeps text readable by default. A listed handle must be an entity in model space or on a layout: an attribute, a polyline vertex or an entity inside a block definition is refused (`not_entity`). Moving wall lines does not re-clean their junctions or re-cut openings; check the capture. Untested in the app: copies rolling back cleanly in a rehearsal, and readable mirrored text for every justification.
+
+### 3.15 Ceiling and tile grid set-out (interior designers, kitchen and bath, lighting layouts)
+
+`grid.module` lays the grid inside the boundary and reports the cut tile at each side. `balanced` picks, per direction, a centred tile or a centred line, whichever gives the larger border. Borders under `minBorder` of a module are listed in `smallBorders`: show them to the user, who may prefer another set-out. Run it with `"draw": false` first to compare set-outs without drawing anything.
+
+```json
+{
+  "jobId": "2026-11-28T15-40-00Z-rcp-grid-101",
+  "title": "Office 101 ceiling grid, 24 in tiles",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-I-RCP-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "A-CLNG-GRID" } ] } },
+    { "id": "grid", "op": "grid.module", "args": {
+        "boundary": [[0, 0], [117.5, 0], [117.5, 177.5], [0, 177.5]], "module": 24, "setOut": "balanced", "minBorder": 0.5,
+        "layer": "A-CLNG-GRID" } }
+  ]
+}
+```
+
+Report `grid.borders`, `grid.smallBorders`, `grid.fullTiles` and `grid.cutTiles`. Light fittings go at tile centres: compute them from `grid.origin` and the module, then place them in a second job with `block.insert` (recipe 3.5). Floor and wall tiles work the same with the tile size as `module` (and `moduleY` for oblong tiles, `angle` for a turned grid). More than 250,000 tiles in the boundary is refused (`grid_too_dense`).
+
+### 3.16 Clearance checks: turning circles, door swings, routes (accessibility reviewers, kitchen and bath, space planners, retail and hospitality)
+
+`layout.clearances` tests zones against entities on named layers and references of named blocks, and lists every intrusion, deepest first, with how far it reaches into the zone. It changes nothing unless `drawZones` asks for the outlines (put them on a non-plotting review layer). The sizes are the user's: take turning circles, door clearances and route widths from the jurisdiction the user names (`practice/accessibility-review.md`, `data/design/`), and quote the source with the result.
+
+```json
+{
+  "jobId": "2026-11-28T16-00-00Z-wc-clearances",
+  "title": "Accessible WC 104: turning space, door swing, corridor",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/review/2417-A-PLAN-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "G-ANNO-REVW", "plot": false } ] } },
+    { "id": "wc104", "op": "layout.clearances", "args": {
+        "zones": [
+          { "id": "WC104-turning", "kind": "circle", "centre": [60, 60], "radius": 30 },
+          { "id": "D104-swing", "kind": "doorSwing", "hinge": [0, 120], "leafWidth": 36, "closedAngle": 0, "swing": 90, "side": "right", "ignore": ["2F40"] },
+          { "id": "Corridor", "kind": "route", "points": [[-120, 150], [240, 150]], "width": 44 } ],
+        "layers": ["I-FURN", "A-WALL"], "blocks": ["WC-*", "LAV-*", "GRAB-*"],
+        "drawZones": { "layer": "G-ANNO-REVW" } } }
+  ],
+  "verify": { "capture": [ { "target": "activeView" } ] }
+}
+```
+
+Report `wc104.clear`, then each item in `wc104.intrusions` (zone, handle, layer or block, depth). Say what was measured and against which figure; never "complies". Blocks are tested by their geometry (`blockGeometry: "extents"` uses their bounding box); xrefs are skipped with a warning. `failOnIntrusion: true` makes an intrusion roll the job back, which is useful when a layout job must leave every zone clear. Untested in the app: intrusion depths on exploded block geometry.
+
+### 3.17 Block data and area export (facility managers, space planners, BIM coordinators, accessibility reviewers)
+
+`block.extract` lists every reference with handle, attributes, dynamic properties, position, layer and the room it sits in; `area.report` measures closed boundaries, takes holes out, and totals by layer or room. Both can write a file and change nothing else (`area.report` also writes a table when asked). Rooms are closed polylines on the given layers, named by a tag block with NAME and NUMBER attributes inside them, or by the text `room.create` writes.
+
+```json
+{
+  "jobId": "2026-11-28T16-20-00Z-ffe-register",
+  "title": "FF&E register and room areas",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-I-FFE-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "assets", "op": "block.extract", "args": {
+        "blocks": ["DESK-*", "CHAIR-*"], "attributes": ["CODE", "DESCRIPTION"],
+        "rooms": { "layers": ["A-AREA"], "tagBlock": "ROOM-TAG" }, "fileName": "ffe-register.csv" } },
+    { "id": "areas", "op": "area.report", "args": {
+        "filter": { "layers": ["A-AREA"], "types": ["polyline"] }, "rooms": { "layers": ["A-AREA"], "tagBlock": "ROOM-TAG" },
+        "groupBy": "room", "areaUnit": "ft2",
+        "table": { "position": [1200, 1200], "title": "ROOM AREAS", "layer": "A-ANNO-SCHD" }, "fileName": "room-areas.csv" } }
+  ]
+}
+```
+
+Report `assets.count` and `areas.total` with the file paths. Occupancy and density figures are worked out by the agent from these counts and areas, with the source of any target figure. A bulk update from a spreadsheet goes back in with `block.attrs.set`, matching on the handles in the file. These are plain measured areas, not BOMA or IPMS measurement. If a later op in the same job fails, files already written stay on disk although the job rolled back: say so if it happens. Untested in the app: dynamic properties and room assignment, and the table layout.
+
+### 3.18 Revision clouds and text updates, with layout and visual checks (drafters, facility managers, accessibility reviewers)
+
+Find the count first: rehearse a copy of the job with `text.replace` `"dryRun": true` (and no `replace`), read `count` and `changes`, then put that count in `expectCount`. Text holding fields is skipped and counted, and multiline text formatting is never changed. `verify.visual` compares the model window before and after the job (`workflow.md` section 15); the overlap check reports labels the job placed on top of each other.
+
+```json
+{
+  "jobId": "2026-11-28T16-40-00Z-rev-b-markup",
+  "title": "Revision B clouds and title text",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-A-PLAN-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "A-ANNO-REVS" } ] } },
+    { "id": "cloud1", "op": "revcloud.add", "args": {
+        "rect": { "min": [180, -12], "max": [276, 60] }, "offset": 6, "layer": "A-ANNO-REVS",
+        "tag": { "text": "B", "block": "REV-TAG", "attribute": "REV" } } },
+    { "id": "rev", "op": "text.replace", "args": {
+        "find": "REV A", "replace": "REV B", "matchCase": true, "wholeWord": true, "kinds": ["text", "attributes"],
+        "space": "paper", "expectCount": 4 } }
+  ],
+  "verify": {
+    "checks": ["ac-049.annotation-overlap"],
+    "visual": { "target": "model", "window": [[-120, -120], [1200, 720]] }
+  }
+}
+```
+
+The cloud is a closed polyline of arcs (`cloud1.cloud`), not a REVCLOUD object. The tag block is assumed to be drawn at plotted size and scaled by the current annotation scale; check it on the capture. In an AutoCAD rehearsal the visual check is always `incomplete` (nothing can be plotted before the rollback); it compares on the commit.
+
+### 3.19 Layer states for layout options and presentation plans (space planners, interior designers)
+
+Option A and option B furniture on their own layers, with a named layer state for each. The op saves the drawing's current layer settings with the listed changes; layers not listed are saved as they are now. `restore: true` leaves the drawing in the last state.
+
+```json
+{
+  "jobId": "2026-11-28T17-00-00Z-layout-options",
+  "title": "Layer states for layout options A and B",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-I-FFE-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "layers", "op": "layer.ensure", "args": { "layers": [ { "name": "I-FURN-OPTA" }, { "name": "I-FURN-OPTB" } ] } },
+    { "id": "optA", "op": "layerstate.ensure", "args": {
+        "name": "OPTION A", "description": "Layout option A",
+        "layers": [ { "name": "I-FURN-OPTA", "on": true, "frozen": false }, { "name": "I-FURN-OPTB", "frozen": true } ] } },
+    { "id": "optB", "op": "layerstate.ensure", "args": {
+        "name": "OPTION B", "description": "Layout option B",
+        "layers": [ { "name": "I-FURN-OPTA", "frozen": true }, { "name": "I-FURN-OPTB", "on": true, "frozen": false } ],
+        "restore": true } }
+  ]
+}
+```
+
+Updating an existing state needs `update: true`; the old state is exported first as a `.las` file (`backup`). A rehearsal never touches a saved state: it saves and checks a temporary one and deletes it. Viewports with frozen layers (`viewport.create`) remain the way to show both options on one sheet. Untested in the app: saving a state from layer changes made inside the open job, and the rollback of a replaced state.
+
+### 3.20 Finish materials (interior designers, kitchen and bath)
+
+AutoCAD materials are render materials: they show in shaded and rendered views, not on a plotted 2D plan, where the finish code reaches the drawing through tags, notes and legends (recipes 3.4, 3.7). Name each material with its finish code first. A texture path must exist and be on a shared drive (a path under a user profile is refused unless `allowLocalPath`).
+
+```json
+{
+  "jobId": "2026-11-28T17-20-00Z-finish-materials",
+  "title": "Finish materials CT-01 and PT-01",
+  "app": "autocad",
+  "document": { "path": "C:/Projects/2417/2417-I-FIN-L01.dwg", "fingerprint": "copy-from-snapshot" },
+  "units": { "length": "in" },
+  "standard": "project-standard.json",
+  "ops": [
+    { "id": "mats", "op": "material.ensure", "args": { "materials": [
+        { "name": "CT-01 Porcelain 24x24 Light Grey", "description": "Porcelain floor tile", "color": "#D0D0D0",
+          "texture": { "path": "P:/library/textures/ct01.jpg", "width": 24, "projection": "planar" } },
+        { "name": "PT-01 Paint Warm White", "description": "Wall paint", "color": "#F2EEE6" } ] } },
+    { "id": "floor", "op": "material.assign", "args": { "material": "CT-01 Porcelain 24x24 Light Grey", "layers": ["I-FLOR-PATT"] } }
+  ]
+}
+```
+
+Untested in the app, and the most likely to be wrong: the texture scale (one 24 in repeat should cover one 24 in tile; check one tile in a rendered view before relying on it).
 
 ## 4. Escape hatch: `script.lisp`
 
@@ -421,7 +639,7 @@ The sign of an offset distance depends on the polyline's direction; say so in th
 
 ## 5. Version notes
 
-- One source tree builds for 2024 (.NET Framework 4.8), 2025 and 2026 (.NET 8) and 2027 (.NET 10). No op behaves differently by release in wave 1; the drafting, sheet and fix handlers use no version-specific API.
+- One source tree builds for 2024 (.NET Framework 4.8), 2025 and 2026 (.NET 8) and 2027 (.NET 10). No op behaves differently by release; no handler uses a version-specific API.
 - The .NET 8 builds are expected to load in the later 2025 and 2026 updates that run on .NET 10; this is to be confirmed in testing.
 - `layout.create` and `plot.pdf` default to the stock `DWG To PDF.pc3` device; paper size names must come from its media list.
-- Batch work over closed drawings (core console) is not built in wave 1; open each drawing in AutoCAD instead.
+- Batch work over closed drawings (core console) is not built; open each drawing in AutoCAD instead.

@@ -1519,6 +1519,143 @@
         "report-only"
       ],
       "source": "mistakes-revit.md RV-053 (detection: Auto); sources S84 S36, see references/practice/_SOURCES.md. Ships with max 0 so the total is always reported; the project sets its gate"
+    },
+    {
+      "id": "rv-054.annotation-overlap",
+      "app": "revit",
+      "title": "Text notes, tags and dimension text do not pile up on each other in a view",
+      "severity": "warning",
+      "why": "Annotation printed over other annotation cannot be read, and a reviewer will send the sheet back.",
+      "evaluator": "extents_overlap",
+      "params": {
+        "table": "annotations",
+        "groupBy": [
+          "viewId"
+        ],
+        "box": [
+          "minU",
+          "minV",
+          "maxU",
+          "maxV"
+        ],
+        "whereNot": {
+          "hasLeader": true
+        },
+        "minOverlap": 0.15,
+        "labelField": "category"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move one of each listed pair, or give the tag a leader, until the boxes clear each other; check the result with verify.visual or a capture."
+      },
+      "groups": [
+        "annotation",
+        "views",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 2.7). Boxes in paper millimetres in each view's plane; annotation with a leader is left out because its box includes the leader; dimension text boxes are estimated. In a job's verify step only pairs that include an element the job created or modified count"
+    },
+    {
+      "id": "rv-055.job-outside-crop",
+      "app": "revit",
+      "title": "Elements the job created or modified are inside the crop of the views that should show them",
+      "severity": "warning",
+      "why": "An element outside the crop region is in the model but on no sheet, so the drawing silently misses it.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "jobPlacement",
+        "field": "shown",
+        "equals": "none"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Move the element into the crop region, or enlarge the crop region of the listed views."
+      },
+      "groups": [
+        "views",
+        "sheets",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 2.8). Only for jobs: an audit has no job and reports incomplete. View-specific elements are tested against their own view; model elements against the cropped plan views on sheets at their level"
+    },
+    {
+      "id": "rv-055.job-cut-by-crop",
+      "app": "revit",
+      "title": "Elements the job created or modified are not cut by the crop of the views that show them",
+      "severity": "info",
+      "why": "An element only partly inside the crop is clipped on the sheet.",
+      "evaluator": "field_equals",
+      "params": {
+        "table": "jobPlacement",
+        "field": "shown",
+        "equals": "partial"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Check the view: move the element or adjust the crop if the clipped part matters."
+      },
+      "groups": [
+        "views",
+        "visual"
+      ],
+      "source": "Visual checking (FACTS.md 2.8). Only for jobs; partial = inside some candidate view's crop only in part and fully inside none"
+    },
+    {
+      "id": "rv-056.view-scale",
+      "app": "revit",
+      "title": "Views on sheets use the standard's scales",
+      "severity": "warning",
+      "why": "A view at a non-standard scale cannot be measured and breaks the title block's scale note.",
+      "evaluator": "scale_in_standard",
+      "params": {
+        "table": "views",
+        "where": {
+          "onSheet": true,
+          "isTemplate": false,
+          "isSchedule": false
+        },
+        "field": "scale",
+        "skipMissing": true,
+        "tolerance": 0.001
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set the view's scale to one of the standard's scales in the view's properties."
+      },
+      "groups": [
+        "views",
+        "sheets",
+        "visual"
+      ],
+      "source": "Visual checking. Views without a scale (Revit gives none) are skipped"
+    },
+    {
+      "id": "rv-057.mixed-scales-on-sheet",
+      "app": "revit",
+      "title": "Views on one sheet share one scale when the standard asks for it",
+      "severity": "warning",
+      "why": "A sheet that mixes scales under one title-block scale misleads anyone measuring from it.",
+      "evaluator": "sheet_scales_uniform",
+      "params": {
+        "table": "views",
+        "where": {
+          "onSheet": true,
+          "isTemplate": false,
+          "isSchedule": false
+        },
+        "groupField": "sheetNumber",
+        "scaleField": "scale",
+        "typeField": "viewType"
+      },
+      "fix": {
+        "kind": "manual",
+        "instructions": "Set every view on the sheet to one approved scale, or move the odd view to a sheet of its own."
+      },
+      "groups": [
+        "sheets",
+        "visual"
+      ],
+      "source": "Visual checking. Judged only when the standard sets scaleRules.oneScalePerSheet; view types in scaleRules.exemptViewTypes (for example Legend) are left out"
     }
   ]
 }

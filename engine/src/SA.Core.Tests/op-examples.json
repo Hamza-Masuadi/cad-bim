@@ -1,0 +1,1051 @@
+{
+  "autocad": {
+    "doc.setup": {
+      "args": {
+        "insUnits": "mm",
+        "lengthFormat": "decimal",
+        "lengthPrecision": 0,
+        "measurement": "metric",
+        "annotationScales": [
+          "1:50",
+          "1:100"
+        ],
+        "currentAnnotationScale": "1:100",
+        "applyStandard": true
+      }
+    },
+    "layer.ensure": {
+      "args": {
+        "layers": [
+          {
+            "name": "A-WALL",
+            "color": 1,
+            "lineweight": 0.5
+          },
+          {
+            "name": "A-DOOR",
+            "color": 2
+          }
+        ]
+      }
+    },
+    "linetype.ensure": {
+      "args": {
+        "linetypes": [
+          {
+            "name": "HIDDEN"
+          },
+          {
+            "name": "CENTER"
+          }
+        ]
+      }
+    },
+    "textstyle.ensure": {
+      "args": {
+        "styles": [
+          {
+            "name": "SA-NOTES",
+            "font": "Arial",
+            "height": 2.5,
+            "annotative": true
+          }
+        ]
+      }
+    },
+    "dimstyle.ensure": {
+      "args": {
+        "styles": [
+          {
+            "name": "SA-DIM-MM",
+            "settings": {
+              "DIMTXT": 2.5,
+              "DIMDEC": 0
+            }
+          }
+        ]
+      }
+    },
+    "wall.draw": {
+      "args": {
+        "thickness": 100,
+        "layer": "A-WALL",
+        "chains": [
+          {
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                4000,
+                0
+              ],
+              [
+                4000,
+                3000
+              ],
+              [
+                0,
+                3000
+              ]
+            ],
+            "closed": true,
+            "idPrefix": "rm"
+          }
+        ]
+      }
+    },
+    "opening.place": {
+      "before": [
+        {
+          "id": "walls",
+          "op": "wall.draw",
+          "args": {
+            "thickness": 100,
+            "layer": "A-WALL",
+            "walls": [
+              {
+                "id": "w1",
+                "start": [
+                  0,
+                  0
+                ],
+                "end": [
+                  5000,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": {
+        "kind": "door",
+        "block": "DOOR-SINGLE",
+        "host": "$walls",
+        "wallId": "w1",
+        "offset": 1200,
+        "width": 900,
+        "layer": "A-DOOR",
+        "mark": "D01"
+      }
+    },
+    "grid.draw": {
+      "args": {
+        "orthogonal": {
+          "origin": [
+            0,
+            0
+          ],
+          "xSpacings": [
+            6000,
+            6000
+          ],
+          "ySpacings": [
+            7500
+          ]
+        },
+        "layer": "S-GRID"
+      }
+    },
+    "room.create": {
+      "args": {
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            4000,
+            0
+          ],
+          [
+            4000,
+            3000
+          ],
+          [
+            0,
+            3000
+          ]
+        ],
+        "name": "Meeting",
+        "number": "1.04",
+        "layer": "A-AREA"
+      }
+    },
+    "dim.linear": {
+      "args": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          4000,
+          0
+        ],
+        "offset": 800,
+        "orientation": "horizontal"
+      }
+    },
+    "dim.string": {
+      "args": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            1200,
+            0
+          ],
+          [
+            2100,
+            0
+          ],
+          [
+            4000,
+            0
+          ]
+        ],
+        "offset": 800,
+        "orientation": "horizontal",
+        "overall": true
+      }
+    },
+    "text.add": {
+      "args": {
+        "text": "ALL DIMENSIONS IN MM",
+        "position": [
+          0,
+          -2000
+        ],
+        "plottedHeight": 2.5,
+        "scale": "1:100"
+      }
+    },
+    "mleader.add": {
+      "args": {
+        "text": "Skirting type SK1",
+        "arrowPoint": [
+          1000,
+          50
+        ],
+        "landingPoint": [
+          1600,
+          700
+        ]
+      }
+    },
+    "table.create": {
+      "args": {
+        "position": [
+          6000,
+          3000
+        ],
+        "title": "FINISH LEGEND",
+        "headers": [
+          "Code",
+          "Finish"
+        ],
+        "rows": [
+          [
+            "FL1",
+            "Oak strip floor"
+          ],
+          [
+            "FL2",
+            "Porcelain tile"
+          ]
+        ]
+      }
+    },
+    "schedule.fromBlocks": {
+      "args": {
+        "blocks": [
+          "DOOR-SINGLE"
+        ],
+        "attributes": [
+          "MARK",
+          "WIDTH"
+        ],
+        "sortBy": [
+          "MARK"
+        ],
+        "csv": "door-schedule.csv"
+      }
+    },
+    "block.define": {
+      "args": {
+        "name": "NORTH-ARROW",
+        "entities": [
+          {
+            "kind": "circle",
+            "center": [
+              0,
+              0
+            ],
+            "radius": 500
+          },
+          {
+            "kind": "polyline",
+            "points": [
+              [
+                0,
+                500
+              ],
+              [
+                -200,
+                -300
+              ],
+              [
+                0,
+                -100
+              ],
+              [
+                200,
+                -300
+              ]
+            ],
+            "closed": true
+          }
+        ]
+      }
+    },
+    "block.insert": {
+      "args": {
+        "name": "CHAIR-01",
+        "positions": [
+          [
+            1000,
+            1000
+          ],
+          [
+            2000,
+            1000
+          ]
+        ],
+        "layer": "I-FURN"
+      }
+    },
+    "block.attrs.set": {
+      "args": {
+        "block": "ROOM-TAG",
+        "where": {
+          "NUMBER": "1.04"
+        },
+        "values": {
+          "FINISH": "FL1"
+        }
+      }
+    },
+    "block.dynprops.set": {
+      "args": {
+        "block": "DESK-DYN",
+        "properties": {
+          "Visibility1": "Left"
+        }
+      }
+    },
+    "layout.create": {
+      "args": {
+        "name": "A-101",
+        "paperSize": "ISO_full_bleed_A1_(841.00_x_594.00_MM)",
+        "titleBlock": "TB-A1",
+        "titleBlockAttributes": {
+          "SHEET_NO": "A-101"
+        }
+      }
+    },
+    "viewport.create": {
+      "args": {
+        "layout": "A-101",
+        "paperCentre": [
+          400,
+          300
+        ],
+        "modelWindow": [
+          [
+            0,
+            0
+          ],
+          [
+            30000,
+            20000
+          ]
+        ],
+        "scale": "1:100"
+      }
+    },
+    "viewports.layout": {
+      "args": {
+        "layout": "A-101",
+        "area": {
+          "min": [
+            20,
+            20
+          ],
+          "max": [
+            700,
+            574
+          ]
+        },
+        "views": [
+          {
+            "id": "plan",
+            "modelWindow": [
+              [
+                0,
+                0
+              ],
+              [
+                30000,
+                20000
+              ]
+            ],
+            "scale": "1:100",
+            "title": "GROUND FLOOR PLAN"
+          },
+          {
+            "id": "detail",
+            "modelWindow": [
+              [
+                0,
+                0
+              ],
+              [
+                3000,
+                2000
+              ]
+            ],
+            "scale": "1:20",
+            "title": "DETAIL 1"
+          }
+        ],
+        "margin": 10,
+        "gapX": 15,
+        "gapY": 15
+      }
+    },
+    "titleblock.fill": {
+      "args": {
+        "values": {
+          "PROJECT": "2417 Harbour Offices"
+        },
+        "perLayout": {
+          "A-101": {
+            "SHEET_TITLE": "GROUND FLOOR PLAN"
+          }
+        }
+      }
+    },
+    "plot.pdf": {
+      "args": {
+        "layouts": [
+          "A-101",
+          "A-102"
+        ],
+        "fileName": "{drawing}-{layout}.pdf"
+      }
+    },
+    "xref.attach": {
+      "args": {
+        "path": "C:/Projects/2417/xref/2417-BASE.dwg",
+        "mode": "overlay"
+      }
+    },
+    "xref.repath": {
+      "args": {
+        "searchFolders": [
+          "C:/Projects/2417/xref"
+        ],
+        "pathType": "relative"
+      }
+    },
+    "entity.setprops": {
+      "args": {
+        "filter": {
+          "layer": "WALLS",
+          "space": "model"
+        },
+        "setLayer": "A-WALL"
+      }
+    },
+    "layer.translate": {
+      "args": {
+        "map": {
+          "WALLS": "A-WALL",
+          "DOORS": "A-DOOR"
+        }
+      }
+    },
+    "fix.bylayer": {
+      "args": {}
+    },
+    "fix.flattenZ": {
+      "args": {}
+    },
+    "fix.purge": {
+      "args": {
+        "kinds": [
+          "all"
+        ],
+        "keep": [
+          "TB-A1"
+        ]
+      }
+    },
+    "fix.units": {
+      "args": {
+        "insUnits": "mm"
+      }
+    },
+    "script.lisp": {
+      "args": {
+        "code": "(entmake '((0 . \"LINE\") (8 . \"A-ANNO\") (10 0.0 0.0 0.0) (11 1000.0 0.0 0.0)))",
+        "purpose": "Draw one 1000 mm line on A-ANNO (test of the escape hatch)"
+      }
+    }
+  },
+  "revit": {
+    "level.ensure": {
+      "args": {
+        "levels": [
+          {
+            "name": "Level 01",
+            "elevation": 0
+          },
+          {
+            "name": "Level 02",
+            "elevation": 3600
+          }
+        ]
+      }
+    },
+    "grid.create": {
+      "args": {
+        "orthogonal": {
+          "origin": [
+            0,
+            0
+          ],
+          "xSpacings": [
+            7500,
+            7500
+          ],
+          "ySpacings": [
+            6000
+          ]
+        }
+      }
+    },
+    "walltype.ensure": {
+      "args": {
+        "name": "Interior - 100 Stud",
+        "layers": [
+          {
+            "function": "finish1",
+            "material": "Gypsum Wall Board",
+            "thickness": 12.5
+          },
+          {
+            "function": "structure",
+            "material": "Metal Stud Layer",
+            "thickness": 75,
+            "core": true
+          },
+          {
+            "function": "finish2",
+            "material": "Gypsum Wall Board",
+            "thickness": 12.5
+          }
+        ]
+      }
+    },
+    "wall.create": {
+      "args": {
+        "type": "Interior - 100 Stud",
+        "level": "Level 01",
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          6000,
+          0
+        ],
+        "topLevel": "Level 02"
+      }
+    },
+    "door.place": {
+      "before": [
+        {
+          "id": "w1",
+          "op": "wall.create",
+          "args": {
+            "type": "Interior - 100 Stud",
+            "level": "Level 01",
+            "start": [
+              0,
+              0
+            ],
+            "end": [
+              6000,
+              0
+            ],
+            "height": 2700
+          }
+        }
+      ],
+      "args": {
+        "host": "$w1",
+        "type": "Single-Flush : 0915 x 2134mm",
+        "offset": 1200,
+        "mark": "D01"
+      }
+    },
+    "window.place": {
+      "args": {
+        "host": "345678",
+        "type": "Fixed : 0915 x 1220mm",
+        "offset": 2500,
+        "sillHeight": 900,
+        "mark": "W01"
+      }
+    },
+    "floor.create": {
+      "args": {
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            4000
+          ],
+          [
+            0,
+            4000
+          ]
+        ],
+        "type": "Generic 150mm",
+        "level": "Level 01"
+      }
+    },
+    "ceiling.create": {
+      "args": {
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            6000,
+            0
+          ],
+          [
+            6000,
+            4000
+          ],
+          [
+            0,
+            4000
+          ]
+        ],
+        "type": "600 x 600mm Grid",
+        "level": "Level 01",
+        "height": 2700
+      }
+    },
+    "roof.footprint": {
+      "args": {
+        "boundary": [
+          [
+            0,
+            0
+          ],
+          [
+            12000,
+            0
+          ],
+          [
+            12000,
+            8000
+          ],
+          [
+            0,
+            8000
+          ]
+        ],
+        "type": "Generic - 300mm",
+        "level": "Level 02",
+        "slope": 30,
+        "overhang": 450
+      }
+    },
+    "room.place": {
+      "args": {
+        "level": "Level 01",
+        "point": [
+          3000,
+          2000
+        ],
+        "name": "Meeting",
+        "number": "1.04"
+      }
+    },
+    "room.separator": {
+      "args": {
+        "level": "Level 01",
+        "lines": [
+          {
+            "start": [
+              6000,
+              0
+            ],
+            "end": [
+              6000,
+              4000
+            ]
+          }
+        ]
+      }
+    },
+    "family.load": {
+      "args": {
+        "path": "C:/Projects/2417/families/Desk-Rectangular.rfa",
+        "types": [
+          "1600 x 800"
+        ]
+      }
+    },
+    "type.duplicate": {
+      "args": {
+        "source": "Single-Flush : 0915 x 2134mm",
+        "category": "Doors",
+        "newName": "0826 x 2040mm",
+        "parameters": {
+          "Width": 826,
+          "Height": 2040
+        }
+      }
+    },
+    "param.set": {
+      "args": {
+        "filter": {
+          "category": "Rooms",
+          "level": "Level 01"
+        },
+        "values": {
+          "Floor Finish": "FL1"
+        }
+      }
+    },
+    "param.shared.ensure": {
+      "args": {
+        "group": "Interiors",
+        "parameters": [
+          {
+            "name": "Finish Code",
+            "dataType": "text"
+          }
+        ],
+        "categories": [
+          "Furniture",
+          "Casework"
+        ]
+      }
+    },
+    "view.plan.create": {
+      "args": {
+        "level": "Level 01",
+        "name": "Level 01 - Furniture Plan",
+        "scale": "1:50"
+      }
+    },
+    "view.ceiling.create": {
+      "args": {
+        "level": "Level 01",
+        "name": "Level 01 - RCP",
+        "scale": "1:50"
+      }
+    },
+    "view.section.create": {
+      "args": {
+        "start": [
+          0,
+          2000
+        ],
+        "end": [
+          12000,
+          2000
+        ],
+        "depth": 8000,
+        "bottom": -1000,
+        "top": 9000,
+        "name": "Section A-A",
+        "scale": "1:100"
+      }
+    },
+    "view.elevation.create": {
+      "args": {
+        "point": [
+          3000,
+          2000
+        ],
+        "direction": "north",
+        "planView": "Level 01",
+        "name": "Meeting - North",
+        "scale": "1:50"
+      }
+    },
+    "view.3d.create": {
+      "args": {
+        "name": "3D - Level 01 Fit-out",
+        "sectionBox": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            12000,
+            8000,
+            3600
+          ]
+        }
+      }
+    },
+    "view.rename": {
+      "args": {
+        "views": [
+          {
+            "view": "Level 1",
+            "name": "Level 01 - General Plan"
+          }
+        ]
+      }
+    },
+    "viewtemplate.apply": {
+      "args": {
+        "views": [
+          "Level 01 - General Plan"
+        ],
+        "template": "Architectural Plan"
+      }
+    },
+    "view.filter.ensure": {
+      "args": {
+        "name": "FF&E - Existing to remain",
+        "categories": [
+          "Furniture"
+        ],
+        "rules": [
+          {
+            "parameter": "Comments",
+            "operator": "equals",
+            "value": "Existing to remain"
+          }
+        ],
+        "applyTo": [
+          "Level 01 - General Plan"
+        ],
+        "overrides": {
+          "halftone": true
+        }
+      }
+    },
+    "sheet.create": {
+      "args": {
+        "number": "A-101",
+        "name": "Ground Floor Plan",
+        "titleBlock": "A1 metric : A1"
+      }
+    },
+    "viewport.place": {
+      "args": {
+        "sheet": "A-101",
+        "view": "Level 01 - General Plan",
+        "centre": [
+          400,
+          300
+        ]
+      }
+    },
+    "viewports.layout": {
+      "args": {
+        "sheet": "A-101",
+        "views": [
+          "Level 01 - General Plan",
+          "Meeting - North"
+        ],
+        "margin": 10,
+        "gapX": 15,
+        "gapY": 15
+      }
+    },
+    "schedule.create": {
+      "args": {
+        "name": "Door Schedule",
+        "category": "Doors",
+        "fields": [
+          {
+            "parameter": "Mark"
+          },
+          {
+            "parameter": "Type"
+          },
+          {
+            "parameter": "Width"
+          },
+          {
+            "parameter": "Height"
+          }
+        ],
+        "sort": [
+          {
+            "field": "Mark"
+          }
+        ]
+      }
+    },
+    "tag.all": {
+      "args": {
+        "category": "Doors",
+        "view": "Level 01 - General Plan"
+      }
+    },
+    "dim.grids": {
+      "args": {
+        "view": "Level 01 - General Plan"
+      }
+    },
+    "text.note": {
+      "args": {
+        "view": "Level 01 - General Plan",
+        "text": "ALL DIMENSIONS TO STRUCTURE",
+        "position": [
+          0,
+          -3000
+        ]
+      }
+    },
+    "revision.ensure": {
+      "args": {
+        "revisions": [
+          {
+            "description": "Issued for planning",
+            "date": "2026-12-01"
+          }
+        ],
+        "addToSheets": [
+          "A-101"
+        ]
+      }
+    },
+    "export.pdf": {
+      "args": {
+        "sheets": [
+          "A-101",
+          "A-102"
+        ],
+        "fileName": "{sheetNumber} - {sheetName}"
+      }
+    },
+    "export.dwg": {
+      "args": {
+        "sheets": [
+          "A-101"
+        ]
+      }
+    },
+    "export.ifc": {
+      "args": {
+        "fileName": "2417-ARCH",
+        "version": "ifc4"
+      }
+    },
+    "export.image": {
+      "args": {
+        "views": [
+          "sheet:A-101"
+        ],
+        "pixelWidth": 3000
+      }
+    },
+    "element.delete": {
+      "args": {
+        "ids": [
+          "412233",
+          "412240"
+        ],
+        "expectCount": 2
+      }
+    },
+    "cleanup.unplacedRooms": {
+      "args": {
+        "ids": [
+          "510021",
+          "510022"
+        ]
+      }
+    },
+    "cleanup.unusedViews": {
+      "args": {
+        "ids": [
+          "620011"
+        ],
+        "dryRun": true
+      }
+    },
+    "workset.assign": {
+      "args": {
+        "filter": {
+          "category": "Furniture"
+        },
+        "workset": "FF&E"
+      }
+    },
+    "family.edit": {
+      "args": {
+        "family": "Single-Flush",
+        "category": "OST_Doors",
+        "addParameters": [
+          {
+            "name": "Leaf Clearance",
+            "spec": "length",
+            "group": "dimensions"
+          }
+        ],
+        "formulas": {
+          "Leaf Clearance": "Width - 100 mm"
+        },
+        "values": {
+          "Fire Rating": "FD30"
+        },
+        "types": [
+          {
+            "name": "915 x 2134mm",
+            "values": {
+              "Width": 915,
+              "Height": 2134
+            }
+          },
+          {
+            "name": "1010 x 2134mm",
+            "create": true,
+            "copyFrom": "915 x 2134mm",
+            "values": {
+              "Width": 1010
+            }
+          }
+        ]
+      }
+    }
+  }
+}
